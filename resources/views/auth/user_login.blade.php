@@ -12,7 +12,7 @@
 
 	<!-- Scripts--> 
 	<!-- defer: A script that will not run until after the page has loaded. -->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <!--dns-prefetch: It is a way to speed up web pages by pre-resolving DNS. -->
@@ -24,6 +24,9 @@
 
 </head>
 <body>
+    <div class="back">
+        <a href="{{url('/')}}">Vissza</a>
+    </div>
 	<div class="card">
         <div class="card-header">{{ __('Belépés') }}</div>
 
@@ -75,7 +78,7 @@
                                     {{ __('Belépés') }}
                             </button>
 
-                            <a class="btn btn-link" href="{{ url('/email') }}">
+                            <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Elfelejtetted a jelszavad?') }}
                             </a>
                         </div>

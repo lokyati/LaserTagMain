@@ -12,7 +12,7 @@
 
     <!-- Scripts--> 
     <!-- defer: A script that will not run until after the page has loaded. -->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <!--dns-prefetch: It is a way to speed up web pages by pre-resolving DNS. -->
@@ -27,6 +27,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="back">
+                <a href="{{url('/')}}">Vissza</a>
+            </div>
             <div class="card">
                 <div class="card-header">{{ __('Admin Belépés') }}</div>
 

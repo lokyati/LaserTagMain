@@ -10,9 +10,7 @@
 
 	<title>LaserTag</title>
 
-	<!-- Scripts--> 
-	<!-- defer: A script that will not run until after the page has loaded. -->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+	
 
     <!-- Fonts -->
     <!--dns-prefetch: It is a way to speed up web pages by pre-resolving DNS. -->
@@ -24,9 +22,12 @@
 
 </head>
 <body>
-	<div class="header">
-		<a>Szeretnél többet megtudni? Kattints ide!</a>
-	</div>
+		<div class="header">
+			Szeretnél többet megtudni? Kattints ide!
+		</div>
+
+		
+
 	<div class="page">
 		<div class="container">
 			<div class="user">
@@ -43,6 +44,11 @@
 			</div>
 		</div>  
 	</div>
+
+	<!-- Scripts--> 
+	<!-- defer: A script that will not run until after the page has loaded. -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
 </body>
 <footer>
 	    	Footer - 

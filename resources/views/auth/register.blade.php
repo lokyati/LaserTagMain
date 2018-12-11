@@ -27,7 +27,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div class="back">
+                <a href="{{url('/')}}">Vissza</a>
+            </div>
             <div class="card">
+
                 <div class="card-header">{{ __('Regisztráció') }}</div>
 
                 <div class="card-body">
