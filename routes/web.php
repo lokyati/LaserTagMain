@@ -33,7 +33,7 @@ Route::get('/home', 'UserController@home')->name('home');
 //Route::post('password/email', 'Auth\ResetPasswordController@sendResetLinkEmail');
 //Route::post('password/reset', 'ResetController@reset');
 
-Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
+//Route::get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm');
 
 
 //Navbar Routes
