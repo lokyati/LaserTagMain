@@ -22,6 +22,7 @@
     "dependencies": {
         "bulma": "^0.7.2",
         "vue-date-pick": "^1.0.4",
+        "vue-event-calendar": "^1.5.2",
         "vue2-slot-calendar": "^2.2.3",
         "vuejs-datepicker": "^1.5.4"
     }
