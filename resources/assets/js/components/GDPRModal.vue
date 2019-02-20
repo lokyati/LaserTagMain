@@ -3,15 +3,16 @@
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">Bővebb információk</p>
+        <p class="modal-card-title">Adatvédelmi tájékoztató</p>
         <button class="delete" aria-label="close" @click="$emit('close')"></button>
       </header>
       <section class="modal-card-body">
-        Bővebb információk...
+        Adatvédelmi tájékoztató szövege...
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt aliquid eos eum at repudiandae eius reiciendis nobis provident ab incidunt dolorem quae assumenda quasi modi quisquam iusto, amet fugit dolores?
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success" @click="$emit('close')">Értettem</button>
+        <button class="button is-success" @click="$emit('close')">Elfogadás</button>
+        <button class="button" @click="$emit('close')">Kilépés</button>
       </footer>
     </div>
   </div>
@@ -19,7 +20,7 @@
 
 <script>
   new Vue({
-    el:'#info',
+    el:'#footer',
 
     data: {
       showModal:false

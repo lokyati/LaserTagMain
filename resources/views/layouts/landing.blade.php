@@ -27,9 +27,12 @@
 </head>
 <body>
 	<div class="page">
-		<div class="header">
-			Szeretnél többet megtudni? <a>Kattints ide!</a>
+		<div id="info" class="header">
+			Szeretnél többet megtudni? <a @click="showModal = true">Kattints ide!</a>
+
+			<infomodal v-if="showModal" @close="showModal = false"></infomodal>
 		</div>
+
 		<div class="containers columns  is-marginless">
 			<div class="user column is-half">
 				<h2>
@@ -45,7 +48,7 @@
 			</div>
 		</div>
 	</div>
-<footer>
+<footer id="footer">
 	Footer - 
 	@if (Auth::guard('user')->check())
         <a class="admin_button" href="{{ route('admin.login') }}" style="display: none;"></a>
@@ -54,7 +57,9 @@
             {{ __('Admin belépés') }}
         </a>
     @endif
-    Adatvédelmi tájékoztató
+	<gdprmodal v-if="showModal" @close="showModal = false"></gdprmodal>
+
+	<a @click="showModal = true">Adatvédelmi tájékoztató</a>
 </footer>
 </body>
 </html>
