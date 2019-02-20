@@ -10,54 +10,51 @@
 
 	<title>LaserTag</title>
 
-	
-
     <!-- Fonts -->
-    <!--dns-prefetch: It is a way to speed up web pages by pre-resolving DNS. -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
     <link href="{{ asset('css/landing_style.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,500&amp;subset=latin-ext" rel="stylesheet"> 
+
+	<!-- Scripts--> 
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 </head>
 <body>
-		<div class="header">
-			Szeretnél többet megtudni? Kattints ide!
-		</div>
-
-		
-
 	<div class="page">
-		<div class="container">
-			<div class="user">
-				<h1>
+		<div class="header">
+			Szeretnél többet megtudni? <a>Kattints ide!</a>
+		</div>
+		<div class="containers columns  is-marginless">
+			<div class="user column is-half">
+				<h2>
 					Visszatérő játékos
-				</h1>
-				<a class="user_button" href="{{ route('login') }}">Belépés</a>
+				</h2>
+				<a class="button is-info is-large" href="{{ route('login') }}">Belépés</a>
 			</div>
-			<div class="guest">
-				<h1>
+			<div class="guest column">
+				<h2>
 					Új játékos
-				</h1>
-				<a class="registration_button" href="{{ route('register') }}">Regisztráció</a>
+				</h2>
+				<a class="button is-info is-large" href="{{ route('register') }}">Regisztráció</a>
 			</div>
-		</div>  
+		</div>
 	</div>
-
-	<!-- Scripts--> 
-	<!-- defer: A script that will not run until after the page has loaded. -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/main.js') }}" defer></script>
-</body>
 <footer>
-	    	Footer - 
-	    	@if (Auth::guard('user')->check())
-                <a class="admin_button" href="{{ route('admin.login') }}" style="display: none;"></a>
-            @else 
-                <a class="admin_button" href="{{ route('admin.login') }}">
-                    {{ __('Admin belépés') }}
-                </a>
-            @endif
-	    </footer>
+	Footer - 
+	@if (Auth::guard('user')->check())
+        <a class="admin_button" href="{{ route('admin.login') }}" style="display: none;"></a>
+    @else 
+        <a class="admin_button" href="{{ route('admin.login') }}">
+            {{ __('Admin belépés') }}
+        </a>
+    @endif
+    Adatvédelmi tájékoztató
+</footer>
+</body>
 </html>

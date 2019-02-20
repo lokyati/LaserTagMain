@@ -17,7 +17,7 @@
     <!-- Fonts -->
     <!--dns-prefetch: It is a way to speed up web pages by pre-resolving DNS. -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:400,500&amp;subset=latin-ext" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/userLogin_style.css') }}" rel="stylesheet">
