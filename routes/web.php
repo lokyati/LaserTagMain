@@ -37,10 +37,6 @@ Route::get('/home', 'UserController@home')->name('home');
 
 
 //Navbar Routes
-Route::get('/calendar', function () {
-    return view('userNav.calendar');
-});
-
 
 /*Route::get('/email', function () {
     return view('auth.passwords.reset');
@@ -56,4 +52,9 @@ Route::get('/email', function () {
 //Test Route
 Route::get('/landing', function () {
     return view('layouts.landing');
+});
+
+
+Route::get('/calendar', function () {
+    return view('calendar');
 });

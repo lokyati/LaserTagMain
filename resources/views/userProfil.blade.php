@@ -26,49 +26,49 @@
 <body>
     <div class="navbar">
     <ul>
-                        <!-- Authentication Links -->
-                        @if (Auth::guard('admin')->check() || Auth::guard()->check())
-                            <li class="dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        @if (Auth::guard('admin')->check())
-                                            Admin
-                                        @else 
-                                            {{ Auth::user()->name }} 
-                                        @endif
-                                        <span class="caret"></span>
-                                    </a>
-    
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        @if (Auth::guard('admin')->check())
-                                            <a class="dropdown-item" href="{{ url('/admin/dashboard') }}">Vezérlőpult</a> <!--admin eseteben nincs fooldal csak a dashboard-->
-                                            <a class="dropdown-item" href=""
-                                               onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                                {{ __('Kijelentkezés') }}
-                                            </a>
-                                        @else   
-                                            <a class="dropdown-item" href="{{ url('/home') }}">Fooldal</a> <!--a felhasznalo alapbol a fooldalra kerul, a profilt (sajat dashboardjat) a profilom fullel eri el-->
-                                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                                   onclick="event.preventDefault();
-                                                                 document.getElementById('logout-form').submit();">
-                                                    {{ __('Kijelentkezés') }}
-                                                </a>
-                                        @endif
-                                        
-    
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                        @else
-                        
+    <!-- Authentication Links -->
+    @if (Auth::guard('admin')->check() || Auth::guard()->check())
+        <li class="dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    @if (Auth::guard('admin')->check())
+                        Admin
+                    @else 
+                        {{ Auth::user()->name }} 
+                    @endif
+                    <span class="caret"></span>
+                </a>
 
-                            <li><a class="user_button" href="{{ route('login') }}">{{ __('Felhasználó') }}</a></li>
-                            <li><a class="registration_button" href="{{ route('register') }}">{{ __('Regisztráció') }}</a></li>
-                        @endif
-                    </ul>
-                    </div>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @if (Auth::guard('admin')->check())
+                        <a class="dropdown-item" href="{{ url('/admin/dashboard') }}">Vezérlőpult</a> <!--admin eseteben nincs fooldal csak a dashboard-->
+                        <a class="dropdown-item" href=""
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            {{ __('Kijelentkezés') }}
+                        </a>
+                    @else   
+                        <a class="dropdown-item" href="{{ url('/home') }}">Fooldal</a> <!--a felhasznalo alapbol a fooldalra kerul, a profilt (sajat dashboardjat) a profilom fullel eri el-->
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                {{ __('Kijelentkezés') }}
+                            </a>
+                    @endif
+                    
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+            </li>
+    @else
+    
+
+        <li><a class="user_button" href="{{ route('login') }}">{{ __('Felhasználó') }}</a></li>
+        <li><a class="registration_button" href="{{ route('register') }}">{{ __('Regisztráció') }}</a></li>
+    @endif
+</ul>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

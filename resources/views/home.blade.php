@@ -12,7 +12,7 @@
 
     <!-- Scripts--> 
     <!-- defer: A script that will not run until after the page has loaded. -->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <!--dns-prefetch: It is a way to speed up web pages by pre-resolving DNS. -->
@@ -96,37 +96,9 @@
         </div>
     </div>
 </div>
-<div class="calendar-container">
-<div id="app">
-  <div class="text-center" style="padding-top: 100px;">
-    <calendar
-      v-model="value"
-      show-date-only
-      :disabled-days-of-week="disabled"
-      :format="format"
-      :clear-button="clear"
-      :placeholder="placeholder"
-    ></calendar>
-  </div>
-</div>
-<script>
-  new Vue({
-    el: "#app",
-    data: function() {
-      return {
-        disabled: [],
-        value: new Date(),
-        format: "yyyy-MM-dd",
-        clear: true,
-        placeholder: "Start Date"
-      };
-    },
-    components: {
-      calendar: Calendar
-    }
-  });
-</script>
-</div>
+
+
+
 </body>
 <footer>
     Footer

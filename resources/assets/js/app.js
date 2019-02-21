@@ -18,10 +18,10 @@ window.Vue = require('vue');
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('gdprmodal', require('./components/GDPRModal.vue'));
 Vue.component('infomodal', require('./components/InfoModal.vue'));
+Vue.component('calendar', require('./components/Calendar.vue'));
 
-
-/*const app = new Vue({
+const app = new Vue({
     el: '#app'
-});*/
+});
 
 
