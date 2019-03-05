@@ -11,93 +11,79 @@
     <title>LaserTag</title>
 
     <!-- Scripts--> 
-    <!-- defer: A script that will not run until after the page has loaded. -->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
     <!-- Fonts -->
     <!--dns-prefetch: It is a way to speed up web pages by pre-resolving DNS. -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,500&amp;subset=latin-ext" rel="stylesheet"> 
+    
     <!-- Styles -->
     <link href="{{ asset('css/register_style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
 
 </head>
 <body>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="back">
-                <a href="{{url('/')}}">Vissza</a>
+<div class="register_container"> 
+    <div class="register">
+        <form class="register_form" method="POST" action="{{ route('register') }}">
+            @csrf
+            <div class="field">
+              <p class="control">
+                <input id="name" class="input form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" placeholder="Felhasználónév" name="name" required autofocus>
+                @if ($errors->has('name'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('name') }}</strong>
+                    </span>
+                @endif
+              </p>
             </div>
-            <div class="card">
+            <div class="field">
+              <p class="control">
+                <input id="password" class="input form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" placeholder="Jelszó" name="password" required>
 
-                <div class="card-header">{{ __('Regisztráció') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Warname:') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail:') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Jelszó:') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Jelszó újra:') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Regisztráció') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                @if ($errors->has('password'))
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $errors->first('password') }}</strong>
+                    </span>
+                @endif
+              </p>
             </div>
+            <div class="field">
+              <p class="control">
+                <input id="password-confirm" class="input form-control" type="password" placeholder="Jelszó újra" name="password_confirmation" required>
+              </p>
+            </div>
+        <div class="field">
+          <p class="control">
+            <input id="email" class="input form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="email" placeholder="Email" name="email" required>
+            @if ($errors->has('email'))
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
+          </p>
         </div>
+
+            <label class="checkbox">
+              <input type="checkbox" required>
+              Elfogadom a <a href="#">Felhasználási feltételeket</a>
+            </label>
+
+            <div class="field">
+              <p class="control">
+                <button type="submit" class="button is-info is-fullwidth">
+                  Regisztráció
+                </button>
+              </p>
+            </div>
+            <div class="divider"></div>
+            <div class="field has-text-centered pt40">
+                Már tag vagy? 
+                <a class="has-text-info" href="{{ route('login') }}">Jelentkezz be itt</a>
+            </div>
+        </form> 
     </div>
 </div>
 </body>

@@ -21,6 +21,8 @@
     },
     "dependencies": {
         "bulma": "^0.7.2",
+        "gulp": "^4.0.0",
+        "vue-ctk-date-time-picker": "^2.0.6",
         "vue-date-pick": "^1.0.4",
         "vue-event-calendar": "^1.5.2",
         "vue2-slot-calendar": "^2.2.3",
