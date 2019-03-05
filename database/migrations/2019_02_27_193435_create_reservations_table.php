@@ -15,20 +15,23 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('users_id');
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('package_id');
-            $table->foreign('package_id')->references('id')->on('package');
             $table->integer('players');
-            $table->integer('reservation_date');
-            $table->integer('reservation_time');
+            $table->dateTime('dateTime');
+            $table->integer('duration');
             $table->integer('tel');
             $table->string('email')->unique();
-            $table->string('note');
+            $table->text('note');
             $table->integer('bonus_used');
-            $table->float('price');
+            $table->double('price');
             $table->boolean('paid_status');
             $table->timestamps();
+        });
+
+        Schema::table('reservations', function($table){
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('package_id')->references('id')->on('package');
         });
     }
 

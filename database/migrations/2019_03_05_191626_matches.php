@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGuestTokenTable extends Migration
+class Matches extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateGuestTokenTable extends Migration
      */
     public function up()
     {
-        Schema::create('guest_token', function (Blueprint $table) {
+          Schema::create('matches', function (Blueprint $table) {
             $table->increments('id');
-            $table->rememberToken('token');
-            $table->dateTime('token_date');
+            $table->date('match_date');
         });
     }
 
@@ -27,6 +26,6 @@ class CreateGuestTokenTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guest_token');
+        Schema::dropIfExists('matches');
     }
 }
