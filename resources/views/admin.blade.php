@@ -76,9 +76,9 @@
             Elements
           </a>
           
-            <a class="navbar-item is-active" href="http://bulma.io/documentation/components/breadcrumb/">
-              Components
-            </a>
+          <a class="navbar-item is-active" href="http://bulma.io/documentation/components/breadcrumb/">
+            Components
+          </a>
           
           <hr class="navbar-divider">
           <div class="navbar-item">
@@ -269,6 +269,15 @@
     <li><a>Payments</a></li>
     <li><a>Transfers</a></li>
     <li><a>Balance</a></li>
+    <li>
+      <a class="navbar-item" href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();"> Kijelentkezés
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
+      </a>
+    </li>
   </ul>
 </aside>
   </div>

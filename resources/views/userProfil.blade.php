@@ -11,8 +11,7 @@
     <title>LaserTag</title>
 
     <!-- Scripts--> 
-    <!-- defer: A script that will not run until after the page has loaded. -->
-    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <!--dns-prefetch: It is a way to speed up web pages by pre-resolving DNS. -->
@@ -69,24 +68,8 @@
     @endif
 </ul>
 </div>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Profilom</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    Ez a profilod!
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="app">
+    <userProfil></userProfil>
 </div>
 </body>
 <footer>

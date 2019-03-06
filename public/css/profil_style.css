@@ -4,6 +4,8 @@ html, body {
 	padding: 0; 
 	background-color: #ebebe0;
 	font-family: 'Oswald', sans-serif;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 .container{
 	margin-top: 25px;
@@ -30,7 +32,6 @@ footer{
 	box-sizing: border-box;
 	background-color: #73715f;
 	bottom: 0;
-	position: fixed;
 	color: #FCFCFC;
 }
 footer a{
@@ -39,11 +40,10 @@ footer a{
 	padding: .5rem;
 }
 .navbar{
-	height: 70px;
-	width: 100%;
 	border-bottom: 2px solid black;
-	padding: 5px;
+	padding: 1rem;
 	background-color: #e3e3e3;
+	margin: 0;
 }
 .navbar ul{
 	list-style: none;
