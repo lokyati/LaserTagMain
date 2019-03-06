@@ -20,6 +20,8 @@ Auth::routes();
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+    Route::get('/register', 'Auth\AdminRegisterController@showAdminRegisterForm')->name('admin.register');
+    Route::post('/register', 'Auth\AdminRegisterController@createAdmin')->name('admin.register.submit');
     Route::get('/dashboard', 'AdminController@index')->name('admin.dashboard');
 });
 
@@ -37,10 +39,6 @@ Route::get('/home', 'UserController@home')->name('home');
 
 
 //Navbar Routes
-Route::get('/calendar', function () {
-    return view('userNav.calendar');
-});
-
 
 /*Route::get('/email', function () {
     return view('auth.passwords.reset');
@@ -54,6 +52,6 @@ Route::get('/email', function () {
 
 
 //Test Route
-Route::get('/landing', function () {
-    return view('layouts.landing');
+Route::get('/calendar', function () {
+    return view('calendar');
 });
