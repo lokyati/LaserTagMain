@@ -16,15 +16,16 @@ class CreateUsersStatTable extends Migration
         Schema::create('users_stat', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
-            $table->bigInteger('all_shot');
-            $table->bigInteger('all_hit');
-            $table->bigInteger('all_acc');
-            $table->bigInteger('matches');
-            $table->bigInteger('wins');
-            $table->bigInteger('loses');
-            $table->double('avg_shot');
-            $table->double('avg_acc');
-            $table->double('avg_hit');
+            $table->bigInteger('all_shot')->nullable();
+            //$table->bigInteger('all_hit')->nullable();
+            //$table->bigInteger('all_acc')->nullable();
+            $table->bigInteger('matches')->nullable();
+            //$table->bigInteger('wins')->nullable();
+            //$table->bigInteger('loses')->nullable();
+            //$table->double('avg_shot')->nullable();
+            //$table->double('avg_acc')->nullable();
+            //$table->double('avg_hit')->nullable();
+            $table->timestamps();
         });
 
         Schema::table('users_stat', function($table){
