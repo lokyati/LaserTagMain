@@ -21,3 +21,17 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+/*$factory->define(App\User::class, function (Faker $faker) {
+    return [
+        'token' => $faker->word
+    ];
+});
+
+$factory->define(App\UsersStat::class, function (Faker $faker) {
+    return [
+        'warname' => $faker->name,
+        'score' => $faker->randomDigit,
+        'guest_token_id' => $faker->numberBetween($min = 1, $max = 10)
+    ];
+});*/
