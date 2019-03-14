@@ -62923,6 +62923,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      user: [],
       showStat: true,
       showHistory: false,
       showBookings: false,
@@ -62930,6 +62931,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       historystyle: false,
       bookingstyle: false
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('./api/profile').then(function (response) {
+      console.log(response.body);
+      _this.user = response.data;
+    });
   },
 
   components: {
@@ -62964,6 +62973,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.bookingstyle = true;
     }
   }
+
 });
 
 /***/ }),

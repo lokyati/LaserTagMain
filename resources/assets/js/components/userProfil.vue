@@ -41,6 +41,7 @@ import settingsDropdown from './settingsDropdown'
 export default {
 	data() {
 		return{
+			user: [],
 			showStat: true,
 			showHistory: false,
 			showBookings: false,
@@ -49,6 +50,12 @@ export default {
 			bookingstyle: false
 		}
     },
+    created() {
+  		axios.get('./api/profile').then(response => {
+				console.log(response.body);
+				this.user = response.data
+			})
+  	},
   	components: {
     	settingsdropdown: settingsDropdown
   	},
@@ -80,7 +87,8 @@ export default {
   			this.historystyle = false
   			this.bookingstyle = true
   		}
-  	}
+  	},
+  	
 }
 </script>
 

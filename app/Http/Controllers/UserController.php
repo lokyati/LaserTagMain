@@ -22,5 +22,9 @@ class UserController extends Controller
         return view('home');
     }
 
+    public function profile(){
+         $user = Auth::user();
+         return $user;
+    } 
     
 }

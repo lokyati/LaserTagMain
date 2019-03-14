@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Auth::routes();
 
+
 //Admin Authentication Routes
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
