@@ -5,7 +5,7 @@
 			<div class="avatar">
 				<img class="avatar_icon":src="'img/logo.png'"/>
 				<img class="rank_icon" :src="'img/logo.png'"/>
-				<p>Warname</p>
+				<p>{{user.name}}</p>
 				<p>LVL</p>
 				<p>BTP</p>
 			</div>
@@ -41,6 +41,7 @@ import settingsDropdown from './settingsDropdown'
 export default {
 	data() {
 		return{
+			user: [],
 			showStat: true,
 			showHistory: false,
 			showBookings: false,
@@ -49,6 +50,9 @@ export default {
 			bookingstyle: false
 		}
     },
+    created() {
+		this.getUserData();
+  	},
   	components: {
     	settingsdropdown: settingsDropdown
   	},
@@ -79,8 +83,16 @@ export default {
   			this.statstyle = false
   			this.historystyle = false
   			this.bookingstyle = true
+  		},
+  		getUserData(){
+  			axios.get('profile').then(response => {
+				this.user = response.data;
+				console.log(this.user);
+			})
+
   		}
-  	}
+  	},
+  	
 }
 </script>
 

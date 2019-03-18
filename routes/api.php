@@ -17,4 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-	Route::resource('reservations','ReservationsController');
+//Route::resource('reservations','ReservationsController');
+Route::middleware('auth:api')->get('/profile', function (Request $request){
+	return $request->user();
+});

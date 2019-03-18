@@ -16,6 +16,7 @@ Route::get('/', function () {
 });
 Auth::routes();
 
+
 //Admin Authentication Routes
 Route::prefix('admin')->group(function() {
     Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -28,6 +29,7 @@ Route::prefix('admin')->group(function() {
 //User Authentication Routes
 Route::get('/profil', 'UserController@index')->name('profil');
 Route::get('/home', 'UserController@home')->name('home');
+Route::get('profile', 'UserController@profile');
 
 //Password Reset Routes
 //Route::get('/password/reset/{token}', 'ResetController@showResetForm');

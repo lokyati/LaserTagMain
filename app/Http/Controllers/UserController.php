@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class UserController extends Controller
 {
@@ -22,5 +24,10 @@ class UserController extends Controller
         return view('home');
     }
 
+    public function profile(){
+         //$user = User::all();
+         $user = Auth::user();
+         return $user;
+    } 
     
 }
