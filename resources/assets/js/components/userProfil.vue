@@ -5,7 +5,7 @@
 			<div class="avatar">
 				<img class="avatar_icon":src="'img/logo.png'"/>
 				<img class="rank_icon" :src="'img/logo.png'"/>
-				<p>Warname</p>
+				<p>{{user.name}}</p>
 				<p>LVL</p>
 				<p>BTP</p>
 			</div>
@@ -51,10 +51,7 @@ export default {
 		}
     },
     created() {
-  		axios.get('./api/profile').then(response => {
-				console.log(response.body);
-				this.user = response.data
-			})
+		this.getUserData();
   	},
   	components: {
     	settingsdropdown: settingsDropdown
@@ -86,6 +83,13 @@ export default {
   			this.statstyle = false
   			this.historystyle = false
   			this.bookingstyle = true
+  		},
+  		getUserData(){
+  			axios.get('profile').then(response => {
+				this.user = response.data;
+				console.log(this.user);
+			})
+
   		}
   	},
   	

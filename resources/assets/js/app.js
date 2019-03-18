@@ -1,9 +1,9 @@
-require('./bootstrap');
+import Vue from 'vue';
+import Buefy from 'buefy';
+import Axios from 'axios';
 
 window.Vue = require('vue');
-
-import Vue from 'vue'
-import Buefy from 'buefy'
+window.axios = require('axios');
 
 Vue.use(Buefy)
 
