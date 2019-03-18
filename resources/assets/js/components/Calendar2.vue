@@ -25,8 +25,8 @@
     </div>
     <h4>Value</h4>
     <div>
-      <p>{{ selectDay.day }}</p>
-    </div v-else>
+      <p>{{ picked }}</p>
+    </div>
   </div>
 </template>
 
@@ -59,11 +59,13 @@ export default ({
   	return{
 	    month: _todayComps.month,
 	    year: _todayComps.year,
+      picked: {},
 	 };
   },
   created() {
     this.$on('configureDay', this.configureDay);
     this.$on('selectDay', this.selectDay);
+    console.log(this.selectDay);
   },
   props: {
     dayKey: { type: String, default: 'label' },
@@ -248,8 +250,11 @@ methods: {
   },
   selectDay(day) {
       this.$emit('input', day.isSelected ? null : day.date);
+      this.picked = day;
+      console.log(day);
+      console.log(this.picked);
   }
-},
+}
 });
 </script>
 
@@ -323,9 +328,6 @@ methods: {
   background-color: white;
   border: solid 1px #aaaaaa;
 }
-.day:hover{
-  background-color: #5e7fa0;
-}
 .today{
   font-weight: 500;
   color: white;
@@ -337,6 +339,6 @@ methods: {
 }
 .selected{
   color: #fafafa;
-  background-color: #5e7fa0;
+  background-color: #333;
 }
 </style>
