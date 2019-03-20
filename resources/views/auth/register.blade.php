@@ -79,6 +79,8 @@
               </p>
             </div>
             <div class="divider"></div>
+            <input name="lvl" type="hidden" value="1">
+            <input name="battle_point_balance" type="hidden" value="0">
             <div class="field has-text-centered pt40">
                 Már tag vagy? 
                 <a class="has-text-info" href="{{ route('login') }}">Jelentkezz be itt</a>

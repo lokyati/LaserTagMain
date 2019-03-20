@@ -30,6 +30,7 @@ Route::prefix('admin')->group(function() {
 Route::get('/profil', 'UserController@index')->name('profil');
 Route::get('/home', 'UserController@home')->name('home');
 Route::get('profile', 'UserController@profile');
+Route::get('data/{id}', 'UserController@data');
 
 //Password Reset Routes
 //Route::get('/password/reset/{token}', 'ResetController@showResetForm');

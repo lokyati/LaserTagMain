@@ -5,9 +5,9 @@
 			<div class="avatar">
 				<img class="avatar_icon":src="'img/logo.png'"/>
 				<img class="rank_icon" :src="'img/logo.png'"/>
-				<p>{{user.name}}</p>
-				<p>LVL</p>
-				<p>BTP</p>
+				<p>Warname: {{user.name}}</p>
+				<p>Lvl: {{user.lvl}}</p>
+				<p>Battle Points: {{user.battle_point_balance}}</p>
 			</div>
 			<div class="profil_nav_container">
 				<div class="columns profil_nav">
@@ -84,13 +84,13 @@ export default {
   			this.historystyle = false
   			this.bookingstyle = true
   		},
-  		getUserData(){
+  		getUserData(){ //Laravelbe bejelentkezett user adatai
   			axios.get('profile').then(response => {
 				this.user = response.data;
 				console.log(this.user);
 			})
 
-  		}
+  		},
   	},
   	
 }
