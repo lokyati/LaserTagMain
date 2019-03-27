@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use App\Reservations;
 
 class ReservationsController extends Controller
@@ -22,9 +24,9 @@ class ReservationsController extends Controller
         //
     }
 
-    public function show(Reservations $reservations)
+    public function show($day)
     {
-        //
+        Reservations::find($day);
     }
 
     public function edit(Reservations $reservations)

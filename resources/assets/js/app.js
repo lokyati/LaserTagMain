@@ -1,11 +1,15 @@
 import Vue from 'vue';
 import Buefy from 'buefy';
 import Axios from 'axios';
+import Bulma  from 'bulma';
+import VueResource from 'vue-resource';
 
 window.Vue = require('vue');
 window.axios = require('axios');
 
-Vue.use(Buefy)
+Vue.use(Buefy) 
+Vue.use(Bulma)
+Vue.use(VueResource)
 
 
 Vue.component('gdprmodal', require('./components/GDPRModal.vue'));

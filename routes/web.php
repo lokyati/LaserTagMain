@@ -32,6 +32,22 @@ Route::get('/home', 'UserController@home')->name('home');
 Route::get('profile', 'UserController@profile');
 Route::get('data/{id}', 'UserController@data');
 
+//Test Route
+Route::get('/calendar', function () {
+    return view('calendar');
+});
+
+//Reservation data
+/*Route::get('/reservation/{selectedmonth}/{selectedday}',function($month, $day){
+	return App\Reservations::where('selectedmonth', $month)
+							->where('selectedday', $day)
+							->first();
+});
+Route::get('show/{day}', 'ReservationsController@show');
+Route::get('/show/{day}', function ($day) {
+    return App\Reservations::where('day', $day)->firstOrFail($day);
+});*/
+
 //Password Reset Routes
 //Route::get('/password/reset/{token}', 'ResetController@showResetForm');
 //Route::get('/email', 'Auth\ResetPasswordController@getEmailForm');
@@ -52,9 +68,3 @@ Route::get('data/{id}', 'UserController@data');
 Route::get('/email', function () {
     return view('auth.passwords.email')->name('passwords.email');
 });*/
-
-
-//Test Route
-Route::get('/calendar', function () {
-    return view('calendar');
-});
