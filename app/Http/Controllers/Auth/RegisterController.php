@@ -44,10 +44,21 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name' => 'required|string|max:15|min:5',
+            'email' => 'required|string|email|max:15|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Kötelező kitölteni!',
+            'email.required'  => 'Kötelező kitölteni!',
+            'password.required'  => 'Kötelező kitölteni!',
+            'email.email' => 'Az emailnek valós cimnek kell lennie!',
+            'password.confirmed' => 'A jelszavak nem egyeznek!',
+        ];
     }
 
     /**

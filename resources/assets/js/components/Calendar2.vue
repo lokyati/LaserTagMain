@@ -23,50 +23,47 @@
         {{ day[dayKey] }}
       </div>
     </div>
-    <h4>Value</h4> 
     <div>
-      <p>{{ picked }}</p>
-      <p>{{ hour }}</p>
+      <p>Foglalt ora: {{ hour }}</p>
     </div>
-    <button @click='change()'><p>Kerem az orat</p></button>
     <div class="columns is-marginless">
-        <div class="column is-1 eight" v-bind:class="{occupiedstyle:occupiedstyle8}">
+        <div class="column is-1 eight">
             <a>8:00</a>
         </div>
-        <div class="column is-1 nine" v-bind:class="{occupiedstyle:occupiedstyle9}">
+        <div class="column is-1 nine">
             <a>9:00</a>
         </div>
-        <div class="column is-1 ten" v-bind:class="{occupiedstyle:occupiedstyle10}">
+        <div class="column is-1 ten">
             <a>10:00</a>
         </div>
-        <div class="column is-1 eleven" v-bind:class="{occupiedstyle:occupiedstyle11}">
+        <div class="column is-1 eleven">
             <a>11:00</a>
         </div>
-        <div class="column is-1 twelve" v-bind:class="{occupiedstyle:occupiedstyle12}">
+        <div class="column is-1 twelve">
             <a>12:00</a>
         </div>
-        <div class="column is-1 thrtn" v-bind:class="{occupiedstyle:occupiedstyle13}">
+        <div class="column is-1 thrtn">
             <a>13:00</a>
         </div>
-        <div class="column is-1 frtn" v-bind:class="{occupiedstyle:occupiedstyle14}">
+        <div class="column is-1 frtn">
             <a>14:00</a>
         </div>
-        <div class="column is-1 fiftn" v-bind:class="{occupiedstyle:occupiedstyle15}">
+        <div class="column is-1 fiftn">
             <a>15:00</a>
         </div>
-        <div class="column is-1 sixtn" v-bind:class="{occupiedstyle:occupiedstyle16}">
+        <div class="column is-1 sixtn">
             <a>16:00</a>
         </div>
-        <div class="column is-1 svntn" v-bind:class="{occupiedstyle:occupiedstyle17}">
+        <div class="column is-1 svntn">
             <a>17:00</a>
         </div>
-        <div class="column is-1 eightn" v-bind:class="{occupiedstyle:occupiedstyle18}">
+        <div class="column is-1 eightn">
             <a>18:00</a>
         </div>
-        <div class="column is-1 ninetn" v-bind:class="{occupiedstyle:occupiedstyle19}">
+        <div class="column is-1 ninetn">
             <a>19:00</a>
         </div>
-        <div class="column is-1 twenty" v-bind:class="{occupiedstyle:occupiedstyle20}">
+        <div class="column is-1 twenty">
             <a>20:00</a>
         </div>
     </div>
@@ -104,23 +101,12 @@ export default ({
 	    month: _todayComps.month,
 	    year: _todayComps.year,
       picked: {},
-      selectedday: 28,
-      selectedmonth: '',
+      selectedday: _todayComps.day,
+      selectedmonth: _todayComps.month,
       hour: '',
       reservations: {},
-      occupiedstyle8: false,
-      occupiedstyle9: false,
-      occupiedstyle10: false,
-      occupiedstyle11: false,
-      occupiedstyle12: false,
-      occupiedstyle13: false,
-      occupiedstyle14: false,
-      occupiedstyle15: false,
-      occupiedstyle16: false,
-      occupiedstyle17: false,
-      occupiedstyle18: false,
-      occupiedstyle19: false,
-      occupiedstyle20: false,
+      bookedMonth: {},
+      bookedDay: {},
 	 };
   },
   created() {
@@ -284,11 +270,7 @@ export default ({
         console.log(response);
       });
     }*/
-    changeLabelStyle() {
-      if(this.picked.label == 28){
-        this.change13();
-      }
-    }
+    
 	  // End of computed properties
 },
 mounted() {
@@ -334,6 +316,8 @@ methods: {
       console.log(this.picked);
       console.log(this.selectedmonth);
       console.log(this.selectedday);
+
+      this.getReservations();
   },
   /*getReservation() {
       var url = "show/" + this.selectedday;
@@ -343,66 +327,28 @@ methods: {
         console.log(response);
       });
     }*/
-    getReservations() {
+  getReservations() {
+    axios.get('./api/reservations').then(response => {
+      //console.log(response)
+      this.reservations = response.data
+      //console.log(this.reservations);
+      //console.log(this.reservations[0].hour)
+      //this.hour = this.reservations[0].hour;
+    });
 
-      axios.get('./api/reservations').then(response => {
-        //console.log(response)
-        this.reservations = response.data
-        //console.log(this.reservations);
-        console.log(this.reservations[0].hour)
-        this.hour = this.reservations[0].hour;
-      });
+   
+    for (var i = 0; i < this.reservations.length; i++) {
+        if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
+          this.hour = this.reservations[i].hour;
+          console.log(this.hour);
+        }
+    }
 
-      if(this.reservations.day == 28){
-        this.hour = this.reservations[i].hour;
-        console.log(this.hour);
-      }
-      /*for (var i = 0; i < this.reservations.length; i++) {
-          if(reservations.day == 28){
-            this.hour = reservations[i].hour;
-            console.log(this.hour);
-          }
-      }*/
-    },
-    change8() {
-      this.occupiedstyle = true;
-    },
-    change9() {
-      this.occupiedstyle = true;
-    },
-    change10() {
-      this.occupiedstyle = true;
-    },
-    change11() {
-      this.occupiedstyle = true;
-    },
-    change12() {
-      this.occupiedstyle = true;
-    },
-    change13() {
-      this.occupiedstyle = true;
-    },
-    change14() {
-      this.occupiedstyle = true;
-    },
-    change15() {
-      this.occupiedstyle = true;
-    },
-    change16() {
-      this.occupiedstyle = true;
-    },
-    change17() {
-      this.occupiedstyle = true;
-    },
-    change18() {
-      this.occupiedstyle = true;
-    },
-    change19() {
-      this.occupiedstyle = true;
-    },
-    change20() {
-      this.occupiedstyle = true;
-    },
+     /*if(this.reservations.day == this.selectedday){
+      this.hour = this.reservations[i].hour;
+      console.log(this.hour);
+    }*/
+  },
 }
 });
 </script>
@@ -511,8 +457,5 @@ methods: {
 }
 
 /*Occupied style*/
-.occupiedstyle8.eight{
-  background-color: white;
-  color:black;
-}
+
 </style>

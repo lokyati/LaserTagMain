@@ -19,7 +19,13 @@ class ReservationsSeeder extends Seeder
                 'day' => '28',
                 'hour' => '13'
               ],
-              
+              [
+                'id' => 2,
+                'year' => '2019',
+                'month' => '3',
+                'day' => '30',
+                'hour' => '10'
+              ],
          ]);
     }
 }
