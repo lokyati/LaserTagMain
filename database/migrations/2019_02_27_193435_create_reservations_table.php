@@ -22,7 +22,6 @@ class CreateReservationsTable extends Migration
             $table->integer('month')->nullable();
             $table->integer('day')->nullable();
             $table->integer('hour')->nullable();
-            //$table->integer('duration');
             //$table->integer('tel');
             //$table->string('email')->unique();
             //$table->text('note');

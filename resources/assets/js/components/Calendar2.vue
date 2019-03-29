@@ -1,13 +1,11 @@
 <template>
 	<div class='calendar'>
     <div class='header'>
-      <a class='arrow' @click='movePreviousYear'>&laquo;</a>
       <a class='arrow' @click='movePreviousMonth'>&lsaquo;</a>
       <span class='title' @click='moveThisMonth'>
         {{ header.label }}
       </span>
       <a class='arrow' @click='moveNextMonth'>&rsaquo;</a>
-      <a class='arrow' @click='moveNextYear'>&raquo;</a>
     </div>
     <div class='weekdays'>
       <div class="weekday" v-for='weekday in weekdays'>
@@ -23,47 +21,47 @@
         {{ day[dayKey] }}
       </div>
     </div>
-    <div>
+    <div class="info" v-bind:class="{show:show}">
       <p>Szabad időpontok ezen a napon: {{ header.label }}  {{picked.day}}. {{message}}</p>
     </div>
-    <div class="columns is-marginless">
-        <div class="column is-1 eight" v-bind:class="{eightStyle:eightStyle}">
+    <div class="columns is-marginless" v-bind:class="{show:show}">
+        <div class="column is-1 eight" v-bind:class="{eightStyle:eightStyle, desired8:desired8}" @click='isSelected8'>
             <a>08:00</a>
         </div>
-        <div class="column is-1 nine" v-bind:class="{nineStyle:nineStyle}">
+        <div class="column is-1 nine" v-bind:class="{nineStyle:nineStyle, desired9:desired9}" @click='isSelected9'>
             <a>09:00</a>
         </div>
-        <div class="column is-1 ten" v-bind:class="{tenStyle:tenStyle}">
+        <div class="column is-1 ten" v-bind:class="{tenStyle:tenStyle, desired10:desired10}" @click='isSelected10'>
             <a>10:00</a>
         </div>
-        <div class="column is-1 eleven" v-bind:class="{elevenStyle:elevenStyle}">
+        <div class="column is-1 eleven" v-bind:class="{elevenStyle:elevenStyle, desired11:desired11}" @click='isSelected11'>
             <a>11:00</a>
         </div>
-        <div class="column is-1 twelve" v-bind:class="{twelveStyle:twelveStyle}">
+        <div class="column is-1 twelve" v-bind:class="{twelveStyle:twelveStyle, desired12:desired12}" @click='isSelected12'>
             <a>12:00</a>
         </div>
-        <div class="column is-1 thrtn" v-bind:class="{thrtnStyle:thrtnStyle}">
+        <div class="column is-1 thrtn" v-bind:class="{thrtnStyle:thrtnStyle, desired13:desired13}" @click='isSelected13'>
             <a>13:00</a>
         </div>
-        <div class="column is-1 frtn" v-bind:class="{frtnStyle:frtnStyle}">
+        <div class="column is-1 frtn" v-bind:class="{frtnStyle:frtnStyle, desired14:desired14}" @click='isSelected14'>
             <a>14:00</a>
         </div>
-        <div class="column is-1 fiftn" v-bind:class="{fiftnStyle:fiftnStyle}">
+        <div class="column is-1 fiftn" v-bind:class="{fiftnStyle:fiftnStyle, desired15:desired15}" @click='isSelected15'>
             <a>15:00</a>
         </div>
-        <div class="column is-1 sixtn" v-bind:class="{sixtnStyle:sixtnStyle}">
+        <div class="column is-1 sixtn" v-bind:class="{sixtnStyle:sixtnStyle, desired16:desired16}" @click='isSelected16'>
             <a>16:00</a>
         </div>
-        <div class="column is-1 svntn" v-bind:class="{svntnStyle:svntnStyle}">
+        <div class="column is-1 svntn" v-bind:class="{svntnStyle:svntnStyle, desired17:desired17}" @click='isSelected17'>
             <a>17:00</a>
         </div>
-        <div class="column is-1 eightn" v-bind:class="{eightnStyle:eightnStyle}">
+        <div class="column is-1 eightn" v-bind:class="{eightnStyle:eightnStyle, desired18:desired18}" @click='isSelected18'>
             <a>18:00</a>
         </div>
-        <div class="column is-1 ninetn" v-bind:class="{ninetnStyle:ninetnStyle}">
+        <div class="column is-1 ninetn" v-bind:class="{ninetnStyle:ninetnStyle, desired19:desired19}" @click='isSelected19'>
             <a>19:00</a>
         </div>
-        <div class="column is-1 twenty" v-bind:class="{twentyStyle:twentyStyle}">
+        <div class="column is-1 twenty" v-bind:class="{twentyStyle:twentyStyle, desired20:desired20}" @click='isSelected20'>
             <a>20:00</a>
         </div>
     </div>
@@ -123,14 +121,28 @@ export default ({
       eightnStyle: false,
       ninetnStyle: false,
       twentyStyle: false,
-      message: '',
+      message: 'Csak egymást követő órák foglalhatók!',
+      show: false,
+      desired8: false,
+      desired9: false,
+      desired10: false,
+      desired11: false,
+      desired12: false,
+      desired13: false,
+      desired14: false,
+      desired15: false,
+      desired16: false,
+      desired17: false,
+      desired18: false,
+      desired19: false,
+      desired20: false,
 	 };
   },
   created() {
+    this.getReservations();
+    this.showReservation();
     this.$on('configureDay', this.configureDay);
     this.$on('selectDay', this.selectDay);
-    console.log(this.selectDay);
-    this.getReservations();
   },
   props: {
     dayKey: { type: String, default: 'label' },
@@ -309,12 +321,6 @@ methods: {
       this.year--;
     }
   },
-  moveNextYear() {
-    this.year++;
-  },
-  movePreviousYear() {
-    this.year--;
-  },
   configureDay(day) {
       day.isSelected = day.date.getTime() === this.valueTime;
   },
@@ -330,14 +336,16 @@ methods: {
 
       this.getReservations();
       this.showReservation();
+      this.show = true;
   },
+  //Show Reservation methods
   getReservations() {
     axios.get('./api/reservations').then(response => {
       this.reservations = response.data
     });
    
     this.hours = [{"bookedh" : ''}]; //kiuriti a tombot
-    this.message = "";
+    this.message = "Csak egymást követő órák foglalhatók!";
 
     for (var i = 0; i < this.reservations.length; i++) {
         if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
@@ -389,36 +397,115 @@ methods: {
         this.twentyStyle = true;
       }
     }
-    if(this.eightStyle == true &&
-    this.nineStyle == true &&
-    this.tenStyle == true &&
-    this.elevenStyle == true &&
-    this.twelveStyle == true &&
-    this.thrtnStyle == true &&
-    this.frtnStyle == true &&
-    this.fiftnStyle == true &&
-    this.sixtnStyle == true &&
-    this.svntnStyle == true &&
-    this.eightnStyle == true &&
-    this.ninetnStyle == true &&
-    this.twentyStyle == true){
+    if(this.eightStyle  == true &&
+       this.nineStyle   == true &&
+       this.tenStyle    == true &&
+       this.elevenStyle == true &&
+       this.twelveStyle == true &&
+       this.thrtnStyle  == true &&
+       this.frtnStyle   == true &&
+       this.fiftnStyle  == true &&
+       this.sixtnStyle  == true &&
+       this.svntnStyle  == true &&
+       this.eightnStyle == true &&
+       this.ninetnStyle == true &&
+       this.twentyStyle == true){
       this.message = "Sajnos ma minden időpont foglalt! Válassz egy másik napot. :)";
     }
   },
   allFalse(){
-    this.eightStyle = false;
-    this.nineStyle = false;
-    this.tenStyle = false;
+    this.eightStyle  = false;
+    this.nineStyle   = false;
+    this.tenStyle    = false;
     this.elevenStyle = false;
     this.twelveStyle = false;
-    this.thrtnStyle = false;
-    this.frtnStyle = false;
-    this.fiftnStyle = false;
-    this.sixtnStyle = false;
-    this.svntnStyle = false;
+    this.thrtnStyle  = false;
+    this.frtnStyle   = false;
+    this.fiftnStyle  = false;
+    this.sixtnStyle  = false;
+    this.svntnStyle  = false;
     this.eightnStyle = false;
     this.ninetnStyle = false;
     this.twentyStyle = false;
+    this.desired8    = false;
+    this.desired9    = false;
+    this.desired10   = false;
+    this.desired11   = false;
+    this.desired12   = false;
+    this.desired13   = false;
+    this.desired14   = false;
+    this.desired15   = false;
+    this.desired16   = false;
+    this.desired17   = false;
+    this.desired18   = false;
+    this.desired19   = false;
+    this.desired20   = false;
+  },
+  //Reserving methods
+  isSelected8(){
+    if(this.eightStyle == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired9 == true){
+      this.desired8 = !this.desired8;
+    }
+  },
+  isSelected9(){
+    if(this.nineStyle == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired10 == true){
+      this.desired9 = !this.desired9;
+    }
+  },
+  isSelected10(){
+    if(this.tenStyle == false && this.desired8 == false &&this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired9 == true || this.desired11 == true){
+      this.desired10 = !this.desired10;
+    }
+  },
+  isSelected11(){
+    if(this.elevenStyle == false && this.desired8 == false && this.desired9 == false &&this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired10 == true || this.desired12 == true){
+      this.desired11 = !this.desired11;
+    }
+  },
+  isSelected12(){
+    if(this.twelveStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false &&  this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired11 == true || this.desired13 == true){
+      this.desired12 = !this.desired12;
+    }
+  },
+  isSelected13(){
+    if(this.thrtnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired12 == true || this.desired14 == true){
+      this.desired13 = !this.desired13;
+    }
+  },
+  isSelected14(){
+    if(this.frtnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired13 == true || this.desired15 == true){
+      this.desired14 = !this.desired14;
+    }
+  },
+  isSelected15(){
+    if(this.fiftnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired14 == true || this.desired16 == true){
+      this.desired15 = !this.desired15;
+    }
+  },
+  isSelected16(){
+    if(this.sixtnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired15 == true || this.desired17 == true){
+      this.desired16 = !this.desired16;
+    }
+  },
+  isSelected17(){
+    if(this.svntnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired19 == false && this.desired20 == false || this.desired16 == true || this.desired18 == true){
+      this.desired17 = !this.desired17;
+    }
+  },
+  isSelected18(){
+    if(this.eightStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired20 == false || this.desired17 == true || this.desired19 == true){
+      this.desired18 = !this.desired18;
+    }
+  },
+  isSelected19(){
+    if(this.ninetnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false || this.desired18 == true || this.desired20 == true){
+      this.desired19 = !this.desired19;
+    }
+  },
+  isSelected20(){
+    if(this.twentyStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false || this.desired19 == true){
+      this.desired20 = !this.desired20;
+    }
   },
 },
 });
@@ -514,11 +601,18 @@ methods: {
 
 .columns{
   width: 59em;
-  background-color: #333;
   border: 3px solid orange;
+  display: none !important;
+}
+.show.columns{
+  display: flex !important;
 }
 .column{
   padding: 0.75rem 0;
+  background-color: #333;
+}
+.column:hover{
+  background-color: #575656;
 }
 .column a{
   color: white;
@@ -529,7 +623,12 @@ methods: {
 .column.is-1{
   width: 7.712%;
   border-right: 2px solid orange;
-
+}
+.info{
+  display: none;
+}
+.show.info{
+  display: block;
 }
 
 /*Occupied style*/
@@ -537,52 +636,91 @@ methods: {
   background-color: red;
   pointer-events: none;
 }
+.desired8.eight{
+  background-color: green;
+}
 .nineStyle.nine{
   background-color: red;
   pointer-events: none;
+}
+.desired9.nine{
+  background-color: green;
 }
 .tenStyle.ten{
   background-color: red;
   pointer-events: none;
 }
+.desired10.ten{
+  background-color: green;
+}
 .elevenStyle.eleven{
   background-color: red;
   pointer-events: none;
+}
+.desired11.eleven{
+  background-color: green;
 }
 .twelveStyle.twelve{
   background-color: red;
   pointer-events: none;
 }
+.desired12.twelve{
+  background-color: green;
+}
 .thrtnStyle.thrtn{
   background-color: red;
   pointer-events: none;
+}
+.desired13.thrtn{
+  background-color: green;
 }
 .frtnStyle.frtn{
   background-color: red;
   pointer-events: none;
 }
+.desired14.frtn{
+  background-color: green;
+}
 .fiftnStyle.fiftn{
   background-color: red;
   pointer-events: none;
+}
+.desired15.fiftn{
+  background-color: green;
 }
 .sixtnStyle.sixtn{
   background-color: red;
   pointer-events: none;
 }
+.desired16.sixtn{
+  background-color: green;
+}
 .svntnStyle.svntn{
   background-color: red;
   pointer-events: none;
+}
+.desired17.svntn{
+  background-color: green;
 }
 .eightnStyle.eightn{
   background-color: red;
   pointer-events: none;
 }
+.desired18.eightn{
+  background-color: green;
+}
 .ninetnStyle.ninetn{
   background-color: red;
   pointer-events: none;
 }
+.desired19.ninetn{
+  background-color: green;
+}
 .twentyStyle.twenty{
   background-color: red;
   pointer-events: none;
+}
+.desired20.twenty{
+  background-color: green;
 }
 </style>
