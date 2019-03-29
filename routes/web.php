@@ -37,17 +37,6 @@ Route::get('/calendar', function () {
     return view('calendar');
 });
 
-//Reservation data
-/*Route::get('/reservation/{selectedmonth}/{selectedday}',function($month, $day){
-	return App\Reservations::where('selectedmonth', $month)
-							->where('selectedday', $day)
-							->first();
-});
-Route::get('show/{day}', 'ReservationsController@show');
-Route::get('/show/{day}', function ($day) {
-    return App\Reservations::where('day', $day)->firstOrFail($day);
-});*/
-
 //Password Reset Routes
 //Route::get('/password/reset/{token}', 'ResetController@showResetForm');
 //Route::get('/email', 'Auth\ResetPasswordController@getEmailForm');

@@ -29886,7 +29886,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n  padding: 20px;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n    padding: 0 0.4em 0.2em 0.4em;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    -webkit-box-flex: 0;\r\n        -ms-flex-positive: 0;\r\n            flex-grow: 0;\n}\n.arrow:hover{\r\n\t\tcolor: #dcdcdc;\n}\n.title{\r\n    -webkit-box-flex: 1;\r\n        -ms-flex-positive: 1;\r\n            flex-grow: 1;\r\n    font-size: 1.2rem;\r\n    text-align: center;\n}\n.title:hover{\r\n    \tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca;\r\n  background-color: #fafafa;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.columns{\r\n  width: 59em;\r\n  background-color: #333;\r\n  border: 3px solid orange;\n}\n.column{\r\n  padding: 0.75rem 0;\n}\n.column a{\r\n  color: white;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    border-right: 3px solid orange;\n}\n.column.is-1{\r\n  width: 7.712%;\n}\r\n\r\n/*Occupied style*/\r\n\r\n", ""]);
+exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n  padding: 20px;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n    padding: 0 0.4em 0.2em 0.4em;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    -webkit-box-flex: 0;\r\n        -ms-flex-positive: 0;\r\n            flex-grow: 0;\n}\n.arrow:hover{\r\n\t\tcolor: #dcdcdc;\n}\n.title{\r\n    -webkit-box-flex: 1;\r\n        -ms-flex-positive: 1;\r\n            flex-grow: 1;\r\n    font-size: 1.2rem;\r\n    text-align: center;\n}\n.title:hover{\r\n    \tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\r\n  background-color: #5f5f5f;\r\n  color:white;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca !important; \r\n  background-color: #fafafa !important;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.columns{\r\n  width: 59em;\r\n  background-color: #333;\r\n  border: 3px solid orange;\n}\n.column{\r\n  padding: 0.75rem 0;\n}\n.column a{\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 16px;\r\n  text-decoration: none;\n}\n.column.is-1{\r\n  width: 7.712%;\r\n  border-right: 2px solid orange;\n}\r\n\r\n/*Occupied style*/\n.eightStyle.eight{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.nineStyle.nine{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.tenStyle.ten{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.elevenStyle.eleven{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.twelveStyle.twelve{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.thrtnStyle.thrtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.frtnStyle.frtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.fiftnStyle.fiftn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.sixtnStyle.sixtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.svntnStyle.svntn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.eightnStyle.eightn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.ninetnStyle.ninetn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.twentyStyle.twenty{\r\n  background-color: red;\r\n  pointer-events: none;\n}\r\n", ""]);
 
 // exports
 
@@ -29973,10 +29973,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 // Calendar data
 var _daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-var _weekdayLabels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+var _weekdayLabels = ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'];
 var _weekdayLength = 3;
 var _weekdayCasing = 'title';
-var _monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+var _monthLabels = ['Január', 'Február', 'Március', 'Április', 'Május', 'Június', 'Július', 'Augusztus', 'Szeptember', 'Octóber', 'November', 'December'];
 var _monthLength = 0;
 var _monthCasing = 'title';
 var _today = new Date();
@@ -29999,19 +29999,37 @@ var _transformLabel = function _transformLabel(label, length, casing) {
     return {
       month: _todayComps.month,
       year: _todayComps.year,
-      picked: {},
+      picked: _todayComps,
       selectedday: _todayComps.day,
       selectedmonth: _todayComps.month,
       hour: '',
+      hours: [{
+        "bookedh": ''
+      }],
       reservations: {},
       bookedMonth: {},
-      bookedDay: {}
+      bookedDay: {},
+      eightStyle: false,
+      nineStyle: false,
+      tenStyle: false,
+      elevenStyle: false,
+      twelveStyle: false,
+      thrtnStyle: false,
+      frtnStyle: false,
+      fiftnStyle: false,
+      sixtnStyle: false,
+      svntnStyle: false,
+      eightnStyle: false,
+      ninetnStyle: false,
+      twentyStyle: false,
+      message: ''
     };
   },
   created: function created() {
     this.$on('configureDay', this.configureDay);
     this.$on('selectDay', this.selectDay);
     console.log(this.selectDay);
+    this.getReservations();
   },
 
   props: {
@@ -30057,7 +30075,7 @@ var _transformLabel = function _transformLabel(label, length, casing) {
         month: month,
         year: this.year.toString(),
         shortYear: this.year.toString().substring(2, 4),
-        label: month.label + ' ' + this.year
+        label: this.year + ' ' + month.label
       };
     },
 
@@ -30176,6 +30194,7 @@ var _transformLabel = function _transformLabel(label, length, casing) {
   },
   mounted: function mounted() {
     this.getReservations();
+    this.showReservation();
   },
 
 
@@ -30220,37 +30239,74 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       console.log(this.selectedday);
 
       this.getReservations();
+      this.showReservation();
     },
-
-    /*getReservation() {
-        var url = "show/" + this.selectedday;
-         axios.get(url, function(response){
-          return this.hour = response.hour;
-          console.log(response);
-        });
-      }*/
     getReservations: function getReservations() {
       var _this = this;
 
       axios.get('./api/reservations').then(function (response) {
-        //console.log(response)
         _this.reservations = response.data;
-        //console.log(this.reservations);
-        //console.log(this.reservations[0].hour)
-        //this.hour = this.reservations[0].hour;
       });
+
+      this.hours = [{ "bookedh": '' }]; //kiuriti a tombot
+      this.message = "";
 
       for (var i = 0; i < this.reservations.length; i++) {
         if (this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday) {
-          this.hour = this.reservations[i].hour;
-          console.log(this.hour);
+          this.hours.push({ "bookedh": this.reservations[i].hour });
+          console.log(this.hours);
         }
       }
-
-      /*if(this.reservations.day == this.selectedday){
-       this.hour = this.reservations[i].hour;
-       console.log(this.hour);
-      }*/
+    },
+    showReservation: function showReservation() {
+      this.allFalse();
+      for (var i = 0; i < this.hours.length; i++) {
+        if (this.hours[i].bookedh == 8) {
+          this.eightStyle = true;
+        } else if (this.hours[i].bookedh == 9) {
+          this.nineStyle = true;
+        } else if (this.hours[i].bookedh == 10) {
+          this.tenStyle = true;
+        } else if (this.hours[i].bookedh == 11) {
+          this.elevenStyle = true;
+        } else if (this.hours[i].bookedh == 12) {
+          this.twelveStyle = true;
+        } else if (this.hours[i].bookedh == 13) {
+          this.thrtnStyle = true;
+        } else if (this.hours[i].bookedh == 14) {
+          this.frtnStyle = true;
+        } else if (this.hours[i].bookedh == 15) {
+          this.fiftnStyle = true;
+        } else if (this.hours[i].bookedh == 16) {
+          this.sixtnStyle = true;
+        } else if (this.hours[i].bookedh == 17) {
+          this.svntnStyle = true;
+        } else if (this.hours[i].bookedh == 18) {
+          this.eightnStyle = true;
+        } else if (this.hours[i].bookedh == 19) {
+          this.ninetnStyle = true;
+        } else if (this.hours[i].bookedh == 20) {
+          this.twentyStyle = true;
+        }
+      }
+      if (this.eightStyle == true && this.nineStyle == true && this.tenStyle == true && this.elevenStyle == true && this.twelveStyle == true && this.thrtnStyle == true && this.frtnStyle == true && this.fiftnStyle == true && this.sixtnStyle == true && this.svntnStyle == true && this.eightnStyle == true && this.ninetnStyle == true && this.twentyStyle == true) {
+        this.message = "Sajnos ma minden időpont foglalt! Válassz egy másik napot. :)";
+      }
+    },
+    allFalse: function allFalse() {
+      this.eightStyle = false;
+      this.nineStyle = false;
+      this.tenStyle = false;
+      this.elevenStyle = false;
+      this.twelveStyle = false;
+      this.thrtnStyle = false;
+      this.frtnStyle = false;
+      this.fiftnStyle = false;
+      this.sixtnStyle = false;
+      this.svntnStyle = false;
+      this.eightnStyle = false;
+      this.ninetnStyle = false;
+      this.twentyStyle = false;
     }
   }
 });
@@ -30296,7 +30352,7 @@ var render = function() {
         { staticClass: "weekdays" },
         _vm._l(_vm.weekdays, function(weekday) {
           return _c("div", { staticClass: "weekday" }, [
-            _vm._v("\n        " + _vm._s(weekday.label_3) + "\n      ")
+            _vm._v("\n        " + _vm._s(weekday.label) + "\n      ")
           ])
         }),
         0
@@ -30329,73 +30385,139 @@ var render = function() {
         )
       }),
       _vm._v(" "),
-      _c("div", [_c("p", [_vm._v("Foglalt ora: " + _vm._s(_vm.hour))])]),
+      _c("div", [
+        _c("p", [
+          _vm._v(
+            "Szabad időpontok ezen a napon: " +
+              _vm._s(_vm.header.label) +
+              "  " +
+              _vm._s(_vm.picked.day) +
+              ". " +
+              _vm._s(_vm.message)
+          )
+        ])
+      ]),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "columns is-marginless" }, [
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 eight",
+            class: { eightStyle: _vm.eightStyle }
+          },
+          [_c("a", [_vm._v("08:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 nine",
+            class: { nineStyle: _vm.nineStyle }
+          },
+          [_c("a", [_vm._v("09:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "column is-1 ten", class: { tenStyle: _vm.tenStyle } },
+          [_c("a", [_vm._v("10:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 eleven",
+            class: { elevenStyle: _vm.elevenStyle }
+          },
+          [_c("a", [_vm._v("11:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 twelve",
+            class: { twelveStyle: _vm.twelveStyle }
+          },
+          [_c("a", [_vm._v("12:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 thrtn",
+            class: { thrtnStyle: _vm.thrtnStyle }
+          },
+          [_c("a", [_vm._v("13:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 frtn",
+            class: { frtnStyle: _vm.frtnStyle }
+          },
+          [_c("a", [_vm._v("14:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 fiftn",
+            class: { fiftnStyle: _vm.fiftnStyle }
+          },
+          [_c("a", [_vm._v("15:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 sixtn",
+            class: { sixtnStyle: _vm.sixtnStyle }
+          },
+          [_c("a", [_vm._v("16:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 svntn",
+            class: { svntnStyle: _vm.svntnStyle }
+          },
+          [_c("a", [_vm._v("17:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 eightn",
+            class: { eightnStyle: _vm.eightnStyle }
+          },
+          [_c("a", [_vm._v("18:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 ninetn",
+            class: { ninetnStyle: _vm.ninetnStyle }
+          },
+          [_c("a", [_vm._v("19:00")])]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "column is-1 twenty",
+            class: { twentyStyle: _vm.twentyStyle }
+          },
+          [_c("a", [_vm._v("20:00")])]
+        )
+      ])
     ],
     2
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "columns is-marginless" }, [
-      _c("div", { staticClass: "column is-1 eight" }, [
-        _c("a", [_vm._v("8:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 nine" }, [
-        _c("a", [_vm._v("9:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 ten" }, [
-        _c("a", [_vm._v("10:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 eleven" }, [
-        _c("a", [_vm._v("11:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 twelve" }, [
-        _c("a", [_vm._v("12:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 thrtn" }, [
-        _c("a", [_vm._v("13:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 frtn" }, [
-        _c("a", [_vm._v("14:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 fiftn" }, [
-        _c("a", [_vm._v("15:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 sixtn" }, [
-        _c("a", [_vm._v("16:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 svntn" }, [
-        _c("a", [_vm._v("17:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 eightn" }, [
-        _c("a", [_vm._v("18:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 ninetn" }, [
-        _c("a", [_vm._v("19:00")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "column is-1 twenty" }, [
-        _c("a", [_vm._v("20:00")])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

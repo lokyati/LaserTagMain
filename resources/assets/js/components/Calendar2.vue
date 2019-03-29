@@ -11,7 +11,7 @@
     </div>
     <div class='weekdays'>
       <div class="weekday" v-for='weekday in weekdays'>
-        {{ weekday.label_3 }}
+        {{ weekday.label }}
       </div>
     </div>
     <div class='week' v-for='week in weeks'>
@@ -24,46 +24,46 @@
       </div>
     </div>
     <div>
-      <p>Foglalt ora: {{ hour }}</p>
+      <p>Szabad időpontok ezen a napon: {{ header.label }}  {{picked.day}}. {{message}}</p>
     </div>
     <div class="columns is-marginless">
-        <div class="column is-1 eight">
-            <a>8:00</a>
+        <div class="column is-1 eight" v-bind:class="{eightStyle:eightStyle}">
+            <a>08:00</a>
         </div>
-        <div class="column is-1 nine">
-            <a>9:00</a>
+        <div class="column is-1 nine" v-bind:class="{nineStyle:nineStyle}">
+            <a>09:00</a>
         </div>
-        <div class="column is-1 ten">
+        <div class="column is-1 ten" v-bind:class="{tenStyle:tenStyle}">
             <a>10:00</a>
         </div>
-        <div class="column is-1 eleven">
+        <div class="column is-1 eleven" v-bind:class="{elevenStyle:elevenStyle}">
             <a>11:00</a>
         </div>
-        <div class="column is-1 twelve">
+        <div class="column is-1 twelve" v-bind:class="{twelveStyle:twelveStyle}">
             <a>12:00</a>
         </div>
-        <div class="column is-1 thrtn">
+        <div class="column is-1 thrtn" v-bind:class="{thrtnStyle:thrtnStyle}">
             <a>13:00</a>
         </div>
-        <div class="column is-1 frtn">
+        <div class="column is-1 frtn" v-bind:class="{frtnStyle:frtnStyle}">
             <a>14:00</a>
         </div>
-        <div class="column is-1 fiftn">
+        <div class="column is-1 fiftn" v-bind:class="{fiftnStyle:fiftnStyle}">
             <a>15:00</a>
         </div>
-        <div class="column is-1 sixtn">
+        <div class="column is-1 sixtn" v-bind:class="{sixtnStyle:sixtnStyle}">
             <a>16:00</a>
         </div>
-        <div class="column is-1 svntn">
+        <div class="column is-1 svntn" v-bind:class="{svntnStyle:svntnStyle}">
             <a>17:00</a>
         </div>
-        <div class="column is-1 eightn">
+        <div class="column is-1 eightn" v-bind:class="{eightnStyle:eightnStyle}">
             <a>18:00</a>
         </div>
-        <div class="column is-1 ninetn">
+        <div class="column is-1 ninetn" v-bind:class="{ninetnStyle:ninetnStyle}">
             <a>19:00</a>
         </div>
-        <div class="column is-1 twenty">
+        <div class="column is-1 twenty" v-bind:class="{twentyStyle:twentyStyle}">
             <a>20:00</a>
         </div>
     </div>
@@ -74,10 +74,10 @@
 <script>
 	// Calendar data
 const _daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const _weekdayLabels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const _weekdayLabels = ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'];
 const _weekdayLength = 3;
 const _weekdayCasing = 'title';
-const _monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const _monthLabels = ['Január', 'Február', 'Március', 'Április', 'Május', 'Június', 'Július', 'Augusztus', 'Szeptember', 'Octóber', 'November', 'December'];
 const _monthLength = 0;
 const _monthCasing = 'title';
 const _today = new Date();
@@ -100,19 +100,37 @@ export default ({
   	return{
 	    month: _todayComps.month,
 	    year: _todayComps.year,
-      picked: {},
+      picked: _todayComps,
       selectedday: _todayComps.day,
       selectedmonth: _todayComps.month,
       hour: '',
+      hours: [{
+        "bookedh" : '',
+      }],
       reservations: {},
       bookedMonth: {},
       bookedDay: {},
+      eightStyle: false,
+      nineStyle: false,
+      tenStyle: false,
+      elevenStyle: false,
+      twelveStyle: false,
+      thrtnStyle: false,
+      frtnStyle: false,
+      fiftnStyle: false,
+      sixtnStyle: false,
+      svntnStyle: false,
+      eightnStyle: false,
+      ninetnStyle: false,
+      twentyStyle: false,
+      message: '',
 	 };
   },
   created() {
     this.$on('configureDay', this.configureDay);
     this.$on('selectDay', this.selectDay);
     console.log(this.selectDay);
+    this.getReservations();
   },
   props: {
     dayKey: { type: String, default: 'label' },
@@ -150,7 +168,7 @@ export default ({
         month: month,
         year: this.year.toString(),
         shortYear: this.year.toString().substring(2, 4),
-        label: month.label + ' ' + this.year,
+        label: this.year + ' ' + month.label,
       };
     },
 	  // Returns number for first weekday (1-7), starting from Sunday
@@ -262,19 +280,12 @@ export default ({
     dateSelectionLabel() {
       return JSON.stringify(this.dateSelection, null, '\t');
     },
-    /*reservation() {
-      var url = "show/" + this.selectedday;
-
-      axios.get(url, function(response){
-        return this.hour = response.hour;
-        console.log(response);
-      });
-    }*/
     
 	  // End of computed properties
 },
 mounted() {
   this.getReservations();
+  this.showReservation();
 },
 
 methods: {
@@ -318,38 +329,98 @@ methods: {
       console.log(this.selectedday);
 
       this.getReservations();
+      this.showReservation();
   },
-  /*getReservation() {
-      var url = "show/" + this.selectedday;
-
-      axios.get(url, function(response){
-        return this.hour = response.hour;
-        console.log(response);
-      });
-    }*/
   getReservations() {
     axios.get('./api/reservations').then(response => {
-      //console.log(response)
       this.reservations = response.data
-      //console.log(this.reservations);
-      //console.log(this.reservations[0].hour)
-      //this.hour = this.reservations[0].hour;
     });
-
    
+    this.hours = [{"bookedh" : ''}]; //kiuriti a tombot
+    this.message = "";
+
     for (var i = 0; i < this.reservations.length; i++) {
         if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
-          this.hour = this.reservations[i].hour;
-          console.log(this.hour);
+          this.hours.push({"bookedh" : this.reservations[i].hour});
+          console.log(this.hours);
         }
     }
-
-     /*if(this.reservations.day == this.selectedday){
-      this.hour = this.reservations[i].hour;
-      console.log(this.hour);
-    }*/
   },
-}
+  showReservation() {
+    this.allFalse();
+    for (var i = 0; i < this.hours.length; i++) {
+      if(this.hours[i].bookedh == 8){
+        this.eightStyle = true;
+      }
+      else if(this.hours[i].bookedh == 9){
+        this.nineStyle = true;
+      }
+      else if(this.hours[i].bookedh == 10){
+        this.tenStyle = true;
+      }
+      else if(this.hours[i].bookedh == 11){
+        this.elevenStyle = true;
+      }
+      else if(this.hours[i].bookedh == 12){
+        this.twelveStyle = true;
+      }
+      else if(this.hours[i].bookedh == 13){
+        this.thrtnStyle = true;
+      }
+      else if(this.hours[i].bookedh == 14){
+        this.frtnStyle = true;
+      }
+      else if(this.hours[i].bookedh == 15){
+        this.fiftnStyle = true;
+      }
+      else if(this.hours[i].bookedh == 16){
+        this.sixtnStyle = true;
+      }
+      else if(this.hours[i].bookedh == 17){
+        this.svntnStyle = true;
+      }
+      else if(this.hours[i].bookedh == 18){
+        this.eightnStyle = true;
+      }
+      else if(this.hours[i].bookedh == 19){
+        this.ninetnStyle = true;
+      }
+      else if(this.hours[i].bookedh == 20){
+        this.twentyStyle = true;
+      }
+    }
+    if(this.eightStyle == true &&
+    this.nineStyle == true &&
+    this.tenStyle == true &&
+    this.elevenStyle == true &&
+    this.twelveStyle == true &&
+    this.thrtnStyle == true &&
+    this.frtnStyle == true &&
+    this.fiftnStyle == true &&
+    this.sixtnStyle == true &&
+    this.svntnStyle == true &&
+    this.eightnStyle == true &&
+    this.ninetnStyle == true &&
+    this.twentyStyle == true){
+      this.message = "Sajnos ma minden időpont foglalt! Válassz egy másik napot. :)";
+    }
+  },
+  allFalse(){
+    this.eightStyle = false;
+    this.nineStyle = false;
+    this.tenStyle = false;
+    this.elevenStyle = false;
+    this.twelveStyle = false;
+    this.thrtnStyle = false;
+    this.frtnStyle = false;
+    this.fiftnStyle = false;
+    this.sixtnStyle = false;
+    this.svntnStyle = false;
+    this.eightnStyle = false;
+    this.ninetnStyle = false;
+    this.twentyStyle = false;
+  },
+},
 });
 </script>
 
@@ -423,14 +494,18 @@ methods: {
   background-color: white;
   border: solid 1px #aaaaaa;
 }
+.day:hover{
+  background-color: #5f5f5f;
+  color:white;
+}
 .today{
   font-weight: 500;
   color: white;
   background-color: orange;
 }
 .not-in-month{
-  color: #cacaca;
-  background-color: #fafafa;
+  color: #cacaca !important; 
+  background-color: #fafafa !important;
 }
 .selected{
   color: #fafafa;
@@ -447,15 +522,67 @@ methods: {
 }
 .column a{
   color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    border-right: 3px solid orange;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 .column.is-1{
   width: 7.712%;
+  border-right: 2px solid orange;
+
 }
 
 /*Occupied style*/
-
+.eightStyle.eight{
+  background-color: red;
+  pointer-events: none;
+}
+.nineStyle.nine{
+  background-color: red;
+  pointer-events: none;
+}
+.tenStyle.ten{
+  background-color: red;
+  pointer-events: none;
+}
+.elevenStyle.eleven{
+  background-color: red;
+  pointer-events: none;
+}
+.twelveStyle.twelve{
+  background-color: red;
+  pointer-events: none;
+}
+.thrtnStyle.thrtn{
+  background-color: red;
+  pointer-events: none;
+}
+.frtnStyle.frtn{
+  background-color: red;
+  pointer-events: none;
+}
+.fiftnStyle.fiftn{
+  background-color: red;
+  pointer-events: none;
+}
+.sixtnStyle.sixtn{
+  background-color: red;
+  pointer-events: none;
+}
+.svntnStyle.svntn{
+  background-color: red;
+  pointer-events: none;
+}
+.eightnStyle.eightn{
+  background-color: red;
+  pointer-events: none;
+}
+.ninetnStyle.ninetn{
+  background-color: red;
+  pointer-events: none;
+}
+.twentyStyle.twenty{
+  background-color: red;
+  pointer-events: none;
+}
 </style>
