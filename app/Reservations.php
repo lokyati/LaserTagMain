@@ -9,6 +9,8 @@ class Reservations extends Model
     protected $table = 'reservations';
 
     protected $fillable = [
-        'year', 'month', 'day','hour'
+        'year', 'month', 'day', 'reservedHour_id'
     ];
+
+    
 }

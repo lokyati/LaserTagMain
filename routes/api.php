@@ -23,3 +23,8 @@ Route::middleware('auth:api')->get('/profile', function (Request $request){
 });
 
 Route::resource('reservations','ReservationsController');
+Route::resource('reservedhours','reservedHourController');
+
+Route::post('createReservation','reservedHourController@store');
+//Route::post('createReservation','reservedHourController@reservationSubmit');
+	

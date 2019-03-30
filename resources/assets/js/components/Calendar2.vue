@@ -65,7 +65,9 @@
             <a>20:00</a>
         </div>
     </div>
-    
+    <div class="button_container" v-bind:class="{show:show}">  
+      <a class="button is-warning is-medium" @click="sendReservation">Foglalok</a>
+    </div>
   </div>
 </template>
 
@@ -102,9 +104,8 @@ export default ({
       selectedday: _todayComps.day,
       selectedmonth: _todayComps.month,
       hour: '',
-      hours: [{
-        "bookedh" : '',
-      }],
+      bookedHours: [],
+      desiredHours: [],
       reservations: {},
       bookedMonth: {},
       bookedDay: {},
@@ -344,56 +345,56 @@ methods: {
       this.reservations = response.data
     });
    
-    this.hours = [{"bookedh" : ''}]; //kiuriti a tombot
+    this.bookedHours = [{"bookedh" : ''}]; //kiuriti a tombot
     this.message = "Csak egymást követő órák foglalhatók!";
 
     for (var i = 0; i < this.reservations.length; i++) {
         if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
-          this.hours.push({"bookedh" : this.reservations[i].hour});
-          console.log(this.hours);
+          this.bookedHours.push({"bookedh" : this.reservations[i].hour});
+          console.log(this.bookedHours);
         }
     }
   },
   showReservation() {
     this.allFalse();
-    for (var i = 0; i < this.hours.length; i++) {
-      if(this.hours[i].bookedh == 8){
+    for (var i = 0; i < this.bookedHours.length; i++) {
+      if(this.bookedHours[i].bookedh == 8){
         this.eightStyle = true;
       }
-      else if(this.hours[i].bookedh == 9){
+      else if(this.bookedHours[i].bookedh == 9){
         this.nineStyle = true;
       }
-      else if(this.hours[i].bookedh == 10){
+      else if(this.bookedHours[i].bookedh == 10){
         this.tenStyle = true;
       }
-      else if(this.hours[i].bookedh == 11){
+      else if(this.bookedHours[i].bookedh == 11){
         this.elevenStyle = true;
       }
-      else if(this.hours[i].bookedh == 12){
+      else if(this.bookedHours[i].bookedh == 12){
         this.twelveStyle = true;
       }
-      else if(this.hours[i].bookedh == 13){
+      else if(this.bookedHours[i].bookedh == 13){
         this.thrtnStyle = true;
       }
-      else if(this.hours[i].bookedh == 14){
+      else if(this.bookedHours[i].bookedh == 14){
         this.frtnStyle = true;
       }
-      else if(this.hours[i].bookedh == 15){
+      else if(this.bookedHours[i].bookedh == 15){
         this.fiftnStyle = true;
       }
-      else if(this.hours[i].bookedh == 16){
+      else if(this.bookedHours[i].bookedh == 16){
         this.sixtnStyle = true;
       }
-      else if(this.hours[i].bookedh == 17){
+      else if(this.bookedHours[i].bookedh == 17){
         this.svntnStyle = true;
       }
-      else if(this.hours[i].bookedh == 18){
+      else if(this.bookedHours[i].bookedh == 18){
         this.eightnStyle = true;
       }
-      else if(this.hours[i].bookedh == 19){
+      else if(this.bookedHours[i].bookedh == 19){
         this.ninetnStyle = true;
       }
-      else if(this.hours[i].bookedh == 20){
+      else if(this.bookedHours[i].bookedh == 20){
         this.twentyStyle = true;
       }
     }
@@ -445,68 +446,219 @@ methods: {
   isSelected8(){
     if(this.eightStyle == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired9 == true){
       this.desired8 = !this.desired8;
+
+      if(this.desired8 == true){
+        this.desiredHours.push({"hours" : 8});
+      }
+      else if( this.desired8 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 8){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected9(){
     if(this.nineStyle == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired10 == true){
       this.desired9 = !this.desired9;
+
+      if(this.desired9 == true){
+        this.desiredHours.push({"hours" : 9});
+      }
+      else if( this.desired9 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 9){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected10(){
     if(this.tenStyle == false && this.desired8 == false &&this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired9 == true || this.desired11 == true){
       this.desired10 = !this.desired10;
+
+      if(this.desired10 == true){
+        this.desiredHours.push({"hours" : 10});
+      }
+      else if( this.desired10 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 10){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected11(){
     if(this.elevenStyle == false && this.desired8 == false && this.desired9 == false &&this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired10 == true || this.desired12 == true){
       this.desired11 = !this.desired11;
+
+      if(this.desired11 == true){
+        this.desiredHours.push({"hours" : 11});
+      }
+      else if( this.desired11 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 11){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected12(){
     if(this.twelveStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false &&  this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired11 == true || this.desired13 == true){
       this.desired12 = !this.desired12;
+
+      if(this.desired12 == true){
+        this.desiredHours.push({"hours" : 12});
+      }
+      else if( this.desired12 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 12){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected13(){
     if(this.thrtnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired12 == true || this.desired14 == true){
       this.desired13 = !this.desired13;
+
+      if(this.desired13 == true){
+        this.desiredHours.push({"hours" : 13});
+      }
+      else if( this.desired13 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 13){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected14(){
     if(this.frtnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired13 == true || this.desired15 == true){
       this.desired14 = !this.desired14;
+
+      if(this.desired14 == true){
+        this.desiredHours.push({"hours" : 14});
+      }
+      else if( this.desired14 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 14){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected15(){
     if(this.fiftnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired14 == true || this.desired16 == true){
       this.desired15 = !this.desired15;
+
+      if(this.desired15 == true){
+        this.desiredHours.push({"hours" : 15});
+      }
+      else if( this.desired15 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 15){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected16(){
     if(this.sixtnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired15 == true || this.desired17 == true){
       this.desired16 = !this.desired16;
+
+      if(this.desired16 == true){
+        this.desiredHours.push({"hours" : 16});
+      }
+      else if( this.desired16 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 16){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected17(){
     if(this.svntnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired19 == false && this.desired20 == false || this.desired16 == true || this.desired18 == true){
       this.desired17 = !this.desired17;
+
+      if(this.desired17 == true){
+        this.desiredHours.push({"hours" : 17});
+      }
+      else if( this.desired17 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 17){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected18(){
     if(this.eightStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired20 == false || this.desired17 == true || this.desired19 == true){
       this.desired18 = !this.desired18;
+
+      if(this.desired18 == true){
+        this.desiredHours.push({"hours" : 18});
+      }
+      else if( this.desired18 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 18){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected19(){
     if(this.ninetnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false || this.desired18 == true || this.desired20 == true){
       this.desired19 = !this.desired19;
+
+      if(this.desired19 == true){
+        this.desiredHours.push({"hours" : 19});
+      }
+      else if( this.desired19 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 19){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
   isSelected20(){
     if(this.twentyStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false || this.desired19 == true){
       this.desired20 = !this.desired20;
+
+      if(this.desired20 == true){
+        this.desiredHours.push({"hours" : 20});
+      }
+      else if( this.desired20 == false){
+        for (var i = 0; i < this.desiredHours.length; i++) {
+          if(this.desiredHours[i].hours == 20){
+            this.$delete(this.desiredHours, i);
+          }
+        }
+      }
     }
   },
+  sendReservation(){
+    axios.post('./api/createReservation',{
+      hour: this.desiredHours,
+      /*year: this.picked.year,
+      month: this.picked.month,
+      day: this.picked.day,*/
+    });
+  }
 },
 });
 </script>
@@ -630,7 +782,14 @@ methods: {
 .show.info{
   display: block;
 }
-
+.button_container{
+  width:200px;
+  padding: 1rem;
+  display: none;
+}
+.show.button_container{
+  display: block;
+}
 /*Occupied style*/
 .eightStyle.eight{
   background-color: red;

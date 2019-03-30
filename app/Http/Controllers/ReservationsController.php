@@ -16,7 +16,17 @@ class ReservationsController extends Controller
 
     public function create()
     {
-        //
+        $reservations = Reservations::create([
+            'year' => $data['year'],
+            'month' => $data['month'],
+            'day' => $data['day'],
+        ]);
+
+        reservedHours::create([
+            'reservations_id' => $reservations->id,
+        ]);
+
+        return $reservations;
     }
 
     public function store(Request $request)

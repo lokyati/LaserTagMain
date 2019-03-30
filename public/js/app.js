@@ -29886,7 +29886,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n  padding: 20px;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n    padding: 0 0.4em 0.2em 0.4em;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    -webkit-box-flex: 0;\r\n        -ms-flex-positive: 0;\r\n            flex-grow: 0;\n}\n.arrow:hover{\r\n\t\tcolor: #dcdcdc;\n}\n.title{\r\n    -webkit-box-flex: 1;\r\n        -ms-flex-positive: 1;\r\n            flex-grow: 1;\r\n    font-size: 1.2rem;\r\n    text-align: center;\n}\n.title:hover{\r\n    \tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\r\n  background-color: #5f5f5f;\r\n  color:white;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca !important; \r\n  background-color: #fafafa !important;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.columns{\r\n  width: 59em;\r\n  border: 3px solid orange;\r\n  display: none !important;\n}\n.show.columns{\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\n}\n.column{\r\n  padding: 0.75rem 0;\r\n  background-color: #333;\n}\n.column:hover{\r\n  background-color: #575656;\n}\n.column a{\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 16px;\r\n  text-decoration: none;\n}\n.column.is-1{\r\n  width: 7.712%;\r\n  border-right: 2px solid orange;\n}\n.info{\r\n  display: none;\n}\n.show.info{\r\n  display: block;\n}\r\n\r\n/*Occupied style*/\n.eightStyle.eight{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired8.eight{\r\n  background-color: green;\n}\n.nineStyle.nine{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired9.nine{\r\n  background-color: green;\n}\n.tenStyle.ten{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired10.ten{\r\n  background-color: green;\n}\n.elevenStyle.eleven{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired11.eleven{\r\n  background-color: green;\n}\n.twelveStyle.twelve{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired12.twelve{\r\n  background-color: green;\n}\n.thrtnStyle.thrtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired13.thrtn{\r\n  background-color: green;\n}\n.frtnStyle.frtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired14.frtn{\r\n  background-color: green;\n}\n.fiftnStyle.fiftn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired15.fiftn{\r\n  background-color: green;\n}\n.sixtnStyle.sixtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired16.sixtn{\r\n  background-color: green;\n}\n.svntnStyle.svntn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired17.svntn{\r\n  background-color: green;\n}\n.eightnStyle.eightn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired18.eightn{\r\n  background-color: green;\n}\n.ninetnStyle.ninetn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired19.ninetn{\r\n  background-color: green;\n}\n.twentyStyle.twenty{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired20.twenty{\r\n  background-color: green;\n}\r\n", ""]);
+exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n  padding: 20px;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n    padding: 0 0.4em 0.2em 0.4em;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    -webkit-box-flex: 0;\r\n        -ms-flex-positive: 0;\r\n            flex-grow: 0;\n}\n.arrow:hover{\r\n\t\tcolor: #dcdcdc;\n}\n.title{\r\n    -webkit-box-flex: 1;\r\n        -ms-flex-positive: 1;\r\n            flex-grow: 1;\r\n    font-size: 1.2rem;\r\n    text-align: center;\n}\n.title:hover{\r\n    \tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\r\n  background-color: #5f5f5f;\r\n  color:white;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca !important; \r\n  background-color: #fafafa !important;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.columns{\r\n  width: 59em;\r\n  border: 3px solid orange;\r\n  display: none !important;\n}\n.show.columns{\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\n}\n.column{\r\n  padding: 0.75rem 0;\r\n  background-color: #333;\n}\n.column:hover{\r\n  background-color: #575656;\n}\n.column a{\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 16px;\r\n  text-decoration: none;\n}\n.column.is-1{\r\n  width: 7.712%;\r\n  border-right: 2px solid orange;\n}\n.info{\r\n  display: none;\n}\n.show.info{\r\n  display: block;\n}\n.button_container{\r\n  width:200px;\r\n  padding: 1rem;\r\n  display: none;\n}\n.show.button_container{\r\n  display: block;\n}\r\n/*Occupied style*/\n.eightStyle.eight{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired8.eight{\r\n  background-color: green;\n}\n.nineStyle.nine{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired9.nine{\r\n  background-color: green;\n}\n.tenStyle.ten{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired10.ten{\r\n  background-color: green;\n}\n.elevenStyle.eleven{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired11.eleven{\r\n  background-color: green;\n}\n.twelveStyle.twelve{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired12.twelve{\r\n  background-color: green;\n}\n.thrtnStyle.thrtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired13.thrtn{\r\n  background-color: green;\n}\n.frtnStyle.frtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired14.frtn{\r\n  background-color: green;\n}\n.fiftnStyle.fiftn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired15.fiftn{\r\n  background-color: green;\n}\n.sixtnStyle.sixtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired16.sixtn{\r\n  background-color: green;\n}\n.svntnStyle.svntn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired17.svntn{\r\n  background-color: green;\n}\n.eightnStyle.eightn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired18.eightn{\r\n  background-color: green;\n}\n.ninetnStyle.ninetn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired19.ninetn{\r\n  background-color: green;\n}\n.twentyStyle.twenty{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired20.twenty{\r\n  background-color: green;\n}\r\n", ""]);
 
 // exports
 
@@ -29897,6 +29897,8 @@ exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
 //
 //
 //
@@ -30001,9 +30003,8 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       selectedday: _todayComps.day,
       selectedmonth: _todayComps.month,
       hour: '',
-      hours: [{
-        "bookedh": ''
-      }],
+      bookedHours: [],
+      desiredHours: [],
       reservations: {},
       bookedMonth: {},
       bookedDay: {},
@@ -30257,44 +30258,44 @@ var _transformLabel = function _transformLabel(label, length, casing) {
         _this.reservations = response.data;
       });
 
-      this.hours = [{ "bookedh": '' }]; //kiuriti a tombot
+      this.bookedHours = [{ "bookedh": '' }]; //kiuriti a tombot
       this.message = "Csak egymást követő órák foglalhatók!";
 
       for (var i = 0; i < this.reservations.length; i++) {
         if (this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday) {
-          this.hours.push({ "bookedh": this.reservations[i].hour });
-          console.log(this.hours);
+          this.bookedHours.push({ "bookedh": this.reservations[i].hour });
+          console.log(this.bookedHours);
         }
       }
     },
     showReservation: function showReservation() {
       this.allFalse();
-      for (var i = 0; i < this.hours.length; i++) {
-        if (this.hours[i].bookedh == 8) {
+      for (var i = 0; i < this.bookedHours.length; i++) {
+        if (this.bookedHours[i].bookedh == 8) {
           this.eightStyle = true;
-        } else if (this.hours[i].bookedh == 9) {
+        } else if (this.bookedHours[i].bookedh == 9) {
           this.nineStyle = true;
-        } else if (this.hours[i].bookedh == 10) {
+        } else if (this.bookedHours[i].bookedh == 10) {
           this.tenStyle = true;
-        } else if (this.hours[i].bookedh == 11) {
+        } else if (this.bookedHours[i].bookedh == 11) {
           this.elevenStyle = true;
-        } else if (this.hours[i].bookedh == 12) {
+        } else if (this.bookedHours[i].bookedh == 12) {
           this.twelveStyle = true;
-        } else if (this.hours[i].bookedh == 13) {
+        } else if (this.bookedHours[i].bookedh == 13) {
           this.thrtnStyle = true;
-        } else if (this.hours[i].bookedh == 14) {
+        } else if (this.bookedHours[i].bookedh == 14) {
           this.frtnStyle = true;
-        } else if (this.hours[i].bookedh == 15) {
+        } else if (this.bookedHours[i].bookedh == 15) {
           this.fiftnStyle = true;
-        } else if (this.hours[i].bookedh == 16) {
+        } else if (this.bookedHours[i].bookedh == 16) {
           this.sixtnStyle = true;
-        } else if (this.hours[i].bookedh == 17) {
+        } else if (this.bookedHours[i].bookedh == 17) {
           this.svntnStyle = true;
-        } else if (this.hours[i].bookedh == 18) {
+        } else if (this.bookedHours[i].bookedh == 18) {
           this.eightnStyle = true;
-        } else if (this.hours[i].bookedh == 19) {
+        } else if (this.bookedHours[i].bookedh == 19) {
           this.ninetnStyle = true;
-        } else if (this.hours[i].bookedh == 20) {
+        } else if (this.bookedHours[i].bookedh == 20) {
           this.twentyStyle = true;
         }
       }
@@ -30335,67 +30336,205 @@ var _transformLabel = function _transformLabel(label, length, casing) {
     isSelected8: function isSelected8() {
       if (this.eightStyle == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired9 == true) {
         this.desired8 = !this.desired8;
+
+        if (this.desired8 == true) {
+          this.desiredHours.push({ "hours": 8 });
+        } else if (this.desired8 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 8) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected9: function isSelected9() {
       if (this.nineStyle == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired10 == true) {
         this.desired9 = !this.desired9;
+
+        if (this.desired9 == true) {
+          this.desiredHours.push({ "hours": 9 });
+        } else if (this.desired9 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 9) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected10: function isSelected10() {
       if (this.tenStyle == false && this.desired8 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired9 == true || this.desired11 == true) {
         this.desired10 = !this.desired10;
+
+        if (this.desired10 == true) {
+          this.desiredHours.push({ "hours": 10 });
+        } else if (this.desired10 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 10) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected11: function isSelected11() {
       if (this.elevenStyle == false && this.desired8 == false && this.desired9 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired10 == true || this.desired12 == true) {
         this.desired11 = !this.desired11;
+
+        if (this.desired11 == true) {
+          this.desiredHours.push({ "hours": 11 });
+        } else if (this.desired11 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 11) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected12: function isSelected12() {
       if (this.twelveStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired11 == true || this.desired13 == true) {
         this.desired12 = !this.desired12;
+
+        if (this.desired12 == true) {
+          this.desiredHours.push({ "hours": 12 });
+        } else if (this.desired12 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 12) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected13: function isSelected13() {
       if (this.thrtnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired12 == true || this.desired14 == true) {
         this.desired13 = !this.desired13;
+
+        if (this.desired13 == true) {
+          this.desiredHours.push({ "hours": 13 });
+        } else if (this.desired13 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 13) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected14: function isSelected14() {
       if (this.frtnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired13 == true || this.desired15 == true) {
         this.desired14 = !this.desired14;
+
+        if (this.desired14 == true) {
+          this.desiredHours.push({ "hours": 14 });
+        } else if (this.desired14 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 14) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected15: function isSelected15() {
       if (this.fiftnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired14 == true || this.desired16 == true) {
         this.desired15 = !this.desired15;
+
+        if (this.desired15 == true) {
+          this.desiredHours.push({ "hours": 15 });
+        } else if (this.desired15 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 15) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected16: function isSelected16() {
       if (this.sixtnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired15 == true || this.desired17 == true) {
         this.desired16 = !this.desired16;
+
+        if (this.desired16 == true) {
+          this.desiredHours.push({ "hours": 16 });
+        } else if (this.desired16 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 16) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected17: function isSelected17() {
       if (this.svntnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired19 == false && this.desired20 == false || this.desired16 == true || this.desired18 == true) {
         this.desired17 = !this.desired17;
+
+        if (this.desired17 == true) {
+          this.desiredHours.push({ "hours": 17 });
+        } else if (this.desired17 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 17) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected18: function isSelected18() {
       if (this.eightStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired20 == false || this.desired17 == true || this.desired19 == true) {
         this.desired18 = !this.desired18;
+
+        if (this.desired18 == true) {
+          this.desiredHours.push({ "hours": 18 });
+        } else if (this.desired18 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 18) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected19: function isSelected19() {
       if (this.ninetnStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false || this.desired18 == true || this.desired20 == true) {
         this.desired19 = !this.desired19;
+
+        if (this.desired19 == true) {
+          this.desiredHours.push({ "hours": 19 });
+        } else if (this.desired19 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 19) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
     },
     isSelected20: function isSelected20() {
       if (this.twentyStyle == false && this.desired8 == false && this.desired9 == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false || this.desired19 == true) {
         this.desired20 = !this.desired20;
+
+        if (this.desired20 == true) {
+          this.desiredHours.push({ "hours": 20 });
+        } else if (this.desired20 == false) {
+          for (var i = 0; i < this.desiredHours.length; i++) {
+            if (this.desiredHours[i].hours == 20) {
+              this.$delete(this.desiredHours, i);
+            }
+          }
+        }
       }
+    },
+    sendReservation: function sendReservation() {
+      axios.post('./api/createReservation', {
+        hour: this.desiredHours
+        /*year: this.picked.year,
+        month: this.picked.month,
+        day: this.picked.day,*/
+      });
     }
   }
 });
@@ -30611,6 +30750,21 @@ var render = function() {
               on: { click: _vm.isSelected20 }
             },
             [_c("a", [_vm._v("20:00")])]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "button_container", class: { show: _vm.show } },
+        [
+          _c(
+            "a",
+            {
+              staticClass: "button is-warning is-medium",
+              on: { click: _vm.sendReservation }
+            },
+            [_vm._v("Foglalok")]
           )
         ]
       )

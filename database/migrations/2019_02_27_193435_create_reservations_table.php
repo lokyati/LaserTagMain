@@ -21,7 +21,7 @@ class CreateReservationsTable extends Migration
             $table->integer('year')->nullable();
             $table->integer('month')->nullable();
             $table->integer('day')->nullable();
-            $table->integer('hour')->nullable();
+            $table->unsignedInteger('reservedHour_id');
             //$table->integer('tel');
             //$table->string('email')->unique();
             //$table->text('note');
@@ -31,10 +31,11 @@ class CreateReservationsTable extends Migration
             $table->timestamps();
         });
 
-        /*Schema::table('reservations', function($table){
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('package_id')->references('id')->on('package');
-        });*/
+        Schema::table('reservations', function($table){
+            //$table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('package_id')->references('id')->on('package');
+            $table->foreign('reservedHour_id')->references('id')->on('reserved_hours');
+        });
     }
 
     /**
