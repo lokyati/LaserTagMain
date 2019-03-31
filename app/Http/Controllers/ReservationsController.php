@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use App\Reservations;
+use App\reservedHours;
 
 class ReservationsController extends Controller
 {
@@ -14,7 +15,7 @@ class ReservationsController extends Controller
     	return $reservations;
     }
 
-    public function create()
+    public function create(Request $data)
     {
         $reservations = Reservations::create([
             'year' => $data['year'],
@@ -22,9 +23,13 @@ class ReservationsController extends Controller
             'day' => $data['day'],
         ]);
 
-        reservedHours::create([
-            'reservations_id' => $reservations->id,
-        ]);
+        foreach ($data['hour'] as $reserved['hour']){
+
+            reservedHours::create([
+                'reservation_id' => $reservations->id,
+                'hour' => $reserved['hour'],
+            ]);
+        }
 
         return $reservations;
     }

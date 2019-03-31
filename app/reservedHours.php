@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class reservedHours extends Model
 {
-	protected $table = 'reserved_hours';
-
-    public function reservation() {
-        return $this->hasOne('App\Reservations', 'foreign_key');
-    }
+	protected $table = 'reserved_hours';    
 
     protected $fillable = [
-        'hour'
+         'reservation_id', 'hour'
     ];
+
+    public function reservations() {
+        return $this->hasMany('App\Reservations', 'foreign_key');
+    }
 }

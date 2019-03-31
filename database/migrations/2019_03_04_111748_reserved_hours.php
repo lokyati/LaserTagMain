@@ -15,12 +15,13 @@ class ReservedHours extends Migration
     {
        Schema::create('reserved_hours', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('hour');
+            $table->unsignedInteger('reservation_id')->nullable();
+            $table->integer('hour')->nullable();
             $table->timestamps();
         });
 
        Schema::table('reserved_hours', function($table){
-            
+            $table->foreign('reservation_id')->references('id')->on('reservations');
         });
     }
 

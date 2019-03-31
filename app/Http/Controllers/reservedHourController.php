@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\reservedHours;
 
 class reservedHourController extends Controller
@@ -17,7 +18,10 @@ class reservedHourController extends Controller
     public function store(Request $request)
     {
         reservedHours::create([
-            'hour' => $request['hours'],
+            'year' => $request['year'],
+            'month' => $request['month'],
+            'day' => $request['day'],
+            'hour' => $request['hour'],
         ]);
 
         return $request->hour;

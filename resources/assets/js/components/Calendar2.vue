@@ -104,7 +104,9 @@ export default ({
       selectedday: _todayComps.day,
       selectedmonth: _todayComps.month,
       hour: '',
+      reservationID: '',
       bookedHours: [],
+      reservedhours: [],
       desiredHours: [],
       reservations: {},
       bookedMonth: {},
@@ -345,56 +347,73 @@ methods: {
       this.reservations = response.data
     });
    
-    this.bookedHours = [{"bookedh" : ''}]; //kiuriti a tombot
+    this.bookedHours = []; //kiuriti a tombot
     this.message = "Csak egymást követő órák foglalhatók!";
 
     for (var i = 0; i < this.reservations.length; i++) {
         if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
-          this.bookedHours.push({"bookedh" : this.reservations[i].hour});
-          console.log(this.bookedHours);
+          
+          this.reservationID = this.reservations[i].id
         }
     }
+
+    this.getReservedHours();
+  },
+  getReservedHours(){
+    axios.get('./api/reservedhours').then(response => {
+      this.reservedhours = response.data
+
+      for (var i = 0; i < this.reservedhours.length; i++) {
+        if(this.reservedhours[i].reservation_id == this.reservationID){
+          this.bookedHours.push(this.reservedhours[i].hour);
+        }
+      }
+      console.log(this.bookedHours)
+    });
+
+    this.showReservation();
   },
   showReservation() {
     this.allFalse();
+    console.log("minden ures")
     for (var i = 0; i < this.bookedHours.length; i++) {
-      if(this.bookedHours[i].bookedh == 8){
+      if(this.bookedHours[i] == 8){
         this.eightStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 9){
+      else if(this.bookedHours[i] == 9){
         this.nineStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 10){
+      else if(this.bookedHours[i] == 10){
         this.tenStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 11){
+      else if(this.bookedHours[i] == 11){
         this.elevenStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 12){
+      else if(this.bookedHours[i] == 12){
         this.twelveStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 13){
+      else if(this.bookedHours[i] == 13){
         this.thrtnStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 14){
+      else if(this.bookedHours[i] == 14){
         this.frtnStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 15){
+      else if(this.bookedHours[i] == 15){
         this.fiftnStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 16){
+      else if(this.bookedHours[i] == 16){
         this.sixtnStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 17){
+      else if(this.bookedHours[i] == 17){
         this.svntnStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 18){
+      else if(this.bookedHours[i] == 18){
         this.eightnStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 19){
+      else if(this.bookedHours[i] == 19){
         this.ninetnStyle = true;
       }
-      else if(this.bookedHours[i].bookedh == 20){
+      else if(this.bookedHours[i] == 20){
         this.twentyStyle = true;
       }
     }
@@ -448,11 +467,11 @@ methods: {
       this.desired8 = !this.desired8;
 
       if(this.desired8 == true){
-        this.desiredHours.push({"hours" : 8});
+        this.desiredHours.push(8);
       }
       else if( this.desired8 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 8){
+          if(this.desiredHours[i] == 8){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -464,11 +483,11 @@ methods: {
       this.desired9 = !this.desired9;
 
       if(this.desired9 == true){
-        this.desiredHours.push({"hours" : 9});
+        this.desiredHours.push(9);
       }
       else if( this.desired9 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 9){
+          if(this.desiredHours[i] == 9){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -480,11 +499,11 @@ methods: {
       this.desired10 = !this.desired10;
 
       if(this.desired10 == true){
-        this.desiredHours.push({"hours" : 10});
+        this.desiredHours.push(10);
       }
       else if( this.desired10 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 10){
+          if(this.desiredHours[i] == 10){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -496,11 +515,11 @@ methods: {
       this.desired11 = !this.desired11;
 
       if(this.desired11 == true){
-        this.desiredHours.push({"hours" : 11});
+        this.desiredHours.push(11);
       }
       else if( this.desired11 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 11){
+          if(this.desiredHours[i] == 11){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -512,11 +531,11 @@ methods: {
       this.desired12 = !this.desired12;
 
       if(this.desired12 == true){
-        this.desiredHours.push({"hours" : 12});
+        this.desiredHours.push(12);
       }
       else if( this.desired12 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 12){
+          if(this.desiredHours[i] == 12){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -528,11 +547,11 @@ methods: {
       this.desired13 = !this.desired13;
 
       if(this.desired13 == true){
-        this.desiredHours.push({"hours" : 13});
+        this.desiredHours.push(13);
       }
       else if( this.desired13 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 13){
+          if(this.desiredHours[i] == 13){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -544,11 +563,11 @@ methods: {
       this.desired14 = !this.desired14;
 
       if(this.desired14 == true){
-        this.desiredHours.push({"hours" : 14});
+        this.desiredHours.push(14);
       }
       else if( this.desired14 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 14){
+          if(this.desiredHours[i] == 14){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -560,11 +579,11 @@ methods: {
       this.desired15 = !this.desired15;
 
       if(this.desired15 == true){
-        this.desiredHours.push({"hours" : 15});
+        this.desiredHours.push(15);
       }
       else if( this.desired15 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 15){
+          if(this.desiredHours[i] == 15){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -576,11 +595,11 @@ methods: {
       this.desired16 = !this.desired16;
 
       if(this.desired16 == true){
-        this.desiredHours.push({"hours" : 16});
+        this.desiredHours.push(16);
       }
       else if( this.desired16 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 16){
+          if(this.desiredHours[i] == 16){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -592,11 +611,11 @@ methods: {
       this.desired17 = !this.desired17;
 
       if(this.desired17 == true){
-        this.desiredHours.push({"hours" : 17});
+        this.desiredHours.push(17);
       }
       else if( this.desired17 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 17){
+          if(this.desiredHours[i] == 17){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -608,11 +627,11 @@ methods: {
       this.desired18 = !this.desired18;
 
       if(this.desired18 == true){
-        this.desiredHours.push({"hours" : 18});
+        this.desiredHours.push(18);
       }
       else if( this.desired18 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 18){
+          if(this.desiredHours[i] == 18){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -624,11 +643,11 @@ methods: {
       this.desired19 = !this.desired19;
 
       if(this.desired19 == true){
-        this.desiredHours.push({"hours" : 19});
+        this.desiredHours.push(19);
       }
       else if( this.desired19 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 19){
+          if(this.desiredHours[i] == 19){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -640,11 +659,11 @@ methods: {
       this.desired20 = !this.desired20;
 
       if(this.desired20 == true){
-        this.desiredHours.push({"hours" : 20});
+        this.desiredHours.push(20);
       }
       else if( this.desired20 == false){
         for (var i = 0; i < this.desiredHours.length; i++) {
-          if(this.desiredHours[i].hours == 20){
+          if(this.desiredHours[i] == 20){
             this.$delete(this.desiredHours, i);
           }
         }
@@ -652,14 +671,14 @@ methods: {
     }
   },
   sendReservation(){
-    axios.post('./api/createReservation',{
-      hour: this.desiredHours,
-      /*year: this.picked.year,
-      month: this.picked.month,
-      day: this.picked.day,*/
-    });
-  }
-},
+      axios.post('./api/createReservation',{
+        hour: this.desiredHours,
+        year: this.picked.year,
+        month: this.picked.month,
+        day: this.picked.day,
+      });
+    }
+  },
 });
 </script>
 
