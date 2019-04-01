@@ -68,6 +68,9 @@
     <div class="button_container" v-bind:class="{show:show}">  
       <a class="button is-warning is-medium" @click="sendReservation">Foglalok</a>
     </div>
+    <div v-for="hour in hours">
+      <p>Foglalt orak: {{hour}}</p>
+    </div>
   </div>
 </template>
 
@@ -105,7 +108,7 @@ export default ({
       selectedmonth: _todayComps.month,
       hour: '',
       reservationID: '',
-      bookedHours: [],
+      hours: [],
       reservedhours: [],
       desiredHours: [],
       reservations: {},
@@ -139,13 +142,13 @@ export default ({
       desired18: false,
       desired19: false,
       desired20: false,
+      a: 0,
 	 };
   },
   created() {
-    this.getReservations();
-    this.showReservation();
     this.$on('configureDay', this.configureDay);
     this.$on('selectDay', this.selectDay);
+    this.getReservations();
   },
   props: {
     dayKey: { type: String, default: 'label' },
@@ -300,7 +303,6 @@ export default ({
 },
 mounted() {
   this.getReservations();
-  this.showReservation();
 },
 
 methods: {
@@ -328,92 +330,138 @@ methods: {
       day.isSelected = day.date.getTime() === this.valueTime;
   },
   selectDay(day) {
+      
+      this.reservationID = '';
+      this.reservedhours = [];
+
       this.$emit('input', day.isSelected ? null : day.date);
       this.picked = day;
       this.selectedday = this.picked.day;
       this.selectedmonth = this.picked.month;
-      console.log(day);
-      console.log(this.picked);
-      console.log(this.selectedmonth);
-      console.log(this.selectedday);
+      //console.log(day);
+      //console.log(this.picked);
+      //console.log(this.selectedmonth);
+      //console.log(this.selectedday);
 
-      this.getReservations();
-      this.showReservation();
       this.show = true;
+      console.log("Veget ert a SelectDay, indul a getReservations");
+      this.getReservations();
   },
   //Show Reservation methods
   getReservations() {
+    console.log("getReservations fut")
+    this.hours = []; //kiuriti a tombot
     axios.get('./api/reservations').then(response => {
-      this.reservations = response.data
+      this.reservations = response.data;
+      console.log(this.reservations);
     });
    
-    this.bookedHours = []; //kiuriti a tombot
     this.message = "Csak egymást követő órák foglalhatók!";
 
     for (var i = 0; i < this.reservations.length; i++) {
         if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
-          
           this.reservationID = this.reservations[i].id
         }
     }
-
+    console.log("getReservations veget er, indul a getReservedHours");
     this.getReservedHours();
   },
   getReservedHours(){
-    axios.get('./api/reservedhours').then(response => {
+    this.allFalse();
+    console.log("A getReservedHours ban vagyunk");
+    axios.get('./api/Reservedhours').then(response => {
       this.reservedhours = response.data
-
+      //console.log(this.reservedhours)
+    
       for (var i = 0; i < this.reservedhours.length; i++) {
         if(this.reservedhours[i].reservation_id == this.reservationID){
-          this.bookedHours.push(this.reservedhours[i].hour);
+          //this.hours.push(this.reservedhours[i].hour );
+          if(this.reservedhours[i].hour == 8){
+            this.eightStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 9){
+            this.nineStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 10){
+            this.tenStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 11){
+            this.elevenStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 12){
+            this.twelveStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 13){
+            this.thrtnStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 14){
+            this.frtnStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 15){
+            this.fiftnStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 16){
+            this.sixtnStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 17){
+            this.svntnStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 18){
+            this.eightnStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 19){
+            this.ninetnStyle = true;
+          }
+          else if(this.reservedhours[i].hour == 20){
+            this.twentyStyle = true;
+          }
         }
       }
-      console.log(this.bookedHours)
-    });
 
-    this.showReservation();
-  },
-  showReservation() {
-    this.allFalse();
-    console.log("minden ures")
-    for (var i = 0; i < this.bookedHours.length; i++) {
-      if(this.bookedHours[i] == 8){
+      console.log(this.hours);
+      console.log(this.hours.length);
+      //console.log(this.hours)
+    });
+    //this.allFalse();
+
+    for (var i = 0; i < this.hours.length; i++) {
+      if(this.hours[i] == 8){
         this.eightStyle = true;
       }
-      else if(this.bookedHours[i] == 9){
+      else if(this.hours[i] == 9){
         this.nineStyle = true;
       }
-      else if(this.bookedHours[i] == 10){
+      else if(this.hours[i] == 10){
         this.tenStyle = true;
       }
-      else if(this.bookedHours[i] == 11){
+      else if(this.hours[i] == 11){
         this.elevenStyle = true;
       }
-      else if(this.bookedHours[i] == 12){
+      else if(this.hours[i] == 12){
         this.twelveStyle = true;
       }
-      else if(this.bookedHours[i] == 13){
+      else if(this.hours[i] == 13){
         this.thrtnStyle = true;
       }
-      else if(this.bookedHours[i] == 14){
+      else if(this.hours[i] == 14){
         this.frtnStyle = true;
       }
-      else if(this.bookedHours[i] == 15){
+      else if(this.hours[i] == 15){
         this.fiftnStyle = true;
       }
-      else if(this.bookedHours[i] == 16){
+      else if(this.hours[i] == 16){
         this.sixtnStyle = true;
       }
-      else if(this.bookedHours[i] == 17){
+      else if(this.hours[i] == 17){
         this.svntnStyle = true;
       }
-      else if(this.bookedHours[i] == 18){
+      else if(this.hours[i] == 18){
         this.eightnStyle = true;
       }
-      else if(this.bookedHours[i] == 19){
+      else if(this.hours[i] == 19){
         this.ninetnStyle = true;
       }
-      else if(this.bookedHours[i] == 20){
+      else if(this.hours[i] == 20){
         this.twentyStyle = true;
       }
     }
@@ -434,6 +482,8 @@ methods: {
     }
   },
   allFalse(){
+    console.log("minden ures");
+
     this.eightStyle  = false;
     this.nineStyle   = false;
     this.tenStyle    = false;

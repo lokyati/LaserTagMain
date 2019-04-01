@@ -29970,6 +29970,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 // Calendar data
 var _daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -30004,7 +30007,7 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       selectedmonth: _todayComps.month,
       hour: '',
       reservationID: '',
-      bookedHours: [],
+      hours: [],
       reservedhours: [],
       desiredHours: [],
       reservations: {},
@@ -30037,14 +30040,14 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       desired17: false,
       desired18: false,
       desired19: false,
-      desired20: false
+      desired20: false,
+      a: 0
     };
   },
   created: function created() {
-    this.getReservations();
-    this.showReservation();
     this.$on('configureDay', this.configureDay);
     this.$on('selectDay', this.selectDay);
+    this.getReservations();
   },
 
   props: {
@@ -30209,7 +30212,6 @@ var _transformLabel = function _transformLabel(label, length, casing) {
   },
   mounted: function mounted() {
     this.getReservations();
-    this.showReservation();
   },
 
 
@@ -30238,85 +30240,119 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       day.isSelected = day.date.getTime() === this.valueTime;
     },
     selectDay: function selectDay(day) {
+
+      this.reservationID = '';
+      this.reservedhours = [];
+
       this.$emit('input', day.isSelected ? null : day.date);
       this.picked = day;
       this.selectedday = this.picked.day;
       this.selectedmonth = this.picked.month;
-      console.log(day);
-      console.log(this.picked);
-      console.log(this.selectedmonth);
-      console.log(this.selectedday);
+      //console.log(day);
+      //console.log(this.picked);
+      //console.log(this.selectedmonth);
+      //console.log(this.selectedday);
 
-      this.getReservations();
-      this.showReservation();
       this.show = true;
+      console.log("Veget ert a SelectDay, indul a getReservations");
+      this.getReservations();
     },
 
     //Show Reservation methods
     getReservations: function getReservations() {
       var _this = this;
 
+      console.log("getReservations fut");
+      this.hours = []; //kiuriti a tombot
       axios.get('./api/reservations').then(function (response) {
         _this.reservations = response.data;
+        console.log(_this.reservations);
       });
 
-      this.bookedHours = []; //kiuriti a tombot
       this.message = "Csak egymást követő órák foglalhatók!";
 
       for (var i = 0; i < this.reservations.length; i++) {
         if (this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday) {
-
           this.reservationID = this.reservations[i].id;
         }
       }
-
+      console.log("getReservations veget er, indul a getReservedHours");
       this.getReservedHours();
     },
     getReservedHours: function getReservedHours() {
       var _this2 = this;
 
-      axios.get('./api/reservedhours').then(function (response) {
+      this.allFalse();
+      console.log("A getReservedHours ban vagyunk");
+      axios.get('./api/Reservedhours').then(function (response) {
         _this2.reservedhours = response.data;
+        //console.log(this.reservedhours)
 
         for (var i = 0; i < _this2.reservedhours.length; i++) {
           if (_this2.reservedhours[i].reservation_id == _this2.reservationID) {
-            _this2.bookedHours.push(_this2.reservedhours[i].hour);
+            //this.hours.push(this.reservedhours[i].hour );
+            if (_this2.reservedhours[i].hour == 8) {
+              _this2.eightStyle = true;
+            } else if (_this2.reservedhours[i].hour == 9) {
+              _this2.nineStyle = true;
+            } else if (_this2.reservedhours[i].hour == 10) {
+              _this2.tenStyle = true;
+            } else if (_this2.reservedhours[i].hour == 11) {
+              _this2.elevenStyle = true;
+            } else if (_this2.reservedhours[i].hour == 12) {
+              _this2.twelveStyle = true;
+            } else if (_this2.reservedhours[i].hour == 13) {
+              _this2.thrtnStyle = true;
+            } else if (_this2.reservedhours[i].hour == 14) {
+              _this2.frtnStyle = true;
+            } else if (_this2.reservedhours[i].hour == 15) {
+              _this2.fiftnStyle = true;
+            } else if (_this2.reservedhours[i].hour == 16) {
+              _this2.sixtnStyle = true;
+            } else if (_this2.reservedhours[i].hour == 17) {
+              _this2.svntnStyle = true;
+            } else if (_this2.reservedhours[i].hour == 18) {
+              _this2.eightnStyle = true;
+            } else if (_this2.reservedhours[i].hour == 19) {
+              _this2.ninetnStyle = true;
+            } else if (_this2.reservedhours[i].hour == 20) {
+              _this2.twentyStyle = true;
+            }
           }
         }
-        console.log(_this2.bookedHours);
-      });
 
-      this.showReservation();
-    },
-    showReservation: function showReservation() {
-      this.allFalse();
-      console.log("minden ures");
-      for (var i = 0; i < this.bookedHours.length; i++) {
-        if (this.bookedHours[i] == 8) {
+        console.log(_this2.hours);
+        console.log(_this2.hours.length);
+        //console.log(this.hours)
+      });
+      //this.allFalse();
+
+      for (var i = 0; i < this.hours.length; i++) {
+        if (this.hours[i] == 8) {
           this.eightStyle = true;
-        } else if (this.bookedHours[i] == 9) {
+        } else if (this.hours[i] == 9) {
           this.nineStyle = true;
-        } else if (this.bookedHours[i] == 10) {
+        } else if (this.hours[i] == 10) {
           this.tenStyle = true;
-        } else if (this.bookedHours[i] == 11) {
+        } else if (this.hours[i] == 11) {
           this.elevenStyle = true;
-        } else if (this.bookedHours[i] == 12) {
+        } else if (this.hours[i] == 12) {
           this.twelveStyle = true;
-        } else if (this.bookedHours[i] == 13) {
+        } else if (this.hours[i] == 13) {
           this.thrtnStyle = true;
-        } else if (this.bookedHours[i] == 14) {
+        } else if (this.hours[i] == 14) {
           this.frtnStyle = true;
-        } else if (this.bookedHours[i] == 15) {
+        } else if (this.hours[i] == 15) {
           this.fiftnStyle = true;
-        } else if (this.bookedHours[i] == 16) {
+        } else if (this.hours[i] == 16) {
           this.sixtnStyle = true;
-        } else if (this.bookedHours[i] == 17) {
+        } else if (this.hours[i] == 17) {
           this.svntnStyle = true;
-        } else if (this.bookedHours[i] == 18) {
+        } else if (this.hours[i] == 18) {
           this.eightnStyle = true;
-        } else if (this.bookedHours[i] == 19) {
+        } else if (this.hours[i] == 19) {
           this.ninetnStyle = true;
-        } else if (this.bookedHours[i] == 20) {
+        } else if (this.hours[i] == 20) {
           this.twentyStyle = true;
         }
       }
@@ -30325,6 +30361,8 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       }
     },
     allFalse: function allFalse() {
+      console.log("minden ures");
+
       this.eightStyle = false;
       this.nineStyle = false;
       this.tenStyle = false;
@@ -30788,7 +30826,11 @@ var render = function() {
             [_vm._v("Foglalok")]
           )
         ]
-      )
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.hours, function(hour) {
+        return _c("div", [_c("p", [_vm._v("Foglalt orak: " + _vm._s(hour))])])
+      })
     ],
     2
   )
