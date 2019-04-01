@@ -9,7 +9,7 @@ class Reservations extends Model
     protected $table = 'reservations';
 
     protected $fillable = [
-        'year', 'month', 'day', 'created_at', 'updated_at'
+        'year', 'month', 'day', 'players', 'tel', 'created_at', 'updated_at'
     ];
 
     

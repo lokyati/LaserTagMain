@@ -29886,7 +29886,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n  padding: 20px;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n    padding: 0 0.4em 0.2em 0.4em;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    -webkit-box-flex: 0;\r\n        -ms-flex-positive: 0;\r\n            flex-grow: 0;\n}\n.arrow:hover{\r\n\t\tcolor: #dcdcdc;\n}\n.title{\r\n    -webkit-box-flex: 1;\r\n        -ms-flex-positive: 1;\r\n            flex-grow: 1;\r\n    font-size: 1.2rem;\r\n    text-align: center;\n}\n.title:hover{\r\n    \tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\r\n  background-color: #5f5f5f;\r\n  color:white;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca !important; \r\n  background-color: #fafafa !important;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.columns{\r\n  width: 59em;\r\n  border: 3px solid orange;\r\n  display: none !important;\n}\n.show.columns{\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\n}\n.column{\r\n  padding: 0.75rem 0;\r\n  background-color: #333;\n}\n.column:hover{\r\n  background-color: #575656;\n}\n.column a{\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 16px;\r\n  text-decoration: none;\n}\n.column.is-1{\r\n  width: 7.712%;\r\n  border-right: 2px solid orange;\n}\n.info{\r\n  display: none;\n}\n.show.info{\r\n  display: block;\n}\n.button_container{\r\n  width:200px;\r\n  padding: 1rem;\r\n  display: none;\n}\n.show.button_container{\r\n  display: block;\n}\r\n/*Occupied style*/\n.eightStyle.eight{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired8.eight{\r\n  background-color: green;\n}\n.nineStyle.nine{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired9.nine{\r\n  background-color: green;\n}\n.tenStyle.ten{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired10.ten{\r\n  background-color: green;\n}\n.elevenStyle.eleven{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired11.eleven{\r\n  background-color: green;\n}\n.twelveStyle.twelve{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired12.twelve{\r\n  background-color: green;\n}\n.thrtnStyle.thrtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired13.thrtn{\r\n  background-color: green;\n}\n.frtnStyle.frtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired14.frtn{\r\n  background-color: green;\n}\n.fiftnStyle.fiftn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired15.fiftn{\r\n  background-color: green;\n}\n.sixtnStyle.sixtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired16.sixtn{\r\n  background-color: green;\n}\n.svntnStyle.svntn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired17.svntn{\r\n  background-color: green;\n}\n.eightnStyle.eightn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired18.eightn{\r\n  background-color: green;\n}\n.ninetnStyle.ninetn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired19.ninetn{\r\n  background-color: green;\n}\n.twentyStyle.twenty{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired20.twenty{\r\n  background-color: green;\n}\r\n", ""]);
+exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n  padding: 20px;\n}\n.calendar_container{\r\n  width: 1200px;\r\n  margin: 0 auto;\r\n  background-color: #e9e9e9;\r\n  padding: 1rem;\r\n  -webkit-box-shadow: 0px 0px 5px black;\r\n          box-shadow: 0px 0px 5px black;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 50em;\r\n  margin: 0 auto;\n}\n.reservationData_container{\r\n  width: 50em;\r\n  margin: 0 auto;\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n  padding: 0 0.4em 0.2em 0.4em;\r\n  font-size: 1.8rem;\r\n  font-weight: 500;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  -webkit-box-flex: 0;\r\n      -ms-flex-positive: 0;\r\n          flex-grow: 0;\n}\n.arrow:hover{\r\n\tcolor: #dcdcdc;\n}\n.title{\r\n  -webkit-box-flex: 1;\r\n      -ms-flex-positive: 1;\r\n          flex-grow: 1;\r\n  font-size: 1.2rem;\r\n  text-align: center;\n}\n.title:hover{\r\n\tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\r\n  background-color: #5f5f5f;\r\n  color:white;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca !important; \r\n  background-color: #fafafa !important;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.columns{\r\n  width: 50em;\r\n  border: 3px solid orange;\r\n  display: none !important;\n}\n.show.columns{\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\n}\n.column{\r\n  padding: 0.75rem 0;\r\n  background-color: #333;\n}\n.column:hover{\r\n  background-color: #575656;\n}\n.column a{\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 10px;\r\n  text-decoration: none;\n}\n.column.is-1{\r\n  width: 7.712%;\r\n  border-right: 2px solid orange;\n}\n.info{\r\n  display: none;\r\n  font-size: 19px;\r\n  font-weight: bold;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.selectedday{\r\n  color:#000;\n}\n.messagetext{\r\n  color:#f00;\n}\n.show.info{\r\n  display: block;\n}\n.button_container{\r\n  width:200px;\r\n  padding: 1rem;\r\n  display: none;\n}\n.show.button_container{\r\n  display: block;\n}\n.form{\r\n  padding: .5rem;\n}\n.players{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.tel{\r\n  width: 14rem;\n}\r\n/*Occupied style*/\n.eightStyle.eight{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired8.eight{\r\n  background-color: green;\n}\n.nineStyle.nine{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired9.nine{\r\n  background-color: green;\n}\n.tenStyle.ten{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired10.ten{\r\n  background-color: green;\n}\n.elevenStyle.eleven{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired11.eleven{\r\n  background-color: green;\n}\n.twelveStyle.twelve{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired12.twelve{\r\n  background-color: green;\n}\n.thrtnStyle.thrtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired13.thrtn{\r\n  background-color: green;\n}\n.frtnStyle.frtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired14.frtn{\r\n  background-color: green;\n}\n.fiftnStyle.fiftn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired15.fiftn{\r\n  background-color: green;\n}\n.sixtnStyle.sixtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired16.sixtn{\r\n  background-color: green;\n}\n.svntnStyle.svntn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired17.svntn{\r\n  background-color: green;\n}\n.eightnStyle.eightn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired18.eightn{\r\n  background-color: green;\n}\n.ninetnStyle.ninetn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired19.ninetn{\r\n  background-color: green;\n}\n.twentyStyle.twenty{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired20.twenty{\r\n  background-color: green;\n}\n.select{\r\n  width: 5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -29897,6 +29897,22 @@ exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -30005,14 +30021,12 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       picked: _todayComps,
       selectedday: _todayComps.day,
       selectedmonth: _todayComps.month,
-      hour: '',
-      reservationID: '',
-      hours: [],
+      reservationID: [],
+      resID: '',
       reservedhours: [],
       desiredHours: [],
       reservations: {},
-      bookedMonth: {},
-      bookedDay: {},
+      unavaible: [],
       eightStyle: false,
       nineStyle: false,
       tenStyle: false,
@@ -30041,7 +30055,10 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       desired18: false,
       desired19: false,
       desired20: false,
-      a: 0
+      validated: false,
+      players: [6, 8, 10, 12, 14, 16, 18, 20],
+      selectedPlayers: {},
+      tel: ''
     };
   },
   created: function created() {
@@ -30240,21 +30257,17 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       day.isSelected = day.date.getTime() === this.valueTime;
     },
     selectDay: function selectDay(day) {
-
-      this.reservationID = '';
+      this.allFalse();
+      this.reservationID = [];
       this.reservedhours = [];
+      this.desiredHours = [];
 
       this.$emit('input', day.isSelected ? null : day.date);
       this.picked = day;
       this.selectedday = this.picked.day;
       this.selectedmonth = this.picked.month;
-      //console.log(day);
-      //console.log(this.picked);
-      //console.log(this.selectedmonth);
-      //console.log(this.selectedday);
 
       this.show = true;
-      console.log("Veget ert a SelectDay, indul a getReservations");
       this.getReservations();
     },
 
@@ -30262,103 +30275,68 @@ var _transformLabel = function _transformLabel(label, length, casing) {
     getReservations: function getReservations() {
       var _this = this;
 
-      console.log("getReservations fut");
-      this.hours = []; //kiuriti a tombot
       axios.get('./api/reservations').then(function (response) {
         _this.reservations = response.data;
-        console.log(_this.reservations);
+        //console.log(this.reservations);
       });
 
       this.message = "Csak egymást követő órák foglalhatók!";
 
       for (var i = 0; i < this.reservations.length; i++) {
         if (this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday) {
-          this.reservationID = this.reservations[i].id;
+          this.reservationID.push(this.reservations[i].id);
+          this.getReservedHours();
         }
       }
-      console.log("getReservations veget er, indul a getReservedHours");
-      this.getReservedHours();
     },
     getReservedHours: function getReservedHours() {
       var _this2 = this;
 
-      this.allFalse();
-      console.log("A getReservedHours ban vagyunk");
       axios.get('./api/Reservedhours').then(function (response) {
         _this2.reservedhours = response.data;
         //console.log(this.reservedhours)
-
-        for (var i = 0; i < _this2.reservedhours.length; i++) {
-          if (_this2.reservedhours[i].reservation_id == _this2.reservationID) {
-            //this.hours.push(this.reservedhours[i].hour );
-            if (_this2.reservedhours[i].hour == 8) {
-              _this2.eightStyle = true;
-            } else if (_this2.reservedhours[i].hour == 9) {
-              _this2.nineStyle = true;
-            } else if (_this2.reservedhours[i].hour == 10) {
-              _this2.tenStyle = true;
-            } else if (_this2.reservedhours[i].hour == 11) {
-              _this2.elevenStyle = true;
-            } else if (_this2.reservedhours[i].hour == 12) {
-              _this2.twelveStyle = true;
-            } else if (_this2.reservedhours[i].hour == 13) {
-              _this2.thrtnStyle = true;
-            } else if (_this2.reservedhours[i].hour == 14) {
-              _this2.frtnStyle = true;
-            } else if (_this2.reservedhours[i].hour == 15) {
-              _this2.fiftnStyle = true;
-            } else if (_this2.reservedhours[i].hour == 16) {
-              _this2.sixtnStyle = true;
-            } else if (_this2.reservedhours[i].hour == 17) {
-              _this2.svntnStyle = true;
-            } else if (_this2.reservedhours[i].hour == 18) {
-              _this2.eightnStyle = true;
-            } else if (_this2.reservedhours[i].hour == 19) {
-              _this2.ninetnStyle = true;
-            } else if (_this2.reservedhours[i].hour == 20) {
-              _this2.twentyStyle = true;
+        for (var k = 0; k < _this2.reservationID.length; k++) {
+          _this2.resID = _this2.reservationID[k];
+          for (var i = 0; i < _this2.reservedhours.length; i++) {
+            if (_this2.reservedhours[i].reservation_id == _this2.resID) {
+              if (_this2.reservedhours[i].hour == 8) {
+                _this2.eightStyle = true;
+              } else if (_this2.reservedhours[i].hour == 9) {
+                _this2.nineStyle = true;
+              } else if (_this2.reservedhours[i].hour == 10) {
+                _this2.tenStyle = true;
+              } else if (_this2.reservedhours[i].hour == 11) {
+                _this2.elevenStyle = true;
+              } else if (_this2.reservedhours[i].hour == 12) {
+                _this2.twelveStyle = true;
+              } else if (_this2.reservedhours[i].hour == 13) {
+                _this2.thrtnStyle = true;
+              } else if (_this2.reservedhours[i].hour == 14) {
+                _this2.frtnStyle = true;
+              } else if (_this2.reservedhours[i].hour == 15) {
+                _this2.fiftnStyle = true;
+              } else if (_this2.reservedhours[i].hour == 16) {
+                _this2.sixtnStyle = true;
+              } else if (_this2.reservedhours[i].hour == 17) {
+                _this2.svntnStyle = true;
+              } else if (_this2.reservedhours[i].hour == 18) {
+                _this2.eightnStyle = true;
+              } else if (_this2.reservedhours[i].hour == 19) {
+                _this2.ninetnStyle = true;
+              } else if (_this2.reservedhours[i].hour == 20) {
+                _this2.twentyStyle = true;
+              }
             }
           }
         }
 
+        if (_this2.eightStyle == true && _this2.nineStyle == true && _this2.tenStyle == true && _this2.elevenStyle == true && _this2.twelveStyle == true && _this2.thrtnStyle == true && _this2.frtnStyle == true && _this2.fiftnStyle == true && _this2.sixtnStyle == true && _this2.svntnStyle == true && _this2.eightnStyle == true && _this2.ninetnStyle == true && _this2.twentyStyle == true) {
+          _this2.message = "Sajnos ma minden időpont foglalt! Válassz egy másik napot. :)";
+        }
+
         console.log(_this2.hours);
         console.log(_this2.hours.length);
-        //console.log(this.hours)
       });
-      //this.allFalse();
-
-      for (var i = 0; i < this.hours.length; i++) {
-        if (this.hours[i] == 8) {
-          this.eightStyle = true;
-        } else if (this.hours[i] == 9) {
-          this.nineStyle = true;
-        } else if (this.hours[i] == 10) {
-          this.tenStyle = true;
-        } else if (this.hours[i] == 11) {
-          this.elevenStyle = true;
-        } else if (this.hours[i] == 12) {
-          this.twelveStyle = true;
-        } else if (this.hours[i] == 13) {
-          this.thrtnStyle = true;
-        } else if (this.hours[i] == 14) {
-          this.frtnStyle = true;
-        } else if (this.hours[i] == 15) {
-          this.fiftnStyle = true;
-        } else if (this.hours[i] == 16) {
-          this.sixtnStyle = true;
-        } else if (this.hours[i] == 17) {
-          this.svntnStyle = true;
-        } else if (this.hours[i] == 18) {
-          this.eightnStyle = true;
-        } else if (this.hours[i] == 19) {
-          this.ninetnStyle = true;
-        } else if (this.hours[i] == 20) {
-          this.twentyStyle = true;
-        }
-      }
-      if (this.eightStyle == true && this.nineStyle == true && this.tenStyle == true && this.elevenStyle == true && this.twelveStyle == true && this.thrtnStyle == true && this.frtnStyle == true && this.fiftnStyle == true && this.sixtnStyle == true && this.svntnStyle == true && this.eightnStyle == true && this.ninetnStyle == true && this.twentyStyle == true) {
-        this.message = "Sajnos ma minden időpont foglalt! Válassz egy másik napot. :)";
-      }
     },
     allFalse: function allFalse() {
       console.log("minden ures");
@@ -30588,12 +30566,107 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       }
     },
     sendReservation: function sendReservation() {
-      axios.post('./api/createReservation', {
-        hour: this.desiredHours,
-        year: this.picked.year,
-        month: this.picked.month,
-        day: this.picked.day
+      var _this3 = this;
+
+      this.reservationID = [];
+      this.resID = '';
+      axios.get('./api/reservations').then(function (response) {
+        _this3.reservations = response.data;
+        //console.log(this.reservations);
       });
+      for (var i = 0; i < this.reservations.length; i++) {
+        if (this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday) {
+          this.reservationID.push(this.reservations[i].id);
+        }
+      }
+      if (this.reservationID.length > 0) {
+        axios.get('./api/Reservedhours').then(function (response) {
+          _this3.reservedhours = response.data;
+
+          for (var k = 0; k < _this3.reservationID.length; k++) {
+            _this3.resID = _this3.reservationID[k];
+            for (var i = 0; i < _this3.reservedhours.length; i++) {
+              if (_this3.reservedhours[i].reservation_id == _this3.resID) {
+                if (_this3.reservedhours[i].hour == 8) {
+                  _this3.eightStyle = true;
+                  _this3.unavaible.push(8);
+                } else if (_this3.reservedhours[i].hour == 9) {
+                  _this3.nineStyle = true;
+                  _this3.unavaible.push(9);
+                } else if (_this3.reservedhours[i].hour == 10) {
+                  _this3.tenStyle = true;
+                  _this3.unavaible.push(10);
+                } else if (_this3.reservedhours[i].hour == 11) {
+                  _this3.elevenStyle = true;
+                  _this3.unavaible.push(11);
+                } else if (_this3.reservedhours[i].hour == 12) {
+                  _this3.twelveStyle = true;
+                  _this3.unavaible.push(12);
+                } else if (_this3.reservedhours[i].hour == 13) {
+                  _this3.thrtnStyle = true;
+                  _this3.unavaible.push(13);
+                } else if (_this3.reservedhours[i].hour == 14) {
+                  _this3.frtnStyle = true;
+                  _this3.unavaible.push(14);
+                } else if (_this3.reservedhours[i].hour == 15) {
+                  _this3.fiftnStyle = true;
+                  _this3.unavaible.push(15);
+                } else if (_this3.reservedhours[i].hour == 16) {
+                  _this3.sixtnStyle = true;
+                  _this3.unavaible.push(16);
+                } else if (_this3.reservedhours[i].hour == 17) {
+                  _this3.svntnStyle = true;
+                  _this3.unavaible.push(17);
+                } else if (_this3.reservedhours[i].hour == 18) {
+                  _this3.eightnStyle = true;
+                  _this3.unavaible.push(18);
+                } else if (_this3.reservedhours[i].hour == 19) {
+                  _this3.ninetnStyle = true;
+                  _this3.unavaible.push(19);
+                } else if (_this3.reservedhours[i].hour == 20) {
+                  _this3.twentyStyle = true;
+                  _this3.unavaible.push(20);
+                }
+              }
+            }
+          }
+        });
+
+        for (var k = 0; k < this.desiredHours.length; k++) {
+          for (var i = 0; i < this.unavaible.length; i++) {
+            if (this.desiredHours[k] == this.unavaible[i]) {
+              this.message = "Ezeket az idopontokat valaki mar lefoglalta!";
+              break;
+            } else {
+              this.validated = true;
+            }
+          }
+        }
+
+        if (this.validated == true) {
+          axios.post('./api/createReservation', {
+            hour: this.desiredHours,
+            year: this.picked.year,
+            month: this.picked.month,
+            day: this.picked.day,
+            players: this.selectedPlayers,
+            tel: this.tel
+          });
+
+          this.desiredHours = [];
+        }
+      } else {
+        axios.post('./api/createReservation', {
+          hour: this.desiredHours,
+          year: this.picked.year,
+          month: this.picked.month,
+          day: this.picked.day,
+          players: this.selectedPlayers,
+          tel: this.tel
+        });
+
+        this.desiredHours = [];
+      }
     }
   }
 });
@@ -30606,74 +30679,82 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "calendar" },
-    [
-      _c("div", { staticClass: "header" }, [
-        _c(
-          "a",
-          { staticClass: "arrow", on: { click: _vm.movePreviousMonth } },
-          [_vm._v("‹")]
-        ),
-        _vm._v(" "),
-        _c("span", { staticClass: "title", on: { click: _vm.moveThisMonth } }, [
-          _vm._v("\n        " + _vm._s(_vm.header.label) + "\n      ")
+  return _c("div", { staticClass: "calendar_container" }, [
+    _c(
+      "div",
+      { staticClass: "calendar" },
+      [
+        _c("div", { staticClass: "header" }, [
+          _c(
+            "a",
+            { staticClass: "arrow", on: { click: _vm.movePreviousMonth } },
+            [_vm._v("‹")]
+          ),
+          _vm._v(" "),
+          _c(
+            "span",
+            { staticClass: "title", on: { click: _vm.moveThisMonth } },
+            [_vm._v("\r\n        " + _vm._s(_vm.header.label) + "\r\n      ")]
+          ),
+          _vm._v(" "),
+          _c("a", { staticClass: "arrow", on: { click: _vm.moveNextMonth } }, [
+            _vm._v("›")
+          ])
         ]),
         _vm._v(" "),
-        _c("a", { staticClass: "arrow", on: { click: _vm.moveNextMonth } }, [
-          _vm._v("›")
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "weekdays" },
-        _vm._l(_vm.weekdays, function(weekday) {
-          return _c("div", { staticClass: "weekday" }, [
-            _vm._v("\n        " + _vm._s(weekday.label) + "\n      ")
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _vm._l(_vm.weeks, function(week) {
-        return _c(
+        _c(
           "div",
-          { staticClass: "week" },
-          _vm._l(week, function(day) {
-            return _c(
-              "div",
-              {
-                staticClass: "day",
-                class: {
-                  today: day.isToday,
-                  "not-in-month": !day.inMonth,
-                  selected: day.isSelected
-                },
-                on: {
-                  click: function($event) {
-                    return _vm.$emit("selectDay", day)
-                  }
-                }
-              },
-              [_vm._v("\n        " + _vm._s(day[_vm.dayKey]) + "\n      ")]
-            )
+          { staticClass: "weekdays" },
+          _vm._l(_vm.weekdays, function(weekday) {
+            return _c("div", { staticClass: "weekday" }, [
+              _vm._v("\r\n        " + _vm._s(weekday.label) + "\r\n      ")
+            ])
           }),
           0
-        )
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "info", class: { show: _vm.show } }, [
-        _c("p", [
-          _vm._v(
-            "Szabad időpontok ezen a napon: " +
-              _vm._s(_vm.header.label) +
-              "  " +
-              _vm._s(_vm.picked.day) +
-              ". " +
-              _vm._s(_vm.message)
+        ),
+        _vm._v(" "),
+        _vm._l(_vm.weeks, function(week) {
+          return _c(
+            "div",
+            { staticClass: "week" },
+            _vm._l(week, function(day) {
+              return _c(
+                "div",
+                {
+                  staticClass: "day",
+                  class: {
+                    today: day.isToday,
+                    "not-in-month": !day.inMonth,
+                    selected: day.isSelected
+                  },
+                  on: {
+                    click: function($event) {
+                      return _vm.$emit("selectDay", day)
+                    }
+                  }
+                },
+                [
+                  _vm._v(
+                    "\r\n        " + _vm._s(day[_vm.dayKey]) + "\r\n      "
+                  )
+                ]
+              )
+            }),
+            0
           )
+        })
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { staticClass: "reservationData_container" }, [
+      _c("div", { staticClass: "info", class: { show: _vm.show } }, [
+        _c("p", [_vm._v("Szabad időpontok ezen a napon: ")]),
+        _c("p", { staticClass: "selectedday" }, [
+          _vm._v(_vm._s(_vm.header.label) + " " + _vm._s(_vm.picked.day) + ".")
+        ]),
+        _c("p", { staticClass: "messagetext" }, [
+          _vm._v(" " + _vm._s(_vm.message) + " ")
         ])
       ]),
       _vm._v(" "),
@@ -30813,6 +30894,73 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
+      _c("div", { staticClass: "form" }, [
+        _c("div", { staticClass: "players" }, [
+          _c("p", [_vm._v("Jatekosok szama: ")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "control" }, [
+            _c("div", { staticClass: "select is-primary" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.selectedPlayers,
+                      expression: "selectedPlayers"
+                    }
+                  ],
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.selectedPlayers = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                _vm._l(_vm.players, function(player) {
+                  return _c("option", [_vm._v(_vm._s(player))])
+                }),
+                0
+              )
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "tel" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.tel,
+                expression: "tel"
+              }
+            ],
+            staticClass: "input",
+            attrs: { type: "text", placeholder: "Tel" },
+            domProps: { value: _vm.tel },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.tel = $event.target.value
+              }
+            }
+          })
+        ])
+      ]),
+      _vm._v(" "),
       _c(
         "div",
         { staticClass: "button_container", class: { show: _vm.show } },
@@ -30826,14 +30974,9 @@ var render = function() {
             [_vm._v("Foglalok")]
           )
         ]
-      ),
-      _vm._v(" "),
-      _vm._l(_vm.hours, function(hour) {
-        return _c("div", [_c("p", [_vm._v("Foglalt orak: " + _vm._s(hour))])])
-      })
-    ],
-    2
-  )
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

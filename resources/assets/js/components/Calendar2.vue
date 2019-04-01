@@ -1,4 +1,5 @@
 <template>
+<div class="calendar_container">
 	<div class='calendar'>
     <div class='header'>
       <a class='arrow' @click='movePreviousMonth'>&lsaquo;</a>
@@ -21,8 +22,10 @@
         {{ day[dayKey] }}
       </div>
     </div>
+  </div>
+  <div class="reservationData_container">
     <div class="info" v-bind:class="{show:show}">
-      <p>Szabad időpontok ezen a napon: {{ header.label }}  {{picked.day}}. {{message}}</p>
+      <p>Szabad időpontok ezen a napon: </p><p class="selectedday">{{ header.label }} {{picked.day}}.</p><p class="messagetext"> {{message}} </p>
     </div>
     <div class="columns is-marginless" v-bind:class="{show:show}">
         <div class="column is-1 eight" v-bind:class="{eightStyle:eightStyle, desired8:desired8}" @click='isSelected8'>
@@ -65,13 +68,26 @@
             <a>20:00</a>
         </div>
     </div>
+    <div class="form">
+      <div class="players">
+        <p>Jatekosok szama: </p>
+        <div class="control">
+          <div class="select is-primary">
+            <select v-model="selectedPlayers">
+              <option v-for="player in players">{{player}}</option>
+            </select> 
+          </div>
+        </div>
+      </div>
+      <div class="tel">
+        <input class="input" type="text" placeholder="Tel" v-model="tel">
+      </div>
+    </div>
     <div class="button_container" v-bind:class="{show:show}">  
       <a class="button is-warning is-medium" @click="sendReservation">Foglalok</a>
     </div>
-    <div v-for="hour in hours">
-      <p>Foglalt orak: {{hour}}</p>
-    </div>
   </div>
+</div>
 </template>
 
 <script>
@@ -106,14 +122,12 @@ export default ({
       picked: _todayComps,
       selectedday: _todayComps.day,
       selectedmonth: _todayComps.month,
-      hour: '',
-      reservationID: '',
-      hours: [],
+      reservationID: [],
+      resID: '',
       reservedhours: [],
       desiredHours: [],
       reservations: {},
-      bookedMonth: {},
-      bookedDay: {},
+      unavaible: [],
       eightStyle: false,
       nineStyle: false,
       tenStyle: false,
@@ -142,7 +156,10 @@ export default ({
       desired18: false,
       desired19: false,
       desired20: false,
-      a: 0,
+      validated: false,
+      players: [6,8,10,12,14,16,18,20],
+      selectedPlayers: {},
+      tel: '',
 	 };
   },
   created() {
@@ -298,7 +315,6 @@ export default ({
     dateSelectionLabel() {
       return JSON.stringify(this.dateSelection, null, '\t');
     },
-    
 	  // End of computed properties
 },
 mounted() {
@@ -330,52 +346,46 @@ methods: {
       day.isSelected = day.date.getTime() === this.valueTime;
   },
   selectDay(day) {
-      
-      this.reservationID = '';
+      this.allFalse();
+      this.reservationID = [];
       this.reservedhours = [];
+      this.desiredHours = [];
 
       this.$emit('input', day.isSelected ? null : day.date);
       this.picked = day;
       this.selectedday = this.picked.day;
       this.selectedmonth = this.picked.month;
-      //console.log(day);
-      //console.log(this.picked);
-      //console.log(this.selectedmonth);
-      //console.log(this.selectedday);
 
       this.show = true;
-      console.log("Veget ert a SelectDay, indul a getReservations");
       this.getReservations();
   },
   //Show Reservation methods
   getReservations() {
-    console.log("getReservations fut")
-    this.hours = []; //kiuriti a tombot
     axios.get('./api/reservations').then(response => {
       this.reservations = response.data;
-      console.log(this.reservations);
+      //console.log(this.reservations);
     });
    
     this.message = "Csak egymást követő órák foglalhatók!";
 
     for (var i = 0; i < this.reservations.length; i++) {
         if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
-          this.reservationID = this.reservations[i].id
+          this.reservationID.push(this.reservations[i].id);
+          this.getReservedHours();
         }
+
     }
-    console.log("getReservations veget er, indul a getReservedHours");
-    this.getReservedHours();
+    
   },
   getReservedHours(){
-    this.allFalse();
-    console.log("A getReservedHours ban vagyunk");
+    
     axios.get('./api/Reservedhours').then(response => {
       this.reservedhours = response.data
       //console.log(this.reservedhours)
-    
+    for (var k = 0; k < this.reservationID.length; k++) {
+      this.resID = this.reservationID[k];
       for (var i = 0; i < this.reservedhours.length; i++) {
-        if(this.reservedhours[i].reservation_id == this.reservationID){
-          //this.hours.push(this.reservedhours[i].hour );
+        if(this.reservedhours[i].reservation_id == this.resID){
           if(this.reservedhours[i].hour == 8){
             this.eightStyle = true;
           }
@@ -417,69 +427,27 @@ methods: {
           }
         }
       }
+    }
+
+      if(this.eightStyle  == true &&
+         this.nineStyle   == true &&
+         this.tenStyle    == true &&
+         this.elevenStyle == true &&
+         this.twelveStyle == true &&
+         this.thrtnStyle  == true &&
+         this.frtnStyle   == true &&
+         this.fiftnStyle  == true &&
+         this.sixtnStyle  == true &&
+         this.svntnStyle  == true &&
+         this.eightnStyle == true &&
+         this.ninetnStyle == true &&
+         this.twentyStyle == true){
+        this.message = "Sajnos ma minden időpont foglalt! Válassz egy másik napot. :)";
+      }
 
       console.log(this.hours);
       console.log(this.hours.length);
-      //console.log(this.hours)
     });
-    //this.allFalse();
-
-    for (var i = 0; i < this.hours.length; i++) {
-      if(this.hours[i] == 8){
-        this.eightStyle = true;
-      }
-      else if(this.hours[i] == 9){
-        this.nineStyle = true;
-      }
-      else if(this.hours[i] == 10){
-        this.tenStyle = true;
-      }
-      else if(this.hours[i] == 11){
-        this.elevenStyle = true;
-      }
-      else if(this.hours[i] == 12){
-        this.twelveStyle = true;
-      }
-      else if(this.hours[i] == 13){
-        this.thrtnStyle = true;
-      }
-      else if(this.hours[i] == 14){
-        this.frtnStyle = true;
-      }
-      else if(this.hours[i] == 15){
-        this.fiftnStyle = true;
-      }
-      else if(this.hours[i] == 16){
-        this.sixtnStyle = true;
-      }
-      else if(this.hours[i] == 17){
-        this.svntnStyle = true;
-      }
-      else if(this.hours[i] == 18){
-        this.eightnStyle = true;
-      }
-      else if(this.hours[i] == 19){
-        this.ninetnStyle = true;
-      }
-      else if(this.hours[i] == 20){
-        this.twentyStyle = true;
-      }
-    }
-    if(this.eightStyle  == true &&
-       this.nineStyle   == true &&
-       this.tenStyle    == true &&
-       this.elevenStyle == true &&
-       this.twelveStyle == true &&
-       this.thrtnStyle  == true &&
-       this.frtnStyle   == true &&
-       this.fiftnStyle  == true &&
-       this.sixtnStyle  == true &&
-       this.svntnStyle  == true &&
-       this.eightnStyle == true &&
-       this.ninetnStyle == true &&
-       this.twentyStyle == true){
-      this.message = "Sajnos ma minden időpont foglalt! Válassz egy másik napot. :)";
-    }
   },
   allFalse(){
     console.log("minden ures");
@@ -721,12 +689,121 @@ methods: {
     }
   },
   sendReservation(){
-      axios.post('./api/createReservation',{
-        hour: this.desiredHours,
-        year: this.picked.year,
-        month: this.picked.month,
-        day: this.picked.day,
+    this.reservationID = [];
+    this.resID = '';
+      axios.get('./api/reservations').then(response => {
+        this.reservations = response.data;
+        //console.log(this.reservations);
       });
+      for (var i = 0; i < this.reservations.length; i++) {
+        if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
+          this.reservationID.push(this.reservations[i].id);
+        }
+      }
+      if(this.reservationID.length > 0){
+      axios.get('./api/Reservedhours').then(response => {
+        this.reservedhours = response.data
+
+        for (var k = 0; k < this.reservationID.length; k++) {
+        this.resID = this.reservationID[k];
+        for (var i = 0; i < this.reservedhours.length; i++) {
+        if(this.reservedhours[i].reservation_id == this.resID){
+          if(this.reservedhours[i].hour == 8){
+            this.eightStyle = true;
+            this.unavaible.push(8);
+          }
+          else if(this.reservedhours[i].hour == 9){
+            this.nineStyle = true;
+            this.unavaible.push(9);
+          }
+          else if(this.reservedhours[i].hour == 10){
+            this.tenStyle = true;
+            this.unavaible.push(10);
+          }
+          else if(this.reservedhours[i].hour == 11){
+            this.elevenStyle = true;
+            this.unavaible.push(11);
+          }
+          else if(this.reservedhours[i].hour == 12){
+            this.twelveStyle = true;
+            this.unavaible.push(12);
+          }
+          else if(this.reservedhours[i].hour == 13){
+            this.thrtnStyle = true;
+            this.unavaible.push(13);
+          }
+          else if(this.reservedhours[i].hour == 14){
+            this.frtnStyle = true;
+            this.unavaible.push(14);
+          }
+          else if(this.reservedhours[i].hour == 15){
+            this.fiftnStyle = true;
+            this.unavaible.push(15);
+          }
+          else if(this.reservedhours[i].hour == 16){
+            this.sixtnStyle = true;
+            this.unavaible.push(16);
+          }
+          else if(this.reservedhours[i].hour == 17){
+            this.svntnStyle = true;
+            this.unavaible.push(17);
+          }
+          else if(this.reservedhours[i].hour == 18){
+            this.eightnStyle = true;
+            this.unavaible.push(18);
+          }
+          else if(this.reservedhours[i].hour == 19){
+            this.ninetnStyle = true;
+            this.unavaible.push(19);
+          }
+          else if(this.reservedhours[i].hour == 20){
+            this.twentyStyle = true;
+            this.unavaible.push(20);
+          }
+        }
+      }
+    }
+      });
+
+      for (var k = 0; k < this.desiredHours.length; k++) {
+        for (var i = 0; i < this.unavaible.length; i++) {
+          if(this.desiredHours[k] == this.unavaible[i]){
+            this.message = "Ezeket az idopontokat valaki mar lefoglalta!";
+            break;
+          }
+          else{
+            this.validated = true;
+          }
+        }
+      }
+
+      if(this.validated == true){
+        axios.post('./api/createReservation',{
+          hour: this.desiredHours,
+          year: this.picked.year,
+          month: this.picked.month,
+          day: this.picked.day,
+          players: this.selectedPlayers,
+          tel: this.tel,
+        });
+
+        this.desiredHours = [];
+      }
+
+
+    }else{
+      axios.post('./api/createReservation',{
+          hour: this.desiredHours,
+          year: this.picked.year,
+          month: this.picked.month,
+          day: this.picked.day,
+          players: this.selectedPlayers,
+          tel: this.tel,
+        });
+
+        this.desiredHours = [];
+      }
+      
     }
   },
 });
@@ -741,9 +818,22 @@ methods: {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   padding: 20px;
 }
+.calendar_container{
+  width: 1200px;
+  margin: 0 auto;
+  background-color: #e9e9e9;
+  padding: 1rem;
+  box-shadow: 0px 0px 5px black;
+}
 .calendar{
   display: flex;
   flex-direction: column;
+  width: 50em;
+  margin: 0 auto;
+}
+.reservationData_container{
+  width: 50em;
+  margin: 0 auto;
 }
 .header{
   display: flex;
@@ -754,25 +844,25 @@ methods: {
   border: 1px solid #aaaaaa;
   background-color: orange;
  }
-  .arrow{
-    padding: 0 0.4em 0.2em 0.4em;
-    font-size: 1.8rem;
-    font-weight: 500;
-    user-select: none;
-    flex-grow: 0;
-    }
-	.arrow:hover{
-		color: #dcdcdc;
-	}
-
-  .title{
-    flex-grow: 1;
-    font-size: 1.2rem;
-    text-align: center;
+.arrow{
+  padding: 0 0.4em 0.2em 0.4em;
+  font-size: 1.8rem;
+  font-weight: 500;
+  user-select: none;
+  flex-grow: 0;
+  }
+.arrow:hover{
+	color: #dcdcdc;
 }
-    .title:hover{
-    	color: #dcdcdc;
-    }
+
+.title{
+  flex-grow: 1;
+  font-size: 1.2rem;
+  text-align: center;
+}
+.title:hover{
+	color: #dcdcdc;
+}
 
 .weekdays{
   display: flex;
@@ -821,7 +911,7 @@ methods: {
 }
 
 .columns{
-  width: 59em;
+  width: 50em;
   border: 3px solid orange;
   display: none !important;
 }
@@ -838,7 +928,7 @@ methods: {
 .column a{
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 14px 10px;
   text-decoration: none;
 }
 .column.is-1{
@@ -847,6 +937,15 @@ methods: {
 }
 .info{
   display: none;
+  font-size: 19px;
+  font-weight: bold;
+  display: flex;
+}
+.selectedday{
+  color:#000;
+}
+.messagetext{
+  color:#f00;
 }
 .show.info{
   display: block;
@@ -858,6 +957,16 @@ methods: {
 }
 .show.button_container{
   display: block;
+}
+.form{
+  padding: .5rem;
+}
+.players{
+  display: flex;
+  font-size: 19px;
+}
+.tel{
+  width: 14rem;
 }
 /*Occupied style*/
 .eightStyle.eight{
@@ -950,5 +1059,9 @@ methods: {
 }
 .desired20.twenty{
   background-color: green;
+}
+
+.select{
+  width: 5rem;
 }
 </style>
