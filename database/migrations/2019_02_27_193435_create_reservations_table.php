@@ -19,10 +19,10 @@ class CreateReservationsTable extends Migration
             $table->integer('month')->nullable();
             $table->integer('day')->nullable();
             //$table->unsignedInteger('user_id')->nullable();
-            //$table->unsignedInteger('package_id');
+            $table->unsignedInteger('package_id')->nullable();
             $table->integer('players')->nullable();
             $table->integer('tel')->nullable();
-            //$table->text('note');
+            $table->text('note')->nullable();
             //$table->integer('bonus_used');
             //$table->double('price');
             //$table->boolean('paid_status');

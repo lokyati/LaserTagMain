@@ -30,7 +30,9 @@
 				Elozmenyek
 			</div>
 			<div class="bookings" v-bind:class="{showBookings:showBookings}">
-				Foglalasok
+				<div>
+					<bookingcalendar></bookingcalendar>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -38,6 +40,8 @@
 
 <script>
 import settingsDropdown from './settingsDropdown'
+import bookingCalendar from './Calendar'
+
 export default {
 	data() {
 		return{
@@ -54,7 +58,8 @@ export default {
 		this.getUserData();
   	},
   	components: {
-    	settingsdropdown: settingsDropdown
+    	settingsdropdown: settingsDropdown,
+    	bookingcalendar: bookingCalendar
   	},
   	methods: {
   		showS(){
@@ -107,7 +112,6 @@ export default {
 	}
 	.profil_content{
 		width: 100%;
-		height: 400px;
 		background-color: green;
 	}
 	.avatar{
@@ -154,7 +158,7 @@ export default {
 	.stats{
 		display:none;
 		width: 100%;
-		height: 400px;
+		min-height: 400px;
 		background-color: purple;
 	}
 	.showStat.stats{
@@ -166,7 +170,7 @@ export default {
 	.history{
 		display:none;
 		width: 100%;
-		height: 400px;
+		min-height: 400px;
 		background-color: orange;
 	}
 	.showHistory.history{
@@ -178,7 +182,7 @@ export default {
 	.bookings{
 		display:none;
 		width: 100%;
-		height: 400px;
+		min-height: 400px;
 		background-color: black;
 	}
 	.showBookings.bookings{

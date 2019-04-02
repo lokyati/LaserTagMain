@@ -14,8 +14,10 @@ Vue.use(VueResource);
 
 Vue.component('gdprmodal', require('./components/GDPRModal.vue'));
 Vue.component('infomodal', require('./components/InfoModal.vue'));
+Vue.component('successmodal', require('./components/SuccessModal.vue'));
+Vue.component('failmodal', require('./components/FailModal.vue'));
+
 Vue.component('calendar', require('./components/Calendar.vue'));
-Vue.component('calendar2', require('./components/Calendar2.vue'));
 Vue.component('userprofil',require('./components/userProfil.vue'));
 Vue.component('settingsdropdown',require('./components/settingsDropdown.vue'));
 Vue.component('profildelete',require('./components/profilDelete.vue'));

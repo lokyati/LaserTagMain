@@ -1534,8 +1534,10 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('gdprmodal', __webpack_require__(46));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('infomodal', __webpack_require__(52));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('successmodal', __webpack_require__(91));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('failmodal', __webpack_require__(86));
+
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('calendar', __webpack_require__(57));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('calendar2', __webpack_require__(62));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('userprofil', __webpack_require__(67));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('settingsdropdown', __webpack_require__(14));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('profildelete', __webpack_require__(15));
@@ -29523,7 +29525,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n  padding: 20px;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #ff7a58;\n}\n.arrow{\r\n    padding: 0 0.4em 0.2em 0.4em;\r\n    font-size: 1.8rem;\r\n    font-weight: 500;\r\n    -webkit-user-select: none;\r\n       -moz-user-select: none;\r\n        -ms-user-select: none;\r\n            user-select: none;\r\n    -webkit-box-flex: 0;\r\n        -ms-flex-positive: 0;\r\n            flex-grow: 0;\n}\n.arrow:hover{\r\n\t\tcolor: #dcdcdc;\n}\n.title{\r\n    -webkit-box-flex: 1;\r\n        -ms-flex-positive: 1;\r\n            flex-grow: 1;\r\n    font-size: 1.2rem;\r\n    text-align: center;\n}\n.title:hover{\r\n    \tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\nbackground-color: #ff7a58;\n}\r\n", ""]);
+exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n  padding: 20px;\n}\n.calendar_container{\r\n  /*max-width: 1200px;\r\n  margin: 0 auto;*/\r\n  background-color: #e9e9e9;\r\n  padding: 1rem;\r\n  -webkit-box-shadow: 0px 0px 5px black;\r\n          box-shadow: 0px 0px 5px black;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  margin: 0 auto;\n}\n.reservationData_container{\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n  padding: 0 0.4em 0.2em 0.4em;\r\n  font-size: 1.8rem;\r\n  font-weight: 500;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  -webkit-box-flex: 0;\r\n      -ms-flex-positive: 0;\r\n          flex-grow: 0;\n}\n.arrow:hover{\r\n\tcolor: #dcdcdc;\n}\n.title{\r\n  -webkit-box-flex: 1;\r\n      -ms-flex-positive: 1;\r\n          flex-grow: 1;\r\n  font-size: 1.2rem;\r\n  text-align: center;\n}\n.title:hover{\r\n\tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\r\n  background-color: #5f5f5f;\r\n  color:white;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca !important; \r\n  background-color: #fafafa !important;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.hours_container{\r\n  width: 49em;\r\n  border: 3px solid orange;\r\n  display: none !important;\n}\n.show.hours_container{\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\n}\n.hour_container{\r\n  padding: 0.75rem 0;\r\n  background-color: #333;\n}\n.hour_container:hover{\r\n  background-color: #575656;\n}\n.hour_container a{\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 10px;\r\n  text-decoration: none;\n}\n.hour_container.is-1{\r\n  width: 7.712%;\r\n  border-right: 2px solid orange;\n}\n.info{\r\n  display: none;\r\n  font-size: 19px;\r\n  font-weight: bold;\n}\n.selectedday{\r\n  color:#000;\n}\n.messagetext{\r\n  color:#f00;\n}\n.show.info{\r\n  display: block;\n}\n.textarea_container{\r\n  width: 30em;\n}\n.button_container{\r\n  width:200px;\r\n  padding: 1rem;\r\n  display: none;\n}\n.show.button_container{\r\n  display: block;\n}\n.form{\r\n  padding: .5rem;\n}\n.players{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.tel{\r\n  width: 14rem;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.note p{\r\n  font-size: 19px;\n}\r\n/*Occupied style*/\n.eightStyle.eight{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired8.eight{\r\n  background-color: green;\n}\n.nineStyle.nine{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired9.nine{\r\n  background-color: green;\n}\n.tenStyle.ten{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired10.ten{\r\n  background-color: green;\n}\n.elevenStyle.eleven{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired11.eleven{\r\n  background-color: green;\n}\n.twelveStyle.twelve{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired12.twelve{\r\n  background-color: green;\n}\n.thrtnStyle.thrtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired13.thrtn{\r\n  background-color: green;\n}\n.frtnStyle.frtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired14.frtn{\r\n  background-color: green;\n}\n.fiftnStyle.fiftn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired15.fiftn{\r\n  background-color: green;\n}\n.sixtnStyle.sixtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired16.sixtn{\r\n  background-color: green;\n}\n.svntnStyle.svntn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired17.svntn{\r\n  background-color: green;\n}\n.eightnStyle.eightn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired18.eightn{\r\n  background-color: green;\n}\n.ninetnStyle.ninetn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired19.ninetn{\r\n  background-color: green;\n}\n.twentyStyle.twenty{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired20.twenty{\r\n  background-color: green;\n}\n.select{\r\n  width: 5rem;\n}\r\n", ""]);
 
 // exports
 
@@ -29534,6 +29536,95 @@ exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SuccessModal__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SuccessModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__SuccessModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FailModal__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FailModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__FailModal__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -29559,436 +29650,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 
-// Calendar data
-var _daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-var _weekdayLabels = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-var _weekdayLength = 3;
-var _weekdayCasing = 'title';
-var _monthLabels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-var _monthLength = 0;
-var _monthCasing = 'title';
 
-// Helper function for label transformation
-var _transformLabel = function _transformLabel(label, length, casing) {
-		label = length <= 0 ? label : label.substring(0, length);
-		if (casing.toLowerCase() === 'lower') return label.toLowerCase();
-		if (casing.toLowerCase() === 'upper') return label.toUpperCase();
-		return label;
-};
-
-// Today's data
-var _today = new Date();
-var _todayComps = {
-		year: _today.getFullYear(),
-		month: _today.getMonth() + 1,
-		day: _today.getDate()
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-		data: function data() {
-				return {
-						month: _todayComps.month,
-						year: _todayComps.year
-				};
-		},
-
-
-		computed: {
-				// Our component exposes month as 1-based, but sometimes we need 0-based
-				monthIndex: function monthIndex() {
-						return this.month - 1;
-				},
-
-				// State referenced by header (no dependencies yet...)
-				months: function months() {
-						return _monthLabels.map(function (ml, i) {
-								return {
-										label: _transformLabel(ml, _monthLength, _monthCasing),
-										number: i + 1
-								};
-						});
-				},
-
-				// State for weekday header (no dependencies yet...)
-				weekdays: function weekdays() {
-						return _weekdayLabels.map(function (wl, i) {
-								return {
-										label: _transformLabel(wl, _weekdayLength, _weekdayCasing),
-										number: i + 1
-								};
-						});
-				},
-
-				// State for calendar header
-				header: function header() {
-						var month = this.months[this.monthIndex];
-						return {
-								month: month,
-								year: this.year.toString(),
-								shortYear: this.year.toString().substring(2, 4),
-								label: month.label + ' ' + this.year
-						};
-				},
-
-				// Returns number for first weekday (1-7), starting from Sunday
-				firstWeekdayInMonth: function firstWeekdayInMonth() {
-						return new Date(this.year, this.monthIndex, 1).getDay() + 1;
-				},
-
-				// Returns number of days in the current month
-				daysInMonth: function daysInMonth() {
-						// Check for February in a leap year
-						var isFebruary = this.month === 2;
-						var isLeapYear = this.year % 4 == 0 && this.year % 100 != 0 || this.year % 400 == 0;
-						if (isFebruary && isLeapYear) return 29;
-						// ...Just a normal month
-						return _daysInMonths[this.monthIndex];
-				},
-				weeks: function weeks() {
-						var weeks = [];
-						var monthStarted = false,
-						    monthEnded = false;
-						var monthDay = 0;
-						// Cycle through each week of the month, up to 6 total
-						for (var w = 1; w <= 6 && !monthEnded; w++) {
-								// Cycle through each weekday
-								var week = [];
-								for (var d = 1; d <= 7; d++) {
-										// We need to know when to start counting actual month days
-										if (!monthStarted && d >= this.firstWeekdayInMonth) {
-												// Initialize day counter
-												monthDay = 1;
-												// ...and flag we're tracking actual month days
-												monthStarted = true;
-												// Still in the middle of the month (hasn't ended yet)
-										} else if (monthStarted && !monthEnded) {
-												// Increment the day counter
-												monthDay += 1;
-										}
-										// Append day info for the current week
-										// Note: this might or might not be an actual month day
-										//  We don't know how the UI wants to display various days,
-										//  so we'll supply all the data we can
-										week.push({
-												label: monthDay ? monthDay.toString() : '',
-												number: monthDay,
-												weekdayNumber: d,
-												weekNumber: w,
-												beforeMonth: !monthStarted,
-												afterMonth: monthEnded,
-												inMonth: monthStarted && !monthEnded,
-												isToday: monthDay === _todayComps.day && this.month === _todayComps.month && this.year === _todayComps.year,
-												isFirstDay: monthDay === 1,
-												isLastDay: monthDay === this.daysInMonth
-										});
-
-										// Trigger end of month on the last day
-										if (monthStarted && !monthEnded && monthDay >= this.daysInMonth) {
-												monthDay = 0;
-												monthEnded = true;
-										}
-								}
-								// Append week info for the month
-								weeks.push(week);
-						}
-						return weeks;
-				}
-		},
-
-		methods: {
-				moveThisMonth: function moveThisMonth() {
-						this.month = _todayComps.month;
-						this.year = _todayComps.year;
-				},
-				moveNextMonth: function moveNextMonth() {
-						if (this.month < 12) {
-								this.month++;
-						} else {
-								this.month = 1;
-								this.year++;
-						}
-				},
-				movePreviousMonth: function movePreviousMonth() {
-						if (this.month > 1) {
-								this.month--;
-						} else {
-								this.month = 12;
-								this.year--;
-						}
-				},
-				moveNextYear: function moveNextYear() {
-						this.year++;
-				},
-				movePreviousYear: function movePreviousYear() {
-						this.year--;
-				}
-		}
-});
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "calendar" },
-    [
-      _c("div", { staticClass: "header" }, [
-        _c("a", { staticClass: "arrow", on: { click: _vm.movePreviousYear } }, [
-          _vm._v("«")
-        ]),
-        _vm._v(" "),
-        _c(
-          "a",
-          { staticClass: "arrow", on: { click: _vm.movePreviousMonth } },
-          [_vm._v("‹")]
-        ),
-        _vm._v(" "),
-        _c("span", { staticClass: "title", on: { click: _vm.moveThisMonth } }, [
-          _vm._v("\n        " + _vm._s(_vm.header.label) + "\n      ")
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "arrow", on: { click: _vm.moveNextMonth } }, [
-          _vm._v("›")
-        ]),
-        _vm._v(" "),
-        _c("a", { staticClass: "arrow", on: { click: _vm.moveNextYear } }, [
-          _vm._v("»")
-        ])
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "weekdays" },
-        _vm._l(_vm.weekdays, function(weekday) {
-          return _c("div", { staticClass: "weekday" }, [
-            _vm._v("\n        " + _vm._s(weekday.label) + "\n      ")
-          ])
-        }),
-        0
-      ),
-      _vm._v(" "),
-      _vm._l(_vm.weeks, function(week) {
-        return _c(
-          "div",
-          { staticClass: "week" },
-          _vm._l(week, function(day) {
-            return _c(
-              "div",
-              { staticClass: "day", class: { today: day.isToday } },
-              [_vm._v("\n        " + _vm._s(day.label) + "\n      ")]
-            )
-          }),
-          0
-        )
-      })
-    ],
-    2
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5700b516", module.exports)
-  }
-}
-
-/***/ }),
-/* 62 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(63)
-}
-var normalizeComponent = __webpack_require__(2)
-/* script */
-var __vue_script__ = __webpack_require__(65)
-/* template */
-var __vue_template__ = __webpack_require__(66)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Calendar2.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-88e69ae6", Component.options)
-  } else {
-    hotAPI.reload("data-v-88e69ae6", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(64);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(3)("35cf3abe", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-88e69ae6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Calendar2.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-88e69ae6\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Calendar2.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 64 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(1)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\r\n  padding: 20px;\n}\n.calendar_container{\r\n  width: 1200px;\r\n  margin: 0 auto;\r\n  background-color: #e9e9e9;\r\n  padding: 1rem;\r\n  -webkit-box-shadow: 0px 0px 5px black;\r\n          box-shadow: 0px 0px 5px black;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  width: 50em;\r\n  margin: 0 auto;\n}\n.reservationData_container{\r\n  width: 50em;\r\n  margin: 0 auto;\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n  padding: 0 0.4em 0.2em 0.4em;\r\n  font-size: 1.8rem;\r\n  font-weight: 500;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  -webkit-box-flex: 0;\r\n      -ms-flex-positive: 0;\r\n          flex-grow: 0;\n}\n.arrow:hover{\r\n\tcolor: #dcdcdc;\n}\n.title{\r\n  -webkit-box-flex: 1;\r\n      -ms-flex-positive: 1;\r\n          flex-grow: 1;\r\n  font-size: 1.2rem;\r\n  text-align: center;\n}\n.title:hover{\r\n\tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\r\n  background-color: #5f5f5f;\r\n  color:white;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca !important; \r\n  background-color: #fafafa !important;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.columns{\r\n  width: 50em;\r\n  border: 3px solid orange;\r\n  display: none !important;\n}\n.show.columns{\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\n}\n.column{\r\n  padding: 0.75rem 0;\r\n  background-color: #333;\n}\n.column:hover{\r\n  background-color: #575656;\n}\n.column a{\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 10px;\r\n  text-decoration: none;\n}\n.column.is-1{\r\n  width: 7.712%;\r\n  border-right: 2px solid orange;\n}\n.info{\r\n  display: none;\r\n  font-size: 19px;\r\n  font-weight: bold;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.selectedday{\r\n  color:#000;\n}\n.messagetext{\r\n  color:#f00;\n}\n.show.info{\r\n  display: block;\n}\n.button_container{\r\n  width:200px;\r\n  padding: 1rem;\r\n  display: none;\n}\n.show.button_container{\r\n  display: block;\n}\n.form{\r\n  padding: .5rem;\n}\n.players{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.tel{\r\n  width: 14rem;\n}\r\n/*Occupied style*/\n.eightStyle.eight{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired8.eight{\r\n  background-color: green;\n}\n.nineStyle.nine{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired9.nine{\r\n  background-color: green;\n}\n.tenStyle.ten{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired10.ten{\r\n  background-color: green;\n}\n.elevenStyle.eleven{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired11.eleven{\r\n  background-color: green;\n}\n.twelveStyle.twelve{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired12.twelve{\r\n  background-color: green;\n}\n.thrtnStyle.thrtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired13.thrtn{\r\n  background-color: green;\n}\n.frtnStyle.frtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired14.frtn{\r\n  background-color: green;\n}\n.fiftnStyle.fiftn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired15.fiftn{\r\n  background-color: green;\n}\n.sixtnStyle.sixtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired16.sixtn{\r\n  background-color: green;\n}\n.svntnStyle.svntn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired17.svntn{\r\n  background-color: green;\n}\n.eightnStyle.eightn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired18.eightn{\r\n  background-color: green;\n}\n.ninetnStyle.ninetn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired19.ninetn{\r\n  background-color: green;\n}\n.twentyStyle.twenty{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired20.twenty{\r\n  background-color: green;\n}\n.select{\r\n  width: 5rem;\n}\r\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 65 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 // Calendar data
 var _daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -30022,11 +29684,12 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       selectedday: _todayComps.day,
       selectedmonth: _todayComps.month,
       reservationID: [],
-      resID: '',
       reservedhours: [],
       desiredHours: [],
       reservations: {},
       unavaible: [],
+      players: [6, 8, 10, 12, 14, 16, 18, 20],
+      selectedPlayers: {},
       eightStyle: false,
       nineStyle: false,
       tenStyle: false,
@@ -30040,7 +29703,6 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       eightnStyle: false,
       ninetnStyle: false,
       twentyStyle: false,
-      message: 'Csak egymást követő órák foglalhatók!',
       show: false,
       desired8: false,
       desired9: false,
@@ -30056,10 +29718,18 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       desired19: false,
       desired20: false,
       validated: false,
-      players: [6, 8, 10, 12, 14, 16, 18, 20],
-      selectedPlayers: {},
-      tel: ''
+      showsuccess: false,
+      showfail: false,
+      message: 'Csak egymást követő órák foglalhatók!',
+      tel: '',
+      note: '',
+      resID: ''
     };
+  },
+
+  components: {
+    successmodal: __WEBPACK_IMPORTED_MODULE_0__SuccessModal___default.a,
+    failmodal: __WEBPACK_IMPORTED_MODULE_1__FailModal___default.a
   },
   created: function created() {
     this.$on('configureDay', this.configureDay);
@@ -30278,6 +29948,8 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       axios.get('./api/reservations').then(function (response) {
         _this.reservations = response.data;
         //console.log(this.reservations);
+      }).catch(function (error) {
+        console.log(error);
       });
 
       this.message = "Csak egymást követő órák foglalhatók!";
@@ -30336,6 +30008,8 @@ var _transformLabel = function _transformLabel(label, length, casing) {
 
         console.log(_this2.hours);
         console.log(_this2.hours.length);
+      }).catch(function (error) {
+        console.log(error);
       });
     },
     allFalse: function allFalse() {
@@ -30570,109 +30244,130 @@ var _transformLabel = function _transformLabel(label, length, casing) {
 
       this.reservationID = [];
       this.resID = '';
-      axios.get('./api/reservations').then(function (response) {
-        _this3.reservations = response.data;
-        //console.log(this.reservations);
-      });
-      for (var i = 0; i < this.reservations.length; i++) {
-        if (this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday) {
-          this.reservationID.push(this.reservations[i].id);
-        }
-      }
-      if (this.reservationID.length > 0) {
-        axios.get('./api/Reservedhours').then(function (response) {
-          _this3.reservedhours = response.data;
 
-          for (var k = 0; k < _this3.reservationID.length; k++) {
-            _this3.resID = _this3.reservationID[k];
-            for (var i = 0; i < _this3.reservedhours.length; i++) {
-              if (_this3.reservedhours[i].reservation_id == _this3.resID) {
-                if (_this3.reservedhours[i].hour == 8) {
-                  _this3.eightStyle = true;
-                  _this3.unavaible.push(8);
-                } else if (_this3.reservedhours[i].hour == 9) {
-                  _this3.nineStyle = true;
-                  _this3.unavaible.push(9);
-                } else if (_this3.reservedhours[i].hour == 10) {
-                  _this3.tenStyle = true;
-                  _this3.unavaible.push(10);
-                } else if (_this3.reservedhours[i].hour == 11) {
-                  _this3.elevenStyle = true;
-                  _this3.unavaible.push(11);
-                } else if (_this3.reservedhours[i].hour == 12) {
-                  _this3.twelveStyle = true;
-                  _this3.unavaible.push(12);
-                } else if (_this3.reservedhours[i].hour == 13) {
-                  _this3.thrtnStyle = true;
-                  _this3.unavaible.push(13);
-                } else if (_this3.reservedhours[i].hour == 14) {
-                  _this3.frtnStyle = true;
-                  _this3.unavaible.push(14);
-                } else if (_this3.reservedhours[i].hour == 15) {
-                  _this3.fiftnStyle = true;
-                  _this3.unavaible.push(15);
-                } else if (_this3.reservedhours[i].hour == 16) {
-                  _this3.sixtnStyle = true;
-                  _this3.unavaible.push(16);
-                } else if (_this3.reservedhours[i].hour == 17) {
-                  _this3.svntnStyle = true;
-                  _this3.unavaible.push(17);
-                } else if (_this3.reservedhours[i].hour == 18) {
-                  _this3.eightnStyle = true;
-                  _this3.unavaible.push(18);
-                } else if (_this3.reservedhours[i].hour == 19) {
-                  _this3.ninetnStyle = true;
-                  _this3.unavaible.push(19);
-                } else if (_this3.reservedhours[i].hour == 20) {
-                  _this3.twentyStyle = true;
-                  _this3.unavaible.push(20);
+      if (this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != "") {
+        axios.get('./api/reservations').then(function (response) {
+          _this3.reservations = response.data;
+          //console.log(this.reservations);
+        }).catch(function (error) {
+          console.log(error);
+        });
+        for (var i = 0; i < this.reservations.length; i++) {
+          if (this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday) {
+            this.reservationID.push(this.reservations[i].id);
+          }
+        }
+        if (this.reservationID.length > 0) {
+          axios.get('./api/Reservedhours').then(function (response) {
+            _this3.reservedhours = response.data;
+
+            for (var k = 0; k < _this3.reservationID.length; k++) {
+              _this3.resID = _this3.reservationID[k];
+              for (var i = 0; i < _this3.reservedhours.length; i++) {
+                if (_this3.reservedhours[i].reservation_id == _this3.resID) {
+                  if (_this3.reservedhours[i].hour == 8) {
+                    _this3.eightStyle = true;
+                    _this3.unavaible.push(8);
+                  } else if (_this3.reservedhours[i].hour == 9) {
+                    _this3.nineStyle = true;
+                    _this3.unavaible.push(9);
+                  } else if (_this3.reservedhours[i].hour == 10) {
+                    _this3.tenStyle = true;
+                    _this3.unavaible.push(10);
+                  } else if (_this3.reservedhours[i].hour == 11) {
+                    _this3.elevenStyle = true;
+                    _this3.unavaible.push(11);
+                  } else if (_this3.reservedhours[i].hour == 12) {
+                    _this3.twelveStyle = true;
+                    _this3.unavaible.push(12);
+                  } else if (_this3.reservedhours[i].hour == 13) {
+                    _this3.thrtnStyle = true;
+                    _this3.unavaible.push(13);
+                  } else if (_this3.reservedhours[i].hour == 14) {
+                    _this3.frtnStyle = true;
+                    _this3.unavaible.push(14);
+                  } else if (_this3.reservedhours[i].hour == 15) {
+                    _this3.fiftnStyle = true;
+                    _this3.unavaible.push(15);
+                  } else if (_this3.reservedhours[i].hour == 16) {
+                    _this3.sixtnStyle = true;
+                    _this3.unavaible.push(16);
+                  } else if (_this3.reservedhours[i].hour == 17) {
+                    _this3.svntnStyle = true;
+                    _this3.unavaible.push(17);
+                  } else if (_this3.reservedhours[i].hour == 18) {
+                    _this3.eightnStyle = true;
+                    _this3.unavaible.push(18);
+                  } else if (_this3.reservedhours[i].hour == 19) {
+                    _this3.ninetnStyle = true;
+                    _this3.unavaible.push(19);
+                  } else if (_this3.reservedhours[i].hour == 20) {
+                    _this3.twentyStyle = true;
+                    _this3.unavaible.push(20);
+                  }
                 }
               }
             }
-          }
-        });
+          }).catch(function (error) {
+            console.log(error);
+          });
 
-        for (var k = 0; k < this.desiredHours.length; k++) {
-          for (var i = 0; i < this.unavaible.length; i++) {
-            if (this.desiredHours[k] == this.unavaible[i]) {
-              this.message = "Ezeket az idopontokat valaki mar lefoglalta!";
-              break;
-            } else {
-              this.validated = true;
+          for (var k = 0; k < this.desiredHours.length; k++) {
+            for (var i = 0; i < this.unavaible.length; i++) {
+              if (this.desiredHours[k] == this.unavaible[i]) {
+                this.message = "Ezeket az idopontokat valaki mar lefoglalta!";
+                this.showfail = true;
+                break;
+              } else {
+                this.validated = true;
+              }
             }
           }
-        }
 
-        if (this.validated == true) {
+          if (this.validated == true) {
+            axios.post('./api/createReservation', {
+              hour: this.desiredHours,
+              year: this.picked.year,
+              month: this.picked.month,
+              day: this.picked.day,
+              players: this.selectedPlayers,
+              tel: this.tel,
+              note: this.note
+            }).then(function (response) {
+              _this3.showsuccess = true;
+              _this3.desiredHours = [];
+            }).catch(function (error) {
+              console.log(error);
+              _this3.showfail = true;
+            });
+          }
+        } else {
           axios.post('./api/createReservation', {
             hour: this.desiredHours,
             year: this.picked.year,
             month: this.picked.month,
             day: this.picked.day,
             players: this.selectedPlayers,
-            tel: this.tel
+            tel: this.tel,
+            note: this.note
+          }).then(function (response) {
+            _this3.showsuccess = true;
+            _this3.desiredHours = [];
+          }).catch(function (error) {
+            console.log(error);
+            _this3.showfail = true;
           });
-
-          this.desiredHours = [];
         }
       } else {
-        axios.post('./api/createReservation', {
-          hour: this.desiredHours,
-          year: this.picked.year,
-          month: this.picked.month,
-          day: this.picked.day,
-          players: this.selectedPlayers,
-          tel: this.tel
-        });
-
-        this.desiredHours = [];
+        this.message = "Minden *-al jelolt mezo kitoltese kotelezo!";
+        this.showfail = true;
       }
     }
   }
 });
 
 /***/ }),
-/* 66 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -30680,6 +30375,35 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "calendar_container" }, [
+    _c(
+      "div",
+      { attrs: { id: "modals" } },
+      [
+        _vm.showsuccess
+          ? _c("successmodal", {
+              attrs: { success: _vm.showsuccess },
+              on: {
+                close: function($event) {
+                  _vm.showsuccess = false
+                }
+              }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.showfail
+          ? _c("failmodal", {
+              attrs: { fail: _vm.showfail, message: _vm.message },
+              on: {
+                close: function($event) {
+                  _vm.showfail = false
+                }
+              }
+            })
+          : _vm._e()
+      ],
+      1
+    ),
+    _vm._v(" "),
     _c(
       "div",
       { staticClass: "calendar" },
@@ -30758,14 +30482,12 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "columns is-marginless", class: { show: _vm.show } },
-        [
+      _c("div", { staticClass: "hours_container", class: { show: _vm.show } }, [
+        _c("div", { staticClass: "columns is-marginless" }, [
           _c(
             "div",
             {
-              staticClass: "column is-1 eight",
+              staticClass: "column is-1 eight hour_container",
               class: { eightStyle: _vm.eightStyle, desired8: _vm.desired8 },
               on: { click: _vm.isSelected8 }
             },
@@ -30775,7 +30497,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 nine",
+              staticClass: "column is-1 nine hour_container",
               class: { nineStyle: _vm.nineStyle, desired9: _vm.desired9 },
               on: { click: _vm.isSelected9 }
             },
@@ -30785,7 +30507,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 ten",
+              staticClass: "column is-1 ten hour_container",
               class: { tenStyle: _vm.tenStyle, desired10: _vm.desired10 },
               on: { click: _vm.isSelected10 }
             },
@@ -30795,7 +30517,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 eleven",
+              staticClass: "column is-1 eleven hour_container",
               class: { elevenStyle: _vm.elevenStyle, desired11: _vm.desired11 },
               on: { click: _vm.isSelected11 }
             },
@@ -30805,7 +30527,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 twelve",
+              staticClass: "column is-1 twelve hour_container",
               class: { twelveStyle: _vm.twelveStyle, desired12: _vm.desired12 },
               on: { click: _vm.isSelected12 }
             },
@@ -30815,7 +30537,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 thrtn",
+              staticClass: "column is-1 thrtn hour_container",
               class: { thrtnStyle: _vm.thrtnStyle, desired13: _vm.desired13 },
               on: { click: _vm.isSelected13 }
             },
@@ -30825,7 +30547,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 frtn",
+              staticClass: "column is-1 frtn hour_container",
               class: { frtnStyle: _vm.frtnStyle, desired14: _vm.desired14 },
               on: { click: _vm.isSelected14 }
             },
@@ -30835,7 +30557,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 fiftn",
+              staticClass: "column is-1 fiftn hour_container",
               class: { fiftnStyle: _vm.fiftnStyle, desired15: _vm.desired15 },
               on: { click: _vm.isSelected15 }
             },
@@ -30845,7 +30567,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 sixtn",
+              staticClass: "column is-1 sixtn hour_container",
               class: { sixtnStyle: _vm.sixtnStyle, desired16: _vm.desired16 },
               on: { click: _vm.isSelected16 }
             },
@@ -30855,7 +30577,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 svntn",
+              staticClass: "column is-1 svntn hour_container",
               class: { svntnStyle: _vm.svntnStyle, desired17: _vm.desired17 },
               on: { click: _vm.isSelected17 }
             },
@@ -30865,7 +30587,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 eightn",
+              staticClass: "column is-1 eightn hour_container",
               class: { eightnStyle: _vm.eightnStyle, desired18: _vm.desired18 },
               on: { click: _vm.isSelected18 }
             },
@@ -30875,7 +30597,7 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 ninetn",
+              staticClass: "column is-1 ninetn hour_container",
               class: { ninetnStyle: _vm.ninetnStyle, desired19: _vm.desired19 },
               on: { click: _vm.isSelected19 }
             },
@@ -30885,18 +30607,18 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "column is-1 twenty",
+              staticClass: "column is-1 twenty hour_container",
               class: { twentyStyle: _vm.twentyStyle, desired20: _vm.desired20 },
               on: { click: _vm.isSelected20 }
             },
             [_c("a", [_vm._v("20:00")])]
           )
-        ]
-      ),
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "form" }, [
         _c("div", { staticClass: "players" }, [
-          _c("p", [_vm._v("Jatekosok szama: ")]),
+          _c("p", [_vm._v("Jatekosok szama:* ")]),
           _vm._v(" "),
           _c("div", { staticClass: "control" }, [
             _c("div", { staticClass: "select is-primary" }, [
@@ -30937,6 +30659,8 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "tel" }, [
+          _c("p", [_vm._v("Telefonszam:*")]),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -30958,6 +30682,34 @@ var render = function() {
               }
             }
           })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "note" }, [
+          _c("p", [_vm._v("Megjegyzes:")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "textarea_container" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.note,
+                  expression: "note"
+                }
+              ],
+              staticClass: "textarea",
+              attrs: { placeholder: "10 lines of textarea", rows: "5" },
+              domProps: { value: _vm.note },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.note = $event.target.value
+                }
+              }
+            })
+          ])
         ])
       ]),
       _vm._v(" "),
@@ -30984,11 +30736,16 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-88e69ae6", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-5700b516", module.exports)
   }
 }
 
 /***/ }),
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
 /* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31074,7 +30831,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.profil_container{\n\twidth: 100%;\n}\n.profil_header{\n\twidth: 100%;\n\theight: 250px;\n\tbackground-color: blue;\n}\n.profil_content{\n\twidth: 100%;\n\theight: 400px;\n\tbackground-color: green;\n}\n.avatar{\n\twidth: 17em;\n\theight: 12.6em;\n\tbackground-color: yellow;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.avatar p{\n\tmargin: 0;\n}\n.avatar_icon{\n\theight: 7em;\n}\n.rank_icon{\n\twidth:3em; \n\theight:3em; \n\tmargin-bottom:64px; \n\tmargin-left:-52px;\n}\n.profil_nav_container{\n\twidth: 100%;\n\tbackground-color: grey;\n}\n.profil_nav{\n\tmargin: 0 auto;\n\tpadding: 0;\n\toverflow: hidden;\n\tbackground-color: grey;\n}\n.profil_nav a {\n\t  display: block;\n\t  color: white;\n\t  text-align: center;\n\t  padding: .75em;\n\t  text-decoration: none;\n}\n.profil_nav a:hover {\n \tbackground-color: #111;\n}\n.stats{\n\tdisplay:none;\n\twidth: 100%;\n\theight: 400px;\n\tbackground-color: purple;\n}\n.showStat.stats{\n\tdisplay:block;\n}\n.statstyle.stat_nav{\n\tbackground-color: #111;\n}\n.history{\n\tdisplay:none;\n\twidth: 100%;\n\theight: 400px;\n\tbackground-color: orange;\n}\n.showHistory.history{\n\tdisplay:block;\n}\n.historystyle.history_nav{\n\tbackground-color: #111;\n}\n.bookings{\n\tdisplay:none;\n\twidth: 100%;\n\theight: 400px;\n\tbackground-color: black;\n}\n.showBookings.bookings{\n\tdisplay:block;\n}\n.bookingstyle.booking_nav{\n\tbackground-color: #111;\n}\n\n", ""]);
+exports.push([module.i, "\n.profil_container{\n\twidth: 100%;\n}\n.profil_header{\n\twidth: 100%;\n\theight: 250px;\n\tbackground-color: blue;\n}\n.profil_content{\n\twidth: 100%;\n\tbackground-color: green;\n}\n.avatar{\n\twidth: 17em;\n\theight: 12.6em;\n\tbackground-color: yellow;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.avatar p{\n\tmargin: 0;\n}\n.avatar_icon{\n\theight: 7em;\n}\n.rank_icon{\n\twidth:3em; \n\theight:3em; \n\tmargin-bottom:64px; \n\tmargin-left:-52px;\n}\n.profil_nav_container{\n\twidth: 100%;\n\tbackground-color: grey;\n}\n.profil_nav{\n\tmargin: 0 auto;\n\tpadding: 0;\n\toverflow: hidden;\n\tbackground-color: grey;\n}\n.profil_nav a {\n\t  display: block;\n\t  color: white;\n\t  text-align: center;\n\t  padding: .75em;\n\t  text-decoration: none;\n}\n.profil_nav a:hover {\n \tbackground-color: #111;\n}\n.stats{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n\tbackground-color: purple;\n}\n.showStat.stats{\n\tdisplay:block;\n}\n.statstyle.stat_nav{\n\tbackground-color: #111;\n}\n.history{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n\tbackground-color: orange;\n}\n.showHistory.history{\n\tdisplay:block;\n}\n.historystyle.history_nav{\n\tbackground-color: #111;\n}\n.bookings{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n\tbackground-color: black;\n}\n.showBookings.bookings{\n\tdisplay:block;\n}\n.bookingstyle.booking_nav{\n\tbackground-color: #111;\n}\n\n", ""]);
 
 // exports
 
@@ -31087,6 +30844,8 @@ exports.push([module.i, "\n.profil_container{\n\twidth: 100%;\n}\n.profil_header
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__settingsDropdown__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__settingsDropdown___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__settingsDropdown__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Calendar__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Calendar__);
 //
 //
 //
@@ -31125,6 +30884,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -31144,7 +30907,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   components: {
-    settingsdropdown: __WEBPACK_IMPORTED_MODULE_0__settingsDropdown___default.a
+    settingsdropdown: __WEBPACK_IMPORTED_MODULE_0__settingsDropdown___default.a,
+    bookingcalendar: __WEBPACK_IMPORTED_MODULE_1__Calendar___default.a
   },
   methods: {
     showS: function showS() {
@@ -31646,7 +31410,7 @@ var render = function() {
       _c(
         "div",
         { staticClass: "bookings", class: { showBookings: _vm.showBookings } },
-        [_vm._v("\n\t\t\tFoglalasok\n\t\t")]
+        [_c("div", [_c("bookingcalendar")], 1)]
       )
     ])
   ])
@@ -31828,6 +31592,376 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 85 */,
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(87)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(89)
+/* template */
+var __vue_template__ = __webpack_require__(90)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/FailModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-55260688", Component.options)
+  } else {
+    hotAPI.reload("data-v-55260688", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(88);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("6c968081", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-55260688\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FailModal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-55260688\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FailModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal{\n  font-family: 'Oswald', sans-serif;\n  color: black;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 89 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    fail: Boolean,
+    message: String
+  },
+  data: function data() {
+    return {};
+  }
+});
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "modal is-active", attrs: { id: "fail" } }, [
+    _c("div", { staticClass: "modal-background" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal-card" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("section", { staticClass: "modal-card-body" }, [
+        _vm._v(
+          "\n      A foglalas meghiusult: " + _vm._s(_vm.message) + "\n    "
+        )
+      ]),
+      _vm._v(" "),
+      _c("footer", { staticClass: "modal-card-foot" }, [
+        _c(
+          "button",
+          {
+            staticClass: "button is-success",
+            on: {
+              click: function($event) {
+                return _vm.$emit("close")
+              }
+            }
+          },
+          [_vm._v("Értettem")]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "modal-card-head has-text-danger" }, [
+      _c("p", { staticClass: "modal-card-title has-text-danger" }, [
+        _vm._v("Sikertelen foglalas")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-55260688", module.exports)
+  }
+}
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(92)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(94)
+/* template */
+var __vue_template__ = __webpack_require__(95)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/SuccessModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-ba6fbdbe", Component.options)
+  } else {
+    hotAPI.reload("data-v-ba6fbdbe", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(93);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("d1b6ec16", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ba6fbdbe\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SuccessModal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-ba6fbdbe\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SuccessModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal{\n  font-family: 'Oswald', sans-serif;\n  color: black;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 94 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    success: Boolean
+  },
+  data: function data() {
+    return {};
+  }
+});
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "modal is-active", attrs: { id: "success" } },
+    [
+      _c("div", { staticClass: "modal-background" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "modal-card" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("section", { staticClass: "modal-card-body" }, [
+          _vm._v(
+            '\n      Gratulalok a foglalas sikeres! A foglalassal kapcsolatos informaciokat az email fiokodban talalod vagy a profilod "Foglalasaim" penupontja alatt.\n    '
+          )
+        ]),
+        _vm._v(" "),
+        _c("footer", { staticClass: "modal-card-foot" }, [
+          _c(
+            "button",
+            {
+              staticClass: "button is-success",
+              on: {
+                click: function($event) {
+                  return _vm.$emit("close")
+                }
+              }
+            },
+            [_vm._v("Értettem")]
+          )
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "modal-card-head" }, [
+      _c("p", { staticClass: "modal-card-title has-text-success" }, [
+        _vm._v("Sikeres foglalas")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-ba6fbdbe", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

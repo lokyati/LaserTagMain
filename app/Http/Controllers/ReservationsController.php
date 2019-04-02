@@ -23,6 +23,8 @@ class ReservationsController extends Controller
             'day' => $data['day'],
             'players' => $data['players'],
             'tel' => $data['tel'],
+            'note' => $data['note'],
+            'package_id' => $data['package_id'],
         ]);
 
         foreach ($data['hour'] as $reserved['hour']){

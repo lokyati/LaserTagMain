@@ -7,7 +7,7 @@
 <script src="{{ asset('js/app.js') }}" defer></script>
 <body>
 <div id="app">
-  <calendar2></calendar2>
+  <calendar></calendar>
 </div>
 
 
