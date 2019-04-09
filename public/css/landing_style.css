@@ -111,7 +111,19 @@ footer a{
 	color: #FCFCFC;
 	padding: .5rem;
 }
-
+.cookie-consent{
+	height: 2em;
+	padding: .2em;
+	text-align: center;
+	font-weight: bold;
+	background-color: yellow;
+}
+.cookie-consent__agre{
+	font-weight: bold;
+	border-radius: 7px;
+	background-color: #4b4b4b;
+	color: white;
+}
 @media only screen and (max-width: 480px) {
 	.user {
 		width: 100%; 

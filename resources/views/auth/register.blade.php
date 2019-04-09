@@ -65,11 +65,13 @@
             @endif
           </p>
         </div>
-
+            <div id="footer">
             <label class="checkbox">
               <input type="checkbox" required>
-              Elfogadom a <a href="#">Felhasználási feltételeket</a>
+              Elfogadom a <a @click="showModal = true">Felhasználási feltételeket</a>
             </label>
+                <gdprmodal v-if="showModal" @close="showModal = false"></gdprmodal>
+            </div>
 
             <div class="field">
               <p class="control">

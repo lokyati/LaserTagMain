@@ -1,7 +1,7 @@
 <template>
 	<div class="profil_container">
 		<div class="profil_header">
-			<settingsdropdown ></settingsdropdown>
+			<settingsdropdown></settingsdropdown>
 			<div class="avatar">
 				<img class="avatar_icon":src="'img/logo.png'"/>
 				<img class="rank_icon" :src="'img/logo.png'"/>
@@ -24,14 +24,14 @@
 		<progress class="progress is-danger is-marginless" value="60" max="100"></progress>
 		<div class="profil_content">
 			<div class="stats" v-bind:class="{showStat:showStat}">
-				Statisztikak
+				Statisztikak és kitüntetések
 			</div>
 			<div class="history" v-bind:class="{showHistory:showHistory}">
 				Elozmenyek
 			</div>
 			<div class="bookings" v-bind:class="{showBookings:showBookings}">
 				<div>
-					<bookingcalendar></bookingcalendar>
+					<bookingcalendar :userID="userID"></bookingcalendar>
 				</div>
 			</div>
 		</div>
@@ -46,6 +46,7 @@ export default {
 	data() {
 		return{
 			user: [],
+			userID: '',
 			showStat: true,
 			showHistory: false,
 			showBookings: false,
@@ -92,6 +93,7 @@ export default {
   		getUserData(){ //Laravelbe bejelentkezett user adatai
   			axios.get('profile').then(response => {
 				this.user = response.data;
+				this.userID = this.user.id;
 				console.log(this.user);
 			})
 
@@ -108,16 +110,13 @@ export default {
 	.profil_header{
 		width: 100%;
 		height: 250px;
-		background-color: blue;
 	}
 	.profil_content{
 		width: 100%;
-		background-color: green;
 	}
 	.avatar{
 		width: 17em;
 		height: 12.6em;
-		background-color: yellow;
 		margin: 0 auto;
 		text-align: center;
 	}
@@ -183,7 +182,6 @@ export default {
 		display:none;
 		width: 100%;
 		min-height: 400px;
-		background-color: black;
 	}
 	.showBookings.bookings{
 		display:block;

@@ -11,8 +11,7 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt aliquid eos eum at repudiandae eius reiciendis nobis provident ab incidunt dolorem quae assumenda quasi modi quisquam iusto, amet fugit dolores?
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success" @click="$emit('close')">Elfogadás</button>
-        <button class="button" @click="$emit('close')">Kilépés</button>
+        <button class="button is-success" @click="$emit('close')"> Értettem</button>
       </footer>
     </div>
   </div>

@@ -26,6 +26,7 @@
 
 </head>
 <body>
+	@include('cookieConsent::index')
 	<div class="page">
 		<div id="info" class="header">
 			Szeretnél többet megtudni? <a @click="showModal = true">Kattints ide!</a>

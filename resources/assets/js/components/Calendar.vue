@@ -1,6 +1,13 @@
 <template>
 <div class="calendar_container">
   <div id="modals">
+    <loading :active.sync="isLoading"
+             :is-full-page="fullPage"
+             :loader="loader"
+             :opacity="opacity"
+             :height="height"
+             :width="width"
+             :transition="transition"></loading>
     <successmodal v-bind:success="showsuccess"
                   v-if="showsuccess" 
                   @close="showsuccess = false"></successmodal>
@@ -110,6 +117,9 @@
 <script>
 import SuccessModal from './SuccessModal'
 import FailModal from './FailModal'
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
+
 	// Calendar data
 const _daysInMonths = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const _weekdayLabels = ['Vasárnap', 'Hétfő', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'];
@@ -148,6 +158,8 @@ export default ({
       unavaible: [],
       players: [6,8,10,12,14,16,18,20],
       selectedPlayers: {},
+
+      show: false,
       eightStyle: false,
       nineStyle: false,
       tenStyle: false,
@@ -161,7 +173,6 @@ export default ({
       eightnStyle: false,
       ninetnStyle: false,
       twentyStyle: false,
-      show: false,
       desired8: false,
       desired9: false,
       desired10: false,
@@ -178,15 +189,24 @@ export default ({
       validated: false,
       showsuccess: false,
       showfail: false,
+      isLoading: false,
+      fullPage: true,
+
       message: 'Csak egymást követő órák foglalhatók!',
       tel: '',
       note: '',
       resID: '',
+      loader: 'bars',
+      opacity: 1,
+      height: 100,
+      width: 100,
+      transition: 'none'
 	 };
   },
   components: {
     successmodal: SuccessModal,
     failmodal: FailModal,
+    loading: Loading,
   },
   created() {
     this.$on('configureDay', this.configureDay);
@@ -196,6 +216,7 @@ export default ({
   props: {
     dayKey: { type: String, default: 'label' },
     value: Date,
+    userID: Number,
   },
   computed: {
 	  // Our component exposes month as 1-based, but sometimes we need 0-based
@@ -384,6 +405,10 @@ methods: {
 
       this.show = true;
       this.getReservations();
+      this.isLoading = true;
+      setTimeout(() => {
+        this.isLoading = false
+      },1000)
   },
   //Show Reservation methods
   getReservations() {
@@ -823,6 +848,7 @@ methods: {
           players: this.selectedPlayers,
           tel: this.tel,
           note: this.note,
+          user_id: this.userID,
         }).then(response => {
             this.showsuccess = true
             this.desiredHours = [];
@@ -842,6 +868,7 @@ methods: {
           players: this.selectedPlayers,
           tel: this.tel,
           note: this.note,
+          user_id: this.userID,
         }).then(response => {
             this.showsuccess = true
             this.desiredHours = [];
@@ -867,7 +894,6 @@ methods: {
 
 #app{
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  padding: 20px;
 }
 .calendar_container{
   /*max-width: 1200px;
