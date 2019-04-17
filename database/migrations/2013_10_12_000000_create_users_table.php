@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('lastname')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('lvl')->nullable();
-            //$table->integer('tel')->nullable();
+            $table->integer('lvl')->nullable()->default(1);
+            $table->integer('experience')->nullable()->default(0);
             $table->integer('battle_point_balance')->nullable();
             $table->rememberToken();
             $table->timestamps();

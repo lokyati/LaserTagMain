@@ -36,7 +36,9 @@ Route::get('data/{id}', 'UserController@data');
 Route::get('/calendar', function () {
     return view('calendar');
 });
-
+Route::get('/package', function () {
+    return view('package');
+});
 //Password Reset Routes
 //Route::get('/password/reset/{token}', 'ResetController@showResetForm');
 //Route::get('/email', 'Auth\ResetPasswordController@getEmailForm');

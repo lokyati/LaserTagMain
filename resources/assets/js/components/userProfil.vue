@@ -5,9 +5,9 @@
 			<div class="avatar">
 				<img class="avatar_icon":src="'img/logo.png'"/>
 				<img class="rank_icon" :src="'img/logo.png'"/>
-				<p>Warname: {{user.name}}</p>
-				<p>Lvl: {{user.lvl}}</p>
-				<p>Battle Points: {{user.battle_point_balance}}</p>
+				<p>Név: {{user.name}}</p>
+				<p>Szint: {{user.lvl}}</p>
+				<p>Lézer Pont: {{user.battle_point_balance}}</p>
 			</div>
 			<div class="profil_nav_container">
 				<div class="columns profil_nav">
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 		</div>
-		<progress class="progress is-danger is-marginless" value="60" max="100"></progress>
+		<progress class="progress is-info is-marginless" value="xp" max="100"><p>Tapasztalat</p></progress>
 		<div class="profil_content">
 			<div class="stats" v-bind:class="{showStat:showStat}">
 				Statisztikak és kitüntetések
@@ -46,7 +46,8 @@ export default {
 	data() {
 		return{
 			user: [],
-			userID: '',
+			userID: 0,
+			xp: '',
 			showStat: true,
 			showHistory: false,
 			showBookings: false,
@@ -94,6 +95,7 @@ export default {
   			axios.get('profile').then(response => {
 				this.user = response.data;
 				this.userID = this.user.id;
+				this.xp = this.user.experience;
 				console.log(this.user);
 			})
 

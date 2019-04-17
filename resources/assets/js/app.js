@@ -16,12 +16,12 @@ Vue.component('gdprmodal', require('./components/GDPRModal.vue'));
 Vue.component('infomodal', require('./components/InfoModal.vue'));
 Vue.component('successmodal', require('./components/SuccessModal.vue'));
 Vue.component('failmodal', require('./components/FailModal.vue'));
-
 Vue.component('calendar', require('./components/Calendar.vue'));
 Vue.component('userprofil',require('./components/userProfil.vue'));
 Vue.component('settingsdropdown',require('./components/settingsDropdown.vue'));
 Vue.component('profildelete',require('./components/profilDelete.vue'));
-Vue.component('reservations',require('./components/AdminComponents/ReservationsList.vue'));
+Vue.component('admindashboard',require('./components/AdminComponents/adminDashboard.vue'));
+Vue.component('package', require('./components/Package.vue'));
 
 const app = new Vue({
     el: '#app'

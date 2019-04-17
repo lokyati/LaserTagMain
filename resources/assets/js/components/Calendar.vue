@@ -89,7 +89,7 @@
       <div class="players">
         <p>Jatekosok szama:* </p>
         <div class="control">
-          <div class="select is-primary">
+          <div class="select is-primary" required>
             <select v-model="selectedPlayers">
               <option v-for="player in players">{{player}}</option>
             </select> 
@@ -97,8 +97,8 @@
         </div>
       </div>
       <div class="tel">
-        <p>Telefonszam:*</p>
-        <input class="input" type="text" placeholder="Tel" v-model="tel">
+        <p>Tel.:*</p>
+        <input class="input" type="text" placeholder="Tel" v-model="tel" required>
       </div>
       <div class="note">
         <p>Megjegyzes:</p>
@@ -197,7 +197,7 @@ export default ({
       note: '',
       resID: '',
       loader: 'bars',
-      opacity: 1,
+      opacity: 0.8,
       height: 100,
       width: 100,
       transition: 'none'

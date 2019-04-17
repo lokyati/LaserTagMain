@@ -19,7 +19,7 @@ class User extends Authenticatable
     protected $guard = 'user';
 
     protected $fillable = [
-        'name', 'email', 'password', 'lvl', 'battle_point_balance'
+        'name', 'email', 'password', 'lvl', 'battle_point_balance', 
     ];
 
     /**
@@ -33,5 +33,9 @@ class User extends Authenticatable
 
     public function userStats() {
         return $this->hasOne('App\UsersStat', 'foreign_key');
+    }
+
+    public function userReservations() {
+        return $this->hasMany('App\Reservations', 'foreign_key');
     }
 }

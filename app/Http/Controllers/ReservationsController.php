@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use App\Reservations;
 use App\reservedHours;
+use App\User;
 
 class ReservationsController extends Controller
 {
