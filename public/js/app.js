@@ -2013,7 +2013,7 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(21);
-module.exports = __webpack_require__(92);
+module.exports = __webpack_require__(97);
 
 
 /***/ }),
@@ -2053,7 +2053,8 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('userprofil', __webpack_re
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('settingsdropdown', __webpack_require__(18));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('profildelete', __webpack_require__(19));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('admindashboard', __webpack_require__(87));
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('package', __webpack_require__(94));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('package', __webpack_require__(92));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('packagemodal', __webpack_require__(99));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: '#app'
@@ -29880,7 +29881,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.calendar_container{\r\n  /*max-width: 1200px;\r\n  margin: 0 auto;*/\r\n  background-color: #e9e9e9;\r\n  padding: 1rem;\r\n  -webkit-box-shadow: 0px 0px 5px black;\r\n          box-shadow: 0px 0px 5px black;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  margin: 0 auto;\n}\n.reservationData_container{\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n  padding: 0 0.4em 0.2em 0.4em;\r\n  font-size: 1.8rem;\r\n  font-weight: 500;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  -webkit-box-flex: 0;\r\n      -ms-flex-positive: 0;\r\n          flex-grow: 0;\n}\n.arrow:hover{\r\n\tcolor: #dcdcdc;\n}\n.title{\r\n  -webkit-box-flex: 1;\r\n      -ms-flex-positive: 1;\r\n          flex-grow: 1;\r\n  font-size: 1.2rem;\r\n  text-align: center;\n}\n.title:hover{\r\n\tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\r\n  background-color: #5f5f5f;\r\n  color:white;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca !important; \r\n  background-color: #fafafa !important;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.hours_container{\r\n  width: 49em;\r\n  border: 3px solid orange;\r\n  display: none !important;\n}\n.show.hours_container{\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\n}\n.hour_container{\r\n  padding: 0.75rem 0;\r\n  background-color: #333;\n}\n.hour_container:hover{\r\n  background-color: #575656;\n}\n.hour_container a{\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 10px;\r\n  text-decoration: none;\n}\n.hour_container.is-1{\r\n  width: 7.712%;\r\n  border-right: 2px solid orange;\n}\n.info{\r\n  display: none;\r\n  font-size: 19px;\r\n  font-weight: bold;\n}\n.selectedday{\r\n  color:#000;\n}\n.messagetext{\r\n  color:#f00;\n}\n.show.info{\r\n  display: block;\n}\n.textarea_container{\r\n  width: 30em;\n}\n.button_container{\r\n  width:200px;\r\n  padding: 1rem;\r\n  display: none;\n}\n.show.button_container{\r\n  display: block;\n}\n.form{\r\n  padding: .5rem;\n}\n.players{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.tel{\r\n  width: 14rem;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.note p{\r\n  font-size: 19px;\n}\r\n/*Occupied style*/\n.eightStyle.eight{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired8.eight{\r\n  background-color: green;\n}\n.nineStyle.nine{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired9.nine{\r\n  background-color: green;\n}\n.tenStyle.ten{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired10.ten{\r\n  background-color: green;\n}\n.elevenStyle.eleven{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired11.eleven{\r\n  background-color: green;\n}\n.twelveStyle.twelve{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired12.twelve{\r\n  background-color: green;\n}\n.thrtnStyle.thrtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired13.thrtn{\r\n  background-color: green;\n}\n.frtnStyle.frtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired14.frtn{\r\n  background-color: green;\n}\n.fiftnStyle.fiftn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired15.fiftn{\r\n  background-color: green;\n}\n.sixtnStyle.sixtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired16.sixtn{\r\n  background-color: green;\n}\n.svntnStyle.svntn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired17.svntn{\r\n  background-color: green;\n}\n.eightnStyle.eightn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired18.eightn{\r\n  background-color: green;\n}\n.ninetnStyle.ninetn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired19.ninetn{\r\n  background-color: green;\n}\n.twentyStyle.twenty{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired20.twenty{\r\n  background-color: green;\n}\n.select{\r\n  width: 5rem;\n}\r\n", ""]);
+exports.push([module.i, "\n*{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box\n}\n#app{\r\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.calendar_container{\r\n  /*max-width: 1200px;\r\n  margin: 0 auto;*/\r\n  background-color: #e9e9e9;\r\n  padding: 1rem;\r\n  -webkit-box-shadow: 0px 0px 5px black;\r\n          box-shadow: 0px 0px 5px black;\n}\n.calendar{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  margin: 0 auto;\n}\n.reservationData_container{\n}\n.header{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: stretch;\r\n      -ms-flex-pack: stretch;\r\n          justify-content: stretch;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: white;\r\n  padding: 0.5rem 1rem;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: orange;\n}\n.arrow{\r\n  padding: 0 0.4em 0.2em 0.4em;\r\n  font-size: 1.8rem;\r\n  font-weight: 500;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  -webkit-box-flex: 0;\r\n      -ms-flex-positive: 0;\r\n          flex-grow: 0;\n}\n.arrow:hover{\r\n\tcolor: #dcdcdc;\n}\n.title{\r\n  -webkit-box-flex: 1;\r\n      -ms-flex-positive: 1;\r\n          flex-grow: 1;\r\n  font-size: 1.2rem;\r\n  text-align: center;\n}\n.title:hover{\r\n\tcolor: #dcdcdc;\n}\n.weekdays{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: auto;\r\n          flex: auto;\n}\n.weekday{\r\n  width: 14.2857%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;  \r\n  padding: 0.4rem 0;\r\n  color: #7a7a7a;\r\n  border: 1px solid #aaaaaa;\r\n  background-color: #eaeaea;\n}\n.week{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.day{\r\n  width: 14.2857%;\r\n  height: 50px;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: #3a3a3a;\r\n  background-color: white;\r\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\r\n  background-color: #5f5f5f;\r\n  color:white;\n}\n.today{\r\n  font-weight: 500;\r\n  color: white;\r\n  background-color: orange;\n}\n.not-in-month{\r\n  color: #cacaca !important; \r\n  background-color: #fafafa !important;\n}\n.selected{\r\n  color: #fafafa;\r\n  background-color: #333;\n}\n.hours_container{\r\n  width: 49em;\r\n  border: 3px solid orange;\r\n  display: none !important;\n}\n.show.hours_container{\r\n  display: -webkit-box !important;\r\n  display: -ms-flexbox !important;\r\n  display: flex !important;\n}\n.hour_container{\r\n  padding: 0.75rem 0;\r\n  background-color: #333;\n}\n.hour_container:hover{\r\n  background-color: #575656;\n}\n.hour_container a{\r\n  color: white;\r\n  text-align: center;\r\n  padding: 14px 10px;\r\n  text-decoration: none;\n}\n.hour_container.is-1{\r\n  width: 7.712%;\r\n  border-right: 2px solid orange;\n}\n.info{\r\n  display: none;\r\n  font-size: 19px;\r\n  font-weight: bold;\n}\n.selectedday{\r\n  color:#000;\n}\n.messagetext{\r\n  color:#f00;\n}\n.show.info{\r\n  display: block;\n}\n.textarea_container{\r\n  width: 30em;\n}\n.button_container{\r\n  width:200px;\r\n  padding: 1rem;\r\n  display: none;\n}\n.show.button_container{\r\n  display: block;\n}\n.form{\r\n  padding: .5rem;\n}\n.players{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.tel{\r\n  width: 14rem;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.firstname{\r\n  width: 14rem;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.lastname{\r\n  width: 14rem;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  font-size: 19px;\n}\n.note p{\r\n  font-size: 19px;\n}\r\n/*Occupied style*/\n.eightStyle.eight{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired8.eight{\r\n  background-color: green;\n}\n.nineStyle.nine{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired9.nine{\r\n  background-color: green;\n}\n.tenStyle.ten{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired10.ten{\r\n  background-color: green;\n}\n.elevenStyle.eleven{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired11.eleven{\r\n  background-color: green;\n}\n.twelveStyle.twelve{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired12.twelve{\r\n  background-color: green;\n}\n.thrtnStyle.thrtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired13.thrtn{\r\n  background-color: green;\n}\n.frtnStyle.frtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired14.frtn{\r\n  background-color: green;\n}\n.fiftnStyle.fiftn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired15.fiftn{\r\n  background-color: green;\n}\n.sixtnStyle.sixtn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired16.sixtn{\r\n  background-color: green;\n}\n.svntnStyle.svntn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired17.svntn{\r\n  background-color: green;\n}\n.eightnStyle.eightn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired18.eightn{\r\n  background-color: green;\n}\n.ninetnStyle.ninetn{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired19.ninetn{\r\n  background-color: green;\n}\n.twentyStyle.twenty{\r\n  background-color: red;\r\n  pointer-events: none;\n}\n.desired20.twenty{\r\n  background-color: green;\n}\n.select{\r\n  width: 5rem;\n}\r\n\r\n/*Package style*/\n.package_container {\r\n  text-align: center;\n}\n.package_container p{\r\n  font-size: 1.5em;\r\n  padding: .25em;\n}\n.empty_card{\r\n  background-color: #467740;\r\n  height: 300px;\r\n  width: 15em;\r\n  margin: 0 auto; \r\n  -webkit-box-shadow: 0px 0px 5px black; \r\n          box-shadow: 0px 0px 5px black;\r\n  border-radius: 13px;\r\n  border: 4px dashed greenyellow;\r\n  cursor: pointer;\n}\n.empty_card p{\r\n  font-size: 8em;\r\n  color: #66ec15;\n}\r\n", ""]);
 
 // exports
 
@@ -29895,10 +29896,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__SuccessModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__SuccessModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FailModal__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FailModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__FailModal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_loading_overlay__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_loading_overlay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue_loading_overlay__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_loading_overlay_dist_vue_loading_css__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_loading_overlay_dist_vue_loading_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_loading_overlay_dist_vue_loading_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PackageModal__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__PackageModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__PackageModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_loading_overlay__ = __webpack_require__(71);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_loading_overlay___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_loading_overlay__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_loading_overlay_dist_vue_loading_css__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_loading_overlay_dist_vue_loading_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_loading_overlay_dist_vue_loading_css__);
 //
 //
 //
@@ -30015,6 +30018,29 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -30090,11 +30116,14 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       validated: false,
       showsuccess: false,
       showfail: false,
+      showpackages: false,
       isLoading: false,
       fullPage: true,
 
       message: 'Csak egymást követő órák foglalhatók!',
       tel: '',
+      firstname: '',
+      lastname: '',
       note: '',
       resID: '',
       loader: 'bars',
@@ -30108,7 +30137,8 @@ var _transformLabel = function _transformLabel(label, length, casing) {
   components: {
     successmodal: __WEBPACK_IMPORTED_MODULE_0__SuccessModal___default.a,
     failmodal: __WEBPACK_IMPORTED_MODULE_1__FailModal___default.a,
-    loading: __WEBPACK_IMPORTED_MODULE_2_vue_loading_overlay___default.a
+    packagemodal: __WEBPACK_IMPORTED_MODULE_2__PackageModal___default.a,
+    loading: __WEBPACK_IMPORTED_MODULE_3_vue_loading_overlay___default.a
   },
   created: function created() {
     this.$on('configureDay', this.configureDay);
@@ -30631,7 +30661,7 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       this.reservationID = [];
       this.resID = '';
 
-      if (this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != "") {
+      if (this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != "" && this.firstname != "" && this.lastname != "") {
         axios.get('./api/reservations').then(function (response) {
           _this4.reservations = response.data;
           //console.log(this.reservations);
@@ -30719,7 +30749,9 @@ var _transformLabel = function _transformLabel(label, length, casing) {
               players: this.selectedPlayers,
               tel: this.tel,
               note: this.note,
-              user_id: this.userID
+              user_id: this.userID,
+              firstname: this.firstname,
+              lastname: this.lastname
             }).then(function (response) {
               _this4.showsuccess = true;
               _this4.desiredHours = [];
@@ -30737,7 +30769,9 @@ var _transformLabel = function _transformLabel(label, length, casing) {
             players: this.selectedPlayers,
             tel: this.tel,
             note: this.note,
-            user_id: this.userID
+            user_id: this.userID,
+            firstname: this.firstname,
+            lastname: this.lastname
           }).then(function (response) {
             _this4.showsuccess = true;
             _this4.desiredHours = [];
@@ -30750,6 +30784,9 @@ var _transformLabel = function _transformLabel(label, length, casing) {
         this.message = "Minden *-al jelolt mezo kitoltese kotelezo!";
         this.showfail = true;
       }
+    },
+    packageSelect: function packageSelect() {
+      this.showpackages = true;
     }
   }
 });
@@ -30852,6 +30889,17 @@ var render = function() {
               on: {
                 close: function($event) {
                   _vm.showfail = false
+                }
+              }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.showpackages
+          ? _c("packagemodal", {
+              attrs: { packageselect: _vm.showpackages },
+              on: {
+                close: function($event) {
+                  _vm.showpackages = false
                 }
               }
             })
@@ -31072,104 +31120,168 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "form" }, [
-        _c("div", { staticClass: "players" }, [
-          _c("p", [_vm._v("Jatekosok szama:* ")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "control" }, [
-            _c(
-              "div",
-              { staticClass: "select is-primary", attrs: { required: "" } },
-              [
-                _c(
-                  "select",
-                  {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.selectedPlayers,
-                        expression: "selectedPlayers"
-                      }
-                    ],
-                    on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.selectedPlayers = $event.target.multiple
-                          ? $$selectedVal
-                          : $$selectedVal[0]
-                      }
-                    }
-                  },
-                  _vm._l(_vm.players, function(player) {
-                    return _c("option", [_vm._v(_vm._s(player))])
-                  }),
-                  0
-                )
-              ]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "tel" }, [
-          _c("p", [_vm._v("Tel.:*")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.tel,
-                expression: "tel"
-              }
-            ],
-            staticClass: "input",
-            attrs: { type: "text", placeholder: "Tel", required: "" },
-            domProps: { value: _vm.tel },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.tel = $event.target.value
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "note" }, [
-          _c("p", [_vm._v("Megjegyzes:")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "textarea_container" }, [
-            _c("textarea", {
+      _c("div", { staticClass: "columns is-paddingless is-marginless" }, [
+        _c("div", { staticClass: "form column is-half" }, [
+          _c("div", { staticClass: "lastname" }, [
+            _c("p", [_vm._v("Vezeteknev:*")]),
+            _vm._v(" "),
+            _c("input", {
               directives: [
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.note,
-                  expression: "note"
+                  value: _vm.lastname,
+                  expression: "lastname"
                 }
               ],
-              staticClass: "textarea",
-              attrs: { placeholder: "10 lines of textarea", rows: "5" },
-              domProps: { value: _vm.note },
+              staticClass: "input",
+              attrs: { type: "text", placeholder: "Vezeteknev", required: "" },
+              domProps: { value: _vm.lastname },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.note = $event.target.value
+                  _vm.lastname = $event.target.value
                 }
               }
             })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "firstname" }, [
+            _c("p", [_vm._v("Keresztnev:*")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.firstname,
+                  expression: "firstname"
+                }
+              ],
+              staticClass: "input",
+              attrs: { type: "text", placeholder: "Keresztnev", required: "" },
+              domProps: { value: _vm.firstname },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.firstname = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "players" }, [
+            _c("p", [_vm._v("Jatekosok szama:* ")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c(
+                "div",
+                { staticClass: "select is-primary", attrs: { required: "" } },
+                [
+                  _c(
+                    "select",
+                    {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedPlayers,
+                          expression: "selectedPlayers"
+                        }
+                      ],
+                      on: {
+                        change: function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.selectedPlayers = $event.target.multiple
+                            ? $$selectedVal
+                            : $$selectedVal[0]
+                        }
+                      }
+                    },
+                    _vm._l(_vm.players, function(player) {
+                      return _c("option", [_vm._v(_vm._s(player))])
+                    }),
+                    0
+                  )
+                ]
+              )
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "tel" }, [
+            _c("p", [_vm._v("Tel.:*")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.tel,
+                  expression: "tel"
+                }
+              ],
+              staticClass: "input",
+              attrs: { type: "text", placeholder: "Tel", required: "" },
+              domProps: { value: _vm.tel },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.tel = $event.target.value
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "note" }, [
+            _c("p", [_vm._v("Megjegyzes:")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "textarea_container" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.note,
+                    expression: "note"
+                  }
+                ],
+                staticClass: "textarea",
+                attrs: { placeholder: "10 lines of textarea", rows: "5" },
+                domProps: { value: _vm.note },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.note = $event.target.value
+                  }
+                }
+              })
+            ])
           ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "package_container column" }, [
+          _c("p", [_vm._v("Kivalasztott csomag")]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "empty_card", on: { click: _vm.packageSelect } },
+            [_c("p", [_vm._v("+")])]
+          )
         ])
       ]),
       _vm._v(" "),
@@ -31286,7 +31398,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.profil_container{\n\twidth: 100%;\n}\n.profil_header{\n\twidth: 100%;\n\theight: 250px;\n}\n.profil_content{\n\twidth: 100%;\n}\n.avatar{\n\twidth: 17em;\n\theight: 12.6em;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.avatar p{\n\tmargin: 0;\n}\n.avatar_icon{\n\theight: 7em;\n}\n.rank_icon{\n\twidth:3em; \n\theight:3em; \n\tmargin-bottom:64px; \n\tmargin-left:-52px;\n}\n.profil_nav_container{\n\twidth: 100%;\n\tbackground-color: grey;\n}\n.profil_nav{\n\tmargin: 0 auto;\n\tpadding: 0;\n\toverflow: hidden;\n\tbackground-color: grey;\n}\n.profil_nav a {\n\t  display: block;\n\t  color: white;\n\t  text-align: center;\n\t  padding: .75em;\n\t  text-decoration: none;\n}\n.profil_nav a:hover {\n \tbackground-color: #111;\n}\n.stats{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n\tbackground-color: purple;\n}\n.showStat.stats{\n\tdisplay:block;\n}\n.statstyle.stat_nav{\n\tbackground-color: #111;\n}\n.history{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n\tbackground-color: orange;\n}\n.showHistory.history{\n\tdisplay:block;\n}\n.historystyle.history_nav{\n\tbackground-color: #111;\n}\n.bookings{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n}\n.showBookings.bookings{\n\tdisplay:block;\n}\n.bookingstyle.booking_nav{\n\tbackground-color: #111;\n}\n\n", ""]);
+exports.push([module.i, "\n.profil_container{\n\twidth: 100%;\n}\n.profil_header{\n\twidth: 100%;\n\theight: 250px;\n}\n.profil_content{\n\twidth: 100%;\n}\n.avatar{\n\twidth: 17em;\n\theight: 12.6em;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.avatar p{\n\tmargin: 0;\n}\n.avatar_icon{\n\theight: 7em;\n}\n.rank_icon{\n\twidth:3em; \n\theight:3em; \n\tmargin-bottom:64px; \n\tmargin-left:-52px;\n}\n.profil_nav_container{\n\twidth: 100%;\n\tbackground-color: grey;\n}\n.profil_nav{\n\tmargin: 0 auto;\n\tpadding: 0;\n\toverflow: hidden;\n\tbackground-color: grey;\n}\n.profil_nav a {\n\t  display: block;\n\t  color: white;\n\t  text-align: center;\n\t  padding: .75em;\n\t  text-decoration: none;\n}\n.profil_nav a:hover {\n \tbackground-color: #111;\n}\n.stats{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n\tbackground-color: purple;\n}\n.showStat.stats{\n\tdisplay:block;\n}\n.statstyle.stat_nav{\n\tbackground-color: #111;\n}\n.history{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n\tbackground-color: orange;\n}\n.showHistory.history{\n\tdisplay:block;\n}\n.historystyle.history_nav{\n\tbackground-color: #111;\n}\n.bookings{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n}\n.showBookings.bookings{\n\tdisplay:block;\n}\n.bookingstyle.booking_nav{\n\tbackground-color: #111;\n}\n.personal{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n}\n.showPersonal.personal{\n\tdisplay:block;\n}\n.personalstyle.personal_nav{\n\tbackground-color: #111;\n}\n", ""]);
 
 // exports
 
@@ -31341,6 +31453,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -31354,9 +31470,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       showStat: true,
       showHistory: false,
       showBookings: false,
+      showPersonal: false,
       statstyle: true,
       historystyle: false,
-      bookingstyle: false
+      bookingstyle: false,
+      personalstyle: false
     };
   },
   created: function created() {
@@ -31372,28 +31490,45 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.showStat = true;
       this.showHistory = false;
       this.showBookings = false;
+      this.showPersonal = false;
 
       this.statstyle = true;
       this.historystyle = false;
       this.bookingstyle = false;
+      this.personalstyle = false;
     },
     showH: function showH() {
       this.showStat = false;
       this.showHistory = true;
       this.showBookings = false;
+      this.showPersonal = false;
 
       this.statstyle = false;
       this.historystyle = true;
       this.bookingstyle = false;
+      this.personalstyle = false;
     },
     showB: function showB() {
       this.showStat = false;
       this.showHistory = false;
       this.showBookings = true;
+      this.showPersonal = false;
 
       this.statstyle = false;
       this.historystyle = false;
       this.bookingstyle = true;
+      this.personalstyle = false;
+    },
+    showP: function showP() {
+      this.showStat = false;
+      this.showHistory = false;
+      this.showBookings = false;
+      this.showPersonal = true;
+
+      this.statstyle = false;
+      this.historystyle = false;
+      this.bookingstyle = false;
+      this.personalstyle = true;
     },
     getUserData: function getUserData() {
       var _this = this;
@@ -31797,7 +31932,7 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "profil_nav_container" }, [
           _c("div", { staticClass: "columns profil_nav" }, [
-            _c("div", { staticClass: "column is-one-third is-paddingless" }, [
+            _c("div", { staticClass: "column is-one-quarter is-paddingless" }, [
               _c(
                 "a",
                 {
@@ -31841,7 +31976,23 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Foglalasaim")]
+                [_vm._v("Foglalas")]
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "column is-paddingless" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "personal_nav",
+                  class: { personalstyle: _vm.personalstyle },
+                  on: {
+                    click: function($event) {
+                      return _vm.showP()
+                    }
+                  }
+                },
+                [_vm._v("Nevjegy")]
               )
             ])
           ])
@@ -31873,6 +32024,12 @@ var render = function() {
             1
           )
         ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "personal", class: { showPersonal: _vm.showPersonal } },
+        [_vm._v("\n\t\t\tSzemelyes adatok\n\t\t")]
       )
     ])
   ])
@@ -32022,25 +32179,18 @@ if (false) {
 
 /***/ }),
 /* 92 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 93 */,
-/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(95)
+  __webpack_require__(93)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
-var __vue_script__ = __webpack_require__(97)
+var __vue_script__ = __webpack_require__(95)
 /* template */
-var __vue_template__ = __webpack_require__(98)
+var __vue_template__ = __webpack_require__(96)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -32079,13 +32229,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 95 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(96);
+var content = __webpack_require__(94);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -32105,7 +32255,7 @@ if(false) {
 }
 
 /***/ }),
-/* 96 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -32113,15 +32263,17 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.page{\n\twidth: 100%;\n\theight: 100%;\n}\n.package_container{\n\twidth: 75em;\n\theight: 340px;\n\tmargin: 0 auto;\n\tbackground-color: #cecece;\n\tpadding: 1em;\n}\n.package_card{\n\tbackground-color: #ff9f63;\n\theight: 300px;\n\twidth: 15em;\n\tmargin: 0 auto;\n}\n.result_container{\n\twidth: 75em;\n\theight: 340px;\n\tmargin: 0 auto;\n\tbackground-color: #a7a7a7;\n\tpadding: 1em 21em;\n}\n.result_card_win{\n\tbackground-color: #52cb60;\n\theight: 300px;\n\twidth: 15em;\n\tfloat: left;\n}\n.result_card_lose{\n\tbackground-color: #e13434;\n\theight: 300px;\n\twidth: 15em;\n\tfloat: right;\n}\n.card{\n\ttext-align: center;\n\t-webkit-box-shadow: 0px 0px 5px black;\n\t        box-shadow: 0px 0px 5px black;\n}\n.card p{\n\tcolor: white;\n}\n", ""]);
+exports.push([module.i, "\n.packages_container{\n\tdisplay: -webkit-box;\n\tdisplay: -ms-flexbox;\n\tdisplay: flex;\n}\n.package_card{\n\tbackground-color: #ff9f63;\n\theight: 300px;\n\twidth: 15em;\n\tmargin: 0 auto; \n\tcursor: pointer;\n\ttext-align: center;\n\t-webkit-box-shadow: 0px 0px 5px black;\n\t        box-shadow: 0px 0px 5px black;\n}\n.package_card p{\n\tcolor: white;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 97 */
-/***/ (function(module, exports) {
+/* 95 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
@@ -32132,88 +32284,286 @@ exports.push([module.i, "\n.page{\n\twidth: 100%;\n\theight: 100%;\n}\n.package_
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    packages: {
+      type: Array,
+      required: true
+    }
+  },
+  data: function data() {
+    return {
+      selected: 0
+
+    };
+  },
+
+  components: {},
+  methods: {
+    selectPackage: function selectPackage() {}
+  }
+});
 
 /***/ }),
-/* 98 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    { staticClass: "packages_container" },
+    _vm._l(_vm.packages, function(package) {
+      return _c(
+        "div",
+        { staticClass: "package_card", on: { click: _vm.selectPackage } },
+        [
+          _c("p", { staticClass: "title is-3" }, [
+            _vm._v(_vm._s(package.package_name))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "subtitle is-5" }, [
+            _vm._v("Ar/fo: " + _vm._s(package.price))
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "subtitle is-5" }, [
+            _vm._v("Jatekido: " + _vm._s(package.time) + " ora")
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(package.description))])
+        ]
+      )
+    }),
+    0
+  )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "page" }, [
-      _c("div", { staticClass: "package_container" }, [
-        _c("div", { staticClass: "package_card card" }, [
-          _c("p", { staticClass: "title is-3" }, [_vm._v("Alap csomag")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [_vm._v("Ar/fo: 60")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [_vm._v("Jatekido: 1ora")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "result_container" }, [
-        _c("div", { staticClass: "result_card_win card" }, [
-          _c("p", { staticClass: "title is-3" }, [_vm._v("Gyozelem")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [_vm._v("Pontszam: 20")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [
-            _vm._v("Leadott lovesek: 300")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [_vm._v("Talalatok: 150")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [_vm._v("Pontossag: 20%")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "result_card_lose card" }, [
-          _c("p", { staticClass: "title is-3" }, [_vm._v("Vereseg")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [_vm._v("Pontszam: 50")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [
-            _vm._v("Leadott lovesek: 310")
-          ]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [_vm._v("Talalatok: 240")]),
-          _vm._v(" "),
-          _c("p", { staticClass: "subtitle is-5" }, [_vm._v("Pontossag: 65%")])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-7773bd5f", module.exports)
+  }
+}
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 98 */,
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(100)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(102)
+/* template */
+var __vue_template__ = __webpack_require__(103)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/PackageModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-10f96f84", Component.options)
+  } else {
+    hotAPI.reload("data-v-10f96f84", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(101);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("66d2d2d9", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-10f96f84\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PackageModal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-10f96f84\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./PackageModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal{\n  font-family: 'Oswald', sans-serif;\n  color: black;\n}\n.modal-card{\n  width: 100%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 102 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Package__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Package___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Package__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {},
+  data: function data() {
+    return {
+      packages: [],
+      showModal: false
+    };
+  },
+  created: function created() {
+    this.getPackages();
+  },
+
+  components: {
+    package: __WEBPACK_IMPORTED_MODULE_0__Package___default.a
+  },
+  methods: {
+    getPackages: function getPackages() {
+      var _this = this;
+
+      axios.get('./api/allpackage').then(function (response) {
+        _this.packages = response.data;
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }
+});
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "modal is-active" }, [
+    _c("div", { staticClass: "modal-background" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal-card" }, [
+      _c("header", { staticClass: "modal-card-head" }, [
+        _c("p", { staticClass: "modal-card-title" }, [
+          _vm._v("Csomag kivalasztasa")
+        ]),
+        _vm._v(" "),
+        _c("button", {
+          staticClass: "delete",
+          attrs: { "aria-label": "close" },
+          on: {
+            click: function($event) {
+              return _vm.$emit("close")
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "section",
+        { staticClass: "modal-card-body" },
+        [_c("package", { attrs: { packages: _vm.packages } })],
+        1
+      ),
+      _vm._v(" "),
+      _c("footer", { staticClass: "modal-card-foot" }, [
+        _c(
+          "button",
+          {
+            staticClass: "button is-success",
+            on: {
+              click: function($event) {
+                return _vm.$emit("close")
+              }
+            }
+          },
+          [_vm._v(" Kivalaszt")]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-10f96f84", module.exports)
   }
 }
 

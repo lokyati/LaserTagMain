@@ -106,7 +106,6 @@
             @yield('content')
         </main>
         <footer>
-            Footer <br>
             @if (Auth::guard('user')->check())
                 <a class="admin_button" href="{{ route('admin.login') }}" style="display: none;"></a>
             @else 

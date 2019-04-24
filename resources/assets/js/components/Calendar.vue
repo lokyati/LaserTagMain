@@ -10,10 +10,16 @@
              :transition="transition"></loading>
     <successmodal v-bind:success="showsuccess"
                   v-if="showsuccess" 
-                  @close="showsuccess = false"></successmodal>
+                  @close="showsuccess = false">
+    </successmodal>
     <failmodal v-bind:fail="showfail" :message="message"
                v-if="showfail" 
-               @close="showfail = false"></failmodal>
+               @close="showfail = false">
+    </failmodal>
+    <packagemodal v-bind:packageselect="showpackages"
+                  v-if="showpackages" 
+                  @close="showpackages = false">
+    </packagemodal>
   </div>
 	<div class='calendar'>
     <div class='header'>
@@ -85,25 +91,41 @@
           </div>
       </div>
     </div>
-    <div class="form">
-      <div class="players">
-        <p>Jatekosok szama:* </p>
-        <div class="control">
-          <div class="select is-primary" required>
-            <select v-model="selectedPlayers">
-              <option v-for="player in players">{{player}}</option>
-            </select> 
+    <div class="columns is-paddingless is-marginless">
+      <div class="form column is-half">
+        <div class="lastname">
+          <p>Vezeteknev:*</p>
+          <input class="input" type="text" placeholder="Vezeteknev" v-model="lastname" required>
+        </div>
+        <div class="firstname">
+          <p>Keresztnev:*</p>
+          <input class="input" type="text" placeholder="Keresztnev" v-model="firstname" required>
+        </div>
+        <div class="players">
+          <p>Jatekosok szama:* </p>
+          <div class="control">
+            <div class="select is-primary" required>
+              <select v-model="selectedPlayers">
+                <option v-for="player in players">{{player}}</option>
+              </select> 
+            </div>
+          </div>
+        </div>
+        <div class="tel">
+          <p>Tel.:*</p>
+          <input class="input" type="text" placeholder="Tel" v-model="tel" required>
+        </div>
+        <div class="note">
+          <p>Megjegyzes:</p>
+          <div class="textarea_container">
+            <textarea class="textarea" placeholder="10 lines of textarea" rows="5" v-model="note"></textarea>
           </div>
         </div>
       </div>
-      <div class="tel">
-        <p>Tel.:*</p>
-        <input class="input" type="text" placeholder="Tel" v-model="tel" required>
-      </div>
-      <div class="note">
-        <p>Megjegyzes:</p>
-        <div class="textarea_container">
-          <textarea class="textarea" placeholder="10 lines of textarea" rows="5" v-model="note"></textarea>
+      <div class="package_container column">
+        <p>Kivalasztott csomag</p>
+        <div class="empty_card" @click="packageSelect">
+          <p>+</p>
         </div>
       </div>
     </div>
@@ -117,6 +139,7 @@
 <script>
 import SuccessModal from './SuccessModal'
 import FailModal from './FailModal'
+import PackageModal from './PackageModal'
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
@@ -189,11 +212,14 @@ export default ({
       validated: false,
       showsuccess: false,
       showfail: false,
+      showpackages: false,
       isLoading: false,
       fullPage: true,
 
       message: 'Csak egymást követő órák foglalhatók!',
       tel: '',
+      firstname: '',
+      lastname: '',
       note: '',
       resID: '',
       loader: 'bars',
@@ -206,6 +232,7 @@ export default ({
   components: {
     successmodal: SuccessModal,
     failmodal: FailModal,
+    packagemodal: PackageModal,
     loading: Loading,
   },
   created() {
@@ -747,7 +774,7 @@ methods: {
     this.reservationID = [];
     this.resID = '';
 
-    if(this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != ""){
+    if(this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != "" && this.firstname != "" && this.lastname != ""){
       axios.get('./api/reservations').then(response => {
         this.reservations = response.data;
         //console.log(this.reservations);
@@ -849,6 +876,8 @@ methods: {
           tel: this.tel,
           note: this.note,
           user_id: this.userID,
+          firstname: this.firstname,
+          lastname: this.lastname,
         }).then(response => {
             this.showsuccess = true
             this.desiredHours = [];
@@ -869,6 +898,8 @@ methods: {
           tel: this.tel,
           note: this.note,
           user_id: this.userID,
+          firstname: this.firstname,
+          lastname: this.lastname,
         }).then(response => {
             this.showsuccess = true
             this.desiredHours = [];
@@ -882,6 +913,9 @@ methods: {
     this.message = "Minden *-al jelolt mezo kitoltese kotelezo!";
     this.showfail = true;
   }
+ },
+ packageSelect(){
+  this.showpackages = true;
  }
 },
 });
@@ -1047,6 +1081,16 @@ methods: {
   display: flex;
   font-size: 19px;
 }
+.firstname{
+  width: 14rem;
+  display: flex;
+  font-size: 19px;
+}
+.lastname{
+  width: 14rem;
+  display: flex;
+  font-size: 19px;
+}
 .note p{
   font-size: 19px;
 }
@@ -1145,5 +1189,28 @@ methods: {
 
 .select{
   width: 5rem;
+}
+
+/*Package style*/
+.package_container {
+  text-align: center;
+}
+.package_container p{
+  font-size: 1.5em;
+  padding: .25em;
+}
+.empty_card{
+  background-color: #467740;
+  height: 300px;
+  width: 15em;
+  margin: 0 auto; 
+  box-shadow: 0px 0px 5px black;
+  border-radius: 13px;
+  border: 4px dashed greenyellow;
+  cursor: pointer;
+}
+.empty_card p{
+  font-size: 8em;
+  color: #66ec15;
 }
 </style>

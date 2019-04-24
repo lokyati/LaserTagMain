@@ -24,6 +24,7 @@ Route::middleware('auth:api')->get('/profile', function (Request $request){
 
 Route::resource('reservations','ReservationsController');
 Route::resource('Reservedhours','reservedHourController');
+Route::resource('allpackage','PackageController');
 
 //Route::post('createReservation','reservedHourController@store');
 Route::post('createReservation','ReservationsController@create');

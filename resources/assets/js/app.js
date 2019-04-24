@@ -22,6 +22,7 @@ Vue.component('settingsdropdown',require('./components/settingsDropdown.vue'));
 Vue.component('profildelete',require('./components/profilDelete.vue'));
 Vue.component('admindashboard',require('./components/AdminComponents/adminDashboard.vue'));
 Vue.component('package', require('./components/Package.vue'));
+Vue.component('packagemodal', require('./components/PackageModal.vue'));
 
 const app = new Vue({
     el: '#app'

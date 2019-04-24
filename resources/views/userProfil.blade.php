@@ -46,10 +46,10 @@
                         <a class="dropdown-item" href=""
                            onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                            {{ __('Kijelentkezés') }}
+                            Kijelentkezés
                         </a>
                     @else   
-                        <a class="dropdown-item" href="{{ url('/home') }}">Fooldal</a> <!--a felhasznalo alapbol a fooldalra kerul, a profilt (sajat dashboardjat) a profilom fullel eri el-->
+                        <a class="dropdown-item" href="{{ url('/home') }}">Főoldal</a> <!--a felhasznalo alapbol a fooldalra kerul, a profilt (sajat dashboardjat) a profilom fullel eri el-->
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
@@ -76,6 +76,6 @@
 </div>
 </body>
 <footer>
-    Footer
+
 </footer>
 </html>

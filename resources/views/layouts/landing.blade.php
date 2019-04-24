@@ -50,7 +50,6 @@
 		</div>
 	</div>
 <footer id="footer">
-	Footer - 
 	@if (Auth::guard('user')->check())
         <a class="admin_button" href="{{ route('admin.login') }}" style="display: none;"></a>
     @else 

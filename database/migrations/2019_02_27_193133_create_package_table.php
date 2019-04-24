@@ -19,8 +19,7 @@ class CreatePackageTable extends Migration
             $table->double('price');
             $table->integer('time');
             $table->integer('popularity');
-            $table->text('desc_HU');
-            $table->text('desc_RO');
+            $table->text('description');
         });
     }
 

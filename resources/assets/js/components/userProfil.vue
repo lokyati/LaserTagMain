@@ -11,13 +11,14 @@
 			</div>
 			<div class="profil_nav_container">
 				<div class="columns profil_nav">
-					  <div class="column is-one-third is-paddingless">
+					  <div class="column is-one-quarter is-paddingless">
 					  	<a class="stat_nav" @click='showS()'
 							v-bind:class="{statstyle:statstyle}"
 					  	>Statisztikak</a>
 					  	</div>
 					  <div class="column is-paddingless"><a class="history_nav" @click='showH()' v-bind:class="{historystyle:historystyle}">Meccs elozmenyek</a></div>
-					  <div class="column is-paddingless"><a class="booking_nav" @click='showB()' v-bind:class="{bookingstyle:bookingstyle}">Foglalasaim</a></div>
+					  <div class="column is-paddingless"><a class="booking_nav" @click='showB()' v-bind:class="{bookingstyle:bookingstyle}">Foglalas</a></div>
+					  <div class="column is-paddingless"><a class="personal_nav" @click='showP()' v-bind:class="{personalstyle:personalstyle}">Nevjegy</a></div>
 				</div>
 			</div>
 		</div>
@@ -33,6 +34,9 @@
 				<div>
 					<bookingcalendar :userID="userID"></bookingcalendar>
 				</div>
+			</div>
+			<div class="personal" v-bind:class="{showPersonal:showPersonal}">
+				Szemelyes adatok
 			</div>
 		</div>
 	</div>
@@ -51,9 +55,11 @@ export default {
 			showStat: true,
 			showHistory: false,
 			showBookings: false,
-			statstyle:true,
+			showPersonal: false,
+			statstyle: true,
 			historystyle: false,
-			bookingstyle: false
+			bookingstyle: false,
+			personalstyle: false,
 		}
     },
     created() {
@@ -68,28 +74,45 @@ export default {
   			this.showStat = true
   			this.showHistory = false
   			this.showBookings = false
+			this.showPersonal = false
 
   			this.statstyle = true
   			this.historystyle = false
   			this.bookingstyle = false
+			this.personalstyle = false
   		},
   		showH(){
   			this.showStat = false
   			this.showHistory = true
   			this.showBookings = false
+			this.showPersonal = false
 
   			this.statstyle = false
   			this.historystyle = true
   			this.bookingstyle = false
+  			this.personalstyle = false
   		},
   		showB(){
   			this.showStat = false
   			this.showHistory = false
   			this.showBookings = true
+			this.showPersonal = false
 
   			this.statstyle = false
   			this.historystyle = false
   			this.bookingstyle = true
+  			this.personalstyle = false
+  		},
+  		showP(){
+  			this.showStat = false
+  			this.showHistory = false
+  			this.showBookings = false
+			this.showPersonal = true
+
+  			this.statstyle = false
+  			this.historystyle = false
+  			this.bookingstyle = false
+  			this.personalstyle = true
   		},
   		getUserData(){ //Laravelbe bejelentkezett user adatai
   			axios.get('profile').then(response => {
@@ -191,5 +214,15 @@ export default {
 	.bookingstyle.booking_nav{
 		background-color: #111;
 	}
-
+	.personal{
+		display:none;
+		width: 100%;
+		min-height: 400px;
+	}
+	.showPersonal.personal{
+		display:block;
+	}
+	.personalstyle.personal_nav{
+		background-color: #111;
+	}
 </style>
