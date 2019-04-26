@@ -1,5 +1,5 @@
 <template>
-<div class="calendar_container">
+<div class="calendar_container" v-bind:class="{showcalendar:showcalendar}">
   <div id="modals">
     <loading :active.sync="isLoading"
              :is-full-page="fullPage"
@@ -10,7 +10,8 @@
              :transition="transition"></loading>
     <successmodal v-bind:success="showsuccess"
                   v-if="showsuccess" 
-                  @close="showsuccess = false">
+                  @close="showsuccess = false"
+                  v-on:close="closeCalendar">
     </successmodal>
     <failmodal v-bind:fail="showfail" :message="message"
                v-if="showfail" 
@@ -18,9 +19,11 @@
     </failmodal>
     <packagemodal v-bind:packageselect="showpackages"
                   v-if="showpackages" 
-                  @close="showpackages = false">
+                  @close="showpackages = false"
+                  v-on:close="close($event)">
     </packagemodal>
   </div>
+  <h1 class="title is-3">Válassz ki egy napot</h1>
 	<div class='calendar'>
     <div class='header'>
       <a class='arrow' @click='movePreviousMonth'>&lsaquo;</a>
@@ -44,11 +47,11 @@
       </div>
     </div>
   </div>
-  <div class="reservationData_container">
+  <div class="reservationData_container"  v-bind:class="{show:show}">
     <div class="info" v-bind:class="{show:show}">
       <p>Szabad időpontok ezen a napon: </p><p class="selectedday">{{ header.label }} {{picked.day}}.</p><p class="messagetext"> {{message}} </p>
     </div>
-    <div class="hours_container"v-bind:class="{show:show}">
+    <div class="hours_container" v-bind:class="{show:show}">
       <div class="columns is-marginless">
           <div class="column is-1 eight hour_container" v-bind:class="{eightStyle:eightStyle, desired8:desired8}" @click='isSelected8'>
               <a>08:00</a>
@@ -94,19 +97,19 @@
     <div class="columns is-paddingless is-marginless">
       <div class="form column is-half">
         <div class="lastname">
-          <p>Vezeteknev:*</p>
+          <p>Vezetéknév:*</p>
           <input class="input" type="text" placeholder="Vezeteknev" v-model="lastname" required>
         </div>
         <div class="firstname">
-          <p>Keresztnev:*</p>
+          <p>Keresztnév:*</p>
           <input class="input" type="text" placeholder="Keresztnev" v-model="firstname" required>
         </div>
         <div class="players">
-          <p>Jatekosok szama:* </p>
+          <p>Játékosok száma:* </p>
           <div class="control">
             <div class="select is-primary" required>
               <select v-model="selectedPlayers">
-                <option v-for="player in players">{{player}}</option>
+                <option v-for="players in player_size" @click="priceByPlayers">{{players}}</option>
               </select> 
             </div>
           </div>
@@ -116,31 +119,48 @@
           <input class="input" type="text" placeholder="Tel" v-model="tel" required>
         </div>
         <div class="note">
-          <p>Megjegyzes:</p>
+          <p>Megjegyzés:</p>
           <div class="textarea_container">
             <textarea class="textarea" placeholder="10 lines of textarea" rows="5" v-model="note"></textarea>
           </div>
         </div>
+        <div class="bonus_slider">
+          <p>Felhasznált bónusz pontok: {{bonus_used}}</p>
+          <p>{{bonus_used}}%-os kedvezmény</p>
+          <input id="input" class="slider" :step="1" :min="0" :max="maxUserBonus" v-model="bonus_used" type="range" @click="priceByPlayers">
+        </div>
+        <div class="price">
+          Fizetendő: {{price}} Lei
+        </div>
       </div>
       <div class="package_container column">
-        <p>Kivalasztott csomag</p>
-        <div class="empty_card" @click="packageSelect">
-          <p>+</p>
+        <p id="p_title">Kiválasztott csomag*</p>
+        <div class="empty_card" @click="packageSelect" v-bind:class="{emptycardstyle:emptycardstyle}">
+          <p id="plus">+</p>
         </div>
+        <singlepackage class="selected_card"  
+                       v-bind:class="{selectedcardstyle:selectedcardstyle}"
+                       v-bind:package="package"
+                       v-on:selectagain="selectagain($event)">
+        </singlepackage>
       </div>
     </div>
     <div class="button_container" v-bind:class="{show:show}">  
-      <a class="button is-warning is-medium" @click="sendReservation">Foglalok</a>
+      <a class="button is-warning is-medium" @click="sendReservation">Foglalok és a helyszinen fizetek</a>
+    </div>
+    <div class="button_container" v-bind:class="{show:show}">  
+      <a class="button is-info is-medium" @click="sendReservation">Foglalok és PayPallal fizetek</a>
     </div>
   </div>
 </div>
 </template>
 
 <script>
-import SuccessModal from './SuccessModal'
-import FailModal from './FailModal'
-import PackageModal from './PackageModal'
+import SuccessModal from './SuccessModal';
+import FailModal from './FailModal';
+import PackageModal from './PackageModal';
 import Loading from 'vue-loading-overlay';
+import SinglePackage from './singlePackage';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
 	// Calendar data
@@ -174,13 +194,15 @@ export default ({
       picked: _todayComps,
       selectedday: _todayComps.day,
       selectedmonth: _todayComps.month,
+      today: _today.getDate(),
       reservationID: [],
       reservedhours: [],
       desiredHours: [],
       reservations: {},
       unavaible: [],
-      players: [6,8,10,12,14,16,18,20],
-      selectedPlayers: {},
+      player_size: [6,8,10,12,14,16,18,20],
+      package: [],
+      selectedPlayers: [],
 
       show: false,
       eightStyle: false,
@@ -215,6 +237,10 @@ export default ({
       showpackages: false,
       isLoading: false,
       fullPage: true,
+      emptycardstyle: false,
+      selectedcardstyle: true,
+      checkSuccess: false,
+      paid_status:false,
 
       message: 'Csak egymást követő órák foglalhatók!',
       tel: '',
@@ -223,10 +249,18 @@ export default ({
       note: '',
       resID: '',
       loader: 'bars',
+      transition: 'none',
       opacity: 0.8,
       height: 100,
       width: 100,
-      transition: 'none'
+      selected_package_id: 0,
+      bonus_used: 0,
+      price: 0,
+      packageprice: 0,
+      packagetime: 0,
+      maxUserBonus: 0,
+      UserBonus: 0,
+      date: '',
 	 };
   },
   components: {
@@ -234,16 +268,23 @@ export default ({
     failmodal: FailModal,
     packagemodal: PackageModal,
     loading: Loading,
+    singlepackage: SinglePackage,
   },
   created() {
     this.$on('configureDay', this.configureDay);
     this.$on('selectDay', this.selectDay);
-    this.getReservations();
+  },
+  watch: {
+    price: function(){
+      console.log(this.price);
+    }
   },
   props: {
     dayKey: { type: String, default: 'label' },
     value: Date,
     userID: Number,
+    userBonus: Number,
+    showcalendar: Boolean,
   },
   computed: {
 	  // Our component exposes month as 1-based, but sometimes we need 0-based
@@ -312,7 +353,7 @@ export default ({
             // ...and flag we're tracking actual month days
             previousMonth = false;
             thisMonth = true;
-                    }
+          }
           
           // Append day info for the current week
           // Note: this might or might not be an actual month day
@@ -392,7 +433,6 @@ export default ({
 	  // End of computed properties
 },
 mounted() {
-  this.getReservations();
 },
 
 methods: {
@@ -420,6 +460,38 @@ methods: {
       day.isSelected = day.date.getTime() === this.valueTime;
   },
   selectDay(day) {
+    if(this.selectedday < this.today){
+      this.eightStyle = true;
+      this.nineStyle = true;
+      this.tenStyle = true;
+      this.elevenStyle = true;
+      this.twelveStyle = true;
+      this.thrtnStyle = true;
+      this.frtnStyle = true;
+      this.fiftnStyle = true;
+      this.sixtnStyle = true;
+      this.svntnStyle = true;
+      this.eightnStyle = true;
+      this.ninetnStyle = true;
+      this.twentyStyle = true;
+      console.log("minden lefoglalva");
+    }else if(this.selectedday >= this.today){
+      this.eightStyle = false;
+      this.nineStyle = false;
+      this.tenStyle = false;
+      this.elevenStyle = false;
+      this.twelveStyle = false;
+      this.thrtnStyle = false;
+      this.frtnStyle = false;
+      this.fiftnStyle = false;
+      this.sixtnStyle = false;
+      this.svntnStyle = false;
+      this.eightnStyle = false;
+      this.ninetnStyle = false;
+      this.twentyStyle = false;
+      console.log("minden Szabad");
+    }
+    
       this.allFalse();
       this.reservationID = [];
       this.reservedhours = [];
@@ -432,10 +504,12 @@ methods: {
 
       this.show = true;
       this.getReservations();
+      this.maximazeUserBonus();
       this.isLoading = true;
       setTimeout(() => {
         this.isLoading = false
       },1000)
+      
   },
   //Show Reservation methods
   getReservations() {
@@ -522,7 +596,7 @@ methods: {
          this.eightnStyle == true &&
          this.ninetnStyle == true &&
          this.twentyStyle == true){
-        this.message = "Sajnos ma minden időpont foglalt! Válassz egy másik napot. :)";
+        this.message = "Ezek az időpontok nem elérhetőek.";
       }
 
       console.log(this.hours);
@@ -532,7 +606,7 @@ methods: {
       });
   },
   allFalse(){
-    console.log("minden ures");
+    //console.log("minden ures");
 
     this.eightStyle  = false;
     this.nineStyle   = false;
@@ -561,6 +635,54 @@ methods: {
     this.desired19   = false;
     this.desired20   = false;
   },
+  allEmpty(){
+    this.selectedPlayers = [];
+    this.package = [];
+    this.message = '';
+    this.tel = '';
+    this.firstname = ''
+    this.lastname = '';
+    this.note = '';
+    this.selected_package_id = 0;
+    this.bonus_used = 0;
+    this.price = 0;
+    this.packageprice = 0;
+    this.packagetime = 0;
+    this.maxUserBonus = 0;
+    this.emptycardstyle = false;
+    this.selectedcardstyle = true;
+  },
+  allOccupied(){
+    this.eightStyle = true;
+    this.nineStyle = true;
+    this.tenStyle = true;
+    this.elevenStyle = true;
+    this.twelveStyle = true;
+    this.thrtnStyle = true;
+    this.frtnStyle = true;
+    this.fiftnStyle = true;
+    this.sixtnStyle = true;
+    this.svntnStyle = true;
+    this.eightnStyle = true;
+    this.ninetnStyle = true;
+    this.twentyStyle = true;
+  },
+  allFree(){
+    this.eightStyle = false;
+    this.nineStyle = false;
+    this.tenStyle = false;
+    this.elevenStyle = false;
+    this.twelveStyle = false;
+    this.thrtnStyle = false;
+    this.frtnStyle = false;
+    this.fiftnStyle = false;
+    this.sixtnStyle = false;
+    this.svntnStyle = false;
+    this.eightnStyle = false;
+    this.ninetnStyle = false;
+    this.twentyStyle = false;
+  },
+
   //Reserving methods
   isSelected8(){
     if(this.eightStyle == false && this.desired10 == false && this.desired11 == false && this.desired12 == false && this.desired13 == false && this.desired14 == false && this.desired15 == false && this.desired16 == false && this.desired17 == false && this.desired18 == false && this.desired19 == false && this.desired20 == false || this.desired9 == true){
@@ -774,149 +896,230 @@ methods: {
     this.reservationID = [];
     this.resID = '';
 
-    if(this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != "" && this.firstname != "" && this.lastname != ""){
-      axios.get('./api/reservations').then(response => {
-        this.reservations = response.data;
-        //console.log(this.reservations);
-      }).catch(function (error) {
-        console.log(error);
-      });
-      for (var i = 0; i < this.reservations.length; i++) {
-        if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
-          this.reservationID.push(this.reservations[i].id);
-        }
-      }
-      if(this.reservationID.length > 0){
-      axios.get('./api/Reservedhours').then(response => {
-        this.reservedhours = response.data
+    if(this.desiredHours.length != this.packagetime){
+      this.message = "A csomagban szereplő játékidő nem egyezik meg, az általad kiválasztott órák számával. Kérlek, annyi órat válassz ki, ahány óras a csomagamit választottál. Ha ez nem lehetséges, válassz egy másik napot.";
+      this.showfail = true;
+    }else{
 
-        for (var k = 0; k < this.reservationID.length; k++) {
-          this.resID = this.reservationID[k];
-          for (var i = 0; i < this.reservedhours.length; i++) {
-          if(this.reservedhours[i].reservation_id == this.resID){
-            if(this.reservedhours[i].hour == 8){
-              this.eightStyle = true;
-              this.unavaible.push(8);
-            }
-            else if(this.reservedhours[i].hour == 9){
-              this.nineStyle = true;
-              this.unavaible.push(9);
-            }
-            else if(this.reservedhours[i].hour == 10){
-              this.tenStyle = true;
-              this.unavaible.push(10);
-            }
-            else if(this.reservedhours[i].hour == 11){
-              this.elevenStyle = true;
-              this.unavaible.push(11);
-            }
-            else if(this.reservedhours[i].hour == 12){
-              this.twelveStyle = true;
-              this.unavaible.push(12);
-            }
-            else if(this.reservedhours[i].hour == 13){
-              this.thrtnStyle = true;
-              this.unavaible.push(13);
-            }
-            else if(this.reservedhours[i].hour == 14){
-              this.frtnStyle = true;
-              this.unavaible.push(14);
-            }
-            else if(this.reservedhours[i].hour == 15){
-              this.fiftnStyle = true;
-              this.unavaible.push(15);
-            }
-            else if(this.reservedhours[i].hour == 16){
-              this.sixtnStyle = true;
-              this.unavaible.push(16);
-            }
-            else if(this.reservedhours[i].hour == 17){
-              this.svntnStyle = true;
-              this.unavaible.push(17);
-            }
-            else if(this.reservedhours[i].hour == 18){
-              this.eightnStyle = true;
-              this.unavaible.push(18);
-            }
-            else if(this.reservedhours[i].hour == 19){
-              this.ninetnStyle = true;
-              this.unavaible.push(19);
-            }
-            else if(this.reservedhours[i].hour == 20){
-              this.twentyStyle = true;
-              this.unavaible.push(20);
+      if(this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != "" && this.firstname != "" && this.lastname != "" && this.selected_package_id != ""){
+        axios.get('./api/reservations').then(response => {
+          this.reservations = response.data;
+          //console.log(this.reservations);
+        }).catch(function (error) {
+          console.log(error);
+        });
+        for (var i = 0; i < this.reservations.length; i++) {
+          if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
+            this.reservationID.push(this.reservations[i].id);
+          }
+        }
+        if(this.reservationID.length > 0){
+        axios.get('./api/Reservedhours').then(response => {
+          this.reservedhours = response.data
+
+          for (var k = 0; k < this.reservationID.length; k++) {
+            this.resID = this.reservationID[k];
+            for (var i = 0; i < this.reservedhours.length; i++) {
+            if(this.reservedhours[i].reservation_id == this.resID){
+              if(this.reservedhours[i].hour == 8){
+                this.eightStyle = true;
+                this.unavaible.push(8);
+              }
+              else if(this.reservedhours[i].hour == 9){
+                this.nineStyle = true;
+                this.unavaible.push(9);
+              }
+              else if(this.reservedhours[i].hour == 10){
+                this.tenStyle = true;
+                this.unavaible.push(10);
+              }
+              else if(this.reservedhours[i].hour == 11){
+                this.elevenStyle = true;
+                this.unavaible.push(11);
+              }
+              else if(this.reservedhours[i].hour == 12){
+                this.twelveStyle = true;
+                this.unavaible.push(12);
+              }
+              else if(this.reservedhours[i].hour == 13){
+                this.thrtnStyle = true;
+                this.unavaible.push(13);
+              }
+              else if(this.reservedhours[i].hour == 14){
+                this.frtnStyle = true;
+                this.unavaible.push(14);
+              }
+              else if(this.reservedhours[i].hour == 15){
+                this.fiftnStyle = true;
+                this.unavaible.push(15);
+              }
+              else if(this.reservedhours[i].hour == 16){
+                this.sixtnStyle = true;
+                this.unavaible.push(16);
+              }
+              else if(this.reservedhours[i].hour == 17){
+                this.svntnStyle = true;
+                this.unavaible.push(17);
+              }
+              else if(this.reservedhours[i].hour == 18){
+                this.eightnStyle = true;
+                this.unavaible.push(18);
+              }
+              else if(this.reservedhours[i].hour == 19){
+                this.ninetnStyle = true;
+                this.unavaible.push(19);
+              }
+              else if(this.reservedhours[i].hour == 20){
+                this.twentyStyle = true;
+                this.unavaible.push(20);
+              }
             }
           }
         }
-      }
-      }).catch(error => {
-        console.log(error)
-      });
+        }).catch(error => {
+          console.log(error)
+        });
 
-      for (var k = 0; k < this.desiredHours.length; k++) {
-        for (var i = 0; i < this.unavaible.length; i++) {
-          if(this.desiredHours[k] == this.unavaible[i]){
-            this.message = "Ezeket az idopontokat valaki mar lefoglalta!";
-            this.showfail = true;
-            break;
-          }
-          else{
-            this.validated = true;
+        for (var k = 0; k < this.desiredHours.length; k++) {
+          for (var i = 0; i < this.unavaible.length; i++) {
+            if(this.desiredHours[k] == this.unavaible[i]){
+              this.message = "Ezeket az időpontokat valaki már lefoglalta!";
+              this.showfail = true;
+              break;
+            }
+            else{
+              this.validated = true;
+            }
           }
         }
-      }
 
-      if(this.validated == true){
+          if(this.validated == true){
+            axios.post('./api/createReservation',{
+              hour: this.desiredHours,
+              year: this.picked.year,
+              month: this.picked.month,
+              day: this.picked.day,
+              //date: this.date,
+              players: this.selectedPlayers,
+              tel: this.tel,
+              note: this.note,
+              user_id: this.userID,
+              firstname: this.firstname,
+              lastname: this.lastname,
+              package_id: this.selected_package_id,
+              bonus_used: this.bonus_used,
+              price: this.price,
+              paid_status: this.paid_status,
+            }).then(response => {
+                this.showsuccess = true;
+                this.checkSuccess = true;
+                this.desiredHours = [];
+
+                axios.post('./BPupdate/' + this.userID,{
+                      battle_points: this.UserBonus - this.bonus_used,
+                    });
+                this.checkSuccess = false;
+              }).catch(error => {
+                  console.log(error);
+                  this.showfail = true;
+                  this.checkSuccess = false;
+                });   
+          }
+
+
+        }else{
         axios.post('./api/createReservation',{
-          hour: this.desiredHours,
-          year: this.picked.year,
-          month: this.picked.month,
-          day: this.picked.day,
-          players: this.selectedPlayers,
-          tel: this.tel,
-          note: this.note,
-          user_id: this.userID,
-          firstname: this.firstname,
-          lastname: this.lastname,
-        }).then(response => {
-            this.showsuccess = true
-            this.desiredHours = [];
-          }).catch(error => {
-              console.log(error)
-              this.showfail = true
-            });
-      }
+            hour: this.desiredHours,
+            year: this.picked.year,
+            month: this.picked.month,
+            day: this.picked.day,
+            //date: this.date,
+            players: this.selectedPlayers,
+            tel: this.tel,
+            note: this.note,
+            user_id: this.userID,
+            firstname: this.firstname,
+            lastname: this.lastname,
+            package_id: this.selected_package_id,
+            bonus_used: this.bonus_used,
+            price: this.price,
+            paid_status: this.paid_status,
+          }).then(response => {
+              this.showsuccess = true;
+              this.checkSuccess = true;
+              this.desiredHours = [];
 
-
-      }else{
-      axios.post('./api/createReservation',{
-          hour: this.desiredHours,
-          year: this.picked.year,
-          month: this.picked.month,
-          day: this.picked.day,
-          players: this.selectedPlayers,
-          tel: this.tel,
-          note: this.note,
-          user_id: this.userID,
-          firstname: this.firstname,
-          lastname: this.lastname,
-        }).then(response => {
-            this.showsuccess = true
-            this.desiredHours = [];
-          }).catch(error => {
-              console.log(error)
-              this.showfail = true
-            });
-        
+              axios.post('./BPupdate/' + this.userID,{
+                    battle_points: this.UserBonus - this.bonus_used,
+                  });
+              this.checkSuccess = false;
+            }).catch(error => {
+                console.log(error);
+                this.showfail = true;
+                this.checkSuccess = false;
+              });
+        }
+    }else{
+      this.message = "Minden *-al jelölt mező kitöltése kötelező!";
+      this.showfail = true;
     }
-  }else{
-    this.message = "Minden *-al jelolt mezo kitoltese kotelezo!";
-    this.showfail = true;
-  }
+  } //itt er veget az elso if
  },
  packageSelect(){
-  this.showpackages = true;
- }
+    this.showpackages = true;
+ },
+ close(close){
+    this.showpackages = false;
+    this.selected_package_id = close;
+    this.emptycardstyle = true;
+    this.selectedcardstyle = false;
+    this.getPackage();
+ },
+ closeCalendar(){
+    this.showcalendar = false;
+    this.show = false;
+    this.allFalse();
+    this.allEmpty();
+    this.$emit('closeCalendar');
+    console.log("closed");
+ },
+ getPackage(selected_package_id) {
+    var id = this.selected_package_id
+    axios.get('./package/' + id).then(response => {
+      this.package = response.data;
+      this.loadingstyle = true;
+      this.packageprice = this.package.price;
+      this.packagetime = this.package.time;
+      if(this.bonus_used == 0){
+        this.price = this.packageprice * this.selectedPlayers;
+      }else{
+        this.price = (this.packageprice * this.selectedPlayers) - ((this.bonus_used * (this.packageprice * this.selectedPlayers))/100);
+      }
+    }).catch(function (error) {
+        console.log(error);
+      });
+  },
+  selectagain(){
+    this.showpackages = true;
+  },
+  priceByPlayers(){
+    if(this.bonus_used == 0){
+      this.price = this.packageprice * this.selectedPlayers;
+    }else{
+      this.price = (this.packageprice * this.selectedPlayers) - ((this.bonus_used * (this.packageprice * this.selectedPlayers))/100);
+    }
+  },
+  maximazeUserBonus(){
+    this.UserBonus = this.userBonus;
+    console.log("User Bonus " + this.UserBonus);
+    if(this.UserBonus >= 50){
+      this.maxUserBonus = 50;
+    }
+    else if(this.UserBonus < 50){
+      this.maxUserBonus = this.UserBonus;
+    }
+    console.log("maxUB " + this.maxUserBonus);
+  }
 },
 });
 </script>
@@ -935,14 +1138,18 @@ methods: {
   background-color: #e9e9e9;
   padding: 1rem;
   box-shadow: 0px 0px 5px black;
+  display: none;
 }
 .calendar{
   display: flex;
   flex-direction: column;
   margin: 0 auto;
 }
+.showcalendar.calendar_container{
+  display: block;
+}
 .reservationData_container{
-
+  display: none;
 }
 .header{
   display: flex;
@@ -968,9 +1175,6 @@ methods: {
   flex-grow: 1;
   font-size: 1.2rem;
   text-align: center;
-}
-.title:hover{
-	color: #dcdcdc;
 }
 
 .weekdays{
@@ -1067,6 +1271,9 @@ methods: {
   display: none;
 }
 .show.button_container{
+  display: block;
+}
+.show.reservationData_container{
   display: block;
 }
 .form{
@@ -1195,7 +1402,7 @@ methods: {
 .package_container {
   text-align: center;
 }
-.package_container p{
+#p_title{
   font-size: 1.5em;
   padding: .25em;
 }
@@ -1209,8 +1416,53 @@ methods: {
   border: 4px dashed greenyellow;
   cursor: pointer;
 }
-.empty_card p{
-  font-size: 8em;
+#plus{
+  font-size: 10em;
   color: #66ec15;
+}
+.emptycardstyle.empty_card{
+  display: none;
+}
+.selectedcardstyle.selected_card{
+  display: none;
+}
+
+.bonus_slider p{
+  font-size: 19px
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.price{
+  width: 10em;
+  font-size: 2em;
+  font-weight: bold;
 }
 </style>

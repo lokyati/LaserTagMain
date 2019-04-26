@@ -22,6 +22,7 @@ class ReservationsController extends Controller
             'year' => $data['year'],
             'month' => $data['month'],
             'day' => $data['day'],
+            //'date' => $data['date'],
             'players' => $data['players'],
             'tel' => $data['tel'],
             'note' => $data['note'],
@@ -29,6 +30,9 @@ class ReservationsController extends Controller
             'user_id' => $data['user_id'],
             'firstname' => $data['firstname'],
             'lastname' => $data['lastname'],
+            'bonus_used' => $data['bonus_used'],
+            'price' => $data['price'],
+            'paid_status' => $data['paid_status'],
         ]);
 
         foreach ($data['hour'] as $reserved['hour']){
@@ -52,6 +56,12 @@ class ReservationsController extends Controller
         Reservations::find($day);
     }
 
+    public function showByUser($id)
+    {
+        $reservation = Reservations::where('user_id', $id)->get();
+        return $reservation;
+    }
+
     public function edit(Reservations $reservations)
     {
         //
@@ -62,8 +72,9 @@ class ReservationsController extends Controller
         //
     }
 
-    public function destroy(Reservations $reservations)
+    public function destroy($id)
     {
-        //
+        $reservation = Reservations::where('id', $id)->delete();
+        return response()->json('reservation deleted');;
     }
 }

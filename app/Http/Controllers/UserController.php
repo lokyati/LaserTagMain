@@ -78,9 +78,12 @@ class UserController extends Controller
      * @param  \App\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        $user->battle_points = $request->get('battle_points');
+        $user->save();
+        return $user;
     }
 
     /**

@@ -74,7 +74,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'lvl' => $data['lvl'],
-            'battle_point_balance' => $data['battle_point_balance']
+            'battle_points' => $data['battle_points']
         ]);
 
         UsersStat::create([

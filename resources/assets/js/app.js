@@ -3,6 +3,8 @@ import Buefy from 'buefy';
 import Axios from 'axios';
 import Bulma  from 'bulma';
 import VueResource from 'vue-resource';
+import VueSlideBar from 'vue-slide-bar'
+ 
 
 window.Vue = require('vue');
 window.axios = require('axios');
@@ -10,6 +12,7 @@ window.axios = require('axios');
 Vue.use(Buefy);
 Vue.use(Bulma);
 Vue.use(VueResource);
+Vue.component('VueSlideBar', VueSlideBar);
 
 
 Vue.component('gdprmodal', require('./components/GDPRModal.vue'));
@@ -22,7 +25,9 @@ Vue.component('settingsdropdown',require('./components/settingsDropdown.vue'));
 Vue.component('profildelete',require('./components/profilDelete.vue'));
 Vue.component('admindashboard',require('./components/AdminComponents/adminDashboard.vue'));
 Vue.component('package', require('./components/Package.vue'));
+Vue.component('singlepackage', require('./components/singlePackage.vue'));
 Vue.component('packagemodal', require('./components/PackageModal.vue'));
+Vue.component('deletemodal', require('./components/DeleteModal.vue'));
 
 const app = new Vue({
     el: '#app'

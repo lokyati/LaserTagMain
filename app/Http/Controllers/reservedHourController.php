@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\reservedHours;
+use App\Reservations;
 
 class reservedHourController extends Controller
 {
@@ -45,5 +46,13 @@ class reservedHourController extends Controller
         return reservedHours::create([
             'hour' => $request['hour'],
         ]);
+    }
+
+    public function destroy($id)
+    {
+        $reservedhours = reservedHours::where('reservation_id', $id)->delete();
+
+        $reservation = Reservations::where('id', $id)->delete();
+        return response()->json('reservations deleted');;
     }
 }

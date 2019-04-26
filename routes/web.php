@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,10 @@ Route::get('/profil', 'UserController@index')->name('profil');
 Route::get('/home', 'UserController@home')->name('home');
 Route::get('profile', 'UserController@profile');
 Route::get('data/{id}', 'UserController@data');
+Route::get('package/{id}','PackageController@show'); 
+Route::get('reservation/{id}','ReservationsController@showByUser');
+Route::post('BPupdate/{id}','UserController@update');
+Route::delete('deleteReservedHour/{id}','reservedHourController@destroy');
 
 //Test Route
 Route::get('/calendar', function () {

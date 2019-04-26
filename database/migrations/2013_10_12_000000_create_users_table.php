@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('lvl')->nullable()->default(1);
             $table->integer('experience')->nullable()->default(0);
-            $table->integer('battle_point_balance')->nullable();
+            $table->integer('battle_points')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

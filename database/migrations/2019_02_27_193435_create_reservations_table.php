@@ -22,18 +22,19 @@ class CreateReservationsTable extends Migration
             $table->integer('year')->nullable();
             $table->integer('month')->nullable();
             $table->integer('day')->nullable();
+            //$table->string('date')->nullable();
             $table->integer('players')->nullable();
             $table->integer('tel')->nullable();
             $table->text('note')->nullable();
-            //$table->integer('bonus_used');
-            //$table->double('price');
-            //$table->boolean('paid_status');
+            $table->integer('bonus_used')->nullable();
+            $table->double('price')->nullable();
+            $table->boolean('paid_status')->nullable();
             $table->timestamps();
         });
 
         Schema::table('reservations', function($table){
             $table->foreign('user_id')->references('id')->on('users');
-            //$table->foreign('package_id')->references('id')->on('package');
+            $table->foreign('package_id')->references('id')->on('package');
         });
     }
 

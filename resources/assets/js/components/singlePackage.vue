@@ -1,8 +1,6 @@
 <template>
 	<div class="packages_container">
-		<div class="package_card" 
-			 v-for="package in packages"
-			 @click="selectPackage(package.id)">
+		<div class="package_card" @click="packageSelect">
 			<p class="title is-3">{{package.package_name}}</p>
 			<p class="subtitle is-5">Ar/fo: {{package.price}}</p>
 			<p class="subtitle is-5">Jatekido: {{package.time}} ora</p>
@@ -13,7 +11,7 @@
 <script>
 	export default ({
     props:{
-      packages:{
+      package:{
       	type: Array,
       	required: true,
       }
@@ -21,15 +19,15 @@
     data() {
       return {
           ID: 0,
+          packagePrice: 0,
         }
       },
       components: {
     },
-    methods: {
-    	selectPackage(id){
-			this.ID = id;
-			this.$emit('close',id);
-    	}
+    methods: {   
+    	packageSelect(){
+		  this.$emit('selectagain');
+		},
     },
   });
 </script>

@@ -28,9 +28,10 @@ class PackageController extends Controller
         //
     }
 
-    public function show($day)
+    public function show($id)
     {
-        
+        $package = Package::findOrFail($id);
+        return $package;
     }
 
     public function edit(Package $reservations)

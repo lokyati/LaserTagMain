@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//Route::resource('reservations','ReservationsController');
 Route::middleware('auth:api')->get('/profile', function (Request $request){
 	return $request->user();
 });
@@ -26,6 +26,4 @@ Route::resource('reservations','ReservationsController');
 Route::resource('Reservedhours','reservedHourController');
 Route::resource('allpackage','PackageController');
 
-//Route::post('createReservation','reservedHourController@store');
 Route::post('createReservation','ReservationsController@create');
-	
