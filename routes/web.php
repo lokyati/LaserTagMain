@@ -33,9 +33,18 @@ Route::get('/home', 'UserController@home')->name('home');
 Route::get('profile', 'UserController@profile');
 Route::get('data/{id}', 'UserController@data');
 Route::get('package/{id}','PackageController@show'); 
+Route::get('allpackage','PackageController@index'); 
 Route::get('reservation/{id}','ReservationsController@showByUser');
 Route::post('BPupdate/{id}','UserController@update');
+Route::post('ProfileUpdate/{id}','UserController@profileupdate');
 Route::delete('deleteReservedHour/{id}','reservedHourController@destroy');
+Route::get('matches/{id}','MatchesController@showByUser');
+Route::get('rank/','RankController@index');
+Route::get('userstat/{id}','UserStatController@show');
+Route::post('statUpdate/{id}','UserStatController@update');
+Route::post('matchUpdate/{id}','MatchesController@update');
+
+Route::post('simulation','MatchesController@create');
 
 //Test Route
 Route::get('/calendar', function () {
@@ -43,6 +52,9 @@ Route::get('/calendar', function () {
 });
 Route::get('/package', function () {
     return view('package');
+});
+Route::get('/simulator', function () {
+    return view('simulator');
 });
 //Password Reset Routes
 //Route::get('/password/reset/{token}', 'ResetController@showResetForm');

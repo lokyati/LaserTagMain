@@ -14,7 +14,7 @@ class PackageSeeder extends Seeder
         DB::table('package')->insert([
               [
                 'id' => 1,
-				'package_name' => 'Legalapabb csomag',
+				        'package_name' => 'Kadét',
                 'price' => '10',
                 'time' => '1',
                 'popularity' => '1',
@@ -22,7 +22,7 @@ class PackageSeeder extends Seeder
               ],
               [
                 'id' => 2,
-				'package_name' => 'Alap csomag',
+				        'package_name' => 'Kezdő',
                 'price' => '20',
                 'time' => '2',
                 'popularity' => '1',
@@ -30,7 +30,7 @@ class PackageSeeder extends Seeder
               ],
               [
                 'id' => 3,
-				'package_name' => 'Kozepes csomag',
+				        'package_name' => 'Harcedzett',
                 'price' => '30',
                 'time' => '3',
                 'popularity' => '1',
@@ -38,7 +38,7 @@ class PackageSeeder extends Seeder
               ],
               [
                 'id' => 4,
-				'package_name' => 'Nagy csomag',
+				        'package_name' => 'Veterán',
                 'price' => '40',
                 'time' => '4',
                 'popularity' => '1',

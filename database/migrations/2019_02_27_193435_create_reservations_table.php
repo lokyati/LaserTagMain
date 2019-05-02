@@ -22,13 +22,13 @@ class CreateReservationsTable extends Migration
             $table->integer('year')->nullable();
             $table->integer('month')->nullable();
             $table->integer('day')->nullable();
+            $table->integer('first_hour')->nullable();
             //$table->string('date')->nullable();
             $table->integer('players')->nullable();
             $table->integer('tel')->nullable();
             $table->text('note')->nullable();
             $table->integer('bonus_used')->nullable();
             $table->double('price')->nullable();
-            $table->boolean('paid_status')->nullable();
             $table->timestamps();
         });
 

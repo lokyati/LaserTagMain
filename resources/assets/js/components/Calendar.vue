@@ -96,15 +96,15 @@
     </div>
     <div class="columns is-paddingless is-marginless">
       <div class="form column is-half">
-        <div class="lastname">
+        <div class="label lastname">
           <p>Vezetéknév:*</p>
           <input class="input" type="text" placeholder="Vezeteknev" v-model="lastname" required>
         </div>
-        <div class="firstname">
+        <div class="label firstname">
           <p>Keresztnév:*</p>
           <input class="input" type="text" placeholder="Keresztnev" v-model="firstname" required>
         </div>
-        <div class="players">
+        <div class="label players">
           <p>Játékosok száma:* </p>
           <div class="control">
             <div class="select is-primary" required>
@@ -114,11 +114,11 @@
             </div>
           </div>
         </div>
-        <div class="tel">
+        <div class="label tel">
           <p>Tel.:*</p>
           <input class="input" type="text" placeholder="Tel" v-model="tel" required>
         </div>
-        <div class="note">
+        <div class="label note">
           <p>Megjegyzés:</p>
           <div class="textarea_container">
             <textarea class="textarea" placeholder="10 lines of textarea" rows="5" v-model="note"></textarea>
@@ -240,12 +240,8 @@ export default ({
       emptycardstyle: false,
       selectedcardstyle: true,
       checkSuccess: false,
-      paid_status:false,
 
       message: 'Csak egymást követő órák foglalhatók!',
-      tel: '',
-      firstname: '',
-      lastname: '',
       note: '',
       resID: '',
       loader: 'bars',
@@ -285,6 +281,9 @@ export default ({
     userID: Number,
     userBonus: Number,
     showcalendar: Boolean,
+    firstname: String,
+    lastname: String,
+    tel: Number,
   },
   computed: {
 	  // Our component exposes month as 1-based, but sometimes we need 0-based
@@ -996,6 +995,7 @@ methods: {
           if(this.validated == true){
             axios.post('./api/createReservation',{
               hour: this.desiredHours,
+              first_hour: this.desiredHours[0],
               year: this.picked.year,
               month: this.picked.month,
               day: this.picked.day,
@@ -1009,7 +1009,6 @@ methods: {
               package_id: this.selected_package_id,
               bonus_used: this.bonus_used,
               price: this.price,
-              paid_status: this.paid_status,
             }).then(response => {
                 this.showsuccess = true;
                 this.checkSuccess = true;
@@ -1030,6 +1029,7 @@ methods: {
         }else{
         axios.post('./api/createReservation',{
             hour: this.desiredHours,
+            first_hour: this.desiredHours[0],
             year: this.picked.year,
             month: this.picked.month,
             day: this.picked.day,
@@ -1043,7 +1043,6 @@ methods: {
             package_id: this.selected_package_id,
             bonus_used: this.bonus_used,
             price: this.price,
-            paid_status: this.paid_status,
           }).then(response => {
               this.showsuccess = true;
               this.checkSuccess = true;

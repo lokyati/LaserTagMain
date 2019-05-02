@@ -16,21 +16,20 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->text('name');
-            //$table->unsignedInteger('rank_id')->nullable();
+            $table->unsignedInteger('rank_id')->nullable();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
             $table->string('email')->unique();
+            $table->integer('tel')->nullable();
             $table->string('password');
-            $table->integer('lvl')->nullable()->default(1);
-            $table->integer('experience')->nullable()->default(0);
             $table->integer('battle_points')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
 
-        /*Schema::table('users', function($table){
+        Schema::table('users', function($table){
             $table->foreign('rank_id')->references('id')->on('ranks');
-        });*/
+        });
     }
 
     /**

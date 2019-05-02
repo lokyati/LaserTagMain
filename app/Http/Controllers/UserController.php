@@ -86,6 +86,16 @@ class UserController extends Controller
         return $user;
     }
 
+    public function profileupdate(Request $request, $id)
+    {
+        $user = User::where('id', $id)->first();
+        $user->firstname = $request->get('firstname');
+        $user->lastname = $request->get('lastname');
+        $user->tel = $request->get('tel');
+        $user->save();
+        return $user;
+    }
+
     /**
      * Remove the specified resource from storage.
      *

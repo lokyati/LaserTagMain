@@ -20,6 +20,7 @@ class ReservationsController extends Controller
     {
         $reservations = Reservations::create([
             'year' => $data['year'],
+            'first_hour' => $data['first_hour'],
             'month' => $data['month'],
             'day' => $data['day'],
             //'date' => $data['date'],
@@ -32,7 +33,6 @@ class ReservationsController extends Controller
             'lastname' => $data['lastname'],
             'bonus_used' => $data['bonus_used'],
             'price' => $data['price'],
-            'paid_status' => $data['paid_status'],
         ]);
 
         foreach ($data['hour'] as $reserved['hour']){

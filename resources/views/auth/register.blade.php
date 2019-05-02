@@ -83,6 +83,18 @@
             <div class="divider"></div>
             <input name="lvl" type="hidden" value="1">
             <input name="battle_points" type="hidden" value="0">
+            <input name="experience" type="hidden" value="0">
+            <input name="rank_id" type="hidden" value="1">
+            <input name="all_shot" type="hidden" value="0">
+            <input name="all_hit" type="hidden" value="0">
+            <input name="all_out" type="hidden" value="0">
+            <input name="matches" type="hidden" value="0">
+            <input name="wins" type="hidden" value="0">
+            <input name="loses" type="hidden" value="0">
+            <input name="bestplace" type="hidden" value="0">
+            <input name="avg_shot" type="hidden" value="0">
+            <input name="avg_acc" type="hidden" value="0">
+            <input name="avg_hit" type="hidden" value="0">
             <div class="field has-text-centered pt40">
                 Már tag vagy? 
                 <a class="has-text-info" href="{{ route('login') }}">Jelentkezz be itt</a>

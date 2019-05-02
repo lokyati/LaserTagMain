@@ -13,18 +13,18 @@ class MatchPlayers extends Migration
      */
     public function up()
     {
-        Schema::create('match_players', function (Blueprint $table) {
+        /*Schema::create('match_players', function (Blueprint $table) {
             $table->increments('id');
-            //$table->unsignedInteger('match_id');
-            //$table->unsignedInteger('user_id');
+            $table->unsignedInteger('match_id');
+            $table->unsignedInteger('user_id');
             $table->integer('score');
             $table->bigInteger('all_shot');
             $table->bigInteger('all_hit');
-            $table->bigInteger('all_acc');
+            $table->double('all_acc');
             $table->bigInteger('bonus');
         });
 
-        /*Schema::table('match_players', function($table){
+        Schema::table('match_players', function($table){
             $table->foreign('match_id')->references('id')->on('matches');
             $table->foreign('user_id')->references('id')->on('users');
         });*/

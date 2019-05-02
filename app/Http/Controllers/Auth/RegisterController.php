@@ -73,12 +73,24 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'lvl' => $data['lvl'],
-            'battle_points' => $data['battle_points']
+            'battle_points' => $data['battle_points'],
+            'rank_id' => $data['rank_id'],
         ]);
 
         UsersStat::create([
-            'user_id' => $user->id
+            'user_id' => $user->id,
+            'experience' => $data['experience'],
+            'lvl' => $data['lvl'],
+            'all_shot' => $data['all_shot'],
+            'all_hit' => $data['all_hit'],
+            'all_out' => $data['all_out'],
+            'matches' => $data['matches'],
+            'wins' => $data['wins'],
+            'loses' => $data['loses'],
+            'bestplace' => $data['bestplace'],
+            'avg_shot' => $data['avg_shot'],
+            'avg_acc' => $data['avg_acc'],
+            'avg_hit' => $data['avg_hit'],
         ]);
 
         return $user;

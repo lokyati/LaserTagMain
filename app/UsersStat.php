@@ -12,6 +12,6 @@ class UsersStat extends Model
     protected $table = 'users_stat';
 
     protected $fillable = [
-    	'user_id'
+    	'user_id', 'all_shot', 'all_hit', 'matches', 'wins', 'loses', 'avg_shot', 'avg_acc', 'avg_hit', 'lvl', 'experience', 'all_out', 'bestplace'
     ];
 }

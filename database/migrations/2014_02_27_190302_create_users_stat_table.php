@@ -17,14 +17,17 @@ class CreateUsersStatTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
             $table->bigInteger('all_shot')->nullable();
-            //$table->bigInteger('all_hit')->nullable();
-            //$table->bigInteger('all_acc')->nullable();
+            $table->bigInteger('all_hit')->nullable();
+            $table->bigInteger('all_out')->nullable();
             $table->bigInteger('matches')->nullable();
-            //$table->bigInteger('wins')->nullable();
-            //$table->bigInteger('loses')->nullable();
-            //$table->double('avg_shot')->nullable();
-            //$table->double('avg_acc')->nullable();
-            //$table->double('avg_hit')->nullable();
+            $table->bigInteger('wins')->nullable();
+            $table->bigInteger('loses')->nullable();
+            $table->integer('bestplace')->nullable();
+            $table->double('avg_shot')->nullable();
+            $table->double('avg_acc')->nullable();
+            $table->double('avg_hit')->nullable();
+            $table->integer('lvl')->nullable();
+            $table->integer('experience')->nullable();
             $table->timestamps();
         });
 

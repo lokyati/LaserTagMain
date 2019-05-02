@@ -28,6 +28,12 @@ Vue.component('package', require('./components/Package.vue'));
 Vue.component('singlepackage', require('./components/singlePackage.vue'));
 Vue.component('packagemodal', require('./components/PackageModal.vue'));
 Vue.component('deletemodal', require('./components/DeleteModal.vue'));
+Vue.component('editormodal', require('./components/EditorModal.vue'));
+Vue.component('simulator', require('./components/MatchSimulator.vue'));
+Vue.component('simplecarousel',require('./components/SimpleCarousel.vue'));
+Vue.component('matchcard',require('./components/MatchCard.vue'));
+Vue.component('updatemodal',require('./components/UpdateModal.vue'));
+
 
 const app = new Vue({
     el: '#app'
