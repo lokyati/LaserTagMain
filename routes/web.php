@@ -43,6 +43,8 @@ Route::get('rank/','RankController@index');
 Route::get('userstat/{id}','UserStatController@show');
 Route::post('statUpdate/{id}','UserStatController@update');
 Route::post('matchUpdate/{id}','MatchesController@update');
+Route::post('userRankUpdate/{id}','UserController@rankupdate');
+Route::post('userBonusUpdate/{id}','UserController@bonusupdate');
 
 Route::post('simulation','MatchesController@create');
 

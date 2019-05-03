@@ -16,7 +16,14 @@
                   	 :userID="userID"
                   	 :unprocessed="unprocessed"
                   	 @close="showUpdate = false"
-                  	 v-on:closeUpdate="closeUpdate"></updatemodal>
+                  	 v-on:closeUpdate="closeUpdate"
+                  	 v-on:lvlup="lvlup($event)"></updatemodal>
+        <lvlupmodal v-bind:lvlup="showLvlUp"
+                  	v-if="showLvlUp"
+                  	:lvl="lvl"
+                  	:oldrank="oldrank"
+                  	:userID="userID"
+                  	@close="showLvlUp = false"></lvlupmodal>
 		<div class="profil_header">
 			<settingsdropdown></settingsdropdown>
 			<div class="avatar">
@@ -34,7 +41,6 @@
 					  	</div>
 					  <div class="column is-paddingless"><a class="history_nav" @click='showH()' v-bind:class="{historystyle:historystyle}">Meccs előzmények</a></div>
 					  <div class="column is-paddingless"><a class="booking_nav" @click='showB()' v-bind:class="{bookingstyle:bookingstyle}">Foglalás</a></div>
-					  <!--<div class="column is-paddingless"><a class="personal_nav" @click='showP()' v-bind:class="{personalstyle:personalstyle}">Névjegy</a></div>-->
 				</div>
 			</div>
 		</div>
@@ -280,6 +286,7 @@ import DeleteModal from './DeleteModal'
 import EditorModal from './EditorModal'
 import SimpleCarousel from './SimpleCarousel'
 import UpdateModal from './UpdateModal'
+import lvlUpModal from './lvlUpModal'
 
 export default {
 	data() {
@@ -298,6 +305,8 @@ export default {
 			userBonus: 0,
 			value: 0,
 			max: 1000,
+			lvl: 0,
+			oldrank: 0,
 			showStat: false,
 			showHistory: false,
 			showBookings: false,
@@ -313,6 +322,7 @@ export default {
 			showcalendar: false,
 			showHistoryInfo: true,
 			show:false,
+			showLvlUp: false,
 			lastname: '',
 			firstname: '',
 			tel: '',
@@ -330,6 +340,7 @@ export default {
     	editormodal: EditorModal,
     	simplecarousel: SimpleCarousel,
     	updatemodal: UpdateModal,
+    	lvlupmodal: lvlUpModal,
   	},
   	methods: {
   		showS(){
@@ -343,6 +354,7 @@ export default {
   			this.bookingstyle = false
 			this.personalstyle = false
 
+			this.getUserData();
 			this.getUserStat();
 			this.getRank();
   		},
@@ -381,8 +393,8 @@ export default {
 				this.firstname = this.user.firstname;
 				this.tel = this.user.tel;
 				this.rank_src = this.user.rank_id + '.png';
+				this.oldrank = this.user.rank_id;
 			});
-			
   		},
   		getUserStat(){
   			axios.get('./userstat/' + this.userID).then(response => {
@@ -493,6 +505,10 @@ export default {
 		},
 		closeUpdate(){
 			this.showUpdate = false;
+		},
+		lvlup(lvl){
+			this.lvl = lvl;
+			this.showLvlUp = true;
 		},
   	},
 

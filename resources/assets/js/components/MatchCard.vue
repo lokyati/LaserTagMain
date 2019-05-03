@@ -23,7 +23,7 @@
                 </div>
                 <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Pontosság </span>
-                  <span class="tag is-info is-medium second_tag_history">{{match.all_acc}}</span>
+                  <span class="tag is-info is-medium second_tag_history">{{match.acc}}</span>
                 </div>
                 <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Bónuszpontok </span>

@@ -76,7 +76,10 @@
   		send(){
   			this.acc = (this.hits*100)/this.shots;
   			this.score = (this.hits * 2) - this.out;
-  			this.bonus = this.placed;
+  			this.bonus = this.score / 10;
+
+  			((this.acc).toFixed(1));
+
   			axios.post('./simulation',{
             user_id: this.userid,
             score: this.score,

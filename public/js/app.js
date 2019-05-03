@@ -2474,6 +2474,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('simulator', __webpack_req
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('simplecarousel', __webpack_require__(25));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('matchcard', __webpack_require__(26));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('updatemodal', __webpack_require__(27));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('lvlupmodal', __webpack_require__(140));
 
 var app = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
   el: '#app'
@@ -32632,6 +32633,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SimpleCarousel___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__SimpleCarousel__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__UpdateModal__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__UpdateModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__UpdateModal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lvlUpModal__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lvlUpModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__lvlUpModal__);
 //
 //
 //
@@ -32907,6 +32910,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+
 
 
 
@@ -32932,6 +32942,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			userBonus: 0,
 			value: 0,
 			max: 1000,
+			lvl: 0,
+			oldrank: 0,
 			showStat: false,
 			showHistory: false,
 			showBookings: false,
@@ -32947,6 +32959,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			showcalendar: false,
 			showHistoryInfo: true,
 			show: false,
+			showLvlUp: false,
 			lastname: '',
 			firstname: '',
 			tel: '',
@@ -32964,7 +32977,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		deletemodal: __WEBPACK_IMPORTED_MODULE_2__DeleteModal___default.a,
 		editormodal: __WEBPACK_IMPORTED_MODULE_3__EditorModal___default.a,
 		simplecarousel: __WEBPACK_IMPORTED_MODULE_4__SimpleCarousel___default.a,
-		updatemodal: __WEBPACK_IMPORTED_MODULE_5__UpdateModal___default.a
+		updatemodal: __WEBPACK_IMPORTED_MODULE_5__UpdateModal___default.a,
+		lvlupmodal: __WEBPACK_IMPORTED_MODULE_6__lvlUpModal___default.a
 	},
 	methods: {
 		showS: function showS() {
@@ -32978,6 +32992,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.bookingstyle = false;
 			this.personalstyle = false;
 
+			this.getUserData();
 			this.getUserStat();
 			this.getRank();
 		},
@@ -33019,6 +33034,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this.firstname = _this.user.firstname;
 				_this.tel = _this.user.tel;
 				_this.rank_src = _this.user.rank_id + '.png';
+				_this.oldrank = _this.user.rank_id;
 			});
 		},
 		getUserStat: function getUserStat() {
@@ -33135,6 +33151,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		closeUpdate: function closeUpdate() {
 			this.showUpdate = false;
+		},
+		lvlup: function lvlup(lvl) {
+			this.lvl = lvl;
+			this.showLvlUp = true;
 		}
 	},
 
@@ -34366,7 +34386,7 @@ var render = function() {
           _c(
             "span",
             { staticClass: "tag is-info is-medium second_tag_history" },
-            [_vm._v(_vm._s(match.all_acc))]
+            [_vm._v(_vm._s(match.acc))]
           )
         ]),
         _vm._v(" "),
@@ -34633,23 +34653,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       userData: [],
       userStat: [],
       showModal: false,
-      allmatch: 0,
-      allshots: 0,
-      allhit: 0,
-      allscore: 0,
-      allacc: 0,
-      allout: 0,
-      allbonus: 0,
-      allwin: 0,
-      alllose: 0,
-      allexperience: 0,
       avgshot: 0,
       avghit: 0,
       avgacc: 0,
       bestplace: 100,
       remainxp: 0,
       lvl: 1,
-
       oldshots: 0,
       oldhits: 0,
       oldout: 0,
@@ -34662,7 +34671,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       oldavg_acc: 0,
       oldlvl: 0,
       oldexperience: 0,
-      processed: 1
+      processed: 1,
+      bonus: 0
     };
   },
   created: function created() {
@@ -34678,6 +34688,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       axios.get('./userstat/' + this.userID).then(function (response) {
         _this.userStat = response.data;
       });
+      axios.get('profile').then(function (response) {
+        _this.userData = response.data;
+      });
     },
     updateUserStat: function updateUserStat() {
       this.oldshots = this.userStat.all_shot;
@@ -34692,66 +34705,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.oldavg_acc = this.userStat.avg_acc;
       this.oldlvl = this.userStat.lvl;
       this.oldexperience = this.userStat.experience;
+      this.oldbonus = this.userData.battle_points;
 
       for (var i = 0; i < this.unprocessed.length; i++) {
         this.oldmatches++;
         if (this.unprocessed[i].result == "Győzelem") {
           this.oldwins++;
+          this.bonus += 10;
         } else if (this.unprocessed[i].result == "Vereség") {
           this.oldloses++;
+          this.bonus += 5;
         }
         this.oldshots += this.unprocessed[i].all_shot;
         this.oldhits += this.unprocessed[i].all_hit;
         this.oldexperience += this.unprocessed[i].score;
+        this.bonus += this.unprocessed[i].score;
+        this.bonus += this.unprocessed[i].bonus;
         this.oldout += this.unprocessed[i].all_out;
-        if (this.unprocessed[i].bestplace < this.oldbestplace) {
-          this.oldbestplace = this.unprocessed[i].bestplace;
+        if (this.unprocessed[i].placed < this.oldbestplace) {
+          this.oldbestplace = this.unprocessed[i].placed;
         }
         axios.post('./matchUpdate/' + this.unprocessed[i].id, {
           processed: this.processed
         });
       }
-      //this.avgshot = this.allshots/this.allmatch;
-      //this.avghit = this.allhit/this.allmatch;
-      //this.avgacc = this.allacc/this.allmatch;
-
-      //this.userStat.all_shot += this.allshots;
-      //this.userStat.all_hit += this.allhit;
-      //this.userStat.all_out += this.allout;
-      //this.userStat.matches += this.allmatch;
-      //this.userStat.wins += this.allwin;
-      //this.userStat.loses += this.alllose;
-
-      //if(this.userStat.bestplace < this.bestplace){
-      //  this.userStat.bestplace = this.bestplace;
-      //}
 
       this.avgshot = this.oldshots / this.oldmatches;
       this.avghit = this.oldhits / this.oldmatches;
       this.avgacc = this.oldshots / this.oldhits;
+      //this.avgshot = ((this.avgshot).toFixed(1));
+      //this.avghit = ((this.avghit).toFixed(1));
+      //this.avgacc = ((this.avgacc).toFixed(1));
 
-      this.userStat.experience += this.allscore;
       if (this.oldexperience >= 1000) {
         this.remainxp = this.oldexperience - 1000;
         this.oldexperience = this.remainxp;
         this.oldlvl++;
-        console.log("ifben");
+        this.$emit('lvlup', this.oldlvl);
       }
 
-      /*axios.post('./statUpdate/' + this.userID,{
-        all_shot: this.userStat.all_shot,
-        all_hit: this.userStat.all_hit,
-        all_out: this.userStat.all_out,
-        matches: this.userStat.matches,
-        wins: this.userStat.wins,
-        loses: this.userStat.loses,
-        bestplace: this.userStat.bestplace,
-        avg_shot: this.userStat.avg_shot,
-        avg_hit: this.userStat.avg_hit,
-        avg_acc: this.userStat.avg_acc,
-        experience: this.userStat.experience,
-        lvl: this.userStat.lvl,
-      });*/
+      this.oldbonus += this.bonus;
+
       axios.post('./statUpdate/' + this.userID, {
         all_shot: this.oldshots,
         all_hit: this.oldhits,
@@ -34765,6 +34759,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         avg_acc: this.avgacc,
         experience: this.oldexperience,
         lvl: this.oldlvl
+      });
+
+      axios.post('./userBonusUpdate/' + this.userID, {
+        battle_points: this.oldbonus
       });
 
       console.log("axiosutan");
@@ -35041,7 +35039,26 @@ var render = function() {
               close: function($event) {
                 _vm.showUpdate = false
               },
-              closeUpdate: _vm.closeUpdate
+              closeUpdate: _vm.closeUpdate,
+              lvlup: function($event) {
+                return _vm.lvlup($event)
+              }
+            }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.showLvlUp
+        ? _c("lvlupmodal", {
+            attrs: {
+              lvlup: _vm.showLvlUp,
+              lvl: _vm.lvl,
+              oldrank: _vm.oldrank,
+              userID: _vm.userID
+            },
+            on: {
+              close: function($event) {
+                _vm.showLvlUp = false
+              }
             }
           })
         : _vm._e(),
@@ -36014,7 +36031,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     send: function send() {
       this.acc = this.hits * 100 / this.shots;
       this.score = this.hits * 2 - this.out;
-      this.bonus = this.placed;
+      this.bonus = this.score / 10;
+
+      this.acc.toFixed(1);
+
       axios.post('./simulation', {
         user_id: this.userid,
         score: this.score,
@@ -36280,6 +36300,202 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 139 */,
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(141)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(143)
+/* template */
+var __vue_template__ = __webpack_require__(144)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/lvlUpModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-4eb3b0b2", Component.options)
+  } else {
+    hotAPI.reload("data-v-4eb3b0b2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(142);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(2)("363ad026", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4eb3b0b2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./lvlUpModal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-4eb3b0b2\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./lvlUpModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(0)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.modal{\n  font-family: 'Oswald', sans-serif;\n  color: black;\n}\n.lvlup_modal_body{\n  width: 20em;\n  height: 35em;\n}\n.modal-card-body{\n  text-align: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 143 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    userID: Number,
+    lvl: Number,
+    oldrank: Number
+  },
+  data: function data() {
+    return {};
+  },
+  created: function created() {
+    this.rankUp();
+  },
+
+  components: {},
+  computed: {},
+  methods: {
+    rankUp: function rankUp() {
+      if (this.lvl % 3 == 0) {
+        this.oldrank = this.oldrank + 1;
+        console.log(this.oldrank);
+        axios.post('./userRankUpdate/' + this.userID, {
+          rank_id: this.oldrank
+        });
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "modal is-active" }, [
+    _c("div", { staticClass: "modal-background" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "modal-card lvlup_modal_body" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("section", { staticClass: "modal-card-body" }, [
+        _vm._v("\n      Új szinted: " + _vm._s(_vm.lvl) + "\n      "),
+        _c(
+          "a",
+          {
+            staticClass: "button is-danger is-medium cancel_btn",
+            on: {
+              click: function($event) {
+                return _vm.$emit("close")
+              }
+            }
+          },
+          [_vm._v("Értettem")]
+        )
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", { staticClass: "modal-card-head" }, [
+      _c("p", { staticClass: "modal-card-title" }, [
+        _vm._v("Gratulálok szintet léptél!")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-4eb3b0b2", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

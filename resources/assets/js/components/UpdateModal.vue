@@ -98,23 +98,12 @@
           userData: [],
           userStat: [],
           showModal: false,
-          allmatch: 0,
-          allshots: 0,
-          allhit: 0,
-          allscore: 0,
-          allacc: 0,
-          allout: 0,
-          allbonus: 0,
-          allwin: 0,
-          alllose: 0,
-          allexperience: 0,
           avgshot: 0,
           avghit: 0,
           avgacc: 0,
           bestplace: 100,
           remainxp: 0,
           lvl: 1,
-
           oldshots: 0,
           oldhits: 0,
           oldout: 0,
@@ -128,6 +117,7 @@
           oldlvl: 0,
           oldexperience: 0,
           processed: 1,
+          bonus: 0,
         }
       },
       created() {
@@ -141,8 +131,11 @@
       methods: {
         getUserStat(){
           axios.get('./userstat/' + this.userID).then(response => {
-          this.userStat = response.data;
-        });
+            this.userStat = response.data;
+          });
+          axios.get('profile').then(response => {
+            this.userData = response.data;
+          });
         },
         updateUserStat(){
           this.oldshots = this.userStat.all_shot
@@ -157,66 +150,47 @@
           this.oldavg_acc = this.userStat.avg_acc
           this.oldlvl = this.userStat.lvl
           this.oldexperience = this.userStat.experience
+          this.oldbonus = this.userData.battle_points 
 
           for(let i = 0; i < this.unprocessed.length; i++){
             this.oldmatches++;
             if(this.unprocessed[i].result == "Győzelem"){
               this.oldwins++;
+              this.bonus += 10;
             }else if(this.unprocessed[i].result == "Vereség"){
               this.oldloses++;
+              this.bonus += 5;
             }
             this.oldshots += this.unprocessed[i].all_shot;
             this.oldhits += this.unprocessed[i].all_hit;
             this.oldexperience += this.unprocessed[i].score; 
+            this.bonus += this.unprocessed[i].score; 
+            this.bonus += this.unprocessed[i].bonus;
             this.oldout += this.unprocessed[i].all_out;
-            if(this.unprocessed[i].bestplace < this.oldbestplace){
-              this.oldbestplace = this.unprocessed[i].bestplace;
+            if(this.unprocessed[i].placed < this.oldbestplace){
+              this.oldbestplace = this.unprocessed[i].placed;
             }
             axios.post('./matchUpdate/' + this.unprocessed[i].id,{
               processed: this.processed
             });
           }
-            //this.avgshot = this.allshots/this.allmatch;
-            //this.avghit = this.allhit/this.allmatch;
-            //this.avgacc = this.allacc/this.allmatch;
-
-            //this.userStat.all_shot += this.allshots;
-            //this.userStat.all_hit += this.allhit;
-            //this.userStat.all_out += this.allout;
-            //this.userStat.matches += this.allmatch;
-            //this.userStat.wins += this.allwin;
-            //this.userStat.loses += this.alllose;
-
-            //if(this.userStat.bestplace < this.bestplace){
-            //  this.userStat.bestplace = this.bestplace;
-            //}
 
             this.avgshot = this.oldshots/this.oldmatches;
             this.avghit = this.oldhits/this.oldmatches;
             this.avgacc = this.oldshots/this.oldhits;
+            //this.avgshot = ((this.avgshot).toFixed(1));
+            //this.avghit = ((this.avghit).toFixed(1));
+            //this.avgacc = ((this.avgacc).toFixed(1));
 
-            this.userStat.experience += this.allscore;
             if(this.oldexperience >= 1000){
               this.remainxp = this.oldexperience - 1000;
               this.oldexperience = this.remainxp;
               this.oldlvl++;
-              console.log("ifben")
+              this.$emit('lvlup',this.oldlvl);
             }
+              
+            this.oldbonus += this.bonus;
 
-            /*axios.post('./statUpdate/' + this.userID,{
-              all_shot: this.userStat.all_shot,
-              all_hit: this.userStat.all_hit,
-              all_out: this.userStat.all_out,
-              matches: this.userStat.matches,
-              wins: this.userStat.wins,
-              loses: this.userStat.loses,
-              bestplace: this.userStat.bestplace,
-              avg_shot: this.userStat.avg_shot,
-              avg_hit: this.userStat.avg_hit,
-              avg_acc: this.userStat.avg_acc,
-              experience: this.userStat.experience,
-              lvl: this.userStat.lvl,
-            });*/
             axios.post('./statUpdate/' + this.userID,{
               all_shot: this.oldshots,
               all_hit: this.oldhits,
@@ -230,6 +204,10 @@
               avg_acc: this.avgacc,
               experience: this.oldexperience,
               lvl: this.oldlvl,
+            });
+
+            axios.post('./userBonusUpdate/' + this.userID,{
+              battle_points: this.oldbonus,
             });
 
             console.log("axiosutan")

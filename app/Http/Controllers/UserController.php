@@ -96,6 +96,20 @@ class UserController extends Controller
         return $user;
     }
 
+    public function rankupdate(Request $request, $id){
+        $user = User::where('id', $id)->first();
+        $user->rank_id = $request->get('rank_id');
+        $user->save();
+        return $user;
+    }
+
+    public function bonusupdate(Request $request, $id){
+        $user = User::where('id', $id)->first();
+        $user->battle_points = $request->get('battle_points');
+        $user->save();
+        return $user;
+    }
+
     /**
      * Remove the specified resource from storage.
      *

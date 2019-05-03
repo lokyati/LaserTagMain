@@ -33,6 +33,7 @@ Vue.component('simulator', require('./components/MatchSimulator.vue'));
 Vue.component('simplecarousel',require('./components/SimpleCarousel.vue'));
 Vue.component('matchcard',require('./components/MatchCard.vue'));
 Vue.component('updatemodal',require('./components/UpdateModal.vue'));
+Vue.component('lvlupmodal',require('./components/lvlUpModal.vue'));
 
 
 const app = new Vue({
