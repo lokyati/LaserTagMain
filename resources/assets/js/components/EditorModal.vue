@@ -9,19 +9,16 @@
         <p class="err_msg">{{err_msg}}</p>
         <div class="field form_container">
           <label class="label left_label">Vezeteknév</label>
-          <label class="error_lastn">{{err_lastn_msg}}</label>
           <div class="control">
             <input class="input" type="text" v-model="newlastn">
           </div>
 
           <label class="label left_label">Keresztnév</label>
-          <label class="error_firstn">{{err_firstn_msg}}</label>
           <div class="control">
             <input class="input" type="text" v-model="newfirstn">
           </div>
 
           <label class="label left_label">Telefonszám</label> 
-          <label class="error_tel">{{err_tel_msg}}</label>
           <div class="control tel">
             <span class="tag is-primary is-medium prefix">+40</span>
             <input class="input" type="text" v-model="newtel">
@@ -49,9 +46,6 @@
           newlastn: '',
           newfirstn: '',
           newtel: '',
-          err_lastn_msg: '',
-          err_firstn_msg: '',
-          err_tel_msg: '',
           err_msg: '',
           notnumber: true,
           notstring: true,

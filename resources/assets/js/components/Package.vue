@@ -5,7 +5,9 @@
 			 @click="selectPackage(package.id)">
 			<p class="title is-3">{{package.package_name}}</p>
 			<p class="subtitle is-5">Ar/fo: {{package.price}}</p>
-			<p class="subtitle is-5">Jatekido: {{package.time}} ora</p>
+			<p class="subtitle is-5">Meccsek hossza: {{package.match_length}} perc</p>
+			<p class="subtitle is-5">Meccsek száma: {{package.match_number}}</p>
+			<p class="subtitle is-5">Teljes játekidő: {{package.total_time}} ora</p>
 			<p>{{package.description}}</p>
 		</div>
 	</div>
@@ -36,11 +38,12 @@
 <style>
 	.packages_container{
 		display: flex;
+		font-family: 'Oswald', sans-serif !important;
 	}
 	.package_card{
 		background-color: #ff9f63;
-		height: 300px;
-		width: 15em;
+		height: 325px;
+		width: 14em;
 		margin: 0 auto; 
 		cursor: pointer;
 		text-align: center;

@@ -74,11 +74,11 @@
   	},
   	methods: {
   		send(){
-  			this.acc = (this.hits*100)/this.shots;
+  			this.acc = (this.hits/this.shots) * 100;
   			this.score = (this.hits * 2) - this.out;
   			this.bonus = this.score / 10;
 
-  			((this.acc).toFixed(1));
+  			this.acc = parseFloat(this.acc).toFixed(1);
 
   			axios.post('./simulation',{
             user_id: this.userid,
@@ -102,6 +102,7 @@
 </script>
 <style>
 	.simulator_container{
+		font-family: 'Oswald', sans-serif !important;
 		width: 75em;
 		height: 700px;
 		background-color: #e6e6ff;

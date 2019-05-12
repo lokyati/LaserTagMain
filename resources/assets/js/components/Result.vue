@@ -25,7 +25,7 @@
 	.page{
 		width: 100%;
 		height: 100%;
-
+		font-family: 'Oswald', sans-serif !important;
 	}
 	.result_container{
 		width: 75em;

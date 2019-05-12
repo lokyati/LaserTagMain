@@ -28,10 +28,10 @@
 <body>
 	@include('cookieConsent::index')
 	<div class="page">
-		<div id="info" class="header">
-			Szeretnél többet megtudni? <a @click="showModal = true">Kattints ide!</a>
-
+		<div class="header" id="header">
 			<infomodal v-if="showModal" @close="showModal = false"></infomodal>
+
+			Szeretnél többet megtudni? <a @click="showModal = true">Kattints ide!</a>
 		</div>
 
 		<div class="containers columns  is-marginless">
@@ -50,16 +50,23 @@
 		</div>
 	</div>
 <footer id="footer">
-	@if (Auth::guard('user')->check())
-        <a class="admin_button" href="{{ route('admin.login') }}" style="display: none;"></a>
-    @else 
-        <a class="admin_button" href="{{ route('admin.login') }}">
-            {{ __('Admin belépés') }}
-        </a>
-    @endif
-	<gdprmodal v-if="showModal" @close="showModal = false"></gdprmodal>
-
-	<a @click="showModal = true">Adatvédelmi tájékoztató</a>
+	<div class="columns">
+		<div class="column is-half">
+			<p class="title is-4 has-text-white">Cimünk</p>
+			<p class="subtitle is-8 has-text-white">Csíkszereda, Hargita megye, Szabadság tér, 1. szám, 530104</p>
+			<gdprmodal v-if="showModal" @close="showModal = false"></gdprmodal>
+			<p class="subtitle is-8 has-text-white"><a @click="showModal = true">Adatvédelmi tájékoztató</a></p>
+			<p class="subtitle is-8 has-text-white">©LaserTag 2019</p>
+		</div>
+		<div class="column">
+			<p class="title is-4 has-text-white">Keress minket a közösségi oldalakon is</p>
+			<div class="icon_container">
+			  <div class="facebook_icon"></div>
+			  <div class="twitter_icon"></div>
+			  <div class="instagram_icon"></div>
+			</div>
+		</div>
+	</div>
 </footer>
 </body>
 </html>

@@ -3,11 +3,11 @@
     <div class="modal-background"></div>
     <div class="modal-card lvlup_modal_body">
       <header class="modal-card-head">
-        <p class="modal-card-title">Gratulálok szintet léptél!</p>
+        <p class="lvlup_modal-card-title">Gratulálok szintet léptél!</p>
       </header>
       <section class="modal-card-body">
-        Új szinted: {{lvl}}
-        <a class="button is-danger is-medium cancel_btn" @click="$emit('close')">Értettem</a>
+        <p class="title is-2">Új szinted: {{lvl}}</p>
+        <a class="button is-danger is-medium cancel_btn is-fullwidth" @click="$emit('close')">Értettem</a>
       </section>
     </div>
   </div>
@@ -37,12 +37,16 @@
       },
       methods: {
         rankUp(){
-          if(this.lvl % 3 == 0){
-              this.oldrank = this.oldrank + 1;
-              console.log(this.oldrank);
-              axios.post('./userRankUpdate/' + this.userID,{
-                rank_id: this.oldrank
-              });
+          if(this.lvl == 12){
+            console.log(this.lvl)
+          }else{
+            if(this.lvl % 3 == 0){
+                this.oldrank = this.oldrank + 1;
+                console.log(this.oldrank);
+                axios.post('./userRankUpdate/' + this.userID,{
+                  rank_id: this.oldrank
+                });
+              }
             }
           },
         }
@@ -56,8 +60,11 @@
     color: black;
   }
   .lvlup_modal_body{
-    width: 20em;
-    height: 35em;
+    width: 34em;
+    height: 17em;
+  }
+  .lvlup_modal-card-title{
+    font-size: 3.5rem;
   }
   .modal-card-body{
     text-align: center;

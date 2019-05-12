@@ -1,0 +1,26 @@
+
+.nav_container{
+	background-color: #EAEAEA;
+}
+.brand-text{
+	background-color: #EAEAEA;
+}
+.big_container{
+	height: 683px;
+	width: 1366px !important;
+	max-width: 1366px !important;
+}
+.nav_container{
+	width: 1366px !important;
+	max-width: 1366px !important;
+	padding: .7rem;
+}
+.nav_aside_container{
+	padding: 1.5em;
+	height: 683px;
+	background-color: #EAEAEA;
+	padding: 1.5em !important;
+}
+.admin_content{
+	width: 73% !important;
+}

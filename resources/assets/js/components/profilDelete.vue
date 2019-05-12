@@ -22,3 +22,8 @@
         }
     }
 </script>
+<style>
+.button{
+    font-family: 'Oswald', sans-serif !important;
+}
+</style>

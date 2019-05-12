@@ -24,8 +24,8 @@
                   	:oldrank="oldrank"
                   	:userID="userID"
                   	@close="showLvlUp = false"></lvlupmodal>
+		<!--<div class="profil_header" :style="{ backgroundImage: 'url(' + headerimage + ')' }">-->
 		<div class="profil_header">
-			<settingsdropdown></settingsdropdown>
 			<div class="avatar">
 				<img class="avatar_icon":src="'img/avatar.png'"/>
 				<img class="rank_icon" :src="'img/' + rank_src"/>
@@ -33,15 +33,12 @@
 				<p>Bónusz Pont: {{user.battle_points}}</p>
 			</div>
 			<div class="profil_nav_container">
-				<div class="columns profil_nav">
-					  <div class="column is-one-third is-paddingless">
-					  	<a class="stat_nav" @click='showS()'
-							v-bind:class="{statstyle:statstyle}"
-					  	>Statisztikák és névjegy</a>
-					  	</div>
-					  <div class="column is-paddingless"><a class="history_nav" @click='showH()' v-bind:class="{historystyle:historystyle}">Meccs előzmények</a></div>
-					  <div class="column is-paddingless"><a class="booking_nav" @click='showB()' v-bind:class="{bookingstyle:bookingstyle}">Foglalás</a></div>
-				</div>
+				<nav id="nav-3">
+				  <a class="link-3" @click='showS()'
+							v-bind:class="{statstyle:statstyle}">Statisztikák és névjegy</a>
+				  <a class="link-3" @click='showH()' v-bind:class="{historystyle:historystyle}">Meccs előzmények</a>
+				  <a class="link-3" @click='showB()' v-bind:class="{bookingstyle:bookingstyle}">Foglalás</a>
+				</nav>
 			</div>
 		</div>
 		<div class="profil_content">
@@ -64,7 +61,7 @@
 								<div class="control centered_tags">
 									<div class="tags has-addons profile_tag">
 								      <span class="tag is-dark is-large">Rangod</span>
-								      <span class="tag is-info is-large rank_tag">{{rank_name}}</span>
+								      <span class="tag info_value is-large rank_tag">{{rank_name}}</span>
 								    </div>
 								 </div>
 							</div>
@@ -72,7 +69,7 @@
 								<div class="control centered_tags">
 									<div class="tags has-addons profile_tag">
 								      <span class="tag is-dark is-large">Szinted</span>
-								      <span class="tag is-info is-large lvl_tag">{{userStat.lvl}}</span>
+								      <span class="tag info_value is-large lvl_tag">{{userStat.lvl}}</span>
 								    </div>
 								 </div>
 							</div>
@@ -80,39 +77,39 @@
 						  <div class="control centered_tags">
 						    <div class="tags has-addons profile_tag">
 						      <span class="tag is-dark is-large profile_tag_1">Vezeteknév</span>
-						      <span class="tag is-info is-large profile_tag_2">{{user.lastname}}</span>
+						      <span class="tag info_value is-large profile_tag_2">{{user.lastname}}</span>
 						    </div>
 						  </div>
 
 						  <div class="control centered_tags">
 						    <div class="tags has-addons profile_tag">
 						      <span class="tag is-dark is-large profile_tag_1">Keresztnév</span>
-						      <span class="tag is-info is-large profile_tag_2">{{user.firstname}}</span>
+						      <span class="tag info_value is-large profile_tag_2">{{user.firstname}}</span>
 						    </div>
 						  </div>
 							
 						  <div class="control centered_tags">
 						    <div class="tags has-addons profile_tag">
 						      <span class="tag is-dark is-large profile_tag_1">Telefonszám +40</span>
-						      <span class="tag is-primary is-large profile_tag_2">{{tel}}</span>
+						      <span class="tag info_value is-large profile_tag_2">{{tel}}</span>
 						    </div>
 						  </div>
 
 						  <div class="control centered_tags">
 						    <div class="tags has-addons profile_tag">
 						      <span class="tag is-dark is-large profile_tag_1">E-mail</span>
-						      <span class="tag is-primary is-large profile_tag_2">{{user.email}}</span>
+						      <span class="tag info_value is-large profile_tag_2">{{user.email}}</span>
 						    </div>
 						  </div>
 
 						  <div class="control centered_tags">
 						    <div class="tags has-addons profile_tag">
 						      <span class="tag is-dark is-large profile_tag_1">Regisztrált ekkor</span>
-						      <span class="tag is-success is-large profile_tag_2">{{user.created_at}}</span>
+						      <span class="tag info_value is-large profile_tag_2">{{user.created_at}}</span>
 						    </div>
 						  </div>
 						  <div class="control centered_tags">
-						  	<a id="editor_btn" class="button is-warning is-fullwidth" @click="edit">Adatok módositása</a>
+						  	<a id="editor_btn" class="edit_data button is-fullwidth" @click="edit">Adatok módositása</a>
 						  </div>
 						</div>
 					</div>
@@ -217,7 +214,7 @@
 									</div>
 									<div class="roundstat_counter">
 										<div class="nmbr">
-											<p>{{userStat.avg_acc}}</p>
+											<p>{{userStat.avg_acc}}%</p>
 										</div>
 									</div>
 								</div>
@@ -228,38 +225,13 @@
 			</div>
 			<div class="history" v-bind:class="{showHistory:showHistory}">
 				<h1 class="title is-1 historyInfo" v-bind:class="{showHistoryInfo}">Nincs lejátszott meccs az adatbázisban.</h1>
-				<simplecarousel class="carousel" :userID="userID" :Matches="matches" v-bind:class="{showCarousel}"></simplecarousel>
+				<simplecarousel class="carousel" :userID="userID" :Matches="matches" v-bind:class="{showCarousel:showCarousel}"></simplecarousel>
+				
 			</div>
 			<div class="bookings_container" v-bind:class="{showBookings:showBookings}">
 				<h1 class="title is-3">Foglalásaid</h1>
 				<div class="bookings" v-bind:class="{show:show}">
-					<div class="reserved_card" v-for="reservation in reservations">
-						<div class="tags has-addons is-marginless">
-					      <span class="tag is-dark is-medium first_tag_booking">Név </span>
-					      <span class="tag is-info is-medium second_tag_booking">{{reservation.lastname}} {{reservation.firstname}}</span>
-					    </div>
-					    <div class="tags has-addons is-marginless">
-					      <span class="tag is-dark is-medium first_tag_booking">Dátum </span>
-					      <span class="tag is-info is-medium second_tag_booking">{{reservation.year}}-{{reservation.month}}-{{reservation.day}}</span>
-					    </div>
-					    <div class="tags has-addons is-marginless">
-					      <span class="tag is-dark is-medium first_tag_booking">Időpont </span>
-					      <span class="tag is-info is-medium second_tag_booking">{{reservation.first_hour}}:00</span>
-					    </div>
-					    <div class="tags has-addons is-marginless">
-					      <span class="tag is-dark is-medium first_tag_booking">Csomag: </span>
-					      <span class="tag is-info is-medium second_tag_booking">{{reservation.package_id}}</span>
-					    </div>
-					    <div class="tags has-addons is-marginless">
-					      <span class="tag is-dark is-medium first_tag_booking">Játékosok </span>
-					      <span class="tag is-info is-medium second_tag_booking">{{reservation.players}} fő</span>
-					    </div>
-					    <div class="tags has-addons is-marginless">
-					      <span class="tag is-dark is-medium first_tag_booking">Ár </span>
-					      <span class="tag is-info is-medium second_tag_booking">{{reservation.price}} Lei</span>
-					    </div>
-					    <a class="button is-danger is-medium is-fullwidth" @click="showDelete = true, selectReservation(reservation.id)">Foglalás lemondása</a>
-					</div>
+					<simplecarouselBookings class="carouselbookings" :userID="userID" :Reservations="reservations" v-on:selectReservation="selectReservation($event)"></simplecarouselBookings>
 				</div>
 				<div class="new_reservation" @click="showCalendar">
 		        	<p id="add">Új foglalás</p>
@@ -272,6 +244,7 @@
 									 :firstname="firstname"
 									 :lastname="lastname"
 									 :tel="tel"
+									 :email="email"
 									 ></bookingcalendar>
 				</div>
 			</div>
@@ -280,24 +253,31 @@
 </template>
 
 <script>
-import settingsDropdown from './settingsDropdown'
 import bookingCalendar from './Calendar'
 import DeleteModal from './DeleteModal'
 import EditorModal from './EditorModal'
 import SimpleCarousel from './SimpleCarousel'
+import SimpleCarouselBookings from './SimpleCarouselBookings'
 import UpdateModal from './UpdateModal'
 import lvlUpModal from './lvlUpModal'
 
 export default {
 	data() {
 		return{
+			now: new Date,
+			headerimage: "img/header2.jpg",
 			user: [],
+			users: [],
 			userStat: [],
 			reservations: [],
 			matches: [],
 			rankData: [],
 			packages: [],
 			unprocessed: [],
+			reservedhoursByID: [],
+			reservedHours: [],
+			allloggedinuser: [],
+			reservedHoursString: '',
 			userID: 0,
 			resID: 0,
 			rankID: 1,
@@ -323,9 +303,11 @@ export default {
 			showHistoryInfo: true,
 			show:false,
 			showLvlUp: false,
+			userislogged: false,
 			lastname: '',
 			firstname: '',
-			tel: '',
+			tel: 0,
+			email: '',
 			rank_src: '',
 			rank_name: '',
 		}
@@ -334,13 +316,13 @@ export default {
 		this.getUserData();
   	},
   	components: {
-    	settingsdropdown: settingsDropdown,
     	bookingcalendar: bookingCalendar,
     	deletemodal: DeleteModal,
     	editormodal: EditorModal,
     	simplecarousel: SimpleCarousel,
     	updatemodal: UpdateModal,
     	lvlupmodal: lvlUpModal,
+    	simplecarouselBookings: SimpleCarouselBookings,
   	},
   	methods: {
   		showS(){
@@ -357,6 +339,7 @@ export default {
 			this.getUserData();
 			this.getUserStat();
 			this.getRank();
+			this.LogInUser();
   		},
   		showH(){
   			this.showStat = false
@@ -370,6 +353,7 @@ export default {
   			this.personalstyle = false
 
   			this.getMatches(this.userID);
+  			this.LogInUser();
   		},
   		showB(){
   			this.showStat = false
@@ -383,6 +367,7 @@ export default {
   			this.personalstyle = false
 
 			this.getReservations(this.userID);
+			this.LogInUser();
   		},
   		getUserData(){ //Laravelbe bejelentkezett user adatai
   			axios.get('profile').then(response => {
@@ -392,6 +377,7 @@ export default {
 				this.lastname = this.user.lastname;
 				this.firstname = this.user.firstname;
 				this.tel = this.user.tel;
+				this.email = this.user.email;
 				this.rank_src = this.user.rank_id + '.png';
 				this.oldrank = this.user.rank_id;
 			});
@@ -411,6 +397,7 @@ export default {
 	          	this.showCarousel = true;
 	          	this.showHistoryInfo = false;
 	          }
+	          this.unprocessed = [];
 	          for(let i = 0; i < this.matches.length; i++){
 	          	if(this.matches[i].processed == 0){
 	          		this.unprocessed.push(this.matches[i]);
@@ -443,6 +430,7 @@ export default {
 			      }else if(this.reservations.length == 0){
 			      	this.show = false;
 			      }
+			      console.log(this.now.getMonth() + 1);
 			    }).catch(function (error) {
 			        console.log(error);
 			      });
@@ -453,13 +441,28 @@ export default {
 			    	for(let k = 0; k < this.packages.length; k++){
 			    		if(this.reservations[i].package_id == this.packages[k].id){
 			    			this.reservations[i].package_id = this.packages[k].package_name;
-			    			console.log("jartam itt")
 			    		}
 			    	}
 			    }
 			    }).catch(function (error) {
 			        console.log(error);
 			      });
+
+			    axios.get('./api/Reservedhours').then(response => {
+					this.reservedHours = response.data;
+					console.log(this.reservedHours)
+					for(let i = 0; i < this.reservations.length; i++){
+				    	for(let k = 0; k < this.reservedHours.length; k++){
+				    		if(this.reservations[i].id == this.reservedHours[k].reservation_id){
+				    			this.reservedhoursByID.push(this.reservedHours[k].hour);
+				    		}
+				    	}
+				    	this.reservedHoursString = this.reservedhoursByID.toString();
+				    	this.reservations[i].first_hour = this.reservedHoursString;
+				    	this.reservedhoursByID = [];
+				    	this.reservedHoursString = '';
+				    }
+				});
 			}
 		},
 		closeCalendar(){
@@ -471,18 +474,9 @@ export default {
 			this.getUserData();
 		},
 		selectReservation(id){
+			console.log("wat")
+			this.showDelete = true;
 			this.resID = id;
-		},
-		deleteReservation(){
-			this.showDelete = false;
-			axios.delete('./deleteReservedHour/' + this.resID)
-			.then(response => {
-				this.reservations = [];
-				this.getReservations(this.userID);
-			}).catch(function (error) {
-		        console.log(error);
-		      });
-            this.getReservations(this.userID);
 		},
 		edit(){
 			this.showEditor = true;
@@ -510,6 +504,32 @@ export default {
 			this.lvl = lvl;
 			this.showLvlUp = true;
 		},
+
+	    deleteReservation(){
+	      this.showDelete = false;
+	      axios.delete('./deleteReservedHour/' + this.resID)
+	      .then(response => {
+	        this.reservations = [];
+	        this.getReservations(this.userID);
+	      }).catch(function (error) {
+	            console.log(error);
+	          });
+	            this.getReservations(this.userID);
+	    },
+	    LogInUser(){
+	    	axios.get('./api/loggedinusers').then(response => {
+	    		this.allloggedinuser = response.data;
+	    		for(let i = 0; i < this.allloggedinuser.length; i++){
+	    		if(this.allloggedinuser[i].user_id == this.userID){
+	    			axios.post('./updateloginuser/' + this.userID);
+	    			this.userislogged = true;
+	    		}
+	    	}
+		    	if(this.userislogged == false){
+		    		axios.post('./loginuser/' + this.userID);
+		    	}
+	    	});
+	    },
   	},
 
   	computed: {
@@ -518,16 +538,22 @@ export default {
 </script>
 
 <style>
+.body{
+	font-family: 'Oswald', sans-serif !important;
+}
 .profil_container{
 	width: 100%;
+	font-family: 'Oswald', sans-serif !important;
 }
 .profil_header{
 	width: 100%;
 	height: 266px;
+	background-color: #F2F2F2;
 }
 .profil_content{
 	width: 100%;
 	min-height: 20em;
+	margin-top: 2em;
 }
 .avatar{
 	width: 17em;
@@ -537,15 +563,17 @@ export default {
 }
 .avatar p{
 	margin: 0;
+	font-size: 1.3em;
+	color: #747474;
 }
 .avatar_icon{
-	height: 7em;
+	height: 9em;
 	border-radius: 50%;
 	border: solid 3px black;
 }
 .rank_icon{
-	width:2em; 
-	height:3em; 
+	width:3em; 
+	height:5em; 
 	margin-bottom:67px; 
 	margin-left:-35px;
 }
@@ -579,8 +607,10 @@ export default {
 .showStat.stats{
 	display:block;
 }
-.statstyle.stat_nav{
-	background-color: #111;
+.statstyle.link-3{
+	background-color: #fff;
+	padding: 24px 10px;
+	color: #EEA200;
 }
 .history{
 	display:none;
@@ -592,8 +622,10 @@ export default {
 .showHistory.history{
 	display:block;
 }
-.historystyle.history_nav{
-	background-color: #111;
+.historystyle.link-3{
+	background-color: #fff;
+	padding: 24px 10px;
+	color: #EEA200;
 }
 .bookings_container{
 	display:none;
@@ -603,8 +635,10 @@ export default {
 .showBookings.bookings_container{
 	display:block;
 }
-.bookingstyle.booking_nav{
-	background-color: #111;
+.bookingstyle.link-3{
+	background-color: #fff;
+	padding: 24px 10px;
+	color: #EEA200;
 }
 .personal{
 	display:none;
@@ -625,7 +659,7 @@ export default {
  	max-height: 40em;
 }
 .new_reservation{
- 	background-color: #121d6e;
+ 	background-color: #14A76C;;
  	height: 40px;
  	cursor: pointer;
  	text-align: center;
@@ -633,22 +667,12 @@ export default {
 }
 #add{
   font-size: 1.5em;
-  color: #0cd4f5;
-}
-.reserved_card{
-	background-color: #1b6f96;
- 	height: 300px;
- 	width: 15em; 
- 	box-shadow: 0px 0px 5px black;
- 	border-radius: 13px;
- 	margin-left: 1em;
- 	margin-bottom: 1em;
- 	padding: .5em;
- 	float:left;
+  color: #fff;
 }
 
 .show.bookings{
 	display: block;
+	overflow: hidden;
 }
 .first_tag_booking{
 	width: 5em;
@@ -673,6 +697,9 @@ export default {
 }
 .carousel{
 	display: none;
+}
+.carouselbookings{
+	display: block;
 }
 .showCarousel.carousel{
 	display: block;
@@ -748,7 +775,7 @@ export default {
 	width: 9em;
 	height: 9em;
 	border-radius: 50%;
-	border: 8px solid orange;
+	border: 8px solid #FF652F;
 	padding: 1em;
 }
 .nmbr{
@@ -774,7 +801,7 @@ export default {
 	font-size: 33px;
 	font-weight: bold;
 	margin: 0 auto;
-	color: orange;
+	color: #FF652F;
 }
 .counter_title{
 	text-align: center;
@@ -792,11 +819,36 @@ export default {
 .progress{
 	border-radius: 0;
 	height: 2.5rem;
-	width: 16.9em;
+	width: 16.2em;
 	background-color: #fff;
 	border: 1px solid #363636;
 }
 .progress_bar{
 	margin-bottom: .5rem;
+}
+
+nav {
+  padding: 24px;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+#nav-3 {
+  background: #FF652F;
+}
+.link-3 {
+  transition: 0.4s;
+  color: #ffffff;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 0 10px;
+  margin: 0 10px;
+}
+.link-3:hover {
+  background-color: #ffffff;
+  color: #FF652F;
+  padding: 24px 10px;
+}
+.edit_data{
+	background-color: #ff652f;
 }
 </style>

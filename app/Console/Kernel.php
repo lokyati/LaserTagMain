@@ -13,7 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\NewPageStatRowCommand',
+        'App\Console\Commands\DeleteOldReservationsCommand',
+        'App\Console\Commands\DeleteLoggedInUser',
     ];
 
     /**
@@ -24,8 +26,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        //$schedule->command('new:page_stat')->daily();
+        $schedule->command('new:page_stat')->everyMinute();
+        $schedule->command('delete:oldreservations')->daily();
     }
 
     /**

@@ -14,12 +14,15 @@ class CreatePackageTable extends Migration
     public function up()
     {
         Schema::create('package', function (Blueprint $table) {
-            $table->increments('id');
-            $table->text('package_name');
-            $table->double('price');
-            $table->integer('time');
-            $table->integer('popularity');
-            $table->text('description');
+            $table->increments('id')->nullable();
+            $table->text('package_name')->nullable();
+            $table->double('price')->nullable();
+            $table->integer('match_length')->nullable();
+            $table->integer('match_number')->nullable();
+            $table->integer('total_time')->nullable();
+            $table->integer('popularity')->nullable();
+            $table->text('description')->nullable();
+            $table->timestamps();
         });
     }
 

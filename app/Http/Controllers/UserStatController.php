@@ -11,7 +11,7 @@ class UserStatController extends Controller
 {
     public function show($id)
     {
-        $stat = UsersStat::findOrFail($id);
+        $stat = UsersStat::findOrFail($id)->first();
         return $stat;
     }
 

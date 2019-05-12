@@ -16,7 +16,6 @@ h1{
 .reset_container{
 	width: 100%;
 	padding: 1em;
-	margin-top: 200px;
 }
 
 .reset{
@@ -25,6 +24,7 @@ h1{
 	background-color: #dadada;
 	padding:2em;
 	border: 1px solid #3333;
+	margin-top: 150px;
 }
 
 .reset_form{

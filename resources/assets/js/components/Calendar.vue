@@ -49,9 +49,9 @@
   </div>
   <div class="reservationData_container"  v-bind:class="{show:show}">
     <div class="info" v-bind:class="{show:show}">
-      <p>Szabad időpontok ezen a napon: </p><p class="selectedday">{{ header.label }} {{picked.day}}.</p><p class="messagetext"> {{message}} </p>
+      <p>Szabad időpontok ezen a napon: </p><p class="selectedday">{{ header.label }} {{picked.day}}.</p><!--<p class="messagetext"> {{message}} </p>-->
     </div>
-    <div class="hours_container" v-bind:class="{show:show}">
+    <div class="hours_container" v-bind:class="{show:show}" v-if="this.picked.day != this.today">
       <div class="columns is-marginless">
           <div class="column is-1 eight hour_container" v-bind:class="{eightStyle:eightStyle, desired8:desired8}" @click='isSelected8'>
               <a>08:00</a>
@@ -94,6 +94,49 @@
           </div>
       </div>
     </div>
+    <div class="today_hours_container" v-bind:class="{show:show}" v-if="this.picked.day == this.today">
+      <div class="columns is-marginless">
+          <div class="column cell_size eight hour_container" v-bind:class="{eightStyle:eightStyle, desired8:desired8}" @click='isSelected8' v-if="this.currentHour < 8">
+              <a>08:00</a>
+          </div>
+          <div class="column cell_size nine hour_container" v-bind:class="{nineStyle:nineStyle, desired9:desired9}" @click='isSelected9' v-if="this.currentHour < 9">
+              <a>09:00</a>
+          </div>
+          <div class="column cell_size ten hour_container" v-bind:class="{tenStyle:tenStyle, desired10:desired10}" @click='isSelected10' v-if="this.currentHour < 10">
+              <a>10:00</a>
+          </div>
+          <div class="column cell_size eleven hour_container" v-bind:class="{elevenStyle:elevenStyle, desired11:desired11}" @click='isSelected11' v-if="this.currentHour < 11">
+              <a>11:00</a>
+          </div>
+          <div class="column cell_size twelve hour_container" v-bind:class="{twelveStyle:twelveStyle, desired12:desired12}" @click='isSelected12' v-if="this.currentHour < 12">
+              <a>12:00</a>
+          </div>
+          <div class="column cell_size thrtn hour_container" v-bind:class="{thrtnStyle:thrtnStyle, desired13:desired13}" @click='isSelected13' v-if="this.currentHour < 13">
+              <a>13:00</a>
+          </div>
+          <div class="column cell_size frtn hour_container" v-bind:class="{frtnStyle:frtnStyle, desired14:desired14}" @click='isSelected14' v-if="this.currentHour < 14">
+              <a>14:00</a>
+          </div>
+          <div class="column cell_size fiftn hour_container" v-bind:class="{fiftnStyle:fiftnStyle, desired15:desired15}" @click='isSelected15' v-if="this.currentHour < 15">
+              <a>15:00</a>
+          </div>
+          <div class="column cell_size sixtn hour_container" v-bind:class="{sixtnStyle:sixtnStyle, desired16:desired16}" @click='isSelected16' v-if="this.currentHour < 16">
+              <a>16:00</a>
+          </div>
+          <div class="column cell_size svntn hour_container" v-bind:class="{svntnStyle:svntnStyle, desired17:desired17}" @click='isSelected17' v-if="this.currentHour < 17">
+              <a>17:00</a>
+          </div>
+          <div class="column cell_size eightn hour_container" v-bind:class="{eightnStyle:eightnStyle, desired18:desired18}" @click='isSelected18' v-if="this.currentHour < 18">
+              <a>18:00</a>
+          </div>
+          <div class="column cell_size ninetn hour_container" v-bind:class="{ninetnStyle:ninetnStyle, desired19:desired19}" @click='isSelected19' v-if="this.currentHour < 19">
+              <a>19:00</a>
+          </div>
+          <div class="column cell_size twenty hour_container" v-bind:class="{twentyStyle:twentyStyle, desired20:desired20}" @click='isSelected20' v-if="this.currentHour < 20">
+              <a>20:00</a>
+          </div>
+      </div>
+    </div>
     <div class="columns is-paddingless is-marginless">
       <div class="form column is-half">
         <div class="label lastname">
@@ -107,7 +150,7 @@
         <div class="label players">
           <p>Játékosok száma:* </p>
           <div class="control">
-            <div class="select is-primary" required>
+            <div class="select is-primary player_select" required>
               <select v-model="selectedPlayers">
                 <option v-for="players in player_size" @click="priceByPlayers">{{players}}</option>
               </select> 
@@ -117,6 +160,10 @@
         <div class="label tel">
           <p>Tel.:*</p>
           <input class="input" type="text" placeholder="Tel" v-model="tel" required>
+        </div>
+        <div class="label tel">
+          <p>Email:*</p>
+          <input class="input" type="text" placeholder="Email" v-model="email" required>
         </div>
         <div class="label note">
           <p>Megjegyzés:</p>
@@ -146,10 +193,7 @@
       </div>
     </div>
     <div class="button_container" v-bind:class="{show:show}">  
-      <a class="button is-warning is-medium" @click="sendReservation">Foglalok és a helyszinen fizetek</a>
-    </div>
-    <div class="button_container" v-bind:class="{show:show}">  
-      <a class="button is-info is-medium" @click="sendReservation">Foglalok és PayPallal fizetek</a>
+      <a class="button reserver_btn is-medium" @click="sendReservation">Foglalok</a>
     </div>
   </div>
 </div>
@@ -189,6 +233,7 @@ const _transformLabel = (label, length, casing) => {
 export default ({
   data() {
   	return{
+      now: new Date,
 	    month: _todayComps.month,
 	    year: _todayComps.year,
       picked: _todayComps,
@@ -241,11 +286,12 @@ export default ({
       selectedcardstyle: true,
       checkSuccess: false,
 
-      message: 'Csak egymást követő órák foglalhatók!',
+      message: '',
       note: '',
       resID: '',
       loader: 'bars',
       transition: 'none',
+      date: '',
       opacity: 0.8,
       height: 100,
       width: 100,
@@ -256,7 +302,7 @@ export default ({
       packagetime: 0,
       maxUserBonus: 0,
       UserBonus: 0,
-      date: '',
+      currentHour: 0,
 	 };
   },
   components: {
@@ -284,6 +330,7 @@ export default ({
     firstname: String,
     lastname: String,
     tel: Number,
+    email: String,
   },
   computed: {
 	  // Our component exposes month as 1-based, but sometimes we need 0-based
@@ -432,6 +479,9 @@ export default ({
 	  // End of computed properties
 },
 mounted() {
+  this.getReservations();
+  this.currentHour = this.now.getHours();
+  this.unavaibleHours();
 },
 
 methods: {
@@ -459,38 +509,9 @@ methods: {
       day.isSelected = day.date.getTime() === this.valueTime;
   },
   selectDay(day) {
-    if(this.selectedday < this.today){
-      this.eightStyle = true;
-      this.nineStyle = true;
-      this.tenStyle = true;
-      this.elevenStyle = true;
-      this.twelveStyle = true;
-      this.thrtnStyle = true;
-      this.frtnStyle = true;
-      this.fiftnStyle = true;
-      this.sixtnStyle = true;
-      this.svntnStyle = true;
-      this.eightnStyle = true;
-      this.ninetnStyle = true;
-      this.twentyStyle = true;
-      console.log("minden lefoglalva");
-    }else if(this.selectedday >= this.today){
-      this.eightStyle = false;
-      this.nineStyle = false;
-      this.tenStyle = false;
-      this.elevenStyle = false;
-      this.twelveStyle = false;
-      this.thrtnStyle = false;
-      this.frtnStyle = false;
-      this.fiftnStyle = false;
-      this.sixtnStyle = false;
-      this.svntnStyle = false;
-      this.eightnStyle = false;
-      this.ninetnStyle = false;
-      this.twentyStyle = false;
-      console.log("minden Szabad");
+    if(day.day == this.today){
+      this.unavaibleHours();
     }
-    
       this.allFalse();
       this.reservationID = [];
       this.reservedhours = [];
@@ -501,14 +522,17 @@ methods: {
       this.selectedday = this.picked.day;
       this.selectedmonth = this.picked.month;
 
-      this.show = true;
-      this.getReservations();
-      this.maximazeUserBonus();
-      this.isLoading = true;
-      setTimeout(() => {
-        this.isLoading = false
-      },1000)
-      
+      if(this.selectedday >= this.today && this.selectedmonth >= this.selectedmonth && day.year >= this.year){
+        this.show = true;
+        this.getReservations();
+        this.maximazeUserBonus();
+        this.isLoading = true;
+        setTimeout(() => {
+          this.isLoading = false
+        },1000)
+      }else{
+        this.show = false;
+      }
   },
   //Show Reservation methods
   getReservations() {
@@ -598,8 +622,6 @@ methods: {
         this.message = "Ezek az időpontok nem elérhetőek.";
       }
 
-      console.log(this.hours);
-      console.log(this.hours.length);
     }).catch(function (error) {
         console.log(error);
       });
@@ -667,6 +689,7 @@ methods: {
     this.twentyStyle = true;
   },
   allFree(){
+    console.log("allfreeben")
     this.eightStyle = false;
     this.nineStyle = false;
     this.tenStyle = false;
@@ -920,55 +943,55 @@ methods: {
             this.resID = this.reservationID[k];
             for (var i = 0; i < this.reservedhours.length; i++) {
             if(this.reservedhours[i].reservation_id == this.resID){
-              if(this.reservedhours[i].hour == 8){
+              if(this.reservedhours[i].hour == 8 || this.currentHour >= 8){
                 this.eightStyle = true;
                 this.unavaible.push(8);
               }
-              else if(this.reservedhours[i].hour == 9){
+              else if(this.reservedhours[i].hour == 9 || this.currentHour >= 9){
                 this.nineStyle = true;
                 this.unavaible.push(9);
               }
-              else if(this.reservedhours[i].hour == 10){
+              else if(this.reservedhours[i].hour == 10 || this.currentHour >= 10){
                 this.tenStyle = true;
                 this.unavaible.push(10);
               }
-              else if(this.reservedhours[i].hour == 11){
+              else if(this.reservedhours[i].hour == 11 || this.currentHour >= 11){
                 this.elevenStyle = true;
                 this.unavaible.push(11);
               }
-              else if(this.reservedhours[i].hour == 12){
+              else if(this.reservedhours[i].hour == 12 || this.currentHour >= 12){
                 this.twelveStyle = true;
                 this.unavaible.push(12);
               }
-              else if(this.reservedhours[i].hour == 13){
+              else if(this.reservedhours[i].hour == 13 || this.currentHour >= 13){
                 this.thrtnStyle = true;
                 this.unavaible.push(13);
               }
-              else if(this.reservedhours[i].hour == 14){
+              else if(this.reservedhours[i].hour == 14 || this.currentHour >= 14){
                 this.frtnStyle = true;
                 this.unavaible.push(14);
               }
-              else if(this.reservedhours[i].hour == 15){
+              else if(this.reservedhours[i].hour == 15 || this.currentHour >= 15){
                 this.fiftnStyle = true;
                 this.unavaible.push(15);
               }
-              else if(this.reservedhours[i].hour == 16){
+              else if(this.reservedhours[i].hour == 16 || this.currentHour >= 16){
                 this.sixtnStyle = true;
                 this.unavaible.push(16);
               }
-              else if(this.reservedhours[i].hour == 17){
+              else if(this.reservedhours[i].hour == 17 || this.currentHour >= 17){
                 this.svntnStyle = true;
                 this.unavaible.push(17);
               }
-              else if(this.reservedhours[i].hour == 18){
+              else if(this.reservedhours[i].hour == 18 || this.currentHour >= 18){
                 this.eightnStyle = true;
                 this.unavaible.push(18);
               }
-              else if(this.reservedhours[i].hour == 19){
+              else if(this.reservedhours[i].hour == 19 || this.currentHour >= 19){
                 this.ninetnStyle = true;
                 this.unavaible.push(19);
               }
-              else if(this.reservedhours[i].hour == 20){
+              else if(this.reservedhours[i].hour == 20 || this.currentHour >= 20){
                 this.twentyStyle = true;
                 this.unavaible.push(20);
               }
@@ -993,6 +1016,10 @@ methods: {
         }
 
           if(this.validated == true){
+            if(this.picked.day < this.today && this.picked.month < this.month && this.picked.year < this.year){
+              this.showfail = true;
+              this.message = "Vigyázat! Elmúlt dátumra próbálsz foglalni!";
+            }else if(this.picked.day >= this.today){
             axios.post('./api/createReservation',{
               hour: this.desiredHours,
               first_hour: this.desiredHours[0],
@@ -1003,6 +1030,7 @@ methods: {
               players: this.selectedPlayers,
               tel: this.tel,
               note: this.note,
+              email: this.email,
               user_id: this.userID,
               firstname: this.firstname,
               lastname: this.lastname,
@@ -1017,16 +1045,24 @@ methods: {
                 axios.post('./BPupdate/' + this.userID,{
                       battle_points: this.UserBonus - this.bonus_used,
                     });
+                axios.post('./PckgPopUpdate/' + this.selected_package_id,{
+                    popularity: this.package.popularity + 1,
+                  });
                 this.checkSuccess = false;
               }).catch(error => {
                   console.log(error);
                   this.showfail = true;
                   this.checkSuccess = false;
                 });   
+              }
           }
 
 
         }else{
+          if(this.picked.day < this.today && this.picked.month < this.month && this.picked.year < this.year){
+              this.showfail = true;
+              this.message = "Vigyázat! Elmúlt dátumra próbálsz foglalni!";
+            }else if(this.picked.day >= this.today){
         axios.post('./api/createReservation',{
             hour: this.desiredHours,
             first_hour: this.desiredHours[0],
@@ -1037,6 +1073,7 @@ methods: {
             players: this.selectedPlayers,
             tel: this.tel,
             note: this.note,
+            email: this.email,
             user_id: this.userID,
             firstname: this.firstname,
             lastname: this.lastname,
@@ -1051,12 +1088,17 @@ methods: {
               axios.post('./BPupdate/' + this.userID,{
                     battle_points: this.UserBonus - this.bonus_used,
                   });
+
+             axios.post('./PckgPopUpdate/' + this.selected_package_id,{
+                    popularity: this.package.popularity + 1,
+                  });
               this.checkSuccess = false;
             }).catch(error => {
                 console.log(error);
                 this.showfail = true;
                 this.checkSuccess = false;
               });
+          }
         }
     }else{
       this.message = "Minden *-al jelölt mező kitöltése kötelező!";
@@ -1088,7 +1130,7 @@ methods: {
       this.package = response.data;
       this.loadingstyle = true;
       this.packageprice = this.package.price;
-      this.packagetime = this.package.time;
+      this.packagetime = this.package.total_time;
       if(this.bonus_used == 0){
         this.price = this.packageprice * this.selectedPlayers;
       }else{
@@ -1110,15 +1152,60 @@ methods: {
   },
   maximazeUserBonus(){
     this.UserBonus = this.userBonus;
-    console.log("User Bonus " + this.UserBonus);
+    //console.log("User Bonus " + this.UserBonus);
     if(this.UserBonus >= 50){
       this.maxUserBonus = 50;
     }
     else if(this.UserBonus < 50){
       this.maxUserBonus = this.UserBonus;
     }
-    console.log("maxUB " + this.maxUserBonus);
-  }
+    //console.log("maxUB " + this.maxUserBonus);
+  },
+  unavaibleHours(){
+      this.currentHour = this.now.getHours();
+      if(this.picked.day == this.today){
+        if(this.currentHour >= 8){
+          this.eightStyle = true;
+          console.log("nagyobb mint 8")
+        }
+        else if(9 <= this.currentHour){
+          this.nineStyle = true;
+        }
+        else if(10 <= this.currentHour){
+          this.tenStyle = true;
+        }
+        else if(11 <= this.currentHour){
+          this.elevenStyle = true;
+        }
+        else if(12 <= this.currentHour){
+          this.twelveStyle = true;
+        }
+        else if(13 <= this.currentHour){
+          this.thrtnStyle = true;
+        }
+        else if(14 <= this.currentHour){
+          this.frtnStyle = true;
+        }
+        else if(15 <= this.currentHour){
+          this.fiftnStyle = true;
+        }
+        else if(16 <= this.currentHour){
+          this.sixtnStyle = true;
+        }
+        else if(17 <= this.currentHour){
+          this.svntnStyle = true;
+        }
+        else if(18 <= this.currentHour){
+          this.eightnStyle = true;
+        }
+        else if(19 <= this.currentHour){
+          this.ninetnStyle = true;
+        }
+        else if(20 <= this.currentHour){
+          this.twentyStyle = true;
+        }
+      }
+  },
 },
 });
 </script>
@@ -1138,6 +1225,7 @@ methods: {
   padding: 1rem;
   box-shadow: 0px 0px 5px black;
   display: none;
+  font-family: 'Oswald', sans-serif !important;
 }
 .calendar{
   display: flex;
@@ -1157,7 +1245,7 @@ methods: {
   color: white;
   padding: 0.5rem 1rem;
   border: 1px solid #aaaaaa;
-  background-color: orange;
+  background-color: #FF652F;;
  }
 .arrow{
   padding: 0 0.4em 0.2em 0.4em;
@@ -1211,7 +1299,7 @@ methods: {
 .today{
   font-weight: 500;
   color: white;
-  background-color: orange;
+  background-color: #14A76C;
 }
 .not-in-month{
   color: #cacaca !important; 
@@ -1223,7 +1311,7 @@ methods: {
 }
 
 .hours_container{
-  width: 49em;
+  width: 45.9em;
   border: 3px solid orange;
   display: none !important;
 }
@@ -1246,6 +1334,15 @@ methods: {
 .hour_container.is-1{
   width: 7.712%;
   border-right: 2px solid orange;
+}
+.cell_size{
+  border: 2px solid orange;
+}
+.today_hours_container{
+  display: none !important;
+}
+.show.today_hours_container{
+  display: flex !important;
 }
 .info{
   display: none;
@@ -1302,95 +1399,95 @@ methods: {
 }
 /*Occupied style*/
 .eightStyle.eight{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired8.eight{
-  background-color: green;
+  background-color: #14A76C;
 }
 .nineStyle.nine{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired9.nine{
-  background-color: green;
+  background-color: #14A76C;
 }
 .tenStyle.ten{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired10.ten{
-  background-color: green;
+  background-color: #14A76C;
 }
 .elevenStyle.eleven{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired11.eleven{
-  background-color: green;
+  background-color: #14A76C;
 }
 .twelveStyle.twelve{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired12.twelve{
-  background-color: green;
+  background-color: #14A76C;
 }
 .thrtnStyle.thrtn{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired13.thrtn{
-  background-color: green;
+  background-color: #14A76C;
 }
 .frtnStyle.frtn{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired14.frtn{
-  background-color: green;
+  background-color: #14A76C;
 }
 .fiftnStyle.fiftn{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired15.fiftn{
-  background-color: green;
+  background-color: #14A76C;
 }
 .sixtnStyle.sixtn{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired16.sixtn{
-  background-color: green;
+  background-color: #14A76C;
 }
 .svntnStyle.svntn{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired17.svntn{
-  background-color: green;
+  background-color: #14A76C;
 }
 .eightnStyle.eightn{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired18.eightn{
-  background-color: green;
+  background-color: #14A76C;
 }
 .ninetnStyle.ninetn{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired19.ninetn{
-  background-color: green;
+  background-color: #14A76C;
 }
 .twentyStyle.twenty{
-  background-color: red;
+  background-color: #E01812;
   pointer-events: none;
 }
 .desired20.twenty{
-  background-color: green;
+  background-color: #14A76C;
 }
 
 .select{
@@ -1463,5 +1560,16 @@ methods: {
   width: 10em;
   font-size: 2em;
   font-weight: bold;
+}
+
+.player_select{
+  border-color: #14A76C;
+}
+.reserver_btn{
+  background-color: #ff652f;
+}
+.is-active{
+  background-color: #fff0;
+  color: #fff0;
 }
 </style>

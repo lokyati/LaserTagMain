@@ -23,7 +23,11 @@ Route::middleware('auth:api')->get('/profile', function (Request $request){
 });
 
 Route::resource('reservations','ReservationsController');
+//Route::resource('restoday','ReservationsController@reservationsToday');
 Route::resource('Reservedhours','reservedHourController');
 Route::resource('allpackage','PackageController');
+//Route::resource('alluser','AdminController@allUser');
+Route::resource('loggedinusers','LoggedInUsersController');
 
 Route::post('createReservation','ReservationsController@create');
+//Route::post('PckgCreate','PackageController@create');

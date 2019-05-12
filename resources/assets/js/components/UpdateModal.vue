@@ -7,7 +7,10 @@
       </header>
       <section class="modal-card-body">
         <div class="unprocessed_container" v-for="unprc in unprocessed">
-          <div class="unprocessed_header">
+          <div class="unprocessed_header_win" v-if="unprc.result == 'Győzelem'">
+            {{unprc.result}}
+          </div>
+          <div class="unprocessed_header_lose" v-else>
             {{unprc.result}}
           </div>
           <div class="unprocessed_content">
@@ -48,7 +51,7 @@
                 <p>Pontoság</p>
               </div>
               <div class="data_content">
-                {{unprc.acc}}
+                {{unprc.acc}}%
               </div>
             </div>
             <div class="data_container">
@@ -167,7 +170,7 @@
             this.bonus += this.unprocessed[i].score; 
             this.bonus += this.unprocessed[i].bonus;
             this.oldout += this.unprocessed[i].all_out;
-            if(this.unprocessed[i].placed < this.oldbestplace){
+            if(this.unprocessed[i].placed < this.oldbestplace || this.unprocessed[i].placed > 0){
               this.oldbestplace = this.unprocessed[i].placed;
             }
             axios.post('./matchUpdate/' + this.unprocessed[i].id,{
@@ -175,19 +178,20 @@
             });
           }
 
-            this.avgshot = this.oldshots/this.oldmatches;
-            this.avghit = this.oldhits/this.oldmatches;
-            this.avgacc = this.oldshots/this.oldhits;
-            //this.avgshot = ((this.avgshot).toFixed(1));
-            //this.avghit = ((this.avghit).toFixed(1));
-            //this.avgacc = ((this.avgacc).toFixed(1));
+            this.avgshot = parseFloat(this.oldshots/this.oldmatches).toFixed(1);
+            this.avghit = parseFloat(this.oldhits/this.oldmatches).toFixed(1);
+            this.avgacc = parseFloat((this.oldhits/this.oldshots)*100).toFixed(1);
 
-            if(this.oldexperience >= 1000){
+            if(this.oldlvl == 33){
+              this.oldexperience = 1000;
+              this.oldlvl = 33;
+            }else if(this.oldexperience >= 1000 && this.oldlvl < 33){
               this.remainxp = this.oldexperience - 1000;
               this.oldexperience = this.remainxp;
               this.oldlvl++;
               this.$emit('lvlup',this.oldlvl);
             }
+            
               
             this.oldbonus += this.bonus;
 
@@ -238,10 +242,18 @@
     background-color: #e1e1e1;
     font-size: 22px;
   }
-  .unprocessed_header{
+  .unprocessed_header_win{
     width: 100%;
     text-align: left;
     color: green;
+    font-size: 23px;
+    text-align: left;
+    padding: .3em;
+  }
+  .unprocessed_header_lose{
+    width: 100%;
+    text-align: left;
+    color: red;
     font-size: 23px;
     text-align: left;
     padding: .3em;

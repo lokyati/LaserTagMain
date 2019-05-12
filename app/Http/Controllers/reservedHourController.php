@@ -53,6 +53,6 @@ class reservedHourController extends Controller
         $reservedhours = reservedHours::where('reservation_id', $id)->delete();
 
         $reservation = Reservations::where('id', $id)->delete();
-        return response()->json('reservations deleted');;
+        return response()->json('reservations deleted');
     }
 }

@@ -3,35 +3,36 @@
           <div class="match_card" v-for="match in card.slice(m,n)">
               <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Eredmény </span>
-                  <span class="tag is-info is-medium second_tag_history">{{match.result}}</span>
+                  <span class="tag win_tag is-success is-medium second_tag_history" v-if="match.result == 'Győzelem'">{{match.result}}</span>
+                  <span class="tag lose_tag is-danger is-medium second_tag_history" v-else>{{match.result}}</span>
                 </div>
                 <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Helyezés </span>
-                  <span class="tag is-info is-medium second_tag_history">{{match.placed}}</span>
+                  <span class="tag info_value is-medium second_tag_history">{{match.placed}}</span>
                 </div>
                 <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Pontszám </span>
-                  <span class="tag is-info is-medium second_tag_history">{{match.score}}</span>
+                  <span class="tag info_value is-medium second_tag_history">{{match.score}}</span>
                 </div>
                 <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Leadott lövések </span>
-                  <span class="tag is-info is-medium second_tag_history">{{match.all_shot}}</span>
+                  <span class="tag info_value is-medium second_tag_history">{{match.all_shot}}</span>
                 </div>
                 <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Találatok </span>
-                  <span class="tag is-info is-medium second_tag_history">{{match.all_hit}}</span>
+                  <span class="tag info_value is-medium second_tag_history">{{match.all_hit}}</span>
                 </div>
                 <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Pontosság </span>
-                  <span class="tag is-info is-medium second_tag_history">{{match.acc}}</span>
+                  <span class="tag info_value is-medium second_tag_history">{{match.acc}}</span>
                 </div>
                 <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Bónuszpontok </span>
-                  <span class="tag is-info is-medium second_tag_history">{{match.bonus}}</span>
+                  <span class="tag info_value is-medium second_tag_history">{{match.bonus}}</span>
                 </div>
                 <div class="tags has-addons is-marginless">
                   <span class="tag is-dark is-medium first_tag_history">Dátum </span>
-                  <span class="tag is-info is-medium second_tag_history">{{match.match_date}}</span>
+                  <span class="tag info_value is-medium second_tag_history">{{match.match_date}}</span>
                 </div>
             </div>
           </div>
@@ -55,6 +56,7 @@ export default{
 		data(){
 			return {
 				itemsPerRow: 4,
+        resultstyle: false,
 			}
 		},
 		mounted() {
@@ -75,7 +77,7 @@ export default{
 	width: 6em;
 }
 .match_card{
-	background-color: #1b6f96;
+	background-color: #747474;
  	height: 330px;
  	width: 15em; 
  	box-shadow: 0px 0px 5px black;
@@ -84,8 +86,20 @@ export default{
  	margin-bottom: 1em;
  	padding: .5em;
  	float:left;
+  font-family: 'Oswald', sans-serif !important;
 }
 .matches_container{
 
+}
+.win_tag{
+  background-color: #14A76C;
+}
+.lose_tag{
+  background-color: #E01812;
+}
+.info_value{
+  background-color: #F7F7F7;
+  color: #000;
+  border: 1px solid #363636;
 }
 </style>

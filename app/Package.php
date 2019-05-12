@@ -9,6 +9,7 @@ class Package extends Model
     protected $table = 'package';
 
     protected $fillable = [
-        'package_name', 'price', 'time', 'popularity', 'description',
+        'package_name', 'price', 'time', 'popularity', 'description', 'match_length', 'match_number', 'total_time'
+
     ];
 }

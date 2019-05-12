@@ -42,4 +42,8 @@ class User extends Authenticatable
     public function userMatches() {
         return $this->hasMany('App\Matches', 'foreign_key');
     }
+
+    public function userLoggedIn() {
+        return $this->hasOne('App\LoggedInUsers', 'foreign_key');
+    }
 }

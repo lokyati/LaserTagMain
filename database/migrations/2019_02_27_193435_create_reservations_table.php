@@ -26,6 +26,7 @@ class CreateReservationsTable extends Migration
             //$table->string('date')->nullable();
             $table->integer('players')->nullable();
             $table->integer('tel')->nullable();
+            $table->text('email')->nullable();
             $table->text('note')->nullable();
             $table->integer('bonus_used')->nullable();
             $table->double('price')->nullable();

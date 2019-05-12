@@ -26,56 +26,64 @@
 
 </head>
 <body>
-    <div class="navbar">
-    <ul>
-    <!-- Authentication Links -->
-    @if (Auth::guard('admin')->check() || Auth::guard()->check())
-        <li class="dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    @if (Auth::guard('admin')->check())
-                        Admin
-                    @else 
-                        {{ Auth::user()->name }} 
-                    @endif
-                    <span class="caret"></span>
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    @if (Auth::guard('admin')->check())
-                        <a class="dropdown-item" href="{{ url('/admin/dashboard') }}">Vezérlőpult</a> <!--admin eseteben nincs fooldal csak a dashboard-->
-                        <a class="dropdown-item" href=""
-                           onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
-                            Kijelentkezés
-                        </a>
-                    @else   
-                        <a class="dropdown-item" href="{{ url('/home') }}">Főoldal</a> <!--a felhasznalo alapbol a fooldalra kerul, a profilt (sajat dashboardjat) a profilom fullel eri el-->
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Kijelentkezés') }}
-                            </a>
-                    @endif
-                    
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-    @else
-    
-
-        <li><a class="user_button" href="{{ route('login') }}">{{ __('Felhasználó') }}</a></li>
-        <li><a class="registration_button" href="{{ route('register') }}">{{ __('Regisztráció') }}</a></li>
-    @endif
-</ul>
-</div>
+    <div class="navbar_container">
+        <div class="navbar-brand">
+            LaserTag
+        </div>
+        <div class="navbar-end">
+            <ul>
+              <li><a class="is-on" href="{{  URL::to('home')  }}">Profil</a></li>
+              <li><a href="{{  URL::to('about')  }}">Bővebben a LaserTag-ről</a></li>
+              <li><a href="{{ URL::to('contact')  }}">Kapcsolat</a></li>
+              <li>
+                  <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    Kijelentkezés
+                  </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+              </li>
+            </ul> 
+        </div>
+    </div>
 <div id="app">
     <userProfil></userProfil>
 </div>
 </body>
-<footer>
-
+<footer id="footer">
+ <div class="columns">
+        <div class="column is-one-third">
+            <p class="subtitle is-8 has-text-white">Cimünk</p>
+            <p class="subtitle is-8 has-text-white">Csíkszereda, Hargita megye, Szabadság tér, 1. szám, 530104</p>
+            <gdprmodal v-if="showModal" @close="showModal = false"></gdprmodal>
+            <p class="subtitle is-8 has-text-white"><a @click="showModal = true">Adatvédelmi tájékoztató</a></p>
+            <p class="subtitle is-8 has-text-white">©LaserTag 2019</p>
+        </div>
+        <div class="column">
+            <p class="subtitle is-8 has-text-white">Keress minket a közösségi oldalakon is</p>
+            <div class="icon_container">
+              <div class="facebook_icon"></div>
+              <div class="twitter_icon"></div>
+              <div class="instagram_icon"></div>
+            </div>
+        </div>
+        <div class="column">
+            <p class="subtitle is-8 has-text-white">Navigácó</p>
+            <p class="subtitle is-8 has-text-white"><a href="{{  URL::to('home')  }}">Profil</a></p>
+            <p class="subtitle is-8 has-text-white"><a href="{{  URL::to('about')  }}">Bővebben a LaserTag-ről</a></p>
+            <p class="subtitle is-8 has-text-white"><a href="{{ URL::to('contact')  }}">Kapcsolat</a></p>
+            <!--<p class="subtitle is-8 has-text-white"><a class="admin_button" href="{{ route('admin.login') }}">Admin belépés</a></p>-->
+            <a href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                Kijelentkezés
+              </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </div>
+    </div>
 </footer>
 </html>

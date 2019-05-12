@@ -1,0 +1,121 @@
+html, body {
+	margin: 0;
+	padding: 0; 
+	background-color: #f0f0f0;;
+	font-family: 'Oswald', sans-serif !important;
+	max-width: 1200px !important;
+	margin: 0 auto !important; 
+	box-shadow: 1px 5px 5px black;
+}
+.container{
+	margin-top: 25px;
+}
+.card{
+	width: 500px;
+	height: 200px;
+	border: 3px solid black;
+	border-radius: 15px;
+	text-align: center;
+	margin: 0 auto;
+	background-color: #e3e3e3;
+}
+.card-header{
+	font-size: 28px;
+	padding: 10px; 
+}
+footer{
+	width: 100%;
+	padding: 2rem;
+	font-size: 1em;
+	box-sizing: border-box;
+	background-color: #73715f;
+	bottom: 0;
+	color: #FCFCFC;
+	max-width: 1366px;
+}
+footer a{
+	text-decoration: none;
+	color: #FCFCFC;
+	padding: .5rem;
+}
+.facebook_icon{
+	height: 30px;
+	width: 30px;
+	background: url('../img/facebook.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+	margin-right: 1em;
+	cursor: pointer;
+}
+.twitter_icon{
+	height: 30px;
+	width: 30px;
+	background: url('../img/twitter.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+	margin-right: 1em;
+	cursor: pointer;
+}
+.instagram_icon{
+	height: 30px;
+	width: 30px;
+	background: url('../img/instagram.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+	cursor: pointer;
+}
+.icon_container{
+	display: flex;
+}
+.navbar_container{
+	background-color: #f2f2f2;
+	align-items: stretch;
+	display: flex;
+	min-height: 3.25rem;
+	position: relative;
+	z-index: 30;
+}
+.navbar-brand{
+	padding: .5em;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.navbar-end{
+
+}
+.about_container{
+	height: 561px;
+}
+.is-on{
+	color: white;
+	background-color: #ff652f;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  transition: 0.4s;
+  display: block;
+  color: #747474;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color: #f2f2f2;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #747474;
+  color: #f2f2f2;
+}
