@@ -26,7 +26,7 @@
   <h1 class="title is-3">Válassz ki egy napot</h1>
 	<div class='calendar'>
     <div class='header'>
-      <a class='arrow' @click='movePreviousMonth'>&lsaquo;</a>
+      <a class='arrow' @click='movePreviousMonth' v-if="this.month > this.picked.month">&lsaquo;</a>
       <span class='title' @click='moveThisMonth'>
         {{ header.label }}
       </span>
@@ -51,7 +51,7 @@
     <div class="info" v-bind:class="{show:show}">
       <p>Szabad időpontok ezen a napon: </p><p class="selectedday">{{ header.label }} {{picked.day}}.</p><!--<p class="messagetext"> {{message}} </p>-->
     </div>
-    <div class="hours_container" v-bind:class="{show:show}" v-if="this.picked.day != this.today">
+    <div class="hours_container" v-bind:class="{show:show}" v-if="this.picked.day != this.today || this.picked.month > this.currentMonth">
       <div class="columns is-marginless">
           <div class="column is-1 eight hour_container" v-bind:class="{eightStyle:eightStyle, desired8:desired8}" @click='isSelected8'>
               <a>08:00</a>
@@ -94,7 +94,7 @@
           </div>
       </div>
     </div>
-    <div class="today_hours_container" v-bind:class="{show:show}" v-if="this.picked.day == this.today">
+    <div class="today_hours_container" v-bind:class="{show:show}" v-if="this.picked.day == this.today && this.picked.month == this.currentMonth">
       <div class="columns is-marginless">
           <div class="column cell_size eight hour_container" v-bind:class="{eightStyle:eightStyle, desired8:desired8}" @click='isSelected8' v-if="this.currentHour < 8">
               <a>08:00</a>
@@ -303,6 +303,7 @@ export default ({
       maxUserBonus: 0,
       UserBonus: 0,
       currentHour: 0,
+      currentMonth: 0,
 	 };
   },
   components: {
@@ -481,7 +482,8 @@ export default ({
 mounted() {
   this.getReservations();
   this.currentHour = this.now.getHours();
-  this.unavaibleHours();
+  this.currentMonth = this.now.getMonth() + 1;
+  //this.unavaibleHours();
 },
 
 methods: {
@@ -509,9 +511,9 @@ methods: {
       day.isSelected = day.date.getTime() === this.valueTime;
   },
   selectDay(day) {
-    if(day.day == this.today){
+    /*if(day.day == this.today){
       this.unavaibleHours();
-    }
+    }*/
       this.allFalse();
       this.reservationID = [];
       this.reservedhours = [];
@@ -522,7 +524,7 @@ methods: {
       this.selectedday = this.picked.day;
       this.selectedmonth = this.picked.month;
 
-      if(this.selectedday >= this.today && this.selectedmonth >= this.selectedmonth && day.year >= this.year){
+      if(this.selectedday >= this.today || this.selectedmonth > this.currentMonth ){
         this.show = true;
         this.getReservations();
         this.maximazeUserBonus();
@@ -1161,12 +1163,11 @@ methods: {
     }
     //console.log("maxUB " + this.maxUserBonus);
   },
-  unavaibleHours(){
+  /*unavaibleHours(){
       this.currentHour = this.now.getHours();
       if(this.picked.day == this.today){
         if(this.currentHour >= 8){
           this.eightStyle = true;
-          console.log("nagyobb mint 8")
         }
         else if(9 <= this.currentHour){
           this.nineStyle = true;
@@ -1205,7 +1206,7 @@ methods: {
           this.twentyStyle = true;
         }
       }
-  },
+  },*/
 },
 });
 </script>

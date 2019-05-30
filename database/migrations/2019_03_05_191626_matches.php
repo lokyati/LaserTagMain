@@ -19,8 +19,8 @@ class Matches extends Migration
             $table->integer('score')->nullable();
             $table->bigInteger('all_shot')->nullable();
             $table->bigInteger('all_hit')->nullable();
+            $table->bigInteger('all_out')->nullable();
             $table->double('acc')->nullable();
-            $table->integer('all_out')->nullable();
             $table->bigInteger('bonus')->nullable();
             $table->date('match_date')->nullable();
             $table->integer('placed')->nullable();

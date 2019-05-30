@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('name');
+            $table->string('name', 20);
             $table->unsignedInteger('rank_id')->nullable();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration
             $table->integer('battle_points')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->unique('name','name');
         });
 
         Schema::table('users', function($table){
