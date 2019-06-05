@@ -82,7 +82,7 @@
         </div>
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success" @click="updateUserStat">Értettem</button>
+        <button class="button is-success" @click="getUserStat">Értettem</button>
       </footer>
     </div>
   </div>
@@ -100,6 +100,8 @@
       return {
           userData: [],
           userStat: [],
+          matches: [],
+          unprocessedSafe:[],
           showModal: false,
           avgshot: 0,
           avghit: 0,
@@ -124,7 +126,6 @@
         }
       },
       created() {
-        this.getUserStat();
       },
       components: {
       },
@@ -136,64 +137,90 @@
           axios.get('./userstat/' + this.userID).then(response => {
             this.userStat = response.data;
           });
-          axios.get('profile').then(response => {
+          axios.get('./api/profile').then(response => {
             this.userData = response.data;
-          });
+          }).then(response => {
+              this.safeUnprocessed();
+            }).catch(function (error) {
+              console.log(error);
+            });
+        },
+        safeUnprocessed(){
+          axios.get('./matches/' + this.userID).then(response => {
+              this.matches = response.data;
+              this.unprocessedSafe = [];
+              console.log("unprocessedSafe");
+              for(let i = 0; i < this.matches.length; i++){
+                if(this.matches[i].processed == 0){
+                  this.unprocessedSafe.push(this.matches[i]);
+                }
+              }
+            }).then(response => {
+              this.updateUserStat();
+            }).catch(function (error) {
+              console.log(error);
+            });
+
         },
         updateUserStat(){
-          this.oldshots = this.userStat.all_shot
-          this.oldhits = this.userStat.all_hit
-          this.oldout = this.userStat.all_out
-          this.oldmatches = this.userStat.matches
-          this.oldwins = this.userStat.wins
-          this.oldloses = this.userStat.loses
-          this.oldbestplace = this.userStat.bestplace
-          this.oldavg_shot = this.userStat.avg_shot
-          this.oldavg_hit = this.userStat.avg_hit
-          this.oldavg_acc = this.userStat.avg_acc
-          this.oldlvl = this.userStat.lvl
-          this.oldexperience = this.userStat.experience
-          this.oldbonus = this.userData.battle_points 
 
-          for(let i = 0; i < this.unprocessed.length; i++){
-            this.oldmatches++;
-            if(this.unprocessed[i].result == "Győzelem"){
-              this.oldwins++;
-              this.bonus += 10;
-            }else if(this.unprocessed[i].result == "Vereség"){
-              this.oldloses++;
-              this.bonus += 5;
+          for(let i = 0; i < this.userStat.length; i++){
+            this.oldshots = this.userStat[0].all_shot
+            this.oldhits = this.userStat[0].all_hit
+            this.oldout = this.userStat[0].all_out
+            this.oldmatches = this.userStat[0].matches
+            this.oldwins = this.userStat[0].wins
+            this.oldloses = this.userStat[0].loses
+            this.oldbestplace = this.userStat[0].bestplace
+            this.oldavg_shot = this.userStat[0].avg_shot
+            this.oldavg_hit = this.userStat[0].avg_hit
+            this.oldavg_acc = this.userStat[0].avg_acc
+            this.oldlvl = this.userStat[0].lvl
+            this.oldexperience = this.userStat[0].experience
+            
+          }
+            this.oldbonus = this.userData.battle_points 
+
+          for(let i = 0; i < this.unprocessedSafe.length; i++){
+            this.oldmatches++
+            console.log(this.oldmatches)
+            if(this.unprocessedSafe[i].result == "Győzelem"){
+              this.oldwins++
+              this.bonus += 10
+            }else if(this.unprocessedSafe[i].result == "Vereség"){
+              this.oldloses++
+              this.bonus += 5
             }
-            this.oldshots += this.unprocessed[i].all_shot;
-            this.oldhits += this.unprocessed[i].all_hit;
-            this.oldexperience += this.unprocessed[i].score; 
-            this.bonus += this.unprocessed[i].score; 
-            this.bonus += this.unprocessed[i].bonus;
-            this.oldout += this.unprocessed[i].all_out;
-            if(this.unprocessed[i].placed < this.oldbestplace || this.unprocessed[i].placed > 0){
-              this.oldbestplace = this.unprocessed[i].placed;
+            this.oldshots += this.unprocessedSafe[i].all_shot
+            this.oldhits += this.unprocessedSafe[i].all_hit
+            this.oldexperience += this.unprocessedSafe[i].score
+            this.bonus += this.unprocessedSafe[i].score
+            this.bonus += this.unprocessedSafe[i].bonus
+            this.oldout += this.unprocessedSafe[i].all_out
+            if(this.unprocessedSafe[i].placed < this.oldbestplace || this.unprocessedSafe[i].placed > 0){
+              this.oldbestplace = this.unprocessedSafe[i].placed
             }
-            axios.post('./matchUpdate/' + this.unprocessed[i].id,{
+            axios.post('./matchUpdate/' + this.unprocessedSafe[i].id,{
               processed: this.processed
             });
           }
 
-            this.avgshot = parseFloat(this.oldshots/this.oldmatches).toFixed(1);
-            this.avghit = parseFloat(this.oldhits/this.oldmatches).toFixed(1);
-            this.avgacc = parseFloat((this.oldhits/this.oldshots)*100).toFixed(1);
+            this.avgshot = parseFloat(this.oldshots/this.oldmatches).toFixed(1)
+            this.avghit = parseFloat(this.oldhits/this.oldmatches).toFixed(1)
+            this.avgacc = parseFloat((this.oldhits/this.oldshots)*100).toFixed(1)
 
             if(this.oldlvl == 33){
-              this.oldexperience = 1000;
-              this.oldlvl = 33;
+              this.oldexperience = 1000
+              this.oldlvl = 33
             }else if(this.oldexperience >= 1000 && this.oldlvl < 33){
-              this.remainxp = this.oldexperience - 1000;
-              this.oldexperience = this.remainxp;
-              this.oldlvl++;
-              this.$emit('lvlup',this.oldlvl);
+              this.remainxp = this.oldexperience - 1000
+              this.oldexperience = this.remainxp
+              this.oldlvl++
+              this.$emit('lvlup',this.oldlvl)
             }
             
               
-            this.oldbonus += this.bonus;
+            this.oldbonus += this.bonus
 
             axios.post('./statUpdate/' + this.userID,{
               all_shot: this.oldshots,
@@ -208,13 +235,26 @@
               avg_acc: this.avgacc,
               experience: this.oldexperience,
               lvl: this.oldlvl,
+            }).catch(function (error) {
+              console.log(this.oldshots);
+              console.log(this.oldhits);
+              console.log(this.oldout);
+              console.log(this.oldmatches);
+              console.log(this.oldwins);
+              console.log(this.oldloses);
+              console.log(this.oldbestplace);
+              console.log(this.avgshot);
+              console.log(this.avghit);
+              console.log(this.avgacc);
+              console.log(this.oldexperience);
+              console.log(this.oldlvl);
+              console.log(error);
             });
 
             axios.post('./userBonusUpdate/' + this.userID,{
               battle_points: this.oldbonus,
             });
 
-            console.log("axiosutan")
           this.$emit('closeUpdate');
         },
       },

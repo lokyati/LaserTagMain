@@ -42,14 +42,14 @@
 			</div>
 		</div>
 		<div class="profil_content">
-			<div class="stats" v-bind:class="{showStat:showStat}">
+			<div class="stats" v-bind:class="{showStat:showStat}" v-for="userStats in userStat">
 				<div class="columns is-paddingless is-marginless">
 					<div class="column is-half">
 						<div class="field is-grouped is-grouped-multiline profile_tag_container">
 							<div class="progress_container">
 								<div class="control centered_tags">
 									<div class="tags has-addons profile_tag">
-								      <span class="tag is-dark is-large">Tapasztalat ({{userStat.experience}})</span>
+								      <span class="tag is-dark is-large">Tapasztalat ({{userStats.experience}})</span>
 								      <div class="progress_bar">
 								      	<progress class="progress is-primary is-marginless" :value="value" :max="max"></progress>
 								      </div>
@@ -60,7 +60,7 @@
 							<div class="column is-two-thirds is-paddingless">
 								<div class="control centered_tags">
 									<div class="tags has-addons profile_tag">
-								      <span class="tag is-dark is-large">Rangod</span>
+								      <span class="tag is-dark is-large">Rang</span>
 								      <span class="tag info_value is-large rank_tag">{{rank_name}}</span>
 								    </div>
 								 </div>
@@ -68,8 +68,8 @@
 							<div class="column is-paddingless">
 								<div class="control centered_tags">
 									<div class="tags has-addons profile_tag">
-								      <span class="tag is-dark is-large">Szinted</span>
-								      <span class="tag info_value is-large lvl_tag">{{userStat.lvl}}</span>
+								      <span class="tag is-dark is-large">Szint</span>
+								      <span class="tag info_value is-large lvl_tag">{{userStats.lvl}}</span>
 								    </div>
 								 </div>
 							</div>
@@ -122,7 +122,7 @@
 									</div>
 									<div class="roundstat_win">
 										<div class="nmbr_win">
-											<p>{{userStat.wins}}</p>
+											<p>{{userStats.wins}}</p>
 										</div>
 									</div>
 								</div>
@@ -132,7 +132,7 @@
 									</div>
 									<div class="roundstat_counter">
 										<div class="nmbr">
-											<p>{{userStat.matches}}</p>
+											<p>{{userStats.matches}}</p>
 										</div>
 									</div>
 								</div>
@@ -142,7 +142,7 @@
 									</div>
 									<div class="roundstat_counter">
 										<div class="nmbr">
-											<p>{{userStat.all_shot}}</p>
+											<p>{{userStats.all_shot}}</p>
 										</div>
 									</div>
 								</div>
@@ -152,7 +152,7 @@
 									</div>
 									<div class="roundstat_counter">
 										<div class="nmbr">
-											<p>{{userStat.all_hit}}</p>
+											<p>{{userStats.all_hit}}</p>
 										</div>
 									</div>
 								</div>
@@ -162,7 +162,7 @@
 									</div>
 									<div class="roundstat_counter">
 										<div class="nmbr">
-											<p>{{userStat.all_out}}</p>
+											<p>{{userStats.all_out}}</p>
 										</div>
 									</div>
 								</div>
@@ -174,7 +174,7 @@
 									</div>
 									<div class="roundstat_lose">
 										<div class="nmbr_lose">
-											<p>{{userStat.loses}}</p>
+											<p>{{userStats.loses}}</p>
 										</div>
 									</div>
 								</div>
@@ -184,7 +184,7 @@
 									</div>
 									<div class="roundstat_counter">
 										<div class="nmbr">
-											<p>{{userStat.bestplace}}</p>
+											<p>{{userStats.bestplace}}</p>
 										</div>
 									</div>
 								</div>
@@ -194,7 +194,7 @@
 									</div>
 									<div class="roundstat_counter">
 										<div class="nmbr">
-											<p>{{userStat.avg_shot}}</p>
+											<p>{{userStats.avg_shot}}</p>
 										</div>
 									</div>
 								</div>
@@ -204,7 +204,7 @@
 									</div>
 									<div class="roundstat_counter">
 										<div class="nmbr">
-											<p>{{userStat.avg_hit}}</p>
+											<p>{{userStats.avg_hit}}</p>
 										</div>
 									</div>
 								</div>
@@ -214,7 +214,7 @@
 									</div>
 									<div class="roundstat_counter">
 										<div class="nmbr">
-											<p>{{userStat.avg_acc}}%</p>
+											<p>{{userStats.avg_acc}}%</p>
 										</div>
 									</div>
 								</div>
@@ -370,7 +370,7 @@ export default {
 			this.LogInUser();
   		},
   		getUserData(){ //Laravelbe bejelentkezett user adatai
-  			axios.get('profile').then(response => {
+  			axios.get('./api/profile').then(response => {
 				this.user = response.data;
 				this.userID = this.user.id;
 				this.userBonus = this.user.battle_points;
@@ -386,13 +386,15 @@ export default {
   			axios.get('./userstat/' + this.userID).then(response => {
 				this.userStat = response.data;
 				console.log(this.userStat);
-				this.value = this.userStat.experience;
+				for(let i = 0; i < this.userStat.length; i++){
+					this.value = this.userStat[i].experience;
+				}
+				
 			});
   		},
   		getMatches(userID){
           axios.get('./matches/' + this.userID).then(response => {
             this.matches = response.data;
-            //console.log(this.matches);
              if(this.matches.length > 0){
 	          	this.showCarousel = true;
 	          	this.showHistoryInfo = false;

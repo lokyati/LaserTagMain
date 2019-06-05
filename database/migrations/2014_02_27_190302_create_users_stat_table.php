@@ -16,18 +16,18 @@ class CreateUsersStatTable extends Migration
         Schema::create('users_stat', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
-            $table->bigInteger('all_shot')->nullable();
-            $table->bigInteger('all_hit')->nullable();
-            $table->bigInteger('all_out')->nullable();
-            $table->bigInteger('matches')->nullable();
-            $table->bigInteger('wins')->nullable();
-            $table->bigInteger('loses')->nullable();
-            $table->integer('bestplace')->nullable();
-            $table->double('avg_shot')->nullable();
-            $table->double('avg_acc')->nullable();
-            $table->double('avg_hit')->nullable();
-            $table->integer('lvl')->nullable();
-            $table->integer('experience')->nullable();
+            $table->bigInteger('all_shot')->default('0');
+            $table->bigInteger('all_hit')->default('0');
+            $table->bigInteger('all_out')->default('0');
+            $table->bigInteger('matches')->default('0');
+            $table->bigInteger('wins')->default('0');
+            $table->bigInteger('loses')->default('0');
+            $table->integer('bestplace')->default('0');
+            $table->double('avg_shot')->default('0');
+            $table->double('avg_acc')->default('0');
+            $table->double('avg_hit')->default('0');
+            $table->integer('lvl')->default('1');
+            $table->integer('experience')->default('0');
             $table->timestamps();
         });
 

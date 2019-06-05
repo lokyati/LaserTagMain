@@ -7,7 +7,7 @@
       </header>
       <section class="modal-card-body">
         <div class="field form_container">
-          <label class="label left_label">Csomag neve</label>
+          <label class="label left_label">Csomag neve: </label>
           <label class="label left_label">{{pckgName}}</label>
           <a class="button is-success is-medium delete_btn" @click="deletePckg">Törlés</a>
           <a class="button is-danger is-medium cancel_btn" @click="$emit('closeDeleter')">Mégse</a>
@@ -58,14 +58,14 @@
     color: black;
   }
   .modal_body{
-    width: 21em;
-    height: 35em;
+    width: 42em;
+    height: 10em;
   }
   .modal-card-body{
     text-align: center;
   }
   .form_container{
-    width: 18em;
+    width: 40em;
     margin-bottom: 0 auto;
   }
   .left_label{

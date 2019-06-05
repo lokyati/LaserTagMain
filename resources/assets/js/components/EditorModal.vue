@@ -119,7 +119,7 @@
             console.log('error');
             this.notnumber = true;
             this.notstring = true;
-            this.err_msg = "A begépelt adatok helytelenek. Ügyelj arra, hogy a név ne teartalmazzon számokat és a telefonszám ne tartalmazzon betűket. Továbbá a telefonszám összesen 10 számjegyből álljon.";
+            this.err_msg = "A begépelt adatok helytelenek. Ügyelj arra, hogy a név ne teartalmazzon számokat és a telefonszám ne tartalmazzon betűket. Továbbá a telefonszámnál 9 számjegy szerepeljen.";
           }
         },
       },

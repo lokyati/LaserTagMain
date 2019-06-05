@@ -33,8 +33,6 @@
           axios.delete('./deleteReservedHour/' + this.resID)
           .then(response => {
             console.log("foglalas orak torolve")
-            //this.reservations = [];
-            //this.getReservations(this.userID);
           }).catch(function (error) {
                 console.log(error);
               });

@@ -9,9 +9,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>LaserTag</title>
-
+    <!--token header-->
+    <script>
+    window.Laravel = <?php echo json_encode([
+        'csrfToken' => csrf_token(),
+    ]); ?>
+    </script>
+    
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">

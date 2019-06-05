@@ -34,6 +34,12 @@ class UserController extends Controller
         User::find($id);
     } 
 
+    public function simulator(){
+
+        return view('simulator');
+    
+    }
+
     public function create()
     {
         //

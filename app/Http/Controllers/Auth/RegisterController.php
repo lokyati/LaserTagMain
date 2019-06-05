@@ -44,7 +44,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:15|min:5',
+            'name' => 'required|unique:users|string|max:15|min:5',
             'email' => 'required|string|email|max:20|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -54,6 +54,7 @@ class RegisterController extends Controller
     {
         return [
             'name.required' => 'Kötelező kitölteni!',
+            'name.unique' => 'A név már foglalt!',
             'email.required'  => 'Kötelező kitölteni!',
             'password.required'  => 'Kötelező kitölteni!',
             'email.email' => 'Az emailnek valós cimnek kell lennie!',
@@ -73,24 +74,10 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'battle_points' => $data['battle_points'],
-            'rank_id' => $data['rank_id'],
         ]);
 
         UsersStat::create([
             'user_id' => $user->id,
-            'experience' => $data['experience'],
-            'lvl' => $data['lvl'],
-            'all_shot' => $data['all_shot'],
-            'all_hit' => $data['all_hit'],
-            'all_out' => $data['all_out'],
-            'matches' => $data['matches'],
-            'wins' => $data['wins'],
-            'loses' => $data['loses'],
-            'bestplace' => $data['bestplace'],
-            'avg_shot' => $data['avg_shot'],
-            'avg_acc' => $data['avg_acc'],
-            'avg_hit' => $data['avg_hit'],
         ]);
 
         return $user;

@@ -28,6 +28,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/users', 'AdminController@users')->name('admin.users');
     Route::get('/reservations','AdminController@reservations')->name('admin.reservations');
     Route::get('/packages','AdminController@packages')->name('admin.packages');
+    Route::get('/package/{id}','PackageController@show')->middleware('auth:admin');
 });
 
 //User Authentication Routes
@@ -37,20 +38,19 @@ Route::post('/loginuser/{id}','LoggedInUsersController@create');
 Route::post('updateloginuser/{id}','LoggedInUsersController@update');
 
 /*UserController*/
-Route::get('profile','UserController@profile');
 Route::get('data/{id}','UserController@data');
-Route::post('BPupdate/{id}','UserController@update');
-Route::post('ProfileUpdate/{id}','UserController@profileupdate');
-Route::post('userRankUpdate/{id}','UserController@rankupdate');
-Route::post('userBonusUpdate/{id}','UserController@bonusupdate');
-Route::get('alluser','AdminController@allUser');
+Route::post('BPupdate/{id}','UserController@update')->middleware('auth:user');
+Route::post('ProfileUpdate/{id}','UserController@profileupdate')->middleware('auth:user');
+Route::post('userRankUpdate/{id}','UserController@rankupdate')->middleware('auth:user');
+Route::post('userBonusUpdate/{id}','UserController@bonusupdate')->middleware('auth:user');
+Route::get('alluser','AdminController@allUser')->middleware('auth:admin');
 
 /*UserStatController*/
-Route::get('userstat/{id}','UserStatController@show');
+Route::get('userstat/{id}','UserStatController@showByUser')->middleware('auth:user');
 Route::post('statUpdate/{id}','UserStatController@update');
 
 /*PackageController*/
-Route::get('package/{id}','PackageController@show'); 
+Route::get('package/{id}','PackageController@show')->middleware('auth:user'); 
 Route::get('allpackage','PackageController@index'); 
 Route::post('PckgPopUpdate/{id}','PackageController@PopUpdate');
 Route::post('PckgUpdate/{id}','PackageController@PckgUpdate');
@@ -64,9 +64,9 @@ Route::post('simulation','MatchesController@create');
 Route::get('matches/{id}','MatchesController@showByUser');
 
 /*ReservationsController*/
-Route::get('restoday','ReservationsController@reservationsToday');
-Route::get('reservation/{id}','ReservationsController@showByUser');
-Route::delete('deleteReservedHour/{id}','reservedHourController@destroy');
+Route::get('restoday','ReservationsController@reservationsToday')->middleware('auth:admin');
+Route::get('reservation/{id}','ReservationsController@showByUser')->middleware('auth:user');
+Route::delete('deleteReservedHour/{id}','reservedHourController@destroy')->middleware('auth:user');
 Route::get('rank/','RankController@index');
 
 //Test Route
@@ -76,9 +76,10 @@ Route::get('/calendar', function () {
 Route::get('/package', function () {
     return view('package');
 });
-Route::get('/simulator', function () {
+/*Route::get('/simulator', function () {
     return view('simulator');
-});
+});*/
+Route::get('/simulator','SimulatorController@index');
 Route::get('/about',function(){
     return view('userAbout');
 });

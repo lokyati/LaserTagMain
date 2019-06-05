@@ -71,7 +71,7 @@
       },
       methods: {
         getPackage() {
-          axios.get('../package/' + this.pckgID).then(response => {
+          axios.get('./package/' + this.pckgID).then(response => {
             this.package = response.data;
             this.newpackagename = this.package.package_name;
             this.newprice = this.package.price;

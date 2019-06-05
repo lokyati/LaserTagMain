@@ -95,7 +95,7 @@ export default ({
 	  		this.showEdit = true;
 	  		this.pckgID = id;	
 	  	},
-	  	deletePackage(id){
+	  	deletePackage(id,name){
 	  		this.showDelete = true;
 	  		this.pckgID = id;
 	  		this.pckgName = name;	

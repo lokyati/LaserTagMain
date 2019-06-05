@@ -49,7 +49,7 @@
   </div>
   <div class="reservationData_container"  v-bind:class="{show:show}">
     <div class="info" v-bind:class="{show:show}">
-      <p>Szabad időpontok ezen a napon: </p><p class="selectedday">{{ header.label }} {{picked.day}}.</p><!--<p class="messagetext"> {{message}} </p>-->
+      <p>Szabad időpontok ezen a napon: </p><p class="selectedday">{{ header.label }} {{picked.day}}.</p>
     </div>
     <div class="hours_container" v-bind:class="{show:show}" v-if="this.picked.day != this.today || this.picked.month > this.currentMonth">
       <div class="columns is-marginless">
@@ -194,6 +194,7 @@
     </div>
     <div class="button_container" v-bind:class="{show:show}">  
       <a class="button reserver_btn is-medium" @click="sendReservation">Foglalok</a>
+      <!--<a class="button reserver_btn is-medium" @click="testTransaction">Foglalok</a>-->
     </div>
   </div>
 </div>
@@ -511,9 +512,6 @@ methods: {
       day.isSelected = day.date.getTime() === this.valueTime;
   },
   selectDay(day) {
-    /*if(day.day == this.today){
-      this.unavaibleHours();
-    }*/
       this.allFalse();
       this.reservationID = [];
       this.reservedhours = [];
@@ -540,7 +538,6 @@ methods: {
   getReservations() {
     axios.get('./api/reservations').then(response => {
       this.reservations = response.data;
-      //console.log(this.reservations);
     }).catch(function (error) {
         console.log(error);
       });
@@ -552,15 +549,11 @@ methods: {
           this.reservationID.push(this.reservations[i].id);
           this.getReservedHours();
         }
-
     }
-    
   },
   getReservedHours(){
-    
     axios.get('./api/Reservedhours').then(response => {
       this.reservedhours = response.data
-      //console.log(this.reservedhours)
     for (var k = 0; k < this.reservationID.length; k++) {
       this.resID = this.reservationID[k];
       for (var i = 0; i < this.reservedhours.length; i++) {
@@ -921,23 +914,23 @@ methods: {
     this.resID = '';
 
     if(this.desiredHours.length != this.packagetime){
-      this.message = "A csomagban szereplő játékidő nem egyezik meg, az általad kiválasztott órák számával. Kérlek, annyi órat válassz ki, ahány óras a csomagamit választottál. Ha ez nem lehetséges, válassz egy másik napot.";
+      this.message = "A csomagban szereplő játékidő nem egyezik meg, az általad kiválasztott órák számával. Kérlek, annyi órat válassz ki, ahány óras a csomag amit választottál. Ha ez nem lehetséges, válassz egy másik napot.";
       this.showfail = true;
     }else{
 
       if(this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != "" && this.firstname != "" && this.lastname != "" && this.selected_package_id != ""){
         axios.get('./api/reservations').then(response => {
           this.reservations = response.data;
-          //console.log(this.reservations);
+          
+          for (var i = 0; i < this.reservations.length; i++) {
+            if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
+              this.reservationID.push(this.reservations[i].id);
+            }
+          }
         }).catch(function (error) {
           console.log(error);
         });
-        for (var i = 0; i < this.reservations.length; i++) {
-          if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
-            this.reservationID.push(this.reservations[i].id);
-          }
-        }
-        if(this.reservationID.length > 0){
+        
         axios.get('./api/Reservedhours').then(response => {
           this.reservedhours = response.data
 
@@ -1010,68 +1003,19 @@ methods: {
               this.message = "Ezeket az időpontokat valaki már lefoglalta!";
               this.showfail = true;
               break;
-            }
-            else{
+            }else{
               this.validated = true;
             }
           }
         }
 
-          if(this.validated == true){
-            if(this.picked.day < this.today && this.picked.month < this.month && this.picked.year < this.year){
-              this.showfail = true;
-              this.message = "Vigyázat! Elmúlt dátumra próbálsz foglalni!";
-            }else if(this.picked.day >= this.today){
-            axios.post('./api/createReservation',{
-              hour: this.desiredHours,
-              first_hour: this.desiredHours[0],
-              year: this.picked.year,
-              month: this.picked.month,
-              day: this.picked.day,
-              //date: this.date,
-              players: this.selectedPlayers,
-              tel: this.tel,
-              note: this.note,
-              email: this.email,
-              user_id: this.userID,
-              firstname: this.firstname,
-              lastname: this.lastname,
-              package_id: this.selected_package_id,
-              bonus_used: this.bonus_used,
-              price: this.price,
-            }).then(response => {
-                this.showsuccess = true;
-                this.checkSuccess = true;
-                this.desiredHours = [];
-
-                axios.post('./BPupdate/' + this.userID,{
-                      battle_points: this.UserBonus - this.bonus_used,
-                    });
-                axios.post('./PckgPopUpdate/' + this.selected_package_id,{
-                    popularity: this.package.popularity + 1,
-                  });
-                this.checkSuccess = false;
-              }).catch(error => {
-                  console.log(error);
-                  this.showfail = true;
-                  this.checkSuccess = false;
-                });   
-              }
-          }
-
-
-        }else{
-          if(this.picked.day < this.today && this.picked.month < this.month && this.picked.year < this.year){
-              this.showfail = true;
-              this.message = "Vigyázat! Elmúlt dátumra próbálsz foglalni!";
-            }else if(this.picked.day >= this.today){
-        axios.post('./api/createReservation',{
+        if(this.validated == true){
+          axios.post('./api/createReservation',{
             hour: this.desiredHours,
             first_hour: this.desiredHours[0],
             year: this.picked.year,
             month: this.picked.month,
             day: this.picked.day,
-            //date: this.date,
             players: this.selectedPlayers,
             tel: this.tel,
             note: this.note,
@@ -1090,23 +1034,21 @@ methods: {
               axios.post('./BPupdate/' + this.userID,{
                     battle_points: this.UserBonus - this.bonus_used,
                   });
-
-             axios.post('./PckgPopUpdate/' + this.selected_package_id,{
-                    popularity: this.package.popularity + 1,
-                  });
+              axios.post('./PckgPopUpdate/' + this.selected_package_id,{
+                  popularity: this.package.popularity + 1,
+                });
               this.checkSuccess = false;
             }).catch(error => {
                 console.log(error);
                 this.showfail = true;
                 this.checkSuccess = false;
-              });
-          }
+              });  
         }
     }else{
       this.message = "Minden *-al jelölt mező kitöltése kötelező!";
       this.showfail = true;
     }
-  } //itt er veget az elso if
+  }
  },
  packageSelect(){
     this.showpackages = true;
@@ -1163,50 +1105,29 @@ methods: {
     }
     //console.log("maxUB " + this.maxUserBonus);
   },
-  /*unavaibleHours(){
-      this.currentHour = this.now.getHours();
-      if(this.picked.day == this.today){
-        if(this.currentHour >= 8){
-          this.eightStyle = true;
-        }
-        else if(9 <= this.currentHour){
-          this.nineStyle = true;
-        }
-        else if(10 <= this.currentHour){
-          this.tenStyle = true;
-        }
-        else if(11 <= this.currentHour){
-          this.elevenStyle = true;
-        }
-        else if(12 <= this.currentHour){
-          this.twelveStyle = true;
-        }
-        else if(13 <= this.currentHour){
-          this.thrtnStyle = true;
-        }
-        else if(14 <= this.currentHour){
-          this.frtnStyle = true;
-        }
-        else if(15 <= this.currentHour){
-          this.fiftnStyle = true;
-        }
-        else if(16 <= this.currentHour){
-          this.sixtnStyle = true;
-        }
-        else if(17 <= this.currentHour){
-          this.svntnStyle = true;
-        }
-        else if(18 <= this.currentHour){
-          this.eightnStyle = true;
-        }
-        else if(19 <= this.currentHour){
-          this.ninetnStyle = true;
-        }
-        else if(20 <= this.currentHour){
-          this.twentyStyle = true;
-        }
-      }
-  },*/
+  testTransaction(){
+    axios.post('./api/testTransaction',{
+        hours: this.desiredHours,
+        first_hour: this.desiredHours[0],
+        year: this.picked.year,
+        month: this.picked.month,
+        day: this.picked.day,
+        players: this.selectedPlayers,
+        tel: this.tel,
+        note: this.note,
+        email: this.email,
+        user_id: this.userID,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        package_id: this.selected_package_id,
+        bonus_used: this.bonus_used,
+        price: this.price,     
+    }).then(response => {
+        
+    }).catch(error => {
+      console.log(error);
+    });  
+  }
 },
 });
 </script>
@@ -1310,7 +1231,6 @@ methods: {
   color: #fafafa;
   background-color: #333;
 }
-
 .hours_container{
   width: 45.9em;
   border: 3px solid orange;

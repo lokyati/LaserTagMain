@@ -15,8 +15,8 @@ return [
 
     'password' => 'A jelszavak minimum 6 karakteresek és egyformák kell legyenek.',
     'reset' => 'A jelszavadat sikeresen kicseréltük!',
-    'sent' => 'Elküldtük a jelszó visszaálltó e-mailt a megadott cimre!',
-    'token' => 'Ez a jelszó visszaálltó token hibás!',
+    'sent' => 'Elküldtük a jelszó visszaállitó e-mailt a megadott cimre!',
+    'token' => 'Ez a jelszó visszaállitó token hibás!',
     'user' => "Nem szerepel ilyen felhasználó az adatbázisunkban!",
 
 ];

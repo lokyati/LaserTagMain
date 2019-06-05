@@ -21,13 +21,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('auth:api')->get('/profile', function (Request $request){
 	return $request->user();
 });
+Route::group([
+'middleware' => 'auth:api'
+], function() {
+	Route::resource('reservations','ReservationsController');
+	Route::get('profile','UserController@profile');
+	Route::resource('Reservedhours','reservedHourController');
+	Route::resource('allpackage','PackageController');
+	Route::resource('loggedinusers','LoggedInUsersController');
 
-Route::resource('reservations','ReservationsController');
-//Route::resource('restoday','ReservationsController@reservationsToday');
-Route::resource('Reservedhours','reservedHourController');
-Route::resource('allpackage','PackageController');
-//Route::resource('alluser','AdminController@allUser');
-Route::resource('loggedinusers','LoggedInUsersController');
+	Route::post('createReservation','ReservationsController@create');
+	Route::post('testTransaction','ReservationsController@create');
+});
 
-Route::post('createReservation','ReservationsController@create');
-//Route::post('PckgCreate','PackageController@create');
