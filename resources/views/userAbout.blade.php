@@ -48,21 +48,19 @@
         </div>
     </div>
     <div class="about_contacts_container">
-        <div class="about_container">
-            <div class="columns">
-                <div class="column is-one-third">
-                    <img class="about_img" src="{{ URL::asset('img/laser.jpg') }}">
-                </div>
-                <div class="column about_text">
-                    <p>A lézerharc egy olyan lézerfegyverrel játszott csapatjáték, amely nem okoz fizikai
-                    sérülést, viszont látványos és igénybe veszi az ember reflexeit. A játékban két csapat méri
-                    össze ügyességét, egy erre a célra kialakított, több száz négyzetméteres fedett pályán.
-                    Minden játékos el van látva egy lézerfegyverrel és egy mellénnyel. Ha a 6 drb. találati pont
-                    közül valamelyik találatot kap, a játékos 5 másodpercig nem tud lőni és találatot sem
-                    kaphat. Amint ez az idő lejárt, újra játékba kerül. A lézer fénye a szemre nem káros és
-                    „diszkófüstben”   tökéletesen  látható.  A  mérkőzést   követően   mindenki   kap   egy
-                    kiértékelést, amiből kiderül, hogy melyik csapat nyert, és mindenki láthatja a statisztikáit.</p>
-                </div>
+        <div class="columns about_container">
+            <div class="column is-one-third is-marginless">
+                <img class="about_img" src="{{ URL::asset('img/laser.jpg') }}">
+            </div>
+            <div class="column about_text is-marginless">
+                <p>A lézerharc egy olyan lézerfegyverrel játszott csapatjáték, amely nem okoz fizikai
+                sérülést, viszont látványos és igénybe veszi az ember reflexeit. A játékban két csapat méri
+                össze ügyességét, egy erre a célra kialakított, több száz négyzetméteres fedett pályán.
+                Minden játékos el van látva egy lézerfegyverrel és egy mellénnyel. Ha a 6 drb. találati pont
+                közül valamelyik találatot kap, a játékos 5 másodpercig nem tud lőni és találatot sem
+                kaphat. Amint ez az idő lejárt, újra játékba kerül. A lézer fénye a szemre nem káros és
+                „diszkófüstben”   tökéletesen  látható.  A  mérkőzést   követően   mindenki   kap   egy
+                kiértékelést, amiből kiderül, hogy melyik csapat nyert, és mindenki láthatja a statisztikáit.</p>
             </div>
         </div>
         <div class="contacts_container">

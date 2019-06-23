@@ -38,8 +38,8 @@
 	}
 	.package_card{
 		background-color: #ff9f63;
-		height: 340px;
-		width: 15em;
+		height: 355px;
+		width: 14em;
 		margin: 0 auto; 
 		cursor: pointer;
 		text-align: center;

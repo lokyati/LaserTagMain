@@ -1398,4 +1398,21 @@ methods: {
 .email_style{
   margin-left: 6.5em; 
 }
+@media screen and (max-width: 768px) {
+  .hours_container{
+    width: 3.8em;
+  }
+  .is-1{
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 568px) {
+  .hours_container{
+    width: 3.8em;
+  }
+  .is-1{
+    width: 100% !important;
+  }
+}
+
 </style>

@@ -64,6 +64,7 @@
   }
   .modal-card-body{
     text-align: center;
+    padding: 10px;
   }
   .loading{
     position: absolute;

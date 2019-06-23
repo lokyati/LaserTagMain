@@ -113,8 +113,8 @@
 						</div>
 					</div>
 					<div class="column stats_container">
-						<div class="columns">
-							<div class="column is-half">
+						<div class="columns mobile_stat">
+							<div class="column is-half mobile_stat_one">
 								<div class="win_container">
 									<div class="counter_title">
 										<p>Győzelmek</p>
@@ -166,7 +166,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="column">
+							<div class="column mobile_stat_two">
 								<div class="lose_container">
 									<div class="counter_title">
 										<p>Vereségek</p>
@@ -851,5 +851,30 @@ nav {
 }
 .edit_data{
 	background-color: #ff652f;
+}
+
+
+@media screen and (max-width: 568px) {
+	.profil_content{
+		margin-top: 12em;
+	}
+	#nav-3{
+		display: grid;
+	}
+	.profile_tag_container{
+		padding: 0;
+	}
+	.mobile_stat{
+		display: inline-flex;
+	}
+	.mobile_stat_one{
+		width: 10em;
+	}
+	.mobile_stat_two{
+		width: 10em;
+	}
+	.tag{
+		font-size: .9em !important;
+	}
 }
 </style>

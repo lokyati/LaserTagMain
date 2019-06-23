@@ -42,7 +42,7 @@
 	}
 	.package_card{
 		background-color: #ff9f63;
-		height: 325px;
+		height: 355px;
 		width: 14em;
 		margin: 0 auto; 
 		cursor: pointer;
@@ -51,5 +51,10 @@
 	}
 	.package_card p{
 		color: white;
+	}
+	@media screen and (max-width: 768px) {
+	  .packages_container{
+	  	display: block;
+	  }
 	}
 </style>

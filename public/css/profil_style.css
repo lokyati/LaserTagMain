@@ -116,3 +116,9 @@ li a:hover {
   background-color: #747474;
   color: #f2f2f2;
 }
+
+@media screen and (max-width: 420px) {
+	.navbar-end{
+		font-size: .7em;
+	}
+}

@@ -181,3 +181,21 @@ ul {
 li{
 	margin: 0 10px;
 } */
+
+@media screen and (max-width: 768px) {
+	.containers{
+		height: 37%;
+	}
+	.header{
+		background-size: 400%;
+	}
+	.user h2{
+		margin-bottom: 5.5rem;
+	}
+	.guest h2{
+		margin-bottom: 5.5rem;
+	}
+	.page{
+		height: 87%;
+	}
+}

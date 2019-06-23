@@ -82,7 +82,7 @@
         </div>
       </section>
       <footer class="modal-card-foot">
-        <button class="button is-success" @click="getUserStat">Értettem</button>
+        <button class="button is-success update_btn" @click="getUserStat">Értettem</button>
       </footer>
     </div>
   </div>
@@ -311,5 +311,19 @@
   .data_content{
     border-top: 1px solid #0b1c5a;
     height: 2.1em;
+  }
+  @media screen and (max-width: 768px) {
+    .unprocessed_container{
+      background-color: white;
+      margin-left: 19em;
+      border: none;
+    }
+    .update_btn{
+      margin: 0 auto;
+    }
+    .unprocessed_content{
+      border: none;
+      display: block;
+    }
   }
 </style>
