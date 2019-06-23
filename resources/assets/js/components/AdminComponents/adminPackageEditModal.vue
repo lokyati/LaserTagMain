@@ -25,7 +25,7 @@
           <div class="control">
             <input class="input" type="text" v-model="newmatchnumber">
           </div>
-          <label class="label left_label">Teljes idő</label> 
+          <label class="label left_label">Teljes idő (óra)</label> 
           <div class="control">
             <input class="input" type="text" v-model="newtotaltime">
           </div>

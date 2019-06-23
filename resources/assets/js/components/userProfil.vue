@@ -24,7 +24,6 @@
                   	:oldrank="oldrank"
                   	:userID="userID"
                   	@close="showLvlUp = false"></lvlupmodal>
-		<!--<div class="profil_header" :style="{ backgroundImage: 'url(' + headerimage + ')' }">-->
 		<div class="profil_header">
 			<div class="avatar">
 				<img class="avatar_icon":src="'img/avatar.png'"/>
@@ -612,7 +611,7 @@ export default {
 .statstyle.link-3{
 	background-color: #fff;
 	padding: 24px 10px;
-	color: #EEA200;
+	color: #FF652F;
 }
 .history{
 	display:none;
@@ -627,7 +626,7 @@ export default {
 .historystyle.link-3{
 	background-color: #fff;
 	padding: 24px 10px;
-	color: #EEA200;
+	color: #FF652F;
 }
 .bookings_container{
 	display:none;
@@ -640,7 +639,7 @@ export default {
 .bookingstyle.link-3{
 	background-color: #fff;
 	padding: 24px 10px;
-	color: #EEA200;
+	color: #FF652F;
 }
 .personal{
 	display:none;

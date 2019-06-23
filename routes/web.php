@@ -60,7 +60,7 @@ Route::post('PckgCreate','PackageController@create');
 
 /*MatchesController*/
 Route::post('matchUpdate/{id}','MatchesController@update');
-Route::post('simulation','MatchesController@create');
+Route::post('simulation','Simulatorcontroller@create');
 Route::get('matches/{id}','MatchesController@showByUser');
 
 /*ReservationsController*/
@@ -79,7 +79,7 @@ Route::get('/package', function () {
 /*Route::get('/simulator', function () {
     return view('simulator');
 });*/
-Route::get('/simulator','SimulatorController@index');
+Route::get('/simulator','Simulatorcontroller@index');
 Route::get('/about',function(){
     return view('userAbout');
 });

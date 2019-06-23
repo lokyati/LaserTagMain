@@ -140,17 +140,17 @@
     <div class="columns is-paddingless is-marginless">
       <div class="form column is-half">
         <div class="label lastname">
-          <p>Vezetéknév:*</p>
-          <input class="input" type="text" placeholder="Vezeteknev" v-model="lastname" required>
+          <p>*Vezetéknév:</p>
+          <input class="input lastname_style" type="text" placeholder="Vezetéknév" v-model="lastname" required>
         </div>
         <div class="label firstname">
-          <p>Keresztnév:*</p>
-          <input class="input" type="text" placeholder="Keresztnev" v-model="firstname" required>
+          <p>*Keresztnév:</p>
+          <input class="input firstname_style" type="text" placeholder="Keresztnév" v-model="firstname" required>
         </div>
         <div class="label players">
-          <p>Játékosok száma:* </p>
+          <p class="players_style">*Játékosok száma: </p>
           <div class="control">
-            <div class="select is-primary player_select" required>
+            <div class="select player_select" required>
               <select v-model="selectedPlayers">
                 <option v-for="players in player_size" @click="priceByPlayers">{{players}}</option>
               </select> 
@@ -158,17 +158,17 @@
           </div>
         </div>
         <div class="label tel">
-          <p>Tel.:*</p>
-          <input class="input" type="text" placeholder="Tel" v-model="tel" required>
+          <p>*Tel.:+40</p>
+          <input class="input tel_style" type="text" placeholder="Tel" v-model="tel" required>
         </div>
         <div class="label tel">
-          <p>Email:*</p>
-          <input class="input" type="text" placeholder="Email" v-model="email" required>
+          <p>*Email:</p>
+          <input class="input email_style" type="text" placeholder="E-mail" v-model="email" required>
         </div>
         <div class="label note">
           <p>Megjegyzés:</p>
           <div class="textarea_container">
-            <textarea class="textarea" placeholder="10 lines of textarea" rows="5" v-model="note"></textarea>
+            <textarea class="textarea" placeholder="10 sor maximum" rows="5" v-model="note"></textarea>
           </div>
         </div>
         <div class="bonus_slider">
@@ -194,7 +194,6 @@
     </div>
     <div class="button_container" v-bind:class="{show:show}">  
       <a class="button reserver_btn is-medium" @click="sendReservation">Foglalok</a>
-      <!--<a class="button reserver_btn is-medium" @click="testTransaction">Foglalok</a>-->
     </div>
   </div>
 </div>
@@ -919,99 +918,9 @@ methods: {
     }else{
 
       if(this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != "" && this.firstname != "" && this.lastname != "" && this.selected_package_id != ""){
-        axios.get('./api/reservations').then(response => {
-          this.reservations = response.data;
-          
-          for (var i = 0; i < this.reservations.length; i++) {
-            if(this.reservations[i].month == this.selectedmonth && this.reservations[i].day == this.selectedday){
-              this.reservationID.push(this.reservations[i].id);
-            }
-          }
-        }).catch(function (error) {
-          console.log(error);
-        });
-        
-        axios.get('./api/Reservedhours').then(response => {
-          this.reservedhours = response.data
-
-          for (var k = 0; k < this.reservationID.length; k++) {
-            this.resID = this.reservationID[k];
-            for (var i = 0; i < this.reservedhours.length; i++) {
-            if(this.reservedhours[i].reservation_id == this.resID){
-              if(this.reservedhours[i].hour == 8 || this.currentHour >= 8){
-                this.eightStyle = true;
-                this.unavaible.push(8);
-              }
-              else if(this.reservedhours[i].hour == 9 || this.currentHour >= 9){
-                this.nineStyle = true;
-                this.unavaible.push(9);
-              }
-              else if(this.reservedhours[i].hour == 10 || this.currentHour >= 10){
-                this.tenStyle = true;
-                this.unavaible.push(10);
-              }
-              else if(this.reservedhours[i].hour == 11 || this.currentHour >= 11){
-                this.elevenStyle = true;
-                this.unavaible.push(11);
-              }
-              else if(this.reservedhours[i].hour == 12 || this.currentHour >= 12){
-                this.twelveStyle = true;
-                this.unavaible.push(12);
-              }
-              else if(this.reservedhours[i].hour == 13 || this.currentHour >= 13){
-                this.thrtnStyle = true;
-                this.unavaible.push(13);
-              }
-              else if(this.reservedhours[i].hour == 14 || this.currentHour >= 14){
-                this.frtnStyle = true;
-                this.unavaible.push(14);
-              }
-              else if(this.reservedhours[i].hour == 15 || this.currentHour >= 15){
-                this.fiftnStyle = true;
-                this.unavaible.push(15);
-              }
-              else if(this.reservedhours[i].hour == 16 || this.currentHour >= 16){
-                this.sixtnStyle = true;
-                this.unavaible.push(16);
-              }
-              else if(this.reservedhours[i].hour == 17 || this.currentHour >= 17){
-                this.svntnStyle = true;
-                this.unavaible.push(17);
-              }
-              else if(this.reservedhours[i].hour == 18 || this.currentHour >= 18){
-                this.eightnStyle = true;
-                this.unavaible.push(18);
-              }
-              else if(this.reservedhours[i].hour == 19 || this.currentHour >= 19){
-                this.ninetnStyle = true;
-                this.unavaible.push(19);
-              }
-              else if(this.reservedhours[i].hour == 20 || this.currentHour >= 20){
-                this.twentyStyle = true;
-                this.unavaible.push(20);
-              }
-            }
-          }
-        }
-        }).catch(error => {
-          console.log(error)
-        });
-
-        for (var k = 0; k < this.desiredHours.length; k++) {
-          for (var i = 0; i < this.unavaible.length; i++) {
-            if(this.desiredHours[k] == this.unavaible[i]){
-              this.message = "Ezeket az időpontokat valaki már lefoglalta!";
-              this.showfail = true;
-              break;
-            }else{
-              this.validated = true;
-            }
-          }
-        }
-
-        if(this.validated == true){
+     
           axios.post('./api/createReservation',{
-            hour: this.desiredHours,
+            hours: this.desiredHours,
             first_hour: this.desiredHours[0],
             year: this.picked.year,
             month: this.picked.month,
@@ -1039,11 +948,11 @@ methods: {
                 });
               this.checkSuccess = false;
             }).catch(error => {
-                console.log(error);
+                console.log(error.response);
+                this.message = "Sajnálom! A kiválasztott időpontok közül, valamelyiket  már lefoglalta valaki."
                 this.showfail = true;
                 this.checkSuccess = false;
               });  
-        }
     }else{
       this.message = "Minden *-al jelölt mező kitöltése kötelező!";
       this.showfail = true;
@@ -1055,10 +964,16 @@ methods: {
  },
  close(close){
     this.showpackages = false;
-    this.selected_package_id = close;
-    this.emptycardstyle = true;
-    this.selectedcardstyle = false;
-    this.getPackage();
+    if(close == null){
+      this.emptycardstyle = false;
+      this.selectedcardstyle = true;
+    }else{
+      this.emptycardstyle = true;
+      this.selectedcardstyle = false;
+      this.selected_package_id = close;
+      this.getPackage();
+    }
+    
  },
  closeCalendar(){
     this.showcalendar = false;
@@ -1066,7 +981,6 @@ methods: {
     this.allFalse();
     this.allEmpty();
     this.$emit('closeCalendar');
-    console.log("closed");
  },
  getPackage(selected_package_id) {
     var id = this.selected_package_id
@@ -1096,38 +1010,13 @@ methods: {
   },
   maximazeUserBonus(){
     this.UserBonus = this.userBonus;
-    //console.log("User Bonus " + this.UserBonus);
     if(this.UserBonus >= 50){
       this.maxUserBonus = 50;
     }
     else if(this.UserBonus < 50){
       this.maxUserBonus = this.UserBonus;
     }
-    //console.log("maxUB " + this.maxUserBonus);
   },
-  testTransaction(){
-    axios.post('./api/testTransaction',{
-        hours: this.desiredHours,
-        first_hour: this.desiredHours[0],
-        year: this.picked.year,
-        month: this.picked.month,
-        day: this.picked.day,
-        players: this.selectedPlayers,
-        tel: this.tel,
-        note: this.note,
-        email: this.email,
-        user_id: this.userID,
-        firstname: this.firstname,
-        lastname: this.lastname,
-        package_id: this.selected_package_id,
-        bonus_used: this.bonus_used,
-        price: this.price,     
-    }).then(response => {
-        
-    }).catch(error => {
-      console.log(error);
-    });  
-  }
 },
 });
 </script>
@@ -1280,7 +1169,7 @@ methods: {
   display: block;
 }
 .textarea_container{
-  width: 30em;
+  width: 23.8em;
 }
 .button_container{
   width:200px;
@@ -1492,5 +1381,21 @@ methods: {
 .is-active{
   background-color: #fff0;
   color: #fff0;
+}
+
+.lastname_style{
+  margin-left: 3.7em;
+}
+.firstname_style{
+  margin-left: 3.9em;
+}
+.players_style{
+  margin-right: 1em;
+}
+.tel_style{
+  margin-left: 5.6em;
+}
+.email_style{
+  margin-left: 6.5em; 
 }
 </style>

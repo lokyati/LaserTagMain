@@ -13,7 +13,7 @@ html, body {
 .login{
 	width: 40em;
 	margin:0 auto;
-	margin-top: 110px;
+	margin-top: 45px;
 	background-color: #dadada;
 	border: 1px solid #3333;
 }
@@ -29,7 +29,7 @@ html, body {
 }
 footer{
 	width: 100%;
-	padding: 2rem;
+	padding: 1rem;
 	font-size: 1em;
 	box-sizing: border-box;
 	background-color: #73715f;
@@ -74,6 +74,9 @@ footer a{
 }
 .icon_container{
 	display: flex;
+}
+.login_icon{
+	z-index: 0 !important;
 }
 @media screen and (max-width: 770px) {
 	.flex{

@@ -3,7 +3,7 @@ html, body {
 	max-width: 1366px;
 	margin: 0 auto;
 	padding: 0; 
-	font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', sans-serif !important;
 }
 .header{
 	height: 100px;

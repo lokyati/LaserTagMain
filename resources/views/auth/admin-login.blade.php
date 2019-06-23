@@ -71,13 +71,5 @@
 </div>
 </body>
 <footer>
-    Footer
-    @if (Auth::guard('user')->check())
-                <a class="admin_button" href="{{ route('admin.login') }}" style="display: none;"></a>
-            @else 
-                <a class="admin_button" href="{{ route('admin.login') }}">
-                    {{ __('Admin belépés') }}
-                </a>
-            @endif
 </footer>
 </html>

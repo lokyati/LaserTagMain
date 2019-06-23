@@ -14,20 +14,20 @@
 
           <label class="label left_label">Csomag ára</label>
           <div class="control">
-            <input class="input" type="number" v-model="newprice">
+            <input class="input" type="number" v-model="newprice" min="0">
           </div>
 
           <label class="label left_label">Meccsek hossza</label> 
           <div class="control">
-            <input class="input" type="number" v-model="newlength">
+            <input class="input" type="number" v-model="newlength" min="0">
           </div>
           <label class="label left_label">Meccsek száma</label> 
           <div class="control">
-            <input class="input" type="number" v-model="newmatchnumber">
+            <input class="input" type="number" v-model="newmatchnumber" min="0">
           </div>
-          <label class="label left_label">Teljes idő</label> 
+          <label class="label left_label">Teljes idő (óra)</label> 
           <div class="control">
-            <input class="input" type="number" v-model="newtotaltime">
+            <input class="input" type="number" v-model="newtotaltime" min="0">
           </div>
           <label class="label left_label">Leirás</label> 
           <div class="control desc">

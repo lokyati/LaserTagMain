@@ -33,8 +33,7 @@
         <div class="navbar-end">
             <ul>
               <li><a class="is-on" href="{{  URL::to('home')  }}">Profil</a></li>
-              <li><a href="{{  URL::to('about')  }}">Bővebben a LaserTag-ről</a></li>
-              <li><a href="{{ URL::to('contact')  }}">Kapcsolat</a></li>
+              <li><a href="{{  URL::to('about')  }}">Rólunk/Kapcsolat</a></li>
               <li>
                   <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -59,7 +58,7 @@
             <p class="subtitle is-8 has-text-white">Csíkszereda, Hargita megye, Szabadság tér, 1. szám, 530104</p>
             <gdprmodal v-if="showModal" @close="showModal = false"></gdprmodal>
             <p class="subtitle is-8 has-text-white"><a @click="showModal = true">Adatvédelmi tájékoztató</a></p>
-            <p class="subtitle is-8 has-text-white">©LaserTag 2019</p>
+            <p class="subtitle is-8 has-text-white">© 2019 LaserTag</p>
         </div>
         <div class="column">
             <p class="subtitle is-8 has-text-white">Keress minket a közösségi oldalakon is</p>
@@ -72,8 +71,7 @@
         <div class="column">
             <p class="subtitle is-8 has-text-white">Navigácó</p>
             <p class="subtitle is-8 has-text-white"><a href="{{  URL::to('home')  }}">Profil</a></p>
-            <p class="subtitle is-8 has-text-white"><a href="{{  URL::to('about')  }}">Bővebben a LaserTag-ről</a></p>
-            <p class="subtitle is-8 has-text-white"><a href="{{ URL::to('contact')  }}">Kapcsolat</a></p>
+            <p class="subtitle is-8 has-text-white"><a href="{{  URL::to('about')  }}">Rólunk/Kapcsolat</a></p>
             <!--<p class="subtitle is-8 has-text-white"><a class="admin_button" href="{{ route('admin.login') }}">Admin belépés</a></p>-->
             <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();

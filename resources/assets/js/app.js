@@ -3,13 +3,13 @@ import Buefy from 'buefy';
 import Axios from 'axios';
 import Bulma  from 'bulma';
 import VueResource from 'vue-resource';
-import VueSlideBar from 'vue-slide-bar'
+import VueSlideBar from 'vue-slide-bar';
  
 
 window.Vue = require('vue');
 window.axios = require('axios');
 
-//Vue.config.devtools=false;
+//Vue.config.devtools = false;
 
 window.axios.defaults.headers.common = {
     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),

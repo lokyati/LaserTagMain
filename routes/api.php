@@ -27,10 +27,9 @@ Route::group([
 	Route::resource('reservations','ReservationsController');
 	Route::get('profile','UserController@profile');
 	Route::resource('Reservedhours','reservedHourController');
-	Route::resource('allpackage','PackageController');
 	Route::resource('loggedinusers','LoggedInUsersController');
-
-	Route::post('createReservation','ReservationsController@create');
-	Route::post('testTransaction','ReservationsController@create');
 });
+
+Route::post('createReservation','ReservationsController@create');
+Route::resource('allpackage','PackageController');
 

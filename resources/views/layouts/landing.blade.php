@@ -56,7 +56,7 @@
 			<p class="subtitle is-8 has-text-white">Csíkszereda, Hargita megye, Szabadság tér, 1. szám, 530104</p>
 			<gdprmodal v-if="showModal" @close="showModal = false"></gdprmodal>
 			<p class="subtitle is-8 has-text-white"><a @click="showModal = true">Adatvédelmi tájékoztató</a></p>
-			<p class="subtitle is-8 has-text-white">©LaserTag 2019</p>
+			<p class="subtitle is-8 has-text-white">© 2019 LaserTag</p>
 		</div>
 		<div class="column">
 			<p class="title is-4 has-text-white">Keress minket a közösségi oldalakon is</p>

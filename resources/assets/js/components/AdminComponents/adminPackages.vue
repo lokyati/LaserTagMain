@@ -21,9 +21,9 @@
 		  	  <th>ID</th>
 		      <th>Csomag neve</th>
 			  <th>Ár</th>
-			  <th>Meccs hossza</th>
+			  <th>Meccs hossza (perc)</th>
 			  <th>Meccsek száma</th>
-			  <th>Teljes idő</th>
+			  <th>Teljes idő (óra)</th>
 			  <th>Népszerűség</th>
 			  <th>Leirás</th>
 			  <th>Műveletek</th>

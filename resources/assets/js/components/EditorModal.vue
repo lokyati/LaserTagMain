@@ -1,7 +1,7 @@
 <template> 
   <div class="modal is-active">
     <div class="modal-background"></div>
-    <div class="modal-card modal_body">
+    <div class="modal-card modal_body_editor">
       <header class="modal-card-head">
         <p class="modal-card-title">Profil adatok frissitese</p>
       </header>
@@ -132,7 +132,7 @@
     font-family: 'Oswald', sans-serif;
     color: black;
   }
-  .modal_body{
+  .modal_body_editor{
     width: 20em;
     height: 35em;
   }

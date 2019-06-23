@@ -19,7 +19,7 @@ class ReservationsController extends Controller
     	return $reservations;
     }
 
-    public function create(Request $data)
+    public function createold(Request $data)
     {
         Log::info('This is some useful information.');
 
@@ -40,7 +40,7 @@ class ReservationsController extends Controller
             'price' => $data['price'],
         ]);
 
-        foreach ($data['hour'] as $reserved['hour']){
+        foreach ($data['hours'] as $reserved['hour']){
 
             reservedHours::create([
                 'reservation_id' => $reservations->id,
@@ -51,71 +51,74 @@ class ReservationsController extends Controller
         return $reservations;
     }
 
-    public function createnew(Request $data)
+    public function create(Request $data)
     {
-        $success = true;
-
-        DB::beginTransaction();
 
         try {
+        
+        $success = true;
 
-        Log::info('This is some useful information.');
-            $reservations = DB::table('reservations')->where([
-                ['month', '=', $data['month']],
-                ['day', '=', $data['day']],
-            ])->sharedLock()->get();
+        DB::beginTransaction(); 
 
-            foreach($reservations as $reservation){
-                $resHours = DB::table('reserved_hours')->where([
-                    ['reservation_id', '=', $reservation->id]
+        $allreservation = Reservations::where([
+            ['month', '=', $data['month']],
+            ['day', '=', $data['day']],
+        ])->sharedLock()->get();
+
+        
+        if($allreservation->count() != 0){
+            foreach($allreservation as $reservation){
+                $resHours = reservedHours::where([
+                    ['reservation_id', '=', $reservation['id']]
                 ])->sharedLock()->get();
             }
 
-            foreach($data['hours'] as $desired['hour']){
-                foreach($resHours['hour'] as $resHour['hour']){
-                    if($desired['hour'] == $resHour['hour']){
+            $dataHours = $data['hours'];
+
+            foreach($dataHours as $desired){
+                foreach($resHours as $resHour){
+                    if($desired == $resHour['hour']){
                         $success = false;
                     }
                 }
             }
+        }
         
-            if($success){
-                $reservations = Reservations::create([
-                    'year' => $data['year'],
-                    'first_hour' => $data['first_hour'],
-                    'month' => $data['month'],
-                    'day' => $data['day'],
-                    'players' => $data['players'],
-                    'tel' => $data['tel'],
-                    'note' => $data['note'],
-                    'email' => $data['email'],
-                    'package_id' => $data['package_id'],
-                    'user_id' => $data['user_id'],
-                    'firstname' => $data['firstname'],
-                    'lastname' => $data['lastname'],
-                    'bonus_used' => $data['bonus_used'],
-                    'price' => $data['price'],
+        if($success){
+            $reservations = Reservations::create([
+                'year' => $data['year'],
+                'first_hour' => $data['first_hour'],
+                'month' => $data['month'],
+                'day' => $data['day'],
+                'players' => $data['players'],
+                'tel' => $data['tel'],
+                'note' => $data['note'],
+                'email' => $data['email'],
+                'package_id' => $data['package_id'],
+                'user_id' => $data['user_id'],
+                'firstname' => $data['firstname'],
+                'lastname' => $data['lastname'],
+                'bonus_used' => $data['bonus_used'],
+                'price' => $data['price'],
+            ]);
+
+            foreach ($data['hours'] as $reserved['hour']){
+
+                reservedHours::create([
+                    'reservation_id' => $reservations->id,
+                    'hour' => $reserved['hour'],
                 ]);
-
-                foreach ($data['hour'] as $reserved['hour']){
-
-                    reservedHours::create([
-                        'reservation_id' => $reservations->id,
-                        'hour' => $reserved['hour'],
-                    ]);
-                }
-
-                return $reservations;
-            }
-            else{
-                DB::rollback();
             }
 
-            DB::commit();
-            // all good
+        }else{
+            DB::rollback();
+            return response(null, 409);
+        }
+
+
+        DB::commit();
         } catch (\Exception $e) {
             DB::rollback();
-            // something went wrong
         }
 
         

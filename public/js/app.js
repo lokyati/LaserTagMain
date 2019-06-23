@@ -2710,7 +2710,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 window.Vue = __webpack_require__(4);
 window.axios = __webpack_require__(8);
 
-//Vue.config.devtools=false;
+//Vue.config.devtools = false;
 
 window.axios.defaults.headers.common = {
     'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
@@ -29975,7 +29975,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.modal{\n  font-family: 'Oswald', sans-serif;\n  color: black;\n}\n", ""]);
+exports.push([module.i, "\n.modal{\n  font-family: 'Oswald', sans-serif;\n  color: black;\n}\n.PP_link{\n  color: #23d160;\n}\n", ""]);
 
 // exports
 
@@ -30036,6 +30036,108 @@ module.exports = function listToStyles (parentId, list) {
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 new Vue({
   el: '#footer',
@@ -30073,11 +30175,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("section", { staticClass: "modal-card-body" }, [
-        _vm._v(
-          "\n      Adatvédelmi tájékoztató szövege...\n      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt aliquid eos eum at repudiandae eius reiciendis nobis provident ab incidunt dolorem quae assumenda quasi modi quisquam iusto, amet fugit dolores?\n    "
-        )
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c("footer", { staticClass: "modal-card-foot" }, [
         _c(
@@ -30096,7 +30194,286 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "modal-card-body" }, [
+      _c("h1", [_vm._v("Privacy Policy")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Effective date: June 06, 2019")]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Laser-Tag operates the laserttag.com website.")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. Our Privacy Policy  for Laser-Tag is created with the help of the "
+        ),
+        _c(
+          "a",
+          {
+            staticClass: "PP_link",
+            attrs: {
+              href:
+                "https://www.freeprivacypolicy.com/free-privacy-policy-generator.php"
+            }
+          },
+          [_vm._v("Free Privacy Policy Generator")]
+        ),
+        _vm._v(".")
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from laserttag.com"
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Information Collection And Use")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "We collect several different types of information for various purposes to provide and improve our Service to you."
+        )
+      ]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Types of Data Collected")]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Personal Data")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          'While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to:'
+        )
+      ]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [_vm._v("Email address")]),
+        _c("li", [_vm._v("First name and last name")]),
+        _c("li", [_vm._v("Phone number")]),
+        _c("li", [_vm._v("Cookies and Usage Data")])
+      ]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Usage Data")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          'We may also collect information how the Service is accessed and used ("Usage Data"). This Usage Data may include information such as your computer\'s Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.'
+        )
+      ]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Tracking & Cookies Data")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "We use cookies and similar tracking technologies to track the activity on our Service and hold certain information."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Service."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [_vm._v("Examples of Cookies we use:")]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [
+          _c("strong", [_vm._v("Session Cookies.")]),
+          _vm._v(" We use Session Cookies to operate our Service.")
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("strong", [_vm._v("Preference Cookies.")]),
+          _vm._v(
+            " We use Preference Cookies to remember your preferences and various settings."
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("strong", [_vm._v("Security Cookies.")]),
+          _vm._v(" We use Security Cookies for security purposes.")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Use of Data")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v("Laser-Tag uses the collected data for various purposes:")
+      ]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [_vm._v("To provide and maintain the Service")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("To notify you about changes to our Service")]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v(
+            "To allow you to participate in interactive features of our Service when you choose to do so"
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [_vm._v("To provide customer care and support")]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v(
+            "To provide analysis or valuable information so that we can improve the Service"
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [_vm._v("To monitor the usage of the Service")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("To detect, prevent and address technical issues")])
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Transfer Of Data")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "If you are located outside Romania and choose to provide information to us, please note that we transfer the data, including Personal Data, to Romania and process it there."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Laser-Tag will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information."
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Disclosure Of Data")]),
+      _vm._v(" "),
+      _c("h3", [_vm._v("Legal Requirements")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Laser-Tag may disclose your Personal Data in the good faith belief that such action is necessary to:"
+        )
+      ]),
+      _vm._v(" "),
+      _c("ul", [
+        _c("li", [_vm._v("To comply with a legal obligation")]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v("To protect and defend the rights or property of Laser-Tag")
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v(
+            "To prevent or investigate possible wrongdoing in connection with the Service"
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _vm._v(
+            "To protect the personal safety of users of the Service or the public"
+          )
+        ]),
+        _vm._v(" "),
+        _c("li", [_vm._v("To protect against legal liability")])
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Security Of Data")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security."
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Service Providers")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          'We may employ third party companies and individuals to facilitate our Service ("Service Providers"), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.'
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose."
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Links To Other Sites")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services."
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Children's Privacy")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          'Our Service does not address anyone under the age of 18 ("Children").'
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers."
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Changes To This Privacy Policy")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page."
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          'We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the "effective date" at the top of this Privacy Policy.'
+        )
+      ]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page."
+        )
+      ]),
+      _vm._v(" "),
+      _c("h2", [_vm._v("Contact Us")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "If you have any questions about this Privacy Policy, please contact us:"
+        )
+      ]),
+      _vm._v(" "),
+      _c("ul", [_c("li", [_vm._v("By email: info@lasertag.com")])])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -30784,7 +31161,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "subtitle is-5" }, [
-            _vm._v("Ar/fo: " + _vm._s(package.price))
+            _vm._v("Ár/fő: " + _vm._s(package.price))
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "subtitle is-5" }, [
@@ -30796,7 +31173,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("p", { staticClass: "subtitle is-5" }, [
-            _vm._v("Teljes játekidő: " + _vm._s(package.total_time) + " ora")
+            _vm._v("Teljes játekidő: " + _vm._s(package.total_time) + " óra")
           ]),
           _vm._v(" "),
           _c("p", [_vm._v(_vm._s(package.description))])
@@ -31080,7 +31457,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.modal{\n  font-family: 'Oswald', sans-serif;\n  color: black;\n}\n.modal_body{\n  width: 20em;\n  height: 35em;\n}\n.modal-card-body{\n  text-align: center;\n}\n.form_container{\n  width: 18em;\n  margin-bottom: 0 auto;\n}\n.left_label{\n  float: left;\n}\n.tel{\n  margin-bottom: 60px;\n  width: 100%;\n}\n.save_btn{\n  margin-right: 3em;\n}\n.err_msg{\n  color: red;\n}\n.prefix{\n  height: 2.3em !important;\n}\n", ""]);
+exports.push([module.i, "\n.modal{\n  font-family: 'Oswald', sans-serif;\n  color: black;\n}\n.modal_body_editor{\n  width: 20em;\n  height: 35em;\n}\n.modal-card-body{\n  text-align: center;\n}\n.form_container{\n  width: 18em;\n  margin-bottom: 0 auto;\n}\n.left_label{\n  float: left;\n}\n.tel{\n  margin-bottom: 60px;\n  width: 100%;\n}\n.save_btn{\n  margin-right: 3em;\n}\n.err_msg{\n  color: red;\n}\n.prefix{\n  height: 2.3em !important;\n}\n", ""]);
 
 // exports
 
@@ -31228,7 +31605,7 @@ var render = function() {
   return _c("div", { staticClass: "modal is-active" }, [
     _c("div", { staticClass: "modal-background" }),
     _vm._v(" "),
-    _c("div", { staticClass: "modal-card modal_body" }, [
+    _c("div", { staticClass: "modal-card modal_body_editor" }, [
       _vm._m(0),
       _vm._v(" "),
       _c("section", { staticClass: "modal-card-body" }, [
@@ -33127,7 +33504,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "label left_label" }, [
-            _vm._v("Teljes idő")
+            _vm._v("Teljes idő (óra)")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "control" }, [
@@ -33584,7 +33961,7 @@ var render = function() {
                 }
               ],
               staticClass: "input",
-              attrs: { type: "number" },
+              attrs: { type: "number", min: "0" },
               domProps: { value: _vm.newprice },
               on: {
                 input: function($event) {
@@ -33612,7 +33989,7 @@ var render = function() {
                 }
               ],
               staticClass: "input",
-              attrs: { type: "number" },
+              attrs: { type: "number", min: "0" },
               domProps: { value: _vm.newlength },
               on: {
                 input: function($event) {
@@ -33640,7 +34017,7 @@ var render = function() {
                 }
               ],
               staticClass: "input",
-              attrs: { type: "number" },
+              attrs: { type: "number", min: "0" },
               domProps: { value: _vm.newmatchnumber },
               on: {
                 input: function($event) {
@@ -33654,7 +34031,7 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("label", { staticClass: "label left_label" }, [
-            _vm._v("Teljes idő")
+            _vm._v("Teljes idő (óra)")
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "control" }, [
@@ -33668,7 +34045,7 @@ var render = function() {
                 }
               ],
               staticClass: "input",
-              attrs: { type: "number" },
+              attrs: { type: "number", min: "0" },
               domProps: { value: _vm.newtotaltime },
               on: {
                 input: function($event) {
@@ -33899,11 +34276,11 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Ár")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Meccs hossza")]),
+        _c("th", [_vm._v("Meccs hossza (perc)")]),
         _vm._v(" "),
         _c("th", [_vm._v("Meccsek száma")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Teljes idő")]),
+        _c("th", [_vm._v("Teljes idő (óra)")]),
         _vm._v(" "),
         _c("th", [_vm._v("Népszerűség")]),
         _vm._v(" "),
@@ -34213,7 +34590,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n*{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box\n}\n#app{\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.calendar_container{\n  /*max-width: 1200px;\n  margin: 0 auto;*/\n  background-color: #e9e9e9;\n  padding: 1rem;\n  -webkit-box-shadow: 0px 0px 5px black;\n          box-shadow: 0px 0px 5px black;\n  display: none;\n  font-family: 'Oswald', sans-serif !important;\n}\n.calendar{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  margin: 0 auto;\n}\n.showcalendar.calendar_container{\n  display: block;\n}\n.reservationData_container{\n  display: none;\n}\n.header{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: stretch;\n      -ms-flex-pack: stretch;\n          justify-content: stretch;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  padding: 0.5rem 1rem;\n  border: 1px solid #aaaaaa;\n  background-color: #FF652F;\n}\n.arrow{\n  padding: 0 0.4em 0.2em 0.4em;\n  font-size: 1.8rem;\n  font-weight: 500;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n}\n.arrow:hover{\n\tcolor: #dcdcdc;\n}\n.title{\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  font-size: 1.2rem;\n  text-align: center;\n}\n.weekdays{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: auto;\n          flex: auto;\n}\n.weekday{\n  width: 14.2857%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;  \n  padding: 0.4rem 0;\n  color: #7a7a7a;\n  border: 1px solid #aaaaaa;\n  background-color: #eaeaea;\n}\n.week{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.day{\n  width: 14.2857%;\n  height: 50px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #3a3a3a;\n  background-color: white;\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\n  background-color: #5f5f5f;\n  color:white;\n}\n.today{\n  font-weight: 500;\n  color: white;\n  background-color: #14A76C;\n}\n.not-in-month{\n  color: #cacaca !important; \n  background-color: #fafafa !important;\n}\n.selected{\n  color: #fafafa;\n  background-color: #333;\n}\n.hours_container{\n  width: 45.9em;\n  border: 3px solid orange;\n  display: none !important;\n}\n.show.hours_container{\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.hour_container{\n  padding: 0.75rem 0;\n  background-color: #333;\n}\n.hour_container:hover{\n  background-color: #575656;\n}\n.hour_container a{\n  color: white;\n  text-align: center;\n  padding: 14px 10px;\n  text-decoration: none;\n}\n.hour_container.is-1{\n  width: 7.712%;\n  border-right: 2px solid orange;\n}\n.cell_size{\n  border: 2px solid orange;\n}\n.today_hours_container{\n  display: none !important;\n}\n.show.today_hours_container{\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.info{\n  display: none;\n  font-size: 19px;\n  font-weight: bold;\n}\n.selectedday{\n  color:#000;\n}\n.messagetext{\n  color:#f00;\n}\n.show.info{\n  display: block;\n}\n.textarea_container{\n  width: 30em;\n}\n.button_container{\n  width:200px;\n  padding: 1rem;\n  display: none;\n}\n.show.button_container{\n  display: block;\n}\n.show.reservationData_container{\n  display: block;\n}\n.form{\n  padding: .5rem;\n}\n.players{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 19px;\n}\n.tel{\n  width: 14rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 19px;\n}\n.firstname{\n  width: 14rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 19px;\n}\n.lastname{\n  width: 14rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 19px;\n}\n.note p{\n  font-size: 19px;\n}\n/*Occupied style*/\n.eightStyle.eight{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired8.eight{\n  background-color: #14A76C;\n}\n.nineStyle.nine{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired9.nine{\n  background-color: #14A76C;\n}\n.tenStyle.ten{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired10.ten{\n  background-color: #14A76C;\n}\n.elevenStyle.eleven{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired11.eleven{\n  background-color: #14A76C;\n}\n.twelveStyle.twelve{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired12.twelve{\n  background-color: #14A76C;\n}\n.thrtnStyle.thrtn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired13.thrtn{\n  background-color: #14A76C;\n}\n.frtnStyle.frtn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired14.frtn{\n  background-color: #14A76C;\n}\n.fiftnStyle.fiftn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired15.fiftn{\n  background-color: #14A76C;\n}\n.sixtnStyle.sixtn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired16.sixtn{\n  background-color: #14A76C;\n}\n.svntnStyle.svntn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired17.svntn{\n  background-color: #14A76C;\n}\n.eightnStyle.eightn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired18.eightn{\n  background-color: #14A76C;\n}\n.ninetnStyle.ninetn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired19.ninetn{\n  background-color: #14A76C;\n}\n.twentyStyle.twenty{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired20.twenty{\n  background-color: #14A76C;\n}\n.select{\n  width: 5rem;\n}\n\n/*Package style*/\n.package_container {\n  text-align: center;\n}\n#p_title{\n  font-size: 1.5em;\n  padding: .25em;\n}\n.empty_card{\n  background-color: #467740;\n  height: 300px;\n  width: 15em;\n  margin: 0 auto; \n  -webkit-box-shadow: 0px 0px 5px black; \n          box-shadow: 0px 0px 5px black;\n  border-radius: 13px;\n  border: 4px dashed greenyellow;\n  cursor: pointer;\n}\n#plus{\n  font-size: 10em;\n  color: #66ec15;\n}\n.emptycardstyle.empty_card{\n  display: none;\n}\n.selectedcardstyle.selected_card{\n  display: none;\n}\n.bonus_slider p{\n  font-size: 19px\n}\n.slider {\n  -webkit-appearance: none;\n  width: 100%;\n  height: 15px;\n  border-radius: 5px;  \n  background: #d3d3d3;\n  outline: none;\n  opacity: 0.7;\n  -webkit-transition: .2s;\n  -webkit-transition: opacity .2s;\n  transition: opacity .2s;\n}\n.slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 25px;\n  height: 25px;\n  border-radius: 50%; \n  background: #4CAF50;\n  cursor: pointer;\n}\n.slider::-moz-range-thumb {\n  width: 25px;\n  height: 25px;\n  border-radius: 50%;\n  background: #4CAF50;\n  cursor: pointer;\n}\n.price{\n  width: 10em;\n  font-size: 2em;\n  font-weight: bold;\n}\n.player_select{\n  border-color: #14A76C;\n}\n.reserver_btn{\n  background-color: #ff652f;\n}\n.is-active{\n  background-color: #fff0;\n  color: #fff0;\n}\n", ""]);
+exports.push([module.i, "\n*{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box\n}\n#app{\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\", \"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\", \"Helvetica\", \"Arial\", sans-serif;\n}\n.calendar_container{\n  /*max-width: 1200px;\n  margin: 0 auto;*/\n  background-color: #e9e9e9;\n  padding: 1rem;\n  -webkit-box-shadow: 0px 0px 5px black;\n          box-shadow: 0px 0px 5px black;\n  display: none;\n  font-family: 'Oswald', sans-serif !important;\n}\n.calendar{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  margin: 0 auto;\n}\n.showcalendar.calendar_container{\n  display: block;\n}\n.reservationData_container{\n  display: none;\n}\n.header{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: stretch;\n      -ms-flex-pack: stretch;\n          justify-content: stretch;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: white;\n  padding: 0.5rem 1rem;\n  border: 1px solid #aaaaaa;\n  background-color: #FF652F;\n}\n.arrow{\n  padding: 0 0.4em 0.2em 0.4em;\n  font-size: 1.8rem;\n  font-weight: 500;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  -webkit-box-flex: 0;\n      -ms-flex-positive: 0;\n          flex-grow: 0;\n}\n.arrow:hover{\n\tcolor: #dcdcdc;\n}\n.title{\n  -webkit-box-flex: 1;\n      -ms-flex-positive: 1;\n          flex-grow: 1;\n  font-size: 1.2rem;\n  text-align: center;\n}\n.weekdays{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-flex: 1;\n      -ms-flex: auto;\n          flex: auto;\n}\n.weekday{\n  width: 14.2857%;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;  \n  padding: 0.4rem 0;\n  color: #7a7a7a;\n  border: 1px solid #aaaaaa;\n  background-color: #eaeaea;\n}\n.week{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n}\n.day{\n  width: 14.2857%;\n  height: 50px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  color: #3a3a3a;\n  background-color: white;\n  border: solid 1px #aaaaaa;\n}\n.day:hover{\n  background-color: #5f5f5f;\n  color:white;\n}\n.today{\n  font-weight: 500;\n  color: white;\n  background-color: #14A76C;\n}\n.not-in-month{\n  color: #cacaca !important; \n  background-color: #fafafa !important;\n}\n.selected{\n  color: #fafafa;\n  background-color: #333;\n}\n.hours_container{\n  width: 45.9em;\n  border: 3px solid orange;\n  display: none !important;\n}\n.show.hours_container{\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.hour_container{\n  padding: 0.75rem 0;\n  background-color: #333;\n}\n.hour_container:hover{\n  background-color: #575656;\n}\n.hour_container a{\n  color: white;\n  text-align: center;\n  padding: 14px 10px;\n  text-decoration: none;\n}\n.hour_container.is-1{\n  width: 7.712%;\n  border-right: 2px solid orange;\n}\n.cell_size{\n  border: 2px solid orange;\n}\n.today_hours_container{\n  display: none !important;\n}\n.show.today_hours_container{\n  display: -webkit-box !important;\n  display: -ms-flexbox !important;\n  display: flex !important;\n}\n.info{\n  display: none;\n  font-size: 19px;\n  font-weight: bold;\n}\n.selectedday{\n  color:#000;\n}\n.messagetext{\n  color:#f00;\n}\n.show.info{\n  display: block;\n}\n.textarea_container{\n  width: 23.8em;\n}\n.button_container{\n  width:200px;\n  padding: 1rem;\n  display: none;\n}\n.show.button_container{\n  display: block;\n}\n.show.reservationData_container{\n  display: block;\n}\n.form{\n  padding: .5rem;\n}\n.players{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 19px;\n}\n.tel{\n  width: 14rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 19px;\n}\n.firstname{\n  width: 14rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 19px;\n}\n.lastname{\n  width: 14rem;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  font-size: 19px;\n}\n.note p{\n  font-size: 19px;\n}\n/*Occupied style*/\n.eightStyle.eight{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired8.eight{\n  background-color: #14A76C;\n}\n.nineStyle.nine{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired9.nine{\n  background-color: #14A76C;\n}\n.tenStyle.ten{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired10.ten{\n  background-color: #14A76C;\n}\n.elevenStyle.eleven{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired11.eleven{\n  background-color: #14A76C;\n}\n.twelveStyle.twelve{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired12.twelve{\n  background-color: #14A76C;\n}\n.thrtnStyle.thrtn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired13.thrtn{\n  background-color: #14A76C;\n}\n.frtnStyle.frtn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired14.frtn{\n  background-color: #14A76C;\n}\n.fiftnStyle.fiftn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired15.fiftn{\n  background-color: #14A76C;\n}\n.sixtnStyle.sixtn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired16.sixtn{\n  background-color: #14A76C;\n}\n.svntnStyle.svntn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired17.svntn{\n  background-color: #14A76C;\n}\n.eightnStyle.eightn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired18.eightn{\n  background-color: #14A76C;\n}\n.ninetnStyle.ninetn{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired19.ninetn{\n  background-color: #14A76C;\n}\n.twentyStyle.twenty{\n  background-color: #E01812;\n  pointer-events: none;\n}\n.desired20.twenty{\n  background-color: #14A76C;\n}\n.select{\n  width: 5rem;\n}\n\n/*Package style*/\n.package_container {\n  text-align: center;\n}\n#p_title{\n  font-size: 1.5em;\n  padding: .25em;\n}\n.empty_card{\n  background-color: #467740;\n  height: 300px;\n  width: 15em;\n  margin: 0 auto; \n  -webkit-box-shadow: 0px 0px 5px black; \n          box-shadow: 0px 0px 5px black;\n  border-radius: 13px;\n  border: 4px dashed greenyellow;\n  cursor: pointer;\n}\n#plus{\n  font-size: 10em;\n  color: #66ec15;\n}\n.emptycardstyle.empty_card{\n  display: none;\n}\n.selectedcardstyle.selected_card{\n  display: none;\n}\n.bonus_slider p{\n  font-size: 19px\n}\n.slider {\n  -webkit-appearance: none;\n  width: 100%;\n  height: 15px;\n  border-radius: 5px;  \n  background: #d3d3d3;\n  outline: none;\n  opacity: 0.7;\n  -webkit-transition: .2s;\n  -webkit-transition: opacity .2s;\n  transition: opacity .2s;\n}\n.slider::-webkit-slider-thumb {\n  -webkit-appearance: none;\n  appearance: none;\n  width: 25px;\n  height: 25px;\n  border-radius: 50%; \n  background: #4CAF50;\n  cursor: pointer;\n}\n.slider::-moz-range-thumb {\n  width: 25px;\n  height: 25px;\n  border-radius: 50%;\n  background: #4CAF50;\n  cursor: pointer;\n}\n.price{\n  width: 10em;\n  font-size: 2em;\n  font-weight: bold;\n}\n.player_select{\n  border-color: #14A76C;\n}\n.reserver_btn{\n  background-color: #ff652f;\n}\n.is-active{\n  background-color: #fff0;\n  color: #fff0;\n}\n.lastname_style{\n  margin-left: 3.7em;\n}\n.firstname_style{\n  margin-left: 3.9em;\n}\n.players_style{\n  margin-right: 1em;\n}\n.tel_style{\n  margin-left: 5.6em;\n}\n.email_style{\n  margin-left: 6.5em;\n}\n", ""]);
 
 // exports
 
@@ -34236,7 +34613,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__singlePackage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__singlePackage__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_loading_overlay_dist_vue_loading_css__ = __webpack_require__(146);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vue_loading_overlay_dist_vue_loading_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_vue_loading_overlay_dist_vue_loading_css__);
-//
 //
 //
 //
@@ -35142,119 +35518,41 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       } else {
 
         if (this.desiredHours.length > 0 && this.selectedPlayers != "" && this.tel != "" && this.firstname != "" && this.lastname != "" && this.selected_package_id != "") {
-          axios.get('./api/reservations').then(function (response) {
-            _this4.reservations = response.data;
 
-            for (var i = 0; i < _this4.reservations.length; i++) {
-              if (_this4.reservations[i].month == _this4.selectedmonth && _this4.reservations[i].day == _this4.selectedday) {
-                _this4.reservationID.push(_this4.reservations[i].id);
-              }
-            }
-          }).catch(function (error) {
-            console.log(error);
-          });
+          axios.post('./api/createReservation', {
+            hours: this.desiredHours,
+            first_hour: this.desiredHours[0],
+            year: this.picked.year,
+            month: this.picked.month,
+            day: this.picked.day,
+            players: this.selectedPlayers,
+            tel: this.tel,
+            note: this.note,
+            email: this.email,
+            user_id: this.userID,
+            firstname: this.firstname,
+            lastname: this.lastname,
+            package_id: this.selected_package_id,
+            bonus_used: this.bonus_used,
+            price: this.price
+          }).then(function (response) {
+            _this4.showsuccess = true;
+            _this4.checkSuccess = true;
+            _this4.desiredHours = [];
 
-          axios.get('./api/Reservedhours').then(function (response) {
-            _this4.reservedhours = response.data;
-
-            for (var k = 0; k < _this4.reservationID.length; k++) {
-              _this4.resID = _this4.reservationID[k];
-              for (var i = 0; i < _this4.reservedhours.length; i++) {
-                if (_this4.reservedhours[i].reservation_id == _this4.resID) {
-                  if (_this4.reservedhours[i].hour == 8 || _this4.currentHour >= 8) {
-                    _this4.eightStyle = true;
-                    _this4.unavaible.push(8);
-                  } else if (_this4.reservedhours[i].hour == 9 || _this4.currentHour >= 9) {
-                    _this4.nineStyle = true;
-                    _this4.unavaible.push(9);
-                  } else if (_this4.reservedhours[i].hour == 10 || _this4.currentHour >= 10) {
-                    _this4.tenStyle = true;
-                    _this4.unavaible.push(10);
-                  } else if (_this4.reservedhours[i].hour == 11 || _this4.currentHour >= 11) {
-                    _this4.elevenStyle = true;
-                    _this4.unavaible.push(11);
-                  } else if (_this4.reservedhours[i].hour == 12 || _this4.currentHour >= 12) {
-                    _this4.twelveStyle = true;
-                    _this4.unavaible.push(12);
-                  } else if (_this4.reservedhours[i].hour == 13 || _this4.currentHour >= 13) {
-                    _this4.thrtnStyle = true;
-                    _this4.unavaible.push(13);
-                  } else if (_this4.reservedhours[i].hour == 14 || _this4.currentHour >= 14) {
-                    _this4.frtnStyle = true;
-                    _this4.unavaible.push(14);
-                  } else if (_this4.reservedhours[i].hour == 15 || _this4.currentHour >= 15) {
-                    _this4.fiftnStyle = true;
-                    _this4.unavaible.push(15);
-                  } else if (_this4.reservedhours[i].hour == 16 || _this4.currentHour >= 16) {
-                    _this4.sixtnStyle = true;
-                    _this4.unavaible.push(16);
-                  } else if (_this4.reservedhours[i].hour == 17 || _this4.currentHour >= 17) {
-                    _this4.svntnStyle = true;
-                    _this4.unavaible.push(17);
-                  } else if (_this4.reservedhours[i].hour == 18 || _this4.currentHour >= 18) {
-                    _this4.eightnStyle = true;
-                    _this4.unavaible.push(18);
-                  } else if (_this4.reservedhours[i].hour == 19 || _this4.currentHour >= 19) {
-                    _this4.ninetnStyle = true;
-                    _this4.unavaible.push(19);
-                  } else if (_this4.reservedhours[i].hour == 20 || _this4.currentHour >= 20) {
-                    _this4.twentyStyle = true;
-                    _this4.unavaible.push(20);
-                  }
-                }
-              }
-            }
-          }).catch(function (error) {
-            console.log(error);
-          });
-
-          for (var k = 0; k < this.desiredHours.length; k++) {
-            for (var i = 0; i < this.unavaible.length; i++) {
-              if (this.desiredHours[k] == this.unavaible[i]) {
-                this.message = "Ezeket az időpontokat valaki már lefoglalta!";
-                this.showfail = true;
-                break;
-              } else {
-                this.validated = true;
-              }
-            }
-          }
-
-          if (this.validated == true) {
-            axios.post('./api/createReservation', {
-              hour: this.desiredHours,
-              first_hour: this.desiredHours[0],
-              year: this.picked.year,
-              month: this.picked.month,
-              day: this.picked.day,
-              players: this.selectedPlayers,
-              tel: this.tel,
-              note: this.note,
-              email: this.email,
-              user_id: this.userID,
-              firstname: this.firstname,
-              lastname: this.lastname,
-              package_id: this.selected_package_id,
-              bonus_used: this.bonus_used,
-              price: this.price
-            }).then(function (response) {
-              _this4.showsuccess = true;
-              _this4.checkSuccess = true;
-              _this4.desiredHours = [];
-
-              axios.post('./BPupdate/' + _this4.userID, {
-                battle_points: _this4.UserBonus - _this4.bonus_used
-              });
-              axios.post('./PckgPopUpdate/' + _this4.selected_package_id, {
-                popularity: _this4.package.popularity + 1
-              });
-              _this4.checkSuccess = false;
-            }).catch(function (error) {
-              console.log(error);
-              _this4.showfail = true;
-              _this4.checkSuccess = false;
+            axios.post('./BPupdate/' + _this4.userID, {
+              battle_points: _this4.UserBonus - _this4.bonus_used
             });
-          }
+            axios.post('./PckgPopUpdate/' + _this4.selected_package_id, {
+              popularity: _this4.package.popularity + 1
+            });
+            _this4.checkSuccess = false;
+          }).catch(function (error) {
+            console.log(error.response);
+            _this4.message = "Sajnálom! A kiválasztott időpontok közül, valamelyiket  már lefoglalta valaki.";
+            _this4.showfail = true;
+            _this4.checkSuccess = false;
+          });
         } else {
           this.message = "Minden *-al jelölt mező kitöltése kötelező!";
           this.showfail = true;
@@ -35266,10 +35564,15 @@ var _transformLabel = function _transformLabel(label, length, casing) {
     },
     close: function close(_close) {
       this.showpackages = false;
-      this.selected_package_id = _close;
-      this.emptycardstyle = true;
-      this.selectedcardstyle = false;
-      this.getPackage();
+      if (_close == null) {
+        this.emptycardstyle = false;
+        this.selectedcardstyle = true;
+      } else {
+        this.emptycardstyle = true;
+        this.selectedcardstyle = false;
+        this.selected_package_id = _close;
+        this.getPackage();
+      }
     },
     closeCalendar: function closeCalendar() {
       this.showcalendar = false;
@@ -35277,7 +35580,6 @@ var _transformLabel = function _transformLabel(label, length, casing) {
       this.allFalse();
       this.allEmpty();
       this.$emit('closeCalendar');
-      console.log("closed");
     },
     getPackage: function getPackage(selected_package_id) {
       var _this5 = this;
@@ -35309,34 +35611,11 @@ var _transformLabel = function _transformLabel(label, length, casing) {
     },
     maximazeUserBonus: function maximazeUserBonus() {
       this.UserBonus = this.userBonus;
-      //console.log("User Bonus " + this.UserBonus);
       if (this.UserBonus >= 50) {
         this.maxUserBonus = 50;
       } else if (this.UserBonus < 50) {
         this.maxUserBonus = this.UserBonus;
       }
-      //console.log("maxUB " + this.maxUserBonus);
-    },
-    testTransaction: function testTransaction() {
-      axios.post('./api/testTransaction', {
-        hours: this.desiredHours,
-        first_hour: this.desiredHours[0],
-        year: this.picked.year,
-        month: this.picked.month,
-        day: this.picked.day,
-        players: this.selectedPlayers,
-        tel: this.tel,
-        note: this.note,
-        email: this.email,
-        user_id: this.userID,
-        firstname: this.firstname,
-        lastname: this.lastname,
-        package_id: this.selected_package_id,
-        bonus_used: this.bonus_used,
-        price: this.price
-      }).then(function (response) {}).catch(function (error) {
-        console.log(error);
-      });
     }
   }
 });
@@ -36088,7 +36367,7 @@ var render = function() {
           _c("div", { staticClass: "columns is-paddingless is-marginless" }, [
             _c("div", { staticClass: "form column is-half" }, [
               _c("div", { staticClass: "label lastname" }, [
-                _c("p", [_vm._v("Vezetéknév:*")]),
+                _c("p", [_vm._v("*Vezetéknév:")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -36099,10 +36378,10 @@ var render = function() {
                       expression: "lastname"
                     }
                   ],
-                  staticClass: "input",
+                  staticClass: "input lastname_style",
                   attrs: {
                     type: "text",
-                    placeholder: "Vezeteknev",
+                    placeholder: "Vezetéknév",
                     required: ""
                   },
                   domProps: { value: _vm.lastname },
@@ -36118,7 +36397,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "label firstname" }, [
-                _c("p", [_vm._v("Keresztnév:*")]),
+                _c("p", [_vm._v("*Keresztnév:")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -36129,10 +36408,10 @@ var render = function() {
                       expression: "firstname"
                     }
                   ],
-                  staticClass: "input",
+                  staticClass: "input firstname_style",
                   attrs: {
                     type: "text",
-                    placeholder: "Keresztnev",
+                    placeholder: "Keresztnév",
                     required: ""
                   },
                   domProps: { value: _vm.firstname },
@@ -36148,13 +36427,15 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "label players" }, [
-                _c("p", [_vm._v("Játékosok száma:* ")]),
+                _c("p", { staticClass: "players_style" }, [
+                  _vm._v("*Játékosok száma: ")
+                ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "control" }, [
                   _c(
                     "div",
                     {
-                      staticClass: "select is-primary player_select",
+                      staticClass: "select player_select",
                       attrs: { required: "" }
                     },
                     [
@@ -36200,7 +36481,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "label tel" }, [
-                _c("p", [_vm._v("Tel.:*")]),
+                _c("p", [_vm._v("*Tel.:+40")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -36211,7 +36492,7 @@ var render = function() {
                       expression: "tel"
                     }
                   ],
-                  staticClass: "input",
+                  staticClass: "input tel_style",
                   attrs: { type: "text", placeholder: "Tel", required: "" },
                   domProps: { value: _vm.tel },
                   on: {
@@ -36226,7 +36507,7 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "label tel" }, [
-                _c("p", [_vm._v("Email:*")]),
+                _c("p", [_vm._v("*Email:")]),
                 _vm._v(" "),
                 _c("input", {
                   directives: [
@@ -36237,8 +36518,8 @@ var render = function() {
                       expression: "email"
                     }
                   ],
-                  staticClass: "input",
-                  attrs: { type: "text", placeholder: "Email", required: "" },
+                  staticClass: "input email_style",
+                  attrs: { type: "text", placeholder: "E-mail", required: "" },
                   domProps: { value: _vm.email },
                   on: {
                     input: function($event) {
@@ -36265,7 +36546,7 @@ var render = function() {
                       }
                     ],
                     staticClass: "textarea",
-                    attrs: { placeholder: "10 lines of textarea", rows: "5" },
+                    attrs: { placeholder: "10 sor maximum", rows: "5" },
                     domProps: { value: _vm.note },
                     on: {
                       input: function($event) {
@@ -36470,7 +36751,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.body{\n\tfont-family: 'Oswald', sans-serif !important;\n}\n.profil_container{\n\twidth: 100%;\n\tfont-family: 'Oswald', sans-serif !important;\n}\n.profil_header{\n\twidth: 100%;\n\theight: 266px;\n\tbackground-color: #F2F2F2;\n}\n.profil_content{\n\twidth: 100%;\n\tmin-height: 20em;\n\tmargin-top: 2em;\n}\n.avatar{\n\twidth: 17em;\n\theight: 13.6em;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.avatar p{\n\tmargin: 0;\n\tfont-size: 1.3em;\n\tcolor: #747474;\n}\n.avatar_icon{\n\theight: 9em;\n\tborder-radius: 50%;\n\tborder: solid 3px black;\n}\n.rank_icon{\n\twidth:3em; \n\theight:5em; \n\tmargin-bottom:67px; \n\tmargin-left:-35px;\n}\n.profil_nav_container{\n\twidth: 100%;\n\tbackground-color: grey;\n}\n.profil_nav{\n\tmargin: 0 auto;\n\tpadding: 0;\n\toverflow: hidden;\n\tbackground-color: grey;\n}\n.profil_nav a {\n\t  display: block;\n\t  color: white;\n\t  text-align: center;\n\t  padding: .75em;\n\t  text-decoration: none;\n}\n.profil_nav a:hover {\n \tbackground-color: #111;\n}\n.stats{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n}\n.showStat.stats{\n\tdisplay:block;\n}\n.statstyle.link-3{\n\tbackground-color: #fff;\n\tpadding: 24px 10px;\n\tcolor: #EEA200;\n}\n.history{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n\toverflow: hidden;\n\tpadding: 2em;\n}\n.showHistory.history{\n\tdisplay:block;\n}\n.historystyle.link-3{\n\tbackground-color: #fff;\n\tpadding: 24px 10px;\n\tcolor: #EEA200;\n}\n.bookings_container{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n}\n.showBookings.bookings_container{\n\tdisplay:block;\n}\n.bookingstyle.link-3{\n\tbackground-color: #fff;\n\tpadding: 24px 10px;\n\tcolor: #EEA200;\n}\n.personal{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n}\n.showPersonal.personal{\n\tdisplay:block;\n}\n.personalstyle.personal_nav{\n\tbackground-color: #111;\n}\n.bookings{\n\ttext-align: center;\n \tdisplay: none;\n \twidth: 100%;\n \theight: 20em;\n \tmax-height: 40em;\n}\n.new_reservation{\n \tbackground-color: #14A76C;;\n \theight: 40px;\n \tcursor: pointer;\n \ttext-align: center;\n \tmargin-bottom: 1em;\n}\n#add{\n  font-size: 1.5em;\n  color: #fff;\n}\n.show.bookings{\n\tdisplay: block;\n\toverflow: hidden;\n}\n.first_tag_booking{\n\twidth: 5em;\n}\n.second_tag_booking{\n\twidth: 9em;\n}\n.profile_tag_container{\n\tpadding: 4em;\n}\n.profile_tag{\n\tmargin-bottom: 1.5rem !important;\n}\n.profile_tag_1{\n\twidth: 12.4em;\n}\n.profile_tag_2{\n\twidth: 10em;\n}\n.editor{\n\tcursor: pointer;\n}\n.carousel{\n\tdisplay: none;\n}\n.carouselbookings{\n\tdisplay: block;\n}\n.showCarousel.carousel{\n\tdisplay: block;\n}\n.historyInfo{\n\tdisplay:none;\n}\n.showHistoryInfo.historyInfo{\n\tdisplay: block;\n}\n.centered_tags{\n\tmargin: 0 auto;\n}\n#editor_btn{\n\tmargin: 0 auto;\n}\n.stats_container{\n\tpadding:2em;\n}\n.win_container{\n\twidth: 8em;\n}\n.win_container p{\n\tfont-size: 1.5em;\n\tfont-weight: bold;\n}\n.roundstat_win{\n\twidth: 9em;\n\theight: 9em;\n\tborder-radius: 50%;\n\tborder: 8px solid #38c016;\n\tpadding: 1em;\n}\n.nmbr_win p{\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin: 0 auto;\n\tmargin-top: .5em;\n\tcolor: #38c016;\n}\n.lose_container{\n\twidth: 8em;\n}\n.lose_container p{\n\tfont-size: 1.5em;\n\tfont-weight: bold;\n}\n.roundstat_lose{\n\twidth: 9em;\n\theight: 9em;\n\tborder-radius: 50%;\n\tborder: 8px solid #c0150e;\n\tpadding: 1em;\n}\n.nmbr_lose p{\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin: 0 auto;\n\tcolor: #c0150e;\n\tmargin-top: .5em;\n}\n.counter_container{\n\twidth: 9em;\n}\n.counter_container p{\n\tfont-size: 1.1em;\n\tfont-weight: bold;\n\theight: 3em;\n\tpadding-top: 1em;\n}\n.roundstat_counter{\n\twidth: 9em;\n\theight: 9em;\n\tborder-radius: 50%;\n\tborder: 8px solid #FF652F;\n\tpadding: 1em;\n}\n.nmbr{\n\twidth: 6em;\n\theight: 4em;\n\tmargin: 0 auto;\n\ttext-align: center;\n\tmargin-top: -.6em;\n}\n.nmbr_win{\n\twidth: 5em;\n\theight: 4em;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.nmbr_lose{\n\twidth: 5em;\n\theight: 4em;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.nmbr p{\n\tfont-size: 33px;\n\tfont-weight: bold;\n\tmargin: 0 auto;\n\tcolor: #FF652F;\n}\n.counter_title{\n\ttext-align: center;\n}\n.lvlrank{\n\twidth: 100%;\n\tmargin: 0 auto;\n}\n.rank_tag{\n\twidth: 9.7em;\n}\n.lvl_tag{\n\twidth: 2.7em;\n}\n.progress{\n\tborder-radius: 0;\n\theight: 2.5rem;\n\twidth: 16.2em;\n\tbackground-color: #fff;\n\tborder: 1px solid #363636;\n}\n.progress_bar{\n\tmargin-bottom: .5rem;\n}\nnav {\n  padding: 24px;\n  text-align: center;\n  -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);\n          box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);\n}\n#nav-3 {\n  background: #FF652F;\n}\n.link-3 {\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n  color: #ffffff;\n  font-size: 20px;\n  text-decoration: none;\n  padding: 0 10px;\n  margin: 0 10px;\n}\n.link-3:hover {\n  background-color: #ffffff;\n  color: #FF652F;\n  padding: 24px 10px;\n}\n.edit_data{\n\tbackground-color: #ff652f;\n}\n", ""]);
+exports.push([module.i, "\n.body{\n\tfont-family: 'Oswald', sans-serif !important;\n}\n.profil_container{\n\twidth: 100%;\n\tfont-family: 'Oswald', sans-serif !important;\n}\n.profil_header{\n\twidth: 100%;\n\theight: 266px;\n\tbackground-color: #F2F2F2;\n}\n.profil_content{\n\twidth: 100%;\n\tmin-height: 20em;\n\tmargin-top: 2em;\n}\n.avatar{\n\twidth: 17em;\n\theight: 13.6em;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.avatar p{\n\tmargin: 0;\n\tfont-size: 1.3em;\n\tcolor: #747474;\n}\n.avatar_icon{\n\theight: 9em;\n\tborder-radius: 50%;\n\tborder: solid 3px black;\n}\n.rank_icon{\n\twidth:3em; \n\theight:5em; \n\tmargin-bottom:67px; \n\tmargin-left:-35px;\n}\n.profil_nav_container{\n\twidth: 100%;\n\tbackground-color: grey;\n}\n.profil_nav{\n\tmargin: 0 auto;\n\tpadding: 0;\n\toverflow: hidden;\n\tbackground-color: grey;\n}\n.profil_nav a {\n\t  display: block;\n\t  color: white;\n\t  text-align: center;\n\t  padding: .75em;\n\t  text-decoration: none;\n}\n.profil_nav a:hover {\n \tbackground-color: #111;\n}\n.stats{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n}\n.showStat.stats{\n\tdisplay:block;\n}\n.statstyle.link-3{\n\tbackground-color: #fff;\n\tpadding: 24px 10px;\n\tcolor: #FF652F;\n}\n.history{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n\toverflow: hidden;\n\tpadding: 2em;\n}\n.showHistory.history{\n\tdisplay:block;\n}\n.historystyle.link-3{\n\tbackground-color: #fff;\n\tpadding: 24px 10px;\n\tcolor: #FF652F;\n}\n.bookings_container{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n}\n.showBookings.bookings_container{\n\tdisplay:block;\n}\n.bookingstyle.link-3{\n\tbackground-color: #fff;\n\tpadding: 24px 10px;\n\tcolor: #FF652F;\n}\n.personal{\n\tdisplay:none;\n\twidth: 100%;\n\tmin-height: 400px;\n}\n.showPersonal.personal{\n\tdisplay:block;\n}\n.personalstyle.personal_nav{\n\tbackground-color: #111;\n}\n.bookings{\n\ttext-align: center;\n \tdisplay: none;\n \twidth: 100%;\n \theight: 20em;\n \tmax-height: 40em;\n}\n.new_reservation{\n \tbackground-color: #14A76C;;\n \theight: 40px;\n \tcursor: pointer;\n \ttext-align: center;\n \tmargin-bottom: 1em;\n}\n#add{\n  font-size: 1.5em;\n  color: #fff;\n}\n.show.bookings{\n\tdisplay: block;\n\toverflow: hidden;\n}\n.first_tag_booking{\n\twidth: 5em;\n}\n.second_tag_booking{\n\twidth: 9em;\n}\n.profile_tag_container{\n\tpadding: 4em;\n}\n.profile_tag{\n\tmargin-bottom: 1.5rem !important;\n}\n.profile_tag_1{\n\twidth: 12.4em;\n}\n.profile_tag_2{\n\twidth: 10em;\n}\n.editor{\n\tcursor: pointer;\n}\n.carousel{\n\tdisplay: none;\n}\n.carouselbookings{\n\tdisplay: block;\n}\n.showCarousel.carousel{\n\tdisplay: block;\n}\n.historyInfo{\n\tdisplay:none;\n}\n.showHistoryInfo.historyInfo{\n\tdisplay: block;\n}\n.centered_tags{\n\tmargin: 0 auto;\n}\n#editor_btn{\n\tmargin: 0 auto;\n}\n.stats_container{\n\tpadding:2em;\n}\n.win_container{\n\twidth: 8em;\n}\n.win_container p{\n\tfont-size: 1.5em;\n\tfont-weight: bold;\n}\n.roundstat_win{\n\twidth: 9em;\n\theight: 9em;\n\tborder-radius: 50%;\n\tborder: 8px solid #38c016;\n\tpadding: 1em;\n}\n.nmbr_win p{\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin: 0 auto;\n\tmargin-top: .5em;\n\tcolor: #38c016;\n}\n.lose_container{\n\twidth: 8em;\n}\n.lose_container p{\n\tfont-size: 1.5em;\n\tfont-weight: bold;\n}\n.roundstat_lose{\n\twidth: 9em;\n\theight: 9em;\n\tborder-radius: 50%;\n\tborder: 8px solid #c0150e;\n\tpadding: 1em;\n}\n.nmbr_lose p{\n\tfont-size: 36px;\n\tfont-weight: bold;\n\tmargin: 0 auto;\n\tcolor: #c0150e;\n\tmargin-top: .5em;\n}\n.counter_container{\n\twidth: 9em;\n}\n.counter_container p{\n\tfont-size: 1.1em;\n\tfont-weight: bold;\n\theight: 3em;\n\tpadding-top: 1em;\n}\n.roundstat_counter{\n\twidth: 9em;\n\theight: 9em;\n\tborder-radius: 50%;\n\tborder: 8px solid #FF652F;\n\tpadding: 1em;\n}\n.nmbr{\n\twidth: 6em;\n\theight: 4em;\n\tmargin: 0 auto;\n\ttext-align: center;\n\tmargin-top: -.6em;\n}\n.nmbr_win{\n\twidth: 5em;\n\theight: 4em;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.nmbr_lose{\n\twidth: 5em;\n\theight: 4em;\n\tmargin: 0 auto;\n\ttext-align: center;\n}\n.nmbr p{\n\tfont-size: 33px;\n\tfont-weight: bold;\n\tmargin: 0 auto;\n\tcolor: #FF652F;\n}\n.counter_title{\n\ttext-align: center;\n}\n.lvlrank{\n\twidth: 100%;\n\tmargin: 0 auto;\n}\n.rank_tag{\n\twidth: 9.7em;\n}\n.lvl_tag{\n\twidth: 2.7em;\n}\n.progress{\n\tborder-radius: 0;\n\theight: 2.5rem;\n\twidth: 16.2em;\n\tbackground-color: #fff;\n\tborder: 1px solid #363636;\n}\n.progress_bar{\n\tmargin-bottom: .5rem;\n}\nnav {\n  padding: 24px;\n  text-align: center;\n  -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);\n          box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);\n}\n#nav-3 {\n  background: #FF652F;\n}\n.link-3 {\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n  color: #ffffff;\n  font-size: 20px;\n  text-decoration: none;\n  padding: 0 10px;\n  margin: 0 10px;\n}\n.link-3:hover {\n  background-color: #ffffff;\n  color: #FF652F;\n  padding: 24px 10px;\n}\n.edit_data{\n\tbackground-color: #ff652f;\n}\n", ""]);
 
 // exports
 
@@ -36495,7 +36776,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__UpdateModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__UpdateModal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lvlUpModal__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lvlUpModal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__lvlUpModal__);
-//
 //
 //
 //
